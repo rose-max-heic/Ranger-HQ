@@ -1,0 +1,15 @@
+# === FILE SISTEM OPERASI (SANGAT WAJIB UNTUK PENGGUNA MAC) ===
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# === FILE CADANGAN / TEMPORARY ===
+*.tmp
+*.bak
+*.swp
+Thumbs.db
+
+# === FILE LOG ===
+*.log
+npm-debug.log*
