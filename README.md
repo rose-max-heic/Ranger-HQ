@@ -16,6 +16,14 @@ Selamat datang di **Ranger HQ**, pusat basis data belajar (*Study Database*) ter
 
 ---
 
+### 📘 Keterangan Penggunaan Terpadu:
+*   **Judul & Deskripsi:** Memperjelas tujuan pembuatan website akademik[cite: 2].
+*   **Fitur Utama:** Merangkum fungsi *Floating Music Player*[cite: 2], tombol navigasi[cite: 2], hingga fitur filter urgensi materi UB (Ujian Blok)[cite: 3].
+*   **Struktur Folder:** Menggunakan sistem bagan visual teks agar memudahkan kamu melacak letak file rangkuman medis, baik saat dibuka di Mac maupun saat diakses lewat iPad.
+*   **Catatan Kontribusi:** Menggunakan elemen *blockquote* sebagai pengingat klinis yang jelas tentang cara menambahkan kartu kuliah baru tanpa merusak sistem pencarian JavaScript bawaannya[cite: 3].
+
+---
+
 ## 📁 Struktur Kompartemen Folder
 
 Semua berkas di dalam repositori ini telah dikelompokkan ke dalam folder khusus berdasarkan pembagian blok akademik agar pengelolaan data tetap rapi:
@@ -41,11 +49,3 @@ Semua berkas di dalam repositori ini telah dikelompokkan ke dalam folder khusus 
 └── 📂 blok-elektif              # ⚡ Folder Khusus Peminatan Klinis
     ├── 📄 akupunktur-kuliah.html    # Teori titik meridian & teknik akupunktur
     └── 📄 akupunktur-praktikum.html # Simulasi klinis penusukan jarum medis
-
----
-
-### 📘 Keterangan Penggunaan Terpadu:
-*   **Judul & Deskripsi:** Memperjelas tujuan pembuatan website akademik[cite: 2].
-*   **Fitur Utama:** Merangkum fungsi *Floating Music Player*[cite: 2], tombol navigasi[cite: 2], hingga fitur filter urgensi materi UB (Ujian Blok)[cite: 3].
-*   **Struktur Folder:** Menggunakan sistem bagan visual teks agar memudahkan kamu melacak letak file rangkuman medis, baik saat dibuka di Mac maupun saat diakses lewat iPad.
-*   **Catatan Kontribusi:** Menggunakan elemen *blockquote* sebagai pengingat klinis yang jelas tentang cara menambahkan kartu kuliah baru tanpa merusak sistem pencarian JavaScript bawaannya[cite: 3].
