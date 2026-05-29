@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panduan Tutorial – Ranger HQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══════════════════════════════════════════════
+       GANTI WARNA DI SINI — cukup edit 3 variabel ini
+       --c-primary  : warna dominan / header
+       --c-accent   : warna aksen / badge / tombol
+       --c-surface  : warna latar konten
+    ══════════════════════════════════════════════ */
+    :root {
+      --c-primary : #7C1F31;
+      --c-accent  : #69A481;
+      --c-surface : #E7EDEB;
+      --c-bg      : #f5f8f6;
+      --c-text    : #1e2d28;
+      --c-muted   : rgba(30,45,40,0.50);
+      --c-card    : #ffffff;
+      --c-border  : rgba(124,31,49,0.10);
+      --radius    : 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Raleway', 'Segoe UI', sans-serif;
+      background: var(--c-bg);
+      color: var(--c-text);
+      min-height: 100vh;
+    }
+
+    .back-bar {
+      background: var(--c-primary); padding: 10px 40px;
+    }
+    .back-bar a {
+      color: var(--c-surface);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none;
+    }
+    .back-bar a:hover { opacity: 0.75; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--c-primary); padding: 44px 40px 38px;
+      position: relative; overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(105,164,129,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    header::after {
+      content: '💬';
+      position: absolute; right: 48px; top: 28px;
+      font-size: 5rem; opacity: 0.09;
+      pointer-events: none;
+    }
+    .page-tag {
+      display: inline-block;
+      background: var(--c-accent); color: #fff;
+      font-size: 0.68rem; font-weight: 900;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 40px; margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; color: #fff;
+      letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px;
+    }
+    header h1 span { color: var(--c-surface); }
+    .page-sub { font-size: 0.9rem; color: rgba(255,255,255,0.50); font-weight: 500; }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      background: var(--c-surface); padding: 18px 40px;
+      border-bottom: 2px solid var(--c-border);
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; gap: 14px;
+    }
+    #search-input {
+      flex: 1; background: #fff; border: 2px solid var(--c-border);
+      border-radius: 40px; padding: 10px 20px;
+      font-family: inherit; font-size: 0.88rem; font-weight: 600;
+      color: var(--c-text); outline: none; transition: border-color 0.18s;
+    }
+    #search-input:focus { border-color: var(--c-primary); }
+    #search-input::placeholder { color: var(--c-muted); }
+    #search-count { font-size: 0.78rem; font-weight: 700; color: var(--c-primary); white-space: nowrap; min-width: 90px; }
+    .search-clear {
+      background: var(--c-primary); color: var(--c-surface);
+      border: none; border-radius: 8px; padding: 8px 14px;
+      font-size: 0.78rem; font-weight: 800; cursor: pointer;
+      display: none;
+    }
+    .search-clear.visible { display: block; }
+
+    /* ── MAIN ── */
+    main { max-width: 960px; margin: 0 auto; padding: 40px 32px 80px; }
+
+    /* ── WEEK GROUP ── */
+    .week-group { margin-bottom: 44px; }
+    .week-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+    }
+    .week-badge {
+      background: var(--c-primary); color: var(--c-surface);
+      font-size: 0.7rem; font-weight: 900;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 40px; white-space: nowrap;
+    }
+    .week-line { flex: 1; height: 2px; background: var(--c-border); border-radius: 2px; }
+
+    /* ── TUTORIAL CARD ── */
+    .tut-card {
+      background: var(--c-card);
+      border: 2px solid var(--c-border);
+      border-left: 5px solid var(--c-accent);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 12px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+    }
+    .tut-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 6px 24px rgba(124,31,49,0.10);
+      border-color: var(--c-primary);
+      border-left-color: var(--c-primary);
+    }
+    .tut-card.hidden { display: none; }
+
+    .tut-num {
+      background: var(--c-surface); color: var(--c-primary);
+      font-size: 0.7rem; font-weight: 900;
+      min-width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .tut-body { flex: 1; }
+    .tut-scenario {
+      font-size: 0.98rem; font-weight: 800; color: var(--c-text);
+      margin-bottom: 6px;
+    }
+    .tut-diagnosis {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(105,164,129,0.12);
+      color: var(--c-accent);
+      font-size: 0.74rem; font-weight: 800;
+      letter-spacing: 0.04em;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .tut-arrow {
+      color: var(--c-muted); font-size: 1rem;
+      align-self: center; flex-shrink: 0;
+      transition: color 0.18s, transform 0.18s;
+    }
+    .tut-card:hover .tut-arrow { color: var(--c-primary); transform: translateX(3px); }
+
+    /* ── HIGHLIGHT ── */
+    mark.search-mark {
+      background: var(--c-surface); color: var(--c-primary);
+      border-radius: 3px; padding: 0 2px; font-weight: 900;
+    }
+
+    #no-result {
+      display: none; text-align: center; padding: 60px 24px; color: var(--c-muted);
+    }
+    #no-result .nr-icon { font-size: 2.5rem; margin-bottom: 12px; }
+    #no-result p { font-size: 0.9rem; font-weight: 600; }
+
+    footer {
+      background: var(--c-primary); color: rgba(255,255,255,0.35);
+      text-align: center; padding: 24px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+    }
+    footer span { color: var(--c-surface); }
+
+    @media (max-width: 600px) {
+      .back-bar, header { padding-left: 20px; padding-right: 20px; }
+      .search-wrap { padding: 14px 20px; }
+      main { padding: 28px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="../ranger-hq.html">← Ranger HQ</a>
+</div>
+
+<header>
+  <div class="page-tag">💬 Tutorial</div>
+  <h1>Panduan <span>Tutorial</span></h1>
+  <p class="page-sub">Blok Traumatologi · Semester 6</p>
+</header>
+
+<div class="search-wrap">
+  <input type="text" id="search-input" placeholder="🔍  Cari skenario atau diagnosis..." oninput="doSearch(this.value)"/>
+  <span id="search-count"></span>
+  <button class="search-clear" id="clear-btn" onclick="clearSearch()">✕ Clear</button>
+</div>
+
+<main>
+  <div id="content-area">
+
+    <!--
+      CARA MENAMBAH PEKAN:
+      Salin seluruh blok <div class="week-group"> sampai penutupnya,
+      lalu ganti data-week, label pekan, dan isi kartunya.
+
+      CARA MENAMBAH KARTU SKENARIO:
+      Salin <div class="tut-card">, ganti data-scenario, data-diagnosis,
+      teks skenario, dan teks diagnosis.
+    -->
+
+    <!-- ════ PEKAN 1 ════ -->
+    <div class="week-group" data-week="1">
+      <div class="week-header">
+        <div class="week-badge">📅 Pekan 1</div>
+        <div class="week-line"></div>
+      </div>
+
+      <div class="tut-card"
+           data-scenario="The Un-anticipated Consequences of a Fall"
+           data-diagnosis="Central Spinal Cord Injury"
+           onclick="openPage('#')">
+        <div class="tut-num">🩻</div>
+        <div class="tut-body">
+          <div class="tut-scenario">The Un-anticipated Consequences of a Fall</div>
+          <span class="tut-diagnosis">🩺 Central Spinal Cord Injury</span>
+        </div>
+        <div class="tut-arrow">→</div>
+      </div>
+
+    <!-- ════ PEKAN 2 ════ -->
+    <div class="week-group" data-week="2">
+      <div class="week-header">
+        <div class="week-badge">📅 Pekan 2</div>
+        <div class="week-line"></div>
+      </div>
+
+      <div class="tut-card"
+           data-scenario="Ikterus Progresif dan Urin Berwarna Teh"
+           data-diagnosis="Hepatitis Viral Akut"
+           onclick="openPage('#')">
+        <div class="tut-num">T3</div>
+        <div class="tut-body">
+          <div class="tut-scenario">Ikterus Progresif dan Urin Berwarna Teh</div>
+          <span class="tut-diagnosis">🩺 Hepatitis Viral Akut</span>
+        </div>
+        <div class="tut-arrow">→</div>
+      </div>
+
+      <div class="tut-card"
+           data-scenario="Nyeri Kolik Kanan Atas Setelah Makan Berlemak"
+           data-diagnosis="Kolelitiasis / Kolesistitis"
+           onclick="openPage('#')">
+        <div class="tut-num">T4</div>
+        <div class="tut-body">
+          <div class="tut-scenario">Nyeri Kolik Kanan Atas Setelah Makan Berlemak</div>
+          <span class="tut-diagnosis">🩺 Kolelitiasis / Kolesistitis</span>
+        </div>
+        <div class="tut-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- ════ PEKAN 3 ════ -->
+    <div class="week-group" data-week="3">
+      <div class="week-header">
+        <div class="week-badge">📅 Pekan 3</div>
+        <div class="week-line"></div>
+      </div>
+
+      <div class="tut-card"
+           data-scenario="Diare Berdarah Kronik Berulang"
+           data-diagnosis="Inflammatory Bowel Disease (IBD)"
+           onclick="openPage('#')">
+        <div class="tut-num">T5</div>
+        <div class="tut-body">
+          <div class="tut-scenario">Diare Berdarah Kronik Berulang</div>
+          <span class="tut-diagnosis">🩺 IBD (Kolitis Ulseratif / Crohn)</span>
+        </div>
+        <div class="tut-arrow">→</div>
+      </div>
+
+      <div class="tut-card"
+           data-scenario="Penurunan Berat Badan dan Hematochezia"
+           data-diagnosis="Karsinoma Kolorektal"
+           onclick="openPage('#')">
+        <div class="tut-num">T6</div>
+        <div class="tut-body">
+          <div class="tut-scenario">Penurunan Berat Badan dan Hematochezia</div>
+          <span class="tut-diagnosis">🩺 Karsinoma Kolorektal</span>
+        </div>
+        <div class="tut-arrow">→</div>
+      </div>
+    </div>
+
+    <div id="no-result">
+      <div class="nr-icon">🔍</div>
+      <p>Tidak ada hasil untuk pencarian ini.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>Ranger HQ &nbsp;·&nbsp; <span>Tutorial</span> &nbsp;·&nbsp; Blok Digestive</footer>
+
+<script>
+  function doSearch(query) {
+    const q = query.trim().toLowerCase();
+    const cards = document.querySelectorAll('.tut-card');
+    const clearBtn = document.getElementById('clear-btn');
+    const countEl  = document.getElementById('search-count');
+    let found = 0;
+
+    clearBtn.classList.toggle('visible', q.length > 0);
+
+    cards.forEach(card => {
+      const scenario   = card.dataset.scenario.toLowerCase();
+      const diagnosis  = card.dataset.diagnosis.toLowerCase();
+      const show = q === '' || scenario.includes(q) || diagnosis.includes(q);
+      card.classList.toggle('hidden', !show);
+      if (show) { found++; highlightCard(card, q); }
+    });
+
+    document.querySelectorAll('.week-group').forEach(group => {
+      const visible = group.querySelectorAll('.tut-card:not(.hidden)').length > 0;
+      group.style.display = visible ? '' : 'none';
+    });
+
+    countEl.textContent = q ? `${found} hasil` : '';
+    document.getElementById('no-result').style.display = found === 0 ? 'block' : 'none';
+  }
+
+  function highlightCard(card, query) {
+    [card.querySelector('.tut-scenario'), card.querySelector('.tut-diagnosis')].forEach(el => {
+      if (!el) return;
+      const orig = el.getAttribute('data-original') || el.textContent;
+      el.setAttribute('data-original', orig);
+      if (!query) { el.innerHTML = orig; return; }
+      const re = new RegExp(`(${escapeRe(query)})`, 'gi');
+      el.innerHTML = orig.replace(re, '<mark class="search-mark">$1</mark>');
+    });
+  }
+
+  function clearSearch() {
+    document.getElementById('search-input').value = '';
+    doSearch('');
+  }
+
+  function openPage(url) { if (url && url !== '#') window.location.href = url; }
+  function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+</script>
+
+</body>
+</html>

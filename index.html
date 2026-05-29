@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranger HQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --yellow: #FFE14E;
+      --navy: #192853;
+      --ice: #EFF8FF;
+      --navy-light: #243a6e;
+      --yellow-dark: #e6c800;
+      --shadow: 0 4px 24px rgba(25,40,83,0.10);
+      --radius: 18px;
+      --radius-sm: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Raleway', 'Segoe UI', sans-serif;
+      background: var(--ice);
+      color: var(--navy);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── MUSIC PLAYER ── */
+    #music-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      background: var(--navy);
+      border-radius: 40px;
+      padding: 10px 20px 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 6px 28px rgba(25,40,83,0.28);
+      color: var(--yellow);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: box-shadow 0.2s;
+    }
+    #music-bar:hover { box-shadow: 0 10px 36px rgba(25,40,83,0.38); }
+    #music-bar .note { font-size: 1.3rem; animation: bounce-note 1.4s ease-in-out infinite alternate; }
+    @keyframes bounce-note { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+    #music-bar audio { display: none; }
+    #play-btn {
+      background: var(--yellow);
+      color: var(--navy);
+      border: none;
+      border-radius: 50%;
+      width: 34px; height: 34px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    #play-btn:hover { background: var(--yellow-dark); transform: scale(1.1); }
+    #music-label { max-width: 130px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* ── HEADER / HERO ── */
+    header {
+      background: var(--navy);
+      color: var(--ice);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(255,225,78,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 80%, rgba(255,225,78,0.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    /* Optional hero photo slot */
+    .hero-photo {
+      position: absolute; inset: 0;
+      object-fit: cover; width: 100%; height: 100%;
+      opacity: 0.13;
+      display: none; /* Set display:block once you add the photo src */
+    }
+    .hero-content {
+      position: relative;
+      padding: 60px 56px 52px;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 40px;
+      margin-bottom: 22px;
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--ice);
+      margin-bottom: 16px;
+    }
+    .hero-title span { color: var(--yellow); }
+    .hero-subtitle {
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: rgba(239,248,255,0.72);
+      letter-spacing: 0.01em;
+    }
+    .hero-deco {
+      position: absolute;
+      right: 48px; top: 40px;
+      font-size: 5.5rem;
+      opacity: 0.09;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    /* ── NAV STRIP ── */
+    .nav-strip {
+      background: var(--yellow);
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 3px solid var(--navy);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-strip a {
+      display: inline-block;
+      padding: 13px 18px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--navy);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .nav-strip a:hover { border-bottom-color: var(--navy); background: rgba(25,40,83,0.07); }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    /* ── SEMESTER TITLE ── */
+    .semester-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.45;
+      margin-bottom: 10px;
+    }
+    .semester-heading {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .semester-heading::after {
+      content: '';
+      flex: 1;
+      height: 3px;
+      background: linear-gradient(to right, var(--navy), transparent);
+      border-radius: 2px;
+      opacity: 0.18;
+    }
+
+    /* ── BLOK CARD ── */
+    .blok-section { margin-bottom: 52px; }
+    .blok-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .blok-icon {
+      width: 46px; height: 46px;
+      background: var(--navy);
+      color: var(--yellow);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .blok-title {
+      font-size: 1.38rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .blok-badge {
+      margin-left: auto;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── SUB-SECTIONS GRID ── */
+    .subsection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .subsection-card {
+      background: #fff;
+      border: 2px solid rgba(25,40,83,0.08);
+      border-radius: var(--radius);
+      padding: 26px 24px;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .subsection-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--navy);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .subsection-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(25,40,83,0.13);
+      border-color: rgba(25,40,83,0.18);
+    }
+    .subsection-card.yellow::before { background: var(--yellow-dark); }
+    .subsection-card.accent::before { background: #5b8dee; }
+
+    .sub-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.4;
+      margin-bottom: 8px;
+    }
+    .sub-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sub-desc {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: rgba(25,40,83,0.55);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .sub-btn {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--yellow);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .sub-btn:hover { background: var(--navy-light); transform: scale(1.03); }
+    .sub-btn.yellow-btn {
+      background: var(--yellow);
+      color: var(--navy);
+    }
+    .sub-btn.yellow-btn:hover { background: var(--yellow-dark); }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 56px 0 48px;
+    }
+    .section-divider .divider-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--navy) 0%, transparent 100%);
+      opacity: 0.15;
+      border-radius: 2px;
+    }
+    .section-divider .divider-line.right {
+      background: linear-gradient(to left, var(--navy) 0%, transparent 100%);
+    }
+    .divider-label {
+      background: var(--navy);
+      color: var(--yellow);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 40px;
+      white-space: nowrap;
+    }
+
+    /* ── ELEKTIF SECTION ── */
+    .elektif-wrapper {
+      background: var(--navy);
+      border-radius: 24px;
+      padding: 36px 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .elektif-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 220px; height: 220px;
+      background: var(--yellow);
+      opacity: 0.06;
+      border-radius: 50%;
+    }
+    .elektif-wrapper .blok-title { color: var(--ice); }
+    .elektif-wrapper .blok-icon { background: var(--yellow); color: var(--navy); }
+    .elektif-wrapper .semester-heading { color: var(--ice); }
+    .elektif-wrapper .semester-heading::after { background: linear-gradient(to right, rgba(239,248,255,0.3), transparent); }
+
+    .elektif-wrapper .subsection-card {
+      background: rgba(239,248,255,0.06);
+      border-color: rgba(239,248,255,0.12);
+    }
+    .elektif-wrapper .subsection-card::before { background: var(--yellow); }
+    .elektif-wrapper .sub-label { color: var(--ice); opacity: 0.5; }
+    .elektif-wrapper .sub-title { color: var(--ice); }
+    .elektif-wrapper .sub-desc { color: rgba(239,248,255,0.55); }
+    .elektif-wrapper .sub-btn { background: var(--yellow); color: var(--navy); }
+    .elektif-wrapper .sub-btn:hover { background: var(--yellow-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(239,248,255,0.45);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    footer span { color: var(--yellow); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero-content { padding: 40px 24px 36px; }
+      .nav-strip { padding: 0 16px; gap: 0; }
+      main { padding: 32px 16px 60px; }
+      .elektif-wrapper { padding: 24px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════ FLOATING MUSIC PLAYER ════ -->
+<div id="music-bar">
+  <span class="note">🎵</span>
+  <!--
+    CARA PAKAI MUSIK:
+    1. Ganti "your-music-file.mp3" dengan nama/path file musikmu
+    2. Ganti "Nama Lagu" dengan judul lagu
+  -->
+  <audio id="bg-music" loop>
+    <source src="your-music-file.mp3" type="audio/mpeg">
+  </audio>
+  <button id="play-btn" onclick="toggleMusic()" title="Play/Pause">▶</button>
+  <span id="music-label">Nama Lagu</span>
+</div>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <div class="hero-bg"></div>
+  <!--
+    CARA PAKAI FOTO HEADER:
+    1. Ganti "your-hero-photo.jpg" dengan path fotomu
+    2. Ubah style display:none menjadi display:block
+  -->
+  <img class="hero-photo" src="your-hero-photo.jpg" alt="Hero background"/>
+  <div class="hero-deco">🏥</div>
+  <div class="hero-content">
+    <div class="hero-tag">📚 Study Database</div>
+    <h1 class="hero-title">Ranger <span>HQ</span></h1>
+    <p class="hero-subtitle">Welcome, Rangers! &nbsp;✊🏻🤟🏻👍🏻👏🏻<br/>Selamat berjuang! Sukses!</p>
+  </div>
+</header>
+
+<!-- ════ NAVIGATION STRIP ════ -->
+<nav class="nav-strip">
+  <a href="#digestive">🫁 Digestive</a>
+  <a href="#traumatologi">🩹 Traumatologi</a>
+  <a href="#elektif">⚡ Elektif</a>
+</nav>
+
+<!-- ════ MAIN CONTENT ════ -->
+<main>
+
+  <!-- SEMESTER 6 -->
+  <div class="semester-title">Tahun Akademik</div>
+  <h2 class="semester-heading">📖 Semester 6</h2>
+
+  <!-- ─── BLOK DIGESTIVE ─── -->
+  <section class="blok-section" id="digestive">
+    <div class="blok-header">
+      <div class="blok-icon">🫁</div>
+      <div class="blok-title">Blok Digestive</div>
+      <span class="blok-badge">Blok Klinis</span>
+    </div>
+
+    <div class="subsection-grid">
+
+      <!-- Materi Kuliah -->
+      <div class="subsection-card">
+        <div class="sub-label">Bagian 01</div>
+        <div class="sub-title">📖 Materi Kuliah</div>
+        <p class="sub-desc">Rangkuman kuliah sistem digestif — dari anatomi saluran cerna hingga patofisiologi penyakit GI.</p>
+        <a href="#" class="sub-btn">Buka Materi →</a>
+      </div>
+
+      <!-- Praktikum -->
+      <div class="subsection-card yellow">
+        <div class="sub-label">Bagian 02</div>
+        <div class="sub-title">🔬 Praktikum</div>
+        <p class="sub-desc">Rangkuman praktikum dan pemeriksaan klinis.</p>
+        <a href="#" class="sub-btn yellow-btn">Buka Praktikum →</a>
+      </div>
+
+      <!-- Tutorial -->
+      <div class="subsection-card accent">
+        <div class="sub-label">Bagian 03</div>
+        <div class="sub-title">💬 Tutorial</div>
+        <p class="sub-desc">Catatan skenario tutorial, seven jump, dan diskusi kasus digestif.</p>
+        <a href="#" class="sub-btn">Buka Tutorial →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── BLOK TRAUMATOLOGI ─── -->
+  <section class="blok-section" id="traumatologi">
+    <div class="blok-header">
+      <div class="blok-icon">🩹</div>
+      <div class="blok-title">Blok Traumatologi</div>
+      <span class="blok-badge">Blok Klinis</span>
+    </div>
+
+    <div class="subsection-grid">
+
+      <!-- Materi Kuliah -->
+      <div class="subsection-card">
+        <div class="sub-label">Bagian 01</div>
+        <div class="sub-title">📖 Materi Kuliah</div>
+        <p class="sub-desc">Rangkuman materi trauma, luka, fraktur, dan manajemen pasien gawat darurat.</p>
+        <a href="#" class="sub-btn">Buka Materi →</a>
+      </div>
+
+      <!-- Tutorial -->
+      <div class="subsection-card accent">
+        <div class="sub-label">Bagian 02</div>
+        <div class="sub-title">💬 Tutorial</div>
+        <p class="sub-desc">Catatan diskusi tutorial kasus trauma dan bedah emergensi.</p>
+        <a href="#" class="sub-btn">Buka Tutorial →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── DIVIDER: Klinis → Elektif ─── -->
+  <div class="section-divider">
+    <div class="divider-line"></div>
+    <div class="divider-label">⚡ Blok Elektif</div>
+    <div class="divider-line right"></div>
+  </div>
+
+  <!-- ─── BLOK ELEKTIF ─── -->
+  <div class="elektif-wrapper" id="elektif">
+    <div class="blok-header" style="margin-bottom:28px;">
+      <div class="blok-icon">🪡</div>
+      <div class="blok-title">Elektif Akupunktur</div>
+    </div>
+
+    <div class="subsection-grid">
+
+      <!-- Materi Kuliah -->
+      <div class="subsection-card">
+        <div class="sub-label">Bagian 01</div>
+        <div class="sub-title">📖 Materi Kuliah</div>
+        <p class="sub-desc">Teori dasar akupunktur, titik meridian, dan penerapan klinis dalam pengobatan komplementer.</p>
+        <a href="#" class="sub-btn">Buka Materi →</a>
+      </div>
+
+      <!-- Praktikum -->
+      <div class="subsection-card yellow">
+        <div class="sub-label">Bagian 02</div>
+        <div class="sub-title">🔬 Praktikum</div>
+        <p class="sub-desc">Panduan praktikum pengenalan teknik penusukan dan simulasi akupunktur.</p>
+        <a href="#" class="sub-btn">Buka Praktikum →</a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <p>Ranger HQ &nbsp;·&nbsp; Semester 6 &nbsp;·&nbsp; <span>Stay focused, Rangers! ✊🏻</span></p>
+</footer>
+
+<!-- ════ MUSIC SCRIPT ════ -->
+<script>
+  const audio = document.getElementById('bg-music');
+  const btn = document.getElementById('play-btn');
+  let playing = false;
+
+  function toggleMusic() {
+    if (playing) {
+      audio.pause();
+      btn.textContent = '▶';
+      playing = false;
+    } else {
+      audio.play().catch(() => {
+        // Autoplay dibloker browser — user harus klik dulu
+      });
+      btn.textContent = '⏸';
+      playing = true;
+    }
+  }
+</script>
+
+</body>
+</html>
