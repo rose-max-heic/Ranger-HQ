@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trauma Thoraks — Rangkuman Komprehensif</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lime: #D2E186;
+  --cream: #F2E8DF;
+  --orange: #FB8159;
+  --lime-dark: #a8b85e;
+  --lime-pale: #eef5c4;
+  --orange-pale: #ffe5d8;
+  --cream-dark: #e0d0c3;
+  --text: #1e1e1e;
+  --muted: #6b6459;
+  --white: #ffffff;
+  --border: #d8cfc5;
+  --navy: #2c2c3e;
+  --red: #e05252;
+  --red-pale: #fde8e8;
+  --green: #4a9e6b;
+  --green-pale: #dff0e8;
+  --blue: #4a7ab5;
+  --blue-pale: #e0eaf8;
+  --shadow: 0 4px 20px rgba(30,20,10,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--text);font-size:14.5px;line-height:1.75;}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#2c2c3e 0%,#3d3d55 60%,#4a4466 100%);padding:56px 48px 48px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:340px;height:340px;border-radius:50%;background:rgba(210,225,134,0.09);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:5%;width:220px;height:220px;border-radius:50%;background:rgba(251,129,89,0.08);pointer-events:none;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(210,225,134,0.2);border:1px solid rgba(210,225,134,0.4);color:var(--lime);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:18px;}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(30px,5vw,58px);font-weight:800;color:#fff;line-height:1.05;margin-bottom:12px;}
+.hero h1 em{color:var(--orange);font-style:normal;}
+.hero-sub{color:rgba(255,255,255,0.6);font-size:14px;max-width:580px;line-height:1.75;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;}
+.pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);padding:5px 14px;border-radius:20px;font-size:12px;}
+
+/* ===== SKENARIO ===== */
+.skenario{background:linear-gradient(135deg,var(--orange),#e8623a);padding:20px 32px;display:flex;align-items:flex-start;gap:14px;}
+.skenario .ico{font-size:22px;flex-shrink:0;margin-top:2px;}
+.skenario .txt{color:#fff;font-size:13.5px;line-height:1.7;}
+.skenario .txt strong{display:block;margin-bottom:4px;font-size:15px;letter-spacing:0.3px;}
+
+/* ===== NAV ===== */
+.nav-wrap{position:sticky;top:0;z-index:200;background:var(--navy);display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:0 3px 18px rgba(30,20,10,0.2);}
+.nav-wrap::-webkit-scrollbar{display:none;}
+.nb{background:none;border:none;color:rgba(255,255,255,0.5);font-family:'Plus Jakarta Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:0.4px;padding:13px 17px;white-space:nowrap;cursor:pointer;border-bottom:2.5px solid transparent;transition:all 0.2s;}
+.nb:hover,.nb.on{color:var(--lime);border-bottom-color:var(--lime);}
+
+/* ===== CONTAINER ===== */
+.wrap{max-width:960px;margin:0 auto;padding:42px 24px;}
+.section{display:none;animation:fadeUp 0.3s ease;}
+.section.on{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== HEADINGS ===== */
+.sh{margin-bottom:30px;}
+.sh h2{font-family:'Fraunces',serif;font-size:30px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.sh p{color:var(--muted);font-size:13px;padding-bottom:18px;border-bottom:2px solid var(--border);}
+.lo-tag{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:var(--lime);font-size:11px;font-weight:700;letter-spacing:1.2px;padding:4px 13px;border-radius:12px;margin-bottom:12px;}
+
+/* ===== CARDS ===== */
+.card{background:var(--white);border-radius:16px;padding:22px 26px;margin-bottom:18px;border:1.5px solid var(--border);box-shadow:var(--shadow);transition:box-shadow 0.2s,transform 0.2s;}
+.card:hover{box-shadow:0 8px 30px rgba(30,20,10,0.12);transform:translateY(-2px);}
+.card-title{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:9px;}
+.ci{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+
+/* ===== ALERTS ===== */
+.alert{padding:12px 16px;border-radius:10px;margin:10px 0;font-size:13.5px;display:flex;gap:10px;line-height:1.65;}
+.a-lime{background:var(--lime-pale);border-left:4px solid var(--lime-dark);color:#3a4a10;}
+.a-orange{background:var(--orange-pale);border-left:4px solid var(--orange);color:#7a3010;}
+.a-red{background:var(--red-pale);border-left:4px solid var(--red);color:#7a1010;}
+.a-green{background:var(--green-pale);border-left:4px solid var(--green);color:#1a4a2e;}
+.a-blue{background:var(--blue-pale);border-left:4px solid var(--blue);color:#1a3060;}
+.a-navy{background:#eef0f8;border-left:4px solid var(--navy);color:var(--navy);}
+.ai{flex-shrink:0;font-size:15px;margin-top:1px;}
+
+/* ===== TABLES ===== */
+.tw{overflow-x:auto;border-radius:12px;border:1.5px solid var(--border);margin:12px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.3px;}
+td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:#faf8f5;}
+tr:hover td{background:var(--lime-pale);transition:background 0.15s;}
+
+/* ===== GRIDS ===== */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+@media(max-width:650px){.g2,.g3{grid-template-columns:1fr;}}
+
+/* ===== MINI CARDS ===== */
+.mc{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:15px 18px;}
+.mc h4{font-family:'Fraunces',serif;font-size:14.5px;color:var(--navy);margin-bottom:8px;}
+.mc ul{padding-left:17px;}
+.mc li{font-size:13px;color:var(--muted);margin-bottom:4px;line-height:1.6;}
+.mc p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* ===== STYLED LIST ===== */
+.sl{list-style:none;padding:0;}
+.sl li{padding:6px 0 6px 22px;border-bottom:1px solid var(--border);font-size:13.5px;position:relative;line-height:1.65;}
+.sl li::before{content:'▸';position:absolute;left:0;color:var(--orange);font-size:11px;top:9px;}
+.sl li:last-child{border-bottom:none;}
+
+/* ===== STEP BOXES ===== */
+.steps{counter-reset:st;}
+.step{counter-increment:st;padding:14px 14px 14px 52px;position:relative;border-left:3px solid var(--lime);background:var(--white);border-radius:0 10px 10px 0;margin-bottom:8px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1.5px solid var(--border);}
+.step::before{content:counter(st);position:absolute;left:-16px;top:50%;transform:translateY(-50%);width:30px;height:30px;background:var(--lime);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+.step strong{display:block;color:var(--navy);font-size:14px;margin-bottom:3px;}
+.step p,.step span{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ===== MNEMONIC ===== */
+.mnemo{background:linear-gradient(135deg,var(--lime-pale),var(--cream));border:2px solid var(--lime-dark);border-radius:14px;padding:18px 22px;margin:12px 0;}
+.mnemo-lbl{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--lime-dark);margin-bottom:6px;}
+.mnemo-txt{font-family:'Fraunces',serif;font-size:20px;color:var(--navy);font-weight:800;}
+.mnemo-sub{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.65;}
+
+/* ===== CLINICAL PEARL ===== */
+.pearl{background:linear-gradient(135deg,var(--orange-pale),#fff8f5);border:2px solid var(--orange);border-radius:13px;padding:16px 20px;margin:12px 0;}
+.pearl-lbl{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.pearl p{font-size:13.5px;color:var(--navy);line-height:1.7;}
+
+/* ===== SKENARIO LINK ===== */
+.sk-box{background:linear-gradient(135deg,#2c2c3e,#3d3553);border:1.5px solid rgba(210,225,134,0.35);border-radius:13px;padding:15px 19px;margin:18px 0;}
+.sk-box::before{content:'🔗 Keterkaitan Skenario';font-weight:700;color:var(--lime);font-size:11px;letter-spacing:0.5px;display:block;margin-bottom:6px;}
+.sk-box p{color:rgba(255,255,255,0.82);font-size:13px;line-height:1.7;}
+
+/* ===== COMPARE ===== */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.cmp-l{background:var(--lime-pale);border:2px solid var(--lime-dark);border-radius:12px;padding:16px;}
+.cmp-r{background:var(--orange-pale);border:2px solid var(--orange);border-radius:12px;padding:16px;}
+.cmp-l h4{color:var(--lime-dark);font-family:'Fraunces',serif;margin-bottom:10px;}
+.cmp-r h4{color:#c05030;font-family:'Fraunces',serif;margin-bottom:10px;}
+.crow{display:flex;font-size:12.5px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.07);gap:8px;line-height:1.6;}
+.crow:last-child{border-bottom:none;}
+.crow span:first-child{width:90px;flex-shrink:0;opacity:0.6;font-size:12px;}
+@media(max-width:600px){.cmp{grid-template-columns:1fr;}}
+
+/* ===== DIVIDER ===== */
+.div{height:1px;background:var(--border);margin:20px 0;}
+
+/* ===== HIGHLIGHTS ===== */
+.hl{background:var(--lime-pale);color:var(--lime-dark);padding:1px 7px;border-radius:5px;font-weight:700;font-size:13px;}
+.ho{background:var(--orange-pale);color:#c05030;padding:1px 7px;border-radius:5px;font-weight:700;font-size:13px;}
+.hr{background:var(--red-pale);color:var(--red);padding:1px 7px;border-radius:5px;font-weight:700;font-size:13px;}
+.hg{background:var(--green-pale);color:var(--green);padding:1px 7px;border-radius:5px;font-weight:700;font-size:13px;}
+
+/* ===== SHOCK TABLE ===== */
+.shock-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:2px solid var(--navy);border-radius:14px;overflow:hidden;margin:12px 0;}
+.sg-head{background:var(--navy);color:#fff;padding:10px 12px;font-size:12px;font-weight:700;text-align:center;}
+.sg-cell{padding:10px 12px;font-size:12.5px;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border);line-height:1.5;}
+.sg-cell:last-child{border-right:none;}
+.sg-label{background:var(--cream);font-weight:700;color:var(--navy);text-align:left;font-size:12px;padding:10px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.sc1{background:#eef5e8;}
+.sc2{background:#fffae0;}
+.sc3{background:#ffecd8;}
+.sc4{background:var(--red-pale);}
+@media(max-width:700px){.shock-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ===== COLLAPSIBLE ===== */
+.col-btn{background:none;border:none;width:100%;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:0;font-family:inherit;}
+.col-btn .chev{transition:transform 0.25s;font-size:12px;color:var(--muted);}
+.col-btn.open .chev{transform:rotate(180deg);}
+.col-body{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+.col-body.open{display:block;animation:fadeUp 0.25s ease;}
+
+/* ===== FLOW DIAGRAM ===== */
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;margin-bottom:4px;font-size:13.5px;}
+.flow-item .step-num{width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;}
+.flow-arrow{text-align:center;color:var(--orange);font-size:18px;margin:0 auto;}
+.flow-item.danger{background:var(--red-pale);border-color:var(--red);}
+.flow-item.safe{background:var(--green-pale);border-color:var(--green);}
+.flow-item.warn{background:var(--orange-pale);border-color:var(--orange);}
+
+/* ===== QUIZ ===== */
+.q-wrap{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:24px;margin-bottom:22px;position:relative;overflow:hidden;}
+.q-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lime),var(--orange));}
+.q-num{position:absolute;top:14px;right:20px;background:var(--navy);color:var(--lime);font-size:10.5px;font-weight:700;letter-spacing:1px;padding:3px 12px;border-radius:10px;}
+.q-badge{display:inline-block;background:var(--lime-pale);color:var(--lime-dark);font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 9px;border-radius:8px;margin-bottom:10px;}
+.q-vig{background:var(--cream);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:12px 16px;font-size:13.5px;line-height:1.7;margin-bottom:14px;color:#3a2010;}
+.q-q{font-weight:700;font-size:14px;margin-bottom:14px;color:var(--navy);}
+.q-opts{display:flex;flex-direction:column;gap:7px;}
+.q-opt{background:var(--cream);border:1.5px solid var(--border);border-radius:10px;padding:11px 15px;font-size:13.5px;cursor:pointer;text-align:left;font-family:inherit;display:flex;gap:10px;align-items:flex-start;transition:all 0.18s;color:var(--text);}
+.q-opt:hover:not(:disabled){border-color:var(--orange);background:var(--orange-pale);}
+.ol{font-weight:700;font-size:11.5px;min-width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.q-opt.correct{background:var(--green-pale)!important;border-color:var(--green)!important;color:var(--green);}
+.q-opt.correct .ol{background:var(--green);color:#fff;}
+.q-opt.wrong{background:var(--red-pale)!important;border-color:var(--red)!important;color:var(--red);}
+.q-opt.wrong .ol{background:var(--red);color:#fff;}
+.q-opt:disabled{cursor:default;}
+.q-exp{display:none;margin-top:14px;background:var(--lime-pale);border-radius:10px;padding:14px 17px;font-size:13.5px;line-height:1.75;color:#2a3a10;border-left:3px solid var(--lime-dark);}
+.q-exp.show{display:block;animation:fadeUp 0.3s ease;}
+.q-exp strong{color:var(--navy);}
+.q-prog{display:flex;gap:6px;margin-bottom:26px;flex-wrap:wrap;align-items:center;}
+.pdot{width:10px;height:10px;border-radius:50%;background:rgba(44,44,62,0.12);transition:background 0.3s;}
+.pdot.ok{background:var(--green);}
+.pdot.no{background:var(--red);}
+.q-prog-lbl{font-size:12px;color:var(--muted);margin-left:4px;}
+.score-box{background:linear-gradient(135deg,var(--navy),#3d3555);color:#fff;border-radius:18px;padding:36px;text-align:center;display:none;margin-top:24px;}
+.score-box.show{display:block;animation:fadeUp 0.4s ease;}
+.sc-big{font-family:'Fraunces',serif;font-size:72px;font-weight:800;color:var(--lime);line-height:1;}
+.sc-msg{font-size:14px;opacity:0.75;margin-top:8px;}
+.btn-restart{margin-top:18px;background:var(--lime);color:var(--navy);border:none;border-radius:25px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:transform 0.2s;}
+.btn-restart:hover{transform:translateY(-2px);}
+
+/* ===== IGD PROTOCOL FLOW ===== */
+.proto-wrap{background:var(--white);border-radius:14px;padding:20px;border:1.5px solid var(--border);}
+.proto-step{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px dashed var(--border);}
+.proto-step:last-child{border-bottom:none;}
+.ps-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;border:2px solid;}
+.ps-a{background:var(--lime-pale);border-color:var(--lime-dark);color:var(--lime-dark);}
+.ps-b{background:var(--orange-pale);border-color:var(--orange);color:#c04020;}
+.ps-c{background:var(--blue-pale);border-color:var(--blue);color:var(--blue);}
+.ps-d{background:var(--red-pale);border-color:var(--red);color:var(--red);}
+.ps-e{background:var(--green-pale);border-color:var(--green);color:var(--green);}
+.ps-content strong{display:block;font-size:14px;color:var(--navy);margin-bottom:4px;}
+.ps-content span{font-size:13px;color:var(--muted);line-height:1.65;}
+
+@media(max-width:600px){
+  .hero{padding:36px 20px 30px;}
+  .wrap{padding:26px 16px;}
+  .card{padding:17px 18px;}
+  .skenario{padding:16px 18px;}
+  .shock-grid{font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">🩺 Blok Traumatologi · Pekan 2 · Quiz Prep</div>
+  <h1>Trauma <em>Thoraks</em><br>— Rangkuman Lengkap</h1>
+  <p class="hero-sub">Panduan komprehensif skenario hemothorax pasca luka tembak. Mencakup 12 LO Step 5, tabel perbandingan, protokol IGD, soal latihan, dan clinical pearls.</p>
+  <div class="hero-pills">
+    <span class="pill">🫁 Anatomy & Physiology</span>
+    <span class="pill">🔪 Penetrating Trauma</span>
+    <span class="pill">💉 Chest Tube Procedure</span>
+    <span class="pill">📊 ATLS Protocol</span>
+    <span class="pill">🧠 12 Latihan Soal</span>
+  </div>
+</div>
+
+<!-- SKENARIO -->
+<div class="skenario">
+  <div class="ico">🏥</div>
+  <div class="txt">
+    <strong>Skenario Klinis Referensi</strong>
+    Pria 76 tahun, luka tembak posterior dada. SpO₂ 86%, HR 120, TD 140/90, RR 32. Perkusi redup kanan, ekspansi asimetris kanan. Rontgen: akumulasi cairan masif hemitoraks kanan + benda asing di mediastinum posterior. Diagnosis: Traumatic Hemothorax Dextra + Syok Hipovolemik Kelas 1. Tatalaksana: Chest Tube 24F ICS 5 → drainase 500 mL darah.
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap" id="nav">
+  <button class="nb on" onclick="show('overview')">🗺 Overview</button>
+  <button class="nb" onclick="show('lo1')">LO 1 · Mekanisme</button>
+  <button class="nb" onclick="show('lo2')">LO 2 · DD Thoraks</button>
+  <button class="nb" onclick="show('lo35')">LO 3–5 · Hemothorax</button>
+  <button class="nb" onclick="show('lo67')">LO 6–7 · Patofis</button>
+  <button class="nb" onclick="show('lo89')">LO 8–9 · Penunjang</button>
+  <button class="nb" onclick="show('lo10')">LO 10 · Tatalaksana</button>
+  <button class="nb" onclick="show('lo11')">LO 11 · Komplikasi</button>
+  <button class="nb" onclick="show('syok')">💉 Syok & Chest Tube</button>
+  <button class="nb" onclick="show('igd')">🚑 Protokol IGD</button>
+  <button class="nb" onclick="show('quiz')">📝 Latihan Soal</button>
+</div>
+
+<div class="wrap">
+
+<!-- ========== OVERVIEW ========== -->
+<div id="sec-overview" class="section on">
+  <div class="sh"><h2>Peta Konsep — Baca Ini Dulu</h2><p>Kerangka berpikir besar sebelum masuk detail tiap LO.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">🗺</span> Grand Story Trauma Thoraks</div>
+    <div class="flow">
+      <div class="flow-item warn"><span class="step-num">1</span><div><strong>MEKANISME TRAUMA</strong> — tumpul (KLL, jatuh) atau tembus (luka tusuk, tembak) atau blast → jaringan dada rusak</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="step-num">2</span><div><strong>KERUSAKAN STRUKTURAL</strong> — pembuluh darah intercostal / parenkim paru / great vessel ruptur</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item warn"><span class="step-num">3</span><div><strong>AKUMULASI PLEURAL</strong> — darah (hemothorax) atau udara (pneumothorax) atau keduanya → tekanan intrapleura ↑</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item danger"><span class="step-num">4</span><div><strong>GANGGUAN FISIOLOGI</strong> — ventilasi ↓ + oksigenasi ↓ + preload jantung ↓ → hipoksia + syok hemoragik</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item safe"><span class="step-num">5</span><div><strong>PRIMARY SURVEY (ABCDE)</strong> — identifikasi cepat dan intervensi life-saving segera</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item safe"><span class="step-num">6</span><div><strong>DEFINITIF</strong> — Chest Tube / Torakotomi / VATS sesuai keparahan + kondisi hemodinamik</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔑</span> Angka Kritis yang Sering Diuji</div>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Nilai Kritis</th><th>Makna Klinis</th></tr>
+      <tr><td>Hemothorax ringan</td><td>&lt;300 mL (opak &lt;15%, pekak s/d iga IX)</td><td>Observasi, bisa reabsorpsi</td></tr>
+      <tr><td>Hemothorax sedang</td><td>300–800 mL (opak 15–35%, pekak s/d iga VI)</td><td>Chest tube wajib</td></tr>
+      <tr><td>Hemothorax besar/masif</td><td>&gt;800–1500 mL (opak &gt;35%, pekak s/d iga IV)</td><td>Chest tube + pertimbangkan torakotomi</td></tr>
+      <tr><td>Indikasi torakotomi (1)</td><td>&gt;1500 mL drainase awal</td><td>Perdarahan masif → bedah SEGERA</td></tr>
+      <tr><td>Indikasi torakotomi (2)</td><td>&gt;200 mL/jam × 2–4 jam</td><td>Perdarahan aktif tidak terkontrol</td></tr>
+      <tr><td>Chest tube hemothorax</td><td>ICS 4–5, MAL, large-bore ≥24Fr</td><td>Standard ATLS</td></tr>
+      <tr><td>Needle decompression</td><td>ICS 2, MCL atau ICS 4–5 AAL</td><td>Tension pneumothorax</td></tr>
+      <tr><td>Syok Kelas 1</td><td>&lt;750 mL / &lt;15% EBV</td><td>Kompensasi awal → HR sedikit ↑</td></tr>
+      <tr><td>SpO₂ waspada</td><td>&lt;90%</td><td>Hipoksia bermakna, butuh O₂ tambahan / intubasi</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">💀</span> Deadly Dozen — Hafal!</div>
+    <div class="cmp">
+      <div class="cmp-l">
+        <h4>🚨 Lethal Six (PRIMARY SURVEY)</h4>
+        <div class="crow"><span>1</span> Airway obstruction</div>
+        <div class="crow"><span>2</span> Tension pneumothorax</div>
+        <div class="crow"><span>3</span> Open pneumothorax</div>
+        <div class="crow"><span>4</span> <strong>Massive hemothorax ← skenario ini</strong></div>
+        <div class="crow"><span>5</span> Flail chest</div>
+        <div class="crow"><span>6</span> Cardiac tamponade</div>
+      </div>
+      <div class="cmp-r">
+        <h4>🔍 Hidden Six (SECONDARY SURVEY)</h4>
+        <div class="crow"><span>1</span> Kontusio paru</div>
+        <div class="crow"><span>2</span> Kontusio jantung</div>
+        <div class="crow"><span>3</span> Ruptur aorta traumatik</div>
+        <div class="crow"><span>4</span> Ruptur diafragma</div>
+        <div class="crow"><span>5</span> Ruptur esofagus</div>
+        <div class="crow"><span>6</span> Simple pneumothorax</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sk-box"><p>Pria 76 tahun luka tembak posterior → penetrating trauma (high energy) → peluru merusak pembuluh intercostal + parenkim paru → hemothorax dextra 500 mL (sedang-masif). Peluru di mediastinum posterior → risiko cedera aorta thoracalis descendens, esofagus, n. vagus/simpatis → ini yang membuat kasus ini kompleks meski HR 120 dan BP masih 140/90!</p></div>
+</div>
+
+<!-- ========== LO 1 ========== -->
+<div id="sec-lo1" class="section">
+  <div class="sh"><div class="lo-tag">LO 1</div><h2>Macam-Macam Trauma Thoraks & Mekanisme Cedera</h2><p>Dua kategori besar dengan perbedaan mendasar dalam mekanisme dan prognosis.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">💥</span> A. Blunt Trauma (Trauma Tumpul)</div>
+    <div class="alert a-lime"><span class="ai">📌</span><div>Penyebab paling SERING. KLL menyumbang ~70–80% kasus. Cedera tidak selalu terlihat dari luar — <em>think internal!</em></div></div>
+    <div class="tw"><table>
+      <tr><th>Mekanisme</th><th>Cara Cedera</th><th>Contoh</th><th>Lesi Khas</th></tr>
+      <tr><td><strong>Kompresi</strong></td><td>Dada terjepit → organ rusak</td><td>Tertimpa material, setir mobil</td><td>Fraktur iga, pneumothorax, ruptur organ</td></tr>
+      <tr><td><strong>Benturan Langsung</strong></td><td>Impak langsung ke dada</td><td>Kena stang motor</td><td>Kontusio paru, fraktur sternum</td></tr>
+      <tr><td><strong>Akselerasi-Deselerasi</strong></td><td>Kecepatan luar ≠ dalam → gaya geser</td><td>Rem mendadak KLL</td><td>Ruptur aorta di ligamentum arteriosum!</td></tr>
+      <tr><td><strong>Blast Injury</strong></td><td>Gelombang tekanan + serpihan</td><td>Ledakan, bom</td><td>Barotrauma, pneumothorax bilateral, kontusio paru</td></tr>
+    </table></div>
+    <div class="pearl"><div class="pearl-lbl">🌟 Clinical Pearl</div><p>Pada anak-anak, dinding dada sangat elastis → fraktur iga JARANG, tapi kontusio paru dan cedera organ bisa sangat berat. Jangan terkecoh!</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--red-pale)">🔫</span> B. Penetrating Trauma (Trauma Tembus)</div>
+    <div class="alert a-red"><span class="ai">⚠️</span><div>Mortalitas jauh lebih tinggi! Luka tembak ke jantung: survival &lt;1%. Mayoritas meninggal sebelum sampai RS.</div></div>
+    <div class="g2">
+      <div class="mc" style="border-top:3px solid var(--green);">
+        <h4>🔪 Low Energy — Luka Tusuk</h4>
+        <ul>
+          <li>Kerusakan lokal, jalur bisa diprediksi</li>
+          <li>Lacerase jaringan sepanjang jalur benda</li>
+          <li>Mortalitas lebih rendah</li>
+          <li>Sering: hemothorax, pneumothorax, tamponade</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--red);">
+        <h4>🔫 High Energy — Luka Tembak</h4>
+        <ul>
+          <li>Kavitasi: rongga sementara radius jauh lebih luas</li>
+          <li>Jalur peluru unpredictable (bisa memantul)</li>
+          <li>Kerusakan jaringan di luar jalur peluru</li>
+          <li>Fragmen peluru bisa berpindah → delayed injury</li>
+        </ul>
+      </div>
+    </div>
+    <div class="div"></div>
+    <p style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Zona Anatomis Penetrating & Risiko Spesifiknya:</p>
+    <div class="g3">
+      <div class="mc" style="border-top:3px solid var(--red);"><h4>⚡ Anterior</h4><p>Kotak mediastinal → risiko cedera jantung → cardiac tamponade. PALING berbahaya.</p></div>
+      <div class="mc" style="border-top:3px solid var(--orange);"><h4>🔶 Lateral</h4><p>Parenkim paru + a. intercostal → hemothorax, pneumothorax</p></div>
+      <div class="mc" style="border-top:3px solid var(--blue);"><h4>🔷 Posterior</h4><p>Paru + medula spinalis + great vessel posterior → skenario kita ini!</p></div>
+    </div>
+    <div class="sk-box" style="margin-top:16px;"><p>Skenario: luka tembak <strong>posterior</strong> → risiko mediastinum posterior (aorta descendens, esofagus, n. vagus). Kavitasi peluru → robekan luas pembuluh intercostal + paru → hemothorax 500 mL. Benda asing di mediastinum posterior = alarm merah untuk delayed vascular injury!</p></div>
+  </div>
+</div>
+
+<!-- ========== LO 2 ========== -->
+<div id="sec-lo2" class="section">
+  <div class="sh"><div class="lo-tag">LO 2</div><h2>Diagnosis Banding Trauma Thoraks</h2><p>Kunci: bedakan hemothorax, tension pneumothorax, dan tamponade jantung — ketiga punya tatalaksana BERBEDA!</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">📊</span> Tabel Pembeda Besar</div>
+    <div class="tw"><table>
+      <tr><th>Kondisi</th><th>Perkusi</th><th>Auskultasi</th><th>Trachea</th><th>JVP</th><th>Tanda Khas</th></tr>
+      <tr><td><strong>Hemothorax</strong></td><td class="ho">Redup</td><td>↓ sisi lesi</td><td>Midline</td><td>Normal/↓</td><td>Syok hemoragik, asimetri dada</td></tr>
+      <tr><td><strong>Tension PTX</strong></td><td class="hl">Hipersonor</td><td>Hilang sisi lesi</td><td class="hr">Deviasi kontralateral!</td><td class="hr">↑↑ (distensi)</td><td>Trias: hipersonor + deviasi trachea + JVP ↑</td></tr>
+      <tr><td><strong>Open PTX</strong></td><td>Hipersonor</td><td>↓ sisi luka</td><td>Midline</td><td>Normal</td><td>Sucking chest wound (suara angin)</td></tr>
+      <tr><td><strong>Cardiac Tamponade</strong></td><td>Normal</td><td>Muffled heart sounds</td><td>Midline</td><td class="hr">↑↑ (distensi)</td><td>Trias Beck: hipotensi + JVP↑ + muffled sounds</td></tr>
+      <tr><td><strong>Flail Chest</strong></td><td>Normal/redup</td><td>Normal/↓</td><td>Midline</td><td>Normal</td><td>Paradoxical breathing, multiple fraktur iga</td></tr>
+      <tr><td><strong>Simple PTX</strong></td><td>Hipersonor</td><td>↓ sisi lesi</td><td>Midline</td><td>Normal</td><td>Stabil hemodinamik, sesak ringan-sedang</td></tr>
+    </table></div>
+    <div class="alert a-orange"><span class="ai">🎯</span><div><strong>Kunci pembeda paling penting di ujian:</strong> Hemothorax = <span class="ho">REDUP</span> (cairan/darah). Tension PTX = <span class="hl">HIPERSONOR</span> + deviasi trachea + JVP naik. Cardiac Tamponade = suara jantung menjauh + Trias Beck. Jangan tertukar!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🧠</span> Detail Tanda Khas — Wajib Hafal</div>
+    <div class="g2">
+      <div>
+        <div class="pearl"><div class="pearl-lbl">Trias Beck — Cardiac Tamponade</div><p>1. Hipotensi (CO ↓) · 2. JVP meningkat (tekanan perikardium ↑ hambat venous return) · 3. Suara jantung menjauh (darah di perikardium meredam suara)</p></div>
+        <div class="pearl" style="margin-top:10px;"><div class="pearl-lbl">Trias Tension Pneumothorax</div><p>1. Hipersonor pada hemitoraks lesi · 2. Deviasi trachea ke sisi kontralateral · 3. Distensi vena jugularis (JVP ↑)</p></div>
+      </div>
+      <div>
+        <div class="alert a-lime"><span class="ai">💡</span><div><strong>Tension PTX = diagnosis KLINIS!</strong> JANGAN tunggu foto thoraks! Langsung needle decompression → ICS 2 MCL atau ICS 4-5 AAL. Setiap detik berarti.</div></div>
+        <div class="alert a-blue"><span class="ai">💡</span><div><strong>Flail Chest:</strong> ≥2 iga berdekatan, fraktur di ≥2 tempat → segmen "mengambang" → inspirasi masuk (paradoksal), ekspirasi menonjol. Nafas paradoksal = hallmark flail chest.</div></div>
+        <div class="alert a-red"><span class="ai">💡</span><div><strong>Open PTX (sucking chest wound):</strong> Tutup dengan plester 3 sisi (satu sisi terbuka → flutter valve). 4 sisi = bisa menjadi tension PTX!</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LO 3-5 ========== -->
+<div id="sec-lo35" class="section">
+  <div class="sh"><div class="lo-tag">LO 3 · 4 · 5</div><h2>Hemothorax — Definisi, Etiologi, Epidemiologi, Klasifikasi</h2><p>Fondasi pemahaman hemothorax dari akar sampai cabang.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">📖</span> LO 3 — Definisi</div>
+    <div class="alert a-lime"><span class="ai">📌</span><div><strong>Hemothorax</strong> = akumulasi darah di rongga pleura. Secara laboratoris: hematokrit cairan pleura <strong>&gt;50%</strong> hematokrit darah perifer. <em>Catatan:</em> nilai &lt;50% TIDAK menyingkirkan hemothorax — bisa sudah terdilusi cairan pleura.</div></div>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px;">Secara visual, cairan pleura tidak bisa dibedakan dari darah bila hematokrit &gt;5%. Kecurigaan klinis tetap prioritas.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🌍</span> LO 4 — Etiologi & Epidemiologi</div>
+    <div class="g2">
+      <div>
+        <div class="mc" style="border-top:3px solid var(--red);margin-bottom:10px;">
+          <h4>🚗 Traumatik (Tersering!)</h4>
+          <ul>
+            <li>KLL motor/mobil (70–80%)</li>
+            <li>Jatuh dari ketinggian</li>
+            <li>Luka tusuk / luka tembak</li>
+            <li>Fraktur iga (→ delayed hemothorax)</li>
+          </ul>
+        </div>
+        <div class="mc" style="border-top:3px solid var(--orange);margin-bottom:10px;">
+          <h4>⚕️ Iatrogenik</h4>
+          <ul>
+            <li>Torasentesis (0.1–0.4%)</li>
+            <li>Kateterisasi vena subklavia (~1%)</li>
+            <li>Pemasangan chest tube komplikasi</li>
+            <li>Biopsi paru perkutan</li>
+          </ul>
+        </div>
+        <div class="mc" style="border-top:3px solid var(--blue);">
+          <h4>💓 Spontan (Jarang)</h4>
+          <ul>
+            <li>Ruptur/diseksi aorta</li>
+            <li>Koagulopati (hemofilia, antikoagulan)</li>
+            <li>Neoplasma pleura / invasi vaskular</li>
+            <li>Ruptur malformasi vaskular</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p style="font-weight:700;font-size:13px;color:var(--navy);margin-bottom:10px;">Epidemiologi Kunci</p>
+        <ul class="sl">
+          <li>~300.000 kasus/tahun di Amerika Serikat</li>
+          <li>Terjadi pada ~60% kasus politrauma</li>
+          <li>Kontribusi &gt;50% kematian trauma yang bisa dicegah</li>
+          <li>Lebih sering laki-laki (&gt;70%) usia produktif</li>
+          <li>Penetrating trauma: hingga 90% meninggal pre-hospital</li>
+          <li>Sering kombinasi: HTX + PTX (hemopneumothorax)</li>
+          <li>Lansia: kompensasi fisiologis lebih buruk!</li>
+        </ul>
+        <div class="alert a-orange" style="margin-top:12px;"><span class="ai">💡</span><div>Pria 76 tahun = risiko tinggi karena sensitivitas baroreseptor ↓, cadangan jantung ↓, sering konsumsi beta-bloker → HR tidak naik cepat meski kehilangan darah banyak → tanda vital bisa MENYESATKAN!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--blue-pale)">📊</span> LO 5 — Klasifikasi Hemothorax (WAJIB HAFAL!)</div>
+    <div class="tw"><table>
+      <tr><th>Derajat</th><th>Volume Darah</th><th>Opak Rontgen</th><th>Perkusi Redup Hingga</th><th>Tatalaksana</th></tr>
+      <tr><td><span class="hg">Ringan</span></td><td>&lt;300 mL (&lt;750 mL versi lain)</td><td>&lt;15% lapang paru</td><td>Iga IX–X</td><td>Observasi, bisa reabsorpsi sendiri</td></tr>
+      <tr><td><span class="hl">Sedang</span></td><td>300–800 mL (750–1500 mL)</td><td>15–35% lapang paru</td><td>Iga VI</td><td>Chest tube wajib</td></tr>
+      <tr><td><span class="ho">Besar/Masif</span></td><td>&gt;800–1500 mL</td><td>&gt;35% lapang paru</td><td>Iga IV</td><td>Chest tube + pertimbangkan torakotomi</td></tr>
+      <tr><td><span class="hr">Masif Ekstrem</span></td><td>&gt;1500 mL atau &gt;1/3 EBV</td><td>Opak total</td><td>Iga II-III</td><td>TORAKOTOMI EMERGENSI</td></tr>
+    </table></div>
+    <div class="pearl"><div class="pearl-lbl">🌟 Cara Mudah Ingat Klasifikasi</div><p><strong>"Iga semakin tinggi = semakin banyak darah"</strong> — perkusi redup mencapai iga IX (ringan), VI (sedang), IV (berat). Rontgen: &lt;15% ringan, 15–35% sedang, &gt;35% berat. Darah: &lt;300cc ringan, 300–800 sedang, &gt;800 berat.</p></div>
+    <div class="sk-box"><p>Skenario: 500 mL darah keluar pasca chest tube → termasuk <strong>hemothorax sedang-besar</strong>. Ini hanya yang sudah terdrain! Volume awal mungkin lebih besar. Indikasi chest tube 24F sudah tepat.</p></div>
+  </div>
+</div>
+
+<!-- ========== LO 6-7 ========== -->
+<div id="sec-lo67" class="section">
+  <div class="sh"><div class="lo-tag">LO 6 · 7</div><h2>Patogenesis, Patofisiologi & Manifestasi Klinis</h2><p>Mekanisme molekuler + seluler → kenapa muncul sesak, hipoksia, dan syok.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔬</span> LO 6 — Patogenesis & Patofisiologi</div>
+    <div class="flow">
+      <div class="flow-item warn"><span class="step-num">1</span><div><strong>Kerusakan pembuluh / parenkim paru</strong> → darah masuk rongga pleura antara pleura parietalis dan viseralis</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="step-num">2</span><div><strong>Tekanan intrapleura meningkat</strong> → paru kanan terkompres → ventilasi berkurang (lung collapse parsial/total)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item warn"><span class="step-num">3</span><div><strong>Ventilation-Perfusion Mismatch (V/Q mismatch)</strong> → darah yang melewati paru kanan tidak teroksigenasi, bercampur dengan darah dari paru kiri → SpO₂ ↓</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item danger"><span class="step-num">4</span><div><strong>Kehilangan volume darah intravaskular</strong> → preload ↓ → cardiac output ↓ → perfusi jaringan ↓ → syok hemoragik + asidosis metabolik</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="step-num">5</span><div><strong>Kompensasi tubuh:</strong> HR ↑, vasokonstriksi perifer, laju nafas ↑, flared nostrils, penggunaan otot bantu nafas</div></div>
+    </div>
+    <div class="div"></div>
+    <p style="font-weight:700;color:var(--navy);margin-bottom:10px;font-size:14px;">Mengapa SpO₂ 86% padahal airway tidak tersumbat?</p>
+    <div class="alert a-blue"><span class="ai">💡</span><div>Masalah ada di <strong>Breathing (B), bukan Airway (A)!</strong> Tepatnya: gangguan <em>pertukaran gas di alveolus</em>. Hemothorax → kompresi paru kanan → alveolus kolaps → tidak ada udara → darah melewati tanpa oksigenasi → <strong>intrapulmonary shunting</strong> → SpO₂ turun drastis meski nafas bebas masuk.</div></div>
+    <div class="alert a-lime" style="margin-top:8px;"><span class="ai">💡</span><div>Selain itu, darah dalam rongga pleura dapat mengiritasi alveolus, menurunkan produksi surfaktan → kolaps alveolus semakin dalam (atelektasis), memperparah hipoksia.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">🩺</span> LO 7 — Manifestasi Klinis</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:10px;">Gejala & Tanda Umum</p>
+        <ul class="sl">
+          <li><strong>Sesak nafas / dispnea akut</strong> — gejala utama, akibat kompresi paru</li>
+          <li><strong>Nyeri dada</strong> — tajam, memburuk saat inspirasi</li>
+          <li><strong>Tachypnea (RR &gt;24x/mnt)</strong> — kompensasi hipoksia</li>
+          <li><strong>Tachycardia (HR &gt;100)</strong> — kompensasi kehilangan volume</li>
+          <li><strong>Flared nostrils</strong> — pelebaran cuping hidung saat inspirasi = tanda air hunger</li>
+          <li><strong>Penggunaan otot bantu nafas</strong> — SCM, intercostal, subkostal</li>
+          <li><strong>Asimetri dada</strong> — sisi lesi mengembang lebih sedikit</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:10px;">Temuan Fisik Spesifik</p>
+        <div class="tw"><table>
+          <tr><th>Pemeriksaan</th><th>Temuan</th></tr>
+          <tr><td>Inspeksi</td><td>Asimetri, retraksi intercostal</td></tr>
+          <tr><td>Palpasi</td><td>Fremitus taktil ↓ sisi lesi</td></tr>
+          <tr><td>Perkusi</td><td class="ho">REDUP (dull) sisi lesi</td></tr>
+          <tr><td>Auskultasi</td><td>Suara nafas ↓ atau hilang sisi lesi</td></tr>
+          <tr><td>SpO₂</td><td>&lt;90% (hipoksia)</td></tr>
+          <tr><td>TD</td><td>Normal atau ↓ (tergantung derajat)</td></tr>
+        </table></div>
+        <div class="pearl" style="margin-top:10px;"><div class="pearl-lbl">⚠️ Jebakan Lansia</div><p>Pasien 76 tahun + beta-bloker antihipertensi → HR tidak naik cepat, TD bisa tetap "normal" padahal syok! Sensitivitas baroreseptor turun. Jangan tertipu tanda vital!</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LO 8-9 ========== -->
+<div id="sec-lo89" class="section">
+  <div class="sh"><div class="lo-tag">LO 8 · 9</div><h2>Pemeriksaan Penunjang & Primary/Secondary Survey</h2><p>Dari foto thoraks sampai ATLS protokol — apa yang dicari dan kapan dilakukan.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">📸</span> LO 8 — Pemeriksaan Penunjang</div>
+    <div class="tw"><table>
+      <tr><th>Modalitas</th><th>Kegunaan</th><th>Sensitivitas</th><th>Catatan</th></tr>
+      <tr><td><strong>Chest X-Ray (CXR)</strong></td><td>Skrining awal, cepat, murah</td><td>75% (berdiri), miss hingga 1000cc (supine!)</td><td>Tampak opak homogen sisi lesi; blunting costophrenic angle ≥300mL</td></tr>
+      <tr><td><strong>USG/eFAST</strong></td><td>Cepat bedside, tanpa radiasi</td><td>&gt;90% (lebih baik dari CXR!)</td><td>Bisa deteksi ab. 20mL; bedside, bisa diulang; gold standard diagnosis cepat trauma</td></tr>
+      <tr><td><strong>CT Scan Thoraks</strong></td><td>Gold standard imaging</td><td>~100%</td><td>Bisa kuantifikasi volume HTX, evaluasi injury lain; tapi TIDAK untuk pasien instabil!</td></tr>
+      <tr><td><strong>Torasentesis diagnostik</strong></td><td>Konfirmasi jenis cairan</td><td>-</td><td>Hematokrit cairan &gt;50% hematokrit darah → hemothorax</td></tr>
+      <tr><td><strong>Laboratorium</strong></td><td>Hb, Ht, koagulasi, BGA</td><td>-</td><td>BGA penting: evaluasi hipoksia, asidosis, PaO₂ &lt;80 → pertimbangkan intubasi</td></tr>
+    </table></div>
+    <div class="g2" style="margin-top:14px;">
+      <div class="alert a-orange"><span class="ai">⚠️</span><div><strong>Jebakan CXR posisi supine:</strong> Cairan menyebar merata → tampak hanya sebagai haziness difus. Bisa MELEWATKAN hingga 1000 mL darah! Selalu pertimbangkan eFAST bila curiga.</div></div>
+      <div class="alert a-red"><span class="ai">🚨</span><div><strong>CT scan = gold standard tapi BUKAN untuk pasien instabil!</strong> Pasien harus ke scanner, tidak bisa dimonitor ketat. Pasien instabil → langsung chest tube di IGD.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔍</span> LO 9 — Primary Survey ATLS (ABCDE)</div>
+    <div class="alert a-lime"><span class="ai">📌</span><div><strong>Prinsip ATLS:</strong> Tangani kondisi paling mengancam nyawa DULU. Bergerak dari A→B→C→D→E. Setiap masalah diperbaiki sebelum lanjut ke huruf berikutnya.</div></div>
+    <div class="proto-wrap">
+      <div class="proto-step">
+        <div class="ps-num ps-a">A</div>
+        <div class="ps-content"><strong>AIRWAY (dengan proteksi C-spine)</strong><span>Skenario: Airway CLEAR. Tidak ada obstruksi parsial maupun total. Cek: look (pergerakan dada), listen (suara nafas), feel (hembusan udara). Snoring, gurgling, stridor = obstruksi. Tindakan: jaw thrust, chin lift, suction, airway definitif bila perlu.</span></div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-b">B</div>
+        <div class="ps-content"><strong>BREATHING — Masalah utama skenario!</strong><span>Hipoksia SpO₂ 86%, RR 32, flared nostrils, otot bantu nafas aktif → respiratory distress. Cek: inspeksi (asimetri dada), palpasi (fremitus), perkusi (redup kanan), auskultasi (suara nafas ↓). Identifikasi: tension PTX, open PTX, massive hemothorax, flail chest.</span></div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-c">C</div>
+        <div class="ps-content"><strong>CIRCULATION — Kontrol perdarahan</strong><span>HR 120, TD 140/90 → Syok Kelas 1 (kompensasi). Pasang 2 IV line large bore, resusitasi kristaloid hangat, monitor perdarahan. Pertimbangkan transfusi bila perlu. Pada trauma tembus besar: target permissive hypotension hingga kontrol perdarahan definitif.</span></div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-a">D</div>
+        <div class="ps-content"><strong>DISABILITY — Neurologis</strong><span>Skenario: tidak ada gangguan motorik/sensorik. GCS normal. Evaluasi: AVPU, GCS, pupil, lateralisasi. Penting: benda asing di mediastinum posterior bisa cedera spinal cord secara tertunda!</span></div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-e">E</div>
+        <div class="ps-content"><strong>EXPOSURE + Environmental Control</strong><span>Buka semua pakaian untuk melihat seluruh luka. Skenario: tidak masalah, tidak ada luka tersembunyi lain. Cegah hipotermia → selimut hangat, cairan hangat. Hipotermia memperparah koagulopati pada hemothorax!</span></div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <p style="font-weight:700;color:var(--navy);font-size:14px;margin-bottom:10px;">Secondary Survey — Potentially Life-Threatening Injuries</p>
+    <div class="g2">
+      <ul class="sl">
+        <li>Simple pneumothorax</li>
+        <li>Hemothorax (konfirmasi dan manajemen definitif)</li>
+        <li>Flail chest</li>
+        <li>Kontusio paru</li>
+      </ul>
+      <ul class="sl">
+        <li>Blunt cardiac injury (ECG)</li>
+        <li>Traumatic aortic disruption (CXR/CT)</li>
+        <li>Traumatic diaphragmatic injury</li>
+        <li>Blunt esophageal rupture</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LO 10 ========== -->
+<div id="sec-lo10" class="section">
+  <div class="sh"><div class="lo-tag">LO 10</div><h2>Kegawatdaruratan Thoraks & Tatalaksana</h2><p>Dari yang paling cepat mematikan sampai yang bisa ditunggu sebentar — semua ada tindakannya.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--red-pale)">🚨</span> Tatalaksana Berdasarkan Diagnosis</div>
+    <div class="tw"><table>
+      <tr><th>Kondisi</th><th>Tindakan Pertama</th><th>Definitif</th><th>Prioritas</th></tr>
+      <tr><td><strong>Tension PTX</strong></td><td>Needle decompression ICS 2 MCL (atau ICS 4-5 AAL)</td><td>Chest tube ICS 4-5 MAL</td><td class="hr">SEGERA, jangan tunggu!</td></tr>
+      <tr><td><strong>Open PTX</strong></td><td>Plester oklusif 3 sisi (flutter valve)</td><td>Chest tube lokasi berbeda + debridement luka</td><td class="hr">SEGERA</td></tr>
+      <tr><td><strong>Massive Hemothorax</strong></td><td>Chest tube large bore (28-36 Fr) + resusitasi cairan</td><td>Torakotomi bila &gt;1500mL atau &gt;200mL/jam × 3 jam</td><td class="hr">SEGERA</td></tr>
+      <tr><td><strong>Cardiac Tamponade</strong></td><td>Perikardiosentesis subxiphoid (temporisasi)</td><td>Torakotomi/sternotomi emergensi</td><td class="hr">SEGERA</td></tr>
+      <tr><td><strong>Flail Chest</strong></td><td>O₂, analgesik, posisi nyaman</td><td>Ventilasi mekanik bila PaO₂ &lt;60 / SaO₂ &lt;90%</td><td class="ho">Segera-cepat</td></tr>
+      <tr><td><strong>Simple PTX</strong></td><td>O₂ tinggi, observasi ketat</td><td>Chest tube bila bergejala/membesar</td><td class="hl">Tidak selalu emergensi</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">💊</span> Tatalaksana Farmakologis</div>
+    <div class="tw"><table>
+      <tr><th>Obat/Terapi</th><th>Indikasi</th><th>Catatan Penting</th></tr>
+      <tr><td><strong>O₂ nasal kanul / masker NRM</strong></td><td>SpO₂ &lt;94%, semua trauma thoraks</td><td>Target SpO₂ &gt;95%. Mulai dulu sebelum prosedur apapun.</td></tr>
+      <tr><td><strong>Kristaloid (RL/NS)</strong></td><td>Syok hipovolemik, semua kelas</td><td>Hati-hati overloading → pulmonary edema. Target: resusitasi sesuai kelas syok, bukan infus semua cairan.</td></tr>
+      <tr><td><strong>Packed Red Cells (PRC)</strong></td><td>Hemothorax besar, Hb &lt;7–8, Syok Kelas 3–4</td><td>Pilihan pertama untuk perdarahan masif. Ratio PRC:FFP:PLT = 1:1:1 pada massive transfusion protocol.</td></tr>
+      <tr><td><strong>Fresh Frozen Plasma (FFP)</strong></td><td>Koagulopati, massive transfusion</td><td>Penting pada politrauma — "trauma-induced coagulopathy" sering terjadi</td></tr>
+      <tr><td><strong>Tranexamic Acid (TXA)</strong></td><td>Perdarahan aktif dalam 3 jam pertama trauma</td><td>1g IV dalam 10 menit, lanjut 1g dalam 8 jam. Efektif ↓ mortalitas pada trauma berdarah!</td></tr>
+      <tr><td><strong>Analgesik (morfin, fentanyl)</strong></td><td>Nyeri dada, terutama flail chest</td><td>Analgesik adequate → pasien bisa nafas dalam → cegah atelektasis. Hati-hati depresi nafas.</td></tr>
+      <tr><td><strong>Antibiotik profilaksis</strong></td><td>Sebelum chest tube insertion</td><td>Cefazolin/clindamycin dosis tunggal → ↓ risiko empyema post-chest tube</td></tr>
+      <tr><td><strong>Vasopressor (norepinefrin)</strong></td><td>Syok refrakter setelah resusitasi adekuat</td><td>BUKAN first line! Perbaiki volume dulu. Vasopressor jika syok distributif atau jantung</td></tr>
+    </table></div>
+    <div class="pearl"><div class="pearl-lbl">⚡ Clinical Pearl — Permissive Hypotension</div><p>Pada penetrating trauma dengan perdarahan aktif yang belum terkontrol: target TD sistolik 80–90 mmHg (bukan normal!). Terlalu banyak cairan → dilusi faktor koagulasi → makin berdarah. Kontrol perdarahan dulu, baru resusitasi agresif.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔪</span> Indikasi Torakotomi Emergensi</div>
+    <div class="g2">
+      <div class="alert a-red"><span class="ai">🚨</span><div><strong>Drainase awal &gt;1500 mL darah</strong> lewat chest tube → torakotomi SEGERA</div></div>
+      <div class="alert a-red"><span class="ai">🚨</span><div><strong>Perdarahan berlanjut &gt;200 mL/jam selama 2–4 jam</strong> → perdarahan aktif tidak terkontrol</div></div>
+      <div class="alert a-orange"><span class="ai">⚠️</span><div><strong>Kebutuhan transfusi berulang</strong> untuk mempertahankan hemodinamik → indikasi operatif</div></div>
+      <div class="alert a-orange"><span class="ai">⚠️</span><div><strong>Hemothorax terkoagulasi (retained HTX)</strong> yang tidak bisa terdrain → VATS atau torakotomi</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LO 11 ========== -->
+<div id="sec-lo11" class="section">
+  <div class="sh"><div class="lo-tag">LO 11</div><h2>Komplikasi Prosedur Thoraks</h2><p>Torasentesis jarum, chest tube insertion, dan perikardiosentesis — semua punya risiko tersendiri.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">⚠️</span> Komplikasi Chest Tube (Torakostomi)</div>
+    <div class="g2">
+      <div class="mc" style="border-top:3px solid var(--red);">
+        <h4>🔴 Komplikasi Pemasangan</h4>
+        <ul>
+          <li>Perdarahan lokal akibat melukai pembuluh intercostal</li>
+          <li>Masuk ke rongga abdomen (di bawah diafragma!)</li>
+          <li>Cedera paru, jantung, hati, atau limpa</li>
+          <li>Posisi tube salah (subkutan, horizontal)</li>
+          <li>Kinking atau oklusi tube</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange);">
+        <h4>🟠 Komplikasi Pasca Pemasangan</h4>
+        <ul>
+          <li>Infeksi/empyema (pengenalan bakteri)</li>
+          <li>Retained hemothorax (darah tidak terdrain sempurna)</li>
+          <li>Re-expansion pulmonary edema (re-ekspansi terlalu cepat)</li>
+          <li>Pneumothorax sisa (persistent air leak)</li>
+          <li>Tube tercabut (dislodgement)</li>
+          <li>Emfisema subkutan</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pearl" style="margin-top:14px;"><div class="pearl-lbl">🌟 Cara Hindari Komplikasi Terpenting</div><p><strong>Masuk "di atas" iga, BUKAN di bawah!</strong> Neurovascular bundle (arteri, vena, saraf intercostal) berada di sulcus inferior iga. Selalu masuk di pinggir ATAS iga di bawah (misalnya ICS 5 → masuk di atas iga 6). Ini yang paling sering diuji!</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--blue-pale)">💉</span> Komplikasi Torasentesis Jarum</div>
+    <div class="g2">
+      <ul class="sl">
+        <li>Pneumothorax (tersering, 5–15%)</li>
+        <li>Hemothorax iatrogenik</li>
+        <li>Infeksi → empyema</li>
+        <li>Cedera organ (paru, limpa, hati)</li>
+      </ul>
+      <ul class="sl">
+        <li>Reaksi vasovagal</li>
+        <li>Edema re-ekspansi paru</li>
+        <li>Emboli udara (air embolism)</li>
+        <li>Hematoma dinding dada</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--red-pale)">💓</span> Komplikasi Perikardiosentesis</div>
+    <div class="g2">
+      <ul class="sl">
+        <li>Puncture miokardium (paling ditakuti!)</li>
+        <li>Laserasi arteri koroner</li>
+        <li>Pneumopericardium</li>
+        <li>Aritmia fatal (VF)</li>
+      </ul>
+      <ul class="sl">
+        <li>Vasovagal syncope</li>
+        <li>Infeksi perikardial</li>
+        <li>Hemopericardium makin besar</li>
+        <li>Emboli udara</li>
+      </ul>
+    </div>
+    <div class="alert a-red"><span class="ai">🚨</span><div><strong>Perikardiosentesis = tindakan LAST RESORT</strong> bila tidak ada ahli bedah yang bisa melakukan torakotomi/sternotomi. Risiko tinggi! Jika ada ahli bedah → langsung bedah.</div></div>
+  </div>
+</div>
+
+<!-- ========== SYOK & CHEST TUBE ========== -->
+<div id="sec-syok" class="section">
+  <div class="sh"><h2>Syok Hipovolemik & Prosedur Chest Tube</h2><p>Detail kelas-kelas syok dan langkah prosedur — sering menjadi inti soal ujian.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🩸</span> Klasifikasi Syok Hipovolemik (ATLS)</div>
+    <div class="shock-grid">
+      <div class="sg-head">Parameter</div>
+      <div class="sg-head" style="background:#3a7a30;">Kelas I</div>
+      <div class="sg-head" style="background:#a87a10;">Kelas II</div>
+      <div class="sg-head" style="background:#c05010;">Kelas III</div>
+      <div class="sg-head" style="background:#c02020;">Kelas IV</div>
+
+      <div class="sg-label">Volume darah hilang</div>
+      <div class="sg-cell sc1">&lt;750 mL (&lt;15%)</div>
+      <div class="sg-cell sc2">750–1500 mL (15–30%)</div>
+      <div class="sg-cell sc3">1500–2000 mL (30–40%)</div>
+      <div class="sg-cell sc4">&gt;2000 mL (&gt;40%)</div>
+
+      <div class="sg-label">Heart Rate</div>
+      <div class="sg-cell sc1">&lt;100</div>
+      <div class="sg-cell sc2">100–120</div>
+      <div class="sg-cell sc3">120–140</div>
+      <div class="sg-cell sc4">&gt;140</div>
+
+      <div class="sg-label">Tekanan Darah</div>
+      <div class="sg-cell sc1">Normal</div>
+      <div class="sg-cell sc2">Normal</div>
+      <div class="sg-cell sc3">Turun</div>
+      <div class="sg-cell sc4">Sangat ↓</div>
+
+      <div class="sg-label">Pulse Pressure</div>
+      <div class="sg-cell sc1">Normal/↑</div>
+      <div class="sg-cell sc2">↓</div>
+      <div class="sg-cell sc3">↓↓</div>
+      <div class="sg-cell sc4">↓↓↓</div>
+
+      <div class="sg-label">RR (x/mnt)</div>
+      <div class="sg-cell sc1">14–20</div>
+      <div class="sg-cell sc2">20–30</div>
+      <div class="sg-cell sc3">30–40</div>
+      <div class="sg-cell sc4">&gt;35</div>
+
+      <div class="sg-label">Urine Output</div>
+      <div class="sg-cell sc1">&gt;30 mL/jam</div>
+      <div class="sg-cell sc2">20–30 mL/jam</div>
+      <div class="sg-cell sc3">5–15 mL/jam</div>
+      <div class="sg-cell sc4">Minimal/anuria</div>
+
+      <div class="sg-label">Status Mental</div>
+      <div class="sg-cell sc1">Sedikit cemas</div>
+      <div class="sg-cell sc2">Cemas sedang</div>
+      <div class="sg-cell sc3">Bingung/agitasi</div>
+      <div class="sg-cell sc4">Letargis/tidak sadar</div>
+
+      <div class="sg-label">Resusitasi Cairan</div>
+      <div class="sg-cell sc1">Kristaloid</div>
+      <div class="sg-cell sc2">Kristaloid</div>
+      <div class="sg-cell sc3">Kristaloid + darah</div>
+      <div class="sg-cell sc4">Darah + bedah segera</div>
+    </div>
+    <div class="pearl" style="margin-top:14px;"><div class="pearl-lbl">🌟 Skenario Kita — Kelas 1</div><p>HR 120 → seharusnya Kelas II tapi diagnosis mengatakan Kelas I. Kenapa? Karena pasien 76 tahun dengan riwayat hipertensi → baseline HR lebih tinggi + TD baseline lebih tinggi dari normal. Baseline TD 140/90 → jangan jadikan patokan normal! Harus dibandingkan dengan vital sign normal pasien itu sendiri.</p></div>
+    <div class="alert a-orange" style="margin-top:10px;"><span class="ai">⚠️</span><div><strong>Ingat: Total Blood Volume (TBV)</strong> = 70 mL/kgBB pria dewasa. Misalnya BB 70 kg → TBV ≈ 4900 mL. Kelas I = &lt;735 mL. Tapi ini estimasi kasar — volume aktual tergantung BB, usia, dan kondisi baseline!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">🔧</span> Prosedur Chest Tube Insertion — Step by Step</div>
+    <div class="alert a-lime"><span class="ai">📌</span><div><strong>Lokasi standar:</strong> ICS 4–5 di linea midaxillary (antara linea anterior dan posterior axillary). "Triangle of Safety" — terbatas oleh tepi latissimus dorsi, tepi lateral pectoralis major, dan garis horizontal puting susu.</div></div>
+    <div class="steps">
+      <div class="step"><strong>1. Posisi pasien</strong><p>Supine atau semi-recumbent. Lengan ipsilateral diletakkan di belakang kepala untuk memperlebar ICS dan akses midaxillary. Persiapan steril area luas.</p></div>
+      <div class="step"><strong>2. Antibiotik profilaksis</strong><p>Cefazolin 1g IV (atau clindamycin bila alergi) sebelum insisi → bukti level A menurunkan risiko infeksi post-prosedur.</p></div>
+      <div class="step"><strong>3. Anestesi lokal</strong><p>Lidokain 1–2% dengan epinefrin, injeksi subkutan + ke periosteum iga. Tambahkan blok saraf intercostal satu level di atas dan bawah insisi untuk analgesia lebih baik.</p></div>
+      <div class="step"><strong>4. Insisi kulit</strong><p>Insisi ±2–4 cm horizontal di ICS 4–5, linea midaxillary. INGAT: insisi di ICS 5, tapi masuk pleura di atas iga 6 (hindari neurovascular bundle di bawah iga 5)!</p></div>
+      <div class="step"><strong>5. Diseksi tumpul</strong><p>Gunakan Kelly clamp, buka dan dorong melewati jaringan subkutan → intercostal muscle → pleura. Rasakan "pop" saat masuk pleura. TIDAK boleh gaya brute force → risiko melukai paru/jantung!</p></div>
+      <div class="step"><strong>6. Eksplorasi digital</strong><p>Masukkan jari ke dalam pleura, pastikan benar-benar di rongga pleura (rasa paru mengembang/kolaps), tidak ada adhesi, tidak ada organ lain.</p></div>
+      <div class="step"><strong>7. Masukkan chest tube</strong><p>Tube dipegang dengan Kelly clamp, arahkan posterior dan superior. Semua lubang tube (fenestrations) harus masuk ke dalam rongga pleura. Untuk hemothorax: arahkan posterior dan inferior.</p></div>
+      <div class="step"><strong>8. Hubungkan ke water seal</strong><p>Sambungkan ke sistem drainase dengan water seal. Buka clamp. Pastikan tube bergoyang (tidaling) saat bernafas → konfirmasi posisi benar. Sambungkan ke suction -20 cmH₂O bila perlu.</p></div>
+      <div class="step"><strong>9. Fiksasi dan dressing</strong><p>Jahit tube ke kulit dengan benang silk 0/1-0 (simple interrupted). Balut dengan vaseline gauze + kasa steril + plester kedap. Fiksasi aman mencegah tube tercabut saat pasien bergerak.</p></div>
+      <div class="step"><strong>10. Verifikasi</strong><p>CXR post-prosedur untuk konfirmasi posisi tube dan ekspansi paru. Catat volume drainase awal dan warna. Monitoring ketat setelahnya!</p></div>
+    </div>
+    <div class="div"></div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:8px;">📏 Ukuran Tube (French)</p>
+        <ul class="sl">
+          <li>Hemothorax: <strong>28–36 Fr</strong> (large bore, WAJIB!)</li>
+          <li>Pneumothorax saja: 14–20 Fr (pigtail cukup)</li>
+          <li>Skenario kita: 24 Fr (minimum untuk hemothorax)</li>
+          <li>1 Fr = 0.33 mm | 24 Fr ≈ 8 mm diameter</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--navy);font-size:13px;margin-bottom:8px;">⚠️ Kontraindikasi Chest Tube</p>
+        <ul class="sl">
+          <li><strong>Absolut:</strong> Indikasi torakotomi emergensi (langsung bedah!)</li>
+          <li><strong>Relatif:</strong> Koagulopati — koreksi dulu bila memungkinkan</li>
+          <li><strong>Relatif:</strong> Infeksi pada lokasi insersi (pilih lokasi lain)</li>
+          <li><strong>Relatif:</strong> Adherensi/adhesi pleura masif — perlu panduan USG</li>
+          <li><strong>Relatif:</strong> Hernia diafragma — risiko cedera organ abdomen</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pearl"><div class="pearl-lbl">🌟 Mengapa Large-Bore Wajib untuk Hemothorax?</div><p>Darah tidak selalu cair — risiko tinggi membeku (clotting) di dalam tube. Tube kecil → tersumbat clot → drainase tidak adekuat → retained hemothorax → empyema/fibrothorax. Large bore = drainase cepat + monitoring akurat + risiko oklusi minimal. <strong>24 Fr minimum, idealnya 28–36 Fr untuk hemothorax.</strong></p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--red-pale)">💉</span> Kapan Lepas Chest Tube?</div>
+    <ul class="sl">
+      <li>Tidak ada kebocoran udara selama <strong>24–48 jam</strong></li>
+      <li>Output &lt;200 mL/hari</li>
+      <li>Paru sudah re-ekspansi penuh pada foto thoraks</li>
+      <li>Pasien mampu bernafas cukup tanpa tube</li>
+    </ul>
+    <div class="alert a-lime" style="margin-top:10px;"><span class="ai">💡</span><div>Cara lepas: minta pasien <strong>exhale</strong> (atau Valsalva) → tarik tube secepat mungkin → tutup dengan vaseline gauze → plester 4 sisi. Cek foto thoraks 1–3 jam setelah pelepasan.</div></div>
+  </div>
+</div>
+
+<!-- ========== PROTOKOL IGD ========== -->
+<div id="sec-igd" class="section">
+  <div class="sh"><h2>🚑 Protokol IGD — Dari Pintu Masuk Sampai Rujuk Bedah</h2><p>Ringkasan tindakan praktis dokter umum menghadapi kasus seperti skenario ini.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--lime-pale)">⏱</span> Timeline Tindakan (0–60 Menit Pertama)</div>
+    <div class="alert a-red"><span class="ai">🚨</span><div><strong>GOLDEN PERIOD trauma:</strong> Identifikasi dan tatalaksana life-threatening injury dalam <strong>60 menit pertama</strong>. Setiap menit keterlambatan meningkatkan mortalitas!</div></div>
+
+    <div class="proto-wrap" style="margin-top:16px;">
+      <div class="proto-step">
+        <div class="ps-num ps-a" style="font-size:10px;width:36px;height:36px;">0–5'</div>
+        <div class="ps-content">
+          <strong>Triase & Persiapan</strong>
+          <span>Siapkan tim trauma, aktifkan resusitasi bay. Pasien masuk → identifikasi mekanisme trauma dari petugas pre-hospital/keluarga. Aktivasi trauma protocol bila polytrauma.</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-b" style="font-size:10px;width:36px;height:36px;">5–15'</div>
+        <div class="ps-content">
+          <strong>Primary Survey ABCDE + Resusitasi Simultan</strong>
+          <span>A: Nilai airway, bersihkan bila perlu → C-spine protection. B: O₂ tinggi (NRM 15 L/mnt), nilai pernafasan. C: 2 IV line besar, ambil darah (Hb, Ht, GDA, goldar, crossmatch, koagulasi, BGA), mulai kristaloid hangat. D: GCS, pupil. E: Buka semua baju, cegah hipotermia.</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-c" style="font-size:10px;width:36px;height:36px;">10–20'</div>
+        <div class="ps-content">
+          <strong>Adjunct Primary Survey</strong>
+          <span>Pasang monitor (EKG, SpO₂, TD, RR). Kateter urin (monitor output). Foto thoraks portable AP. eFAST jika tersedia. NGT bila tidak kontraindikasi. Nilai hasil: adakah hemothorax, pneumothorax, tamponade, atau great vessel injury?</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-b" style="font-size:10px;width:36px;height:36px;">20–35'</div>
+        <div class="ps-content">
+          <strong>Intervensi Spesifik — Chest Tube (bila hemothorax)</strong>
+          <span>Pastikan ada indikasi (perkusi redup, SpO₂ ↓, rontgen konfirmasi hemothorax). Lakukan chest tube ICS 4-5 MAL large bore ≥24-28 Fr. Antibiotik profilaksis sebelum insisi. Catat volume dan warna drainase. Monitor hemodinamik post-prosedur.</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-d" style="font-size:10px;width:36px;height:36px;">35–50'</div>
+        <div class="ps-content">
+          <strong>Evaluasi Respons & Secondary Survey</strong>
+          <span>Nilai respons resusitasi: apakah vital sign membaik? Lakukan secondary survey head-to-toe sistematis. Cari associated injuries. Evaluasi: apakah ada indikasi torakotomi emergensi? (drainase &gt;1500 mL atau &gt;200 mL/jam).</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-e" style="font-size:10px;width:36px;height:36px;">50–60'</div>
+        <div class="ps-content">
+          <strong>Rujuk ke Spesialis Bedah Thoraks / Bedah Umum</strong>
+          <span>Hubungi bedah sejak dini! Jangan tunggu pasien memburuk baru konsul. Siapkan dokumen rujukan: kronologi, tatalaksana yang sudah diberikan, hasil lab dan imaging, kondisi terkini. Pastikan pasien stabil untuk transport atau butuh transfer accompanied oleh dokter.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">⚠️</span> Kapan Dokter Umum HARUS Segera Konsul Bedah</div>
+    <div class="g2">
+      <ul class="sl">
+        <li>Hemothorax &gt;1500 mL dari chest tube</li>
+        <li>Perdarahan aktif &gt;200 mL/jam × 2–4 jam</li>
+        <li>Hemodinamik tidak stabil setelah resusitasi adekuat</li>
+        <li>Dugaan cardiac tamponade (Trias Beck)</li>
+      </ul>
+      <ul class="sl">
+        <li>Tension pneumothorax (setelah dekompresi → bedah evaluasi)</li>
+        <li>Dugaan ruptur aorta (mediastinum melebar di CXR)</li>
+        <li>Open pneumothorax lebar / sucking wound</li>
+        <li>Benda asing penetrating di mediastinum (skenario kita!)</li>
+      </ul>
+    </div>
+    <div class="pearl" style="margin-top:10px;"><div class="pearl-lbl">🌟 Pesan Penting untuk IGD</div><p>Dokter umum di IGD perannya <strong>STABILISASI dan BRIDGE</strong>, bukan definitif. Identifikasi cepat dengan primary survey, tangani yang life-threatening dengan prosedur basic (chest tube, needle decompression, occlusive dressing), dan konsulkan bedah secepat mungkin. Jangan terlalu percaya diri, jangan terlalu lambat konsul!</p></div>
+  </div>
+</div>
+
+<!-- ========== QUIZ ========== -->
+<div id="sec-quiz" class="section">
+  <div class="sh"><h2>📝 Latihan Soal — 12 Soal</h2><p>Berdasarkan pola soal quiz tahun lalu dan LO Step 5. Klik pilihan untuk melihat jawaban dan penjelasan.</p></div>
+
+  <div class="q-prog"><span class="pdot" id="pd0"></span><span class="pdot" id="pd1"></span><span class="pdot" id="pd2"></span><span class="pdot" id="pd3"></span><span class="pdot" id="pd4"></span><span class="pdot" id="pd5"></span><span class="pdot" id="pd6"></span><span class="pdot" id="pd7"></span><span class="pdot" id="pd8"></span><span class="pdot" id="pd9"></span><span class="pdot" id="pd10"></span><span class="pdot" id="pd11"></span><span class="q-prog-lbl" id="prog-lbl">0/12 dijawab</span></div>
+
+  <!-- Q1 -->
+  <div class="q-wrap" id="q0">
+    <div class="q-num">Q1</div>
+    <div class="q-badge">Definisi & Klasifikasi</div>
+    <div class="q-q">Apakah penyebab gagal nafas pada hematotorak besar?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(0,0,4)"><span class="ol">a</span> Bronkospasmus</button>
+      <button class="q-opt" onclick="ans(0,1,4)"><span class="ol">b</span> Tamponade jantung</button>
+      <button class="q-opt" onclick="ans(0,2,4)"><span class="ol">c</span> Radang akut paru</button>
+      <button class="q-opt" onclick="ans(0,3,4)"><span class="ol">d</span> Ruptur pleura</button>
+      <button class="q-opt" onclick="ans(0,4,4)"><span class="ol">e</span> Pendesakan trakea / kompresi paru</button>
+    </div>
+    <div class="q-exp" id="exp0"><strong>✅ Jawaban: E — Pendesakan Trakea / Kompresi Paru</strong><br>Pada hemothorax masif (&gt;1500 mL), darah mengisi rongga pleura → menekan dan mengkompresi paru ipsilateral hingga kolaps. Bila sangat besar, mediastinum bisa terdorong → mendesak trachea kontralateral. Ini menyebabkan gagal nafas melalui mekanisme kompresi mekanik (bukan bronkospasmus yang biasanya oleh alergi/asma, bukan tamponade yang di perikardium, bukan radang/infeksi).</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-wrap" id="q1">
+    <div class="q-num">Q2</div>
+    <div class="q-badge">Skenario Klinis</div>
+    <div class="q-vig">Pria 30 tahun jatuh dari ketinggian 5 meter. Dada kanan kena pagar kayu. Nyeri dada kanan, sesak nafas. TD 100/60, RR 25, Nadi 110. Luka terbuka ~5 cm dada kanan, laserasi sekitar. Auskultasi kanan: suara nafas tidak terdengar.</div>
+    <div class="q-q">Apakah langkah pertama dalam kasus ini?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(1,0,2)"><span class="ol">a</span> Pemasangan chest tube</button>
+      <button class="q-opt" onclick="ans(1,1,2)"><span class="ol">b</span> Resusitasi jantung-paru</button>
+      <button class="q-opt" onclick="ans(1,2,2)"><span class="ol">c</span> Cairan infus dan oksigenasi</button>
+      <button class="q-opt" onclick="ans(1,3,2)"><span class="ol">d</span> Posisi Trendelenburg</button>
+      <button class="q-opt" onclick="ans(1,4,2)"><span class="ol">e</span> Analgetik dan antibiotik</button>
+    </div>
+    <div class="q-exp" id="exp1"><strong>✅ Jawaban: C — Cairan infus dan oksigenasi</strong><br>Pasien masih sadar dengan tanda vital terkompromi ringan-sedang. LANGKAH PERTAMA selalu mengikuti ATLS: Airway → Breathing → Circulation. Sebelum apapun: buka IV line + berikan O₂ (stabilisasi dulu). Chest tube memang dibutuhkan tapi itu langkah B/C setelah resusitasi dasar. RJP tidak ada indikasi karena pasien masih ada nadi. Trendelenburg tidak untuk trauma thoraks (bisa memperburuk ventilasi). Analgesik/antibiotik bukan prioritas pertama.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-wrap" id="q2">
+    <div class="q-num">Q3</div>
+    <div class="q-badge">Tanda Klinis</div>
+    <div class="q-vig">Kasus yang sama: pasien dirujuk ke RS dan didiagnosis hemothorax besar. Manakah tanda hemothorax besar yang KHAS pada pasien ini?</div>
+    <div class="q-q">Pilih tanda yang paling spesifik untuk hemothorax besar:</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(2,0,1)"><span class="ol">a</span> Frekuensi pernafasan &gt;24x/menit</button>
+      <button class="q-opt" onclick="ans(2,1,1)"><span class="ol">b</span> Perkusi pekak mencapai iga ke-6</button>
+      <button class="q-opt" onclick="ans(2,2,1)"><span class="ol">c</span> Bayangan rontgen opak &gt;35%</button>
+      <button class="q-opt" onclick="ans(2,3,1)"><span class="ol">d</span> Rasio cardio-thorak &gt;60%</button>
+      <button class="q-opt" onclick="ans(2,4,1)"><span class="ol">e</span> Jumlah darah mencapai 600 cc</button>
+    </div>
+    <div class="q-exp" id="exp2"><strong>✅ Jawaban: B — Perkusi pekak mencapai iga ke-6</strong><br>Ini adalah kriteria klasifikasi hemothorax SEDANG (300–800 mL, pekak hingga iga VI). Untuk hemothorax BESAR: pekak hingga iga IV, opak &gt;35%, darah &gt;800 mL. Tachypnea (&gt;24x) tidak spesifik untuk hemothorax besar saja. CTR &gt;60% menandakan kardiomegali, bukan hemothorax. Jawaban B paling spesifik mengacu pada klasifikasi hemothorax berdasarkan perkusi.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-wrap" id="q3">
+    <div class="q-num">Q4</div>
+    <div class="q-badge">Airway Obstruction</div>
+    <div class="q-vig">Pria 35 tahun kecelakaan hebat, tidak sadar, cidera thoraks. TD 100/60, RR 27, Nadi 110. Rontgen: hemothorax besar kanan.</div>
+    <div class="q-q">Apabila penderita JUGA mengalami obstruksi jalan nafas, manakah tanda yang dapat ditemukan?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(3,0,2)"><span class="ol">a</span> JVP meningkat</button>
+      <button class="q-opt" onclick="ans(3,1,2)"><span class="ol">b</span> Tanda krepitasi</button>
+      <button class="q-opt" onclick="ans(3,2,2)"><span class="ol">c</span> Retraksi intercostal</button>
+      <button class="q-opt" onclick="ans(3,3,2)"><span class="ol">d</span> Thoraks asimetrik</button>
+      <button class="q-opt" onclick="ans(3,4,2)"><span class="ol">e</span> Fraktur costae</button>
+    </div>
+    <div class="q-exp" id="exp3"><strong>✅ Jawaban: C — Retraksi intercostal</strong><br>Obstruksi jalan nafas → pasien berusaha keras bernafas melawan hambatan → tekanan negatif intratorakal meningkat → otot intercostal dan supraklavikula terlihat tertarik ke dalam (retraksi). Ini tanda USAHA BERNAFAS yang meningkat. JVP meningkat lebih khas untuk tension PTX atau tamponade. Krepitasi = tanda fraktur atau emfisema subkutan. Thoraks asimetrik = hemothorax/pneumothorax (bukan spesifik obstruksi). Fraktur costae = konsekuensi trauma, bukan tanda obstruksi.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-wrap" id="q4">
+    <div class="q-num">Q5</div>
+    <div class="q-badge">Prosedur Chest Tube</div>
+    <div class="q-vig">Kasus sama (hemothorax besar kanan, pria 30 tahun) akan dilakukan pemasangan chest tube.</div>
+    <div class="q-q">Manakah lokasi prosedur pemasangan chest tube yang paling tepat?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(4,0,4)"><span class="ol">a</span> Anterior mid axillary line Intercostae VI</button>
+      <button class="q-opt" onclick="ans(4,1,4)"><span class="ol">b</span> Posterior mid axillary line Intercostae III</button>
+      <button class="q-opt" onclick="ans(4,2,4)"><span class="ol">c</span> Di sekitar daerah luka atau cidera</button>
+      <button class="q-opt" onclick="ans(4,3,4)"><span class="ol">d</span> Anterior mid axillary line Intercostae III</button>
+      <button class="q-opt" onclick="ans(4,4,4)"><span class="ol">e</span> Posterior mid axillary line Intercostae VI</button>
+    </div>
+    <div class="q-exp" id="exp4"><strong>✅ Jawaban: E — Posterior mid axillary line Intercostae VI</strong><br>Untuk HEMOTHORAX: tube diarahkan ke posterior dan inferior untuk drainase cairan/darah yang terkumpul di bagian bawah rongga pleura (karena gravitasi). Standard adalah ICS 4-5 di MAL, tapi untuk hemothorax dipilih yang lebih posterior. JANGAN pasang di lokasi luka/cidera (risiko infeksi dan komplikasi). ICS III terlalu tinggi. Skenario: chest tube dipasang di ICS 5 midaxillary line → benar!</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-wrap" id="q5">
+    <div class="q-num">Q6</div>
+    <div class="q-badge">Diagnosis</div>
+    <div class="q-vig">Pria 23 tahun, KLL motor 1 hari lalu. Awalnya tidak ada gejala, kemudian sesak nafas dan nyeri dada. TD 110/70, RR 24, Nadi 100. Dada kiri bawah: jejas, memar. Rontgen: gambaran radio-opak di inferior thoraks mencapai 25%.</div>
+    <div class="q-q">Manakah diagnosis yang paling mungkin?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(5,0,1)"><span class="ol">a</span> Pneumothorax</button>
+      <button class="q-opt" onclick="ans(5,1,1)"><span class="ol">b</span> Hemothorax ringan</button>
+      <button class="q-opt" onclick="ans(5,2,1)"><span class="ol">c</span> Hemothorax sedang</button>
+      <button class="q-opt" onclick="ans(5,3,1)"><span class="ol">d</span> Hemothorax besar</button>
+      <button class="q-opt" onclick="ans(5,4,1)"><span class="ol">e</span> Tamponade cordis</button>
+    </div>
+    <div class="q-exp" id="exp5"><strong>✅ Jawaban: B — Hemothorax Ringan</strong><br>Klasifikasi berdasarkan rontgen: opak &lt;15% = ringan, 15–35% = sedang, &gt;35% = besar. Soal: 25% opak → hemothorax SEDANG. Tapi perhatikan: opak di inferior thoraks = cairan (darah) di bawah → konsisten hemothorax (bukan pneumothorax yang radiolusen/hitam). Tamponade cordis tidak tampak pada CXR thoraks biasa sebagai gambaran opak unilateral. Delayed hemothorax (gejala muncul sehari setelah trauma tumpul) adalah tipikal dari fraktur iga!</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-wrap" id="q6">
+    <div class="q-num">Q7</div>
+    <div class="q-badge">Obstruksi Jalan Nafas</div>
+    <div class="q-q">Apakah tindakan yang perlu segera dilakukan pada kasus hemotoraks DENGAN tanda obstruksi jalan nafas?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(6,0,2)"><span class="ol">a</span> Pasang kanul oksigen</button>
+      <button class="q-opt" onclick="ans(6,1,2)"><span class="ol">b</span> Posisi pasien dimiringkan</button>
+      <button class="q-opt" onclick="ans(6,2,2)"><span class="ol">c</span> Pasang pipa endotrakeal</button>
+      <button class="q-opt" onclick="ans(6,3,2)"><span class="ol">d</span> Transfusi darah</button>
+      <button class="q-opt" onclick="ans(6,4,2)"><span class="ol">e</span> Terapi bronkodilator</button>
+    </div>
+    <div class="q-exp" id="exp6"><strong>✅ Jawaban: C — Pasang pipa endotrakeal (intubasi)</strong><br>Bila ada hemothorax + obstruksi jalan nafas → PRIORITAS adalah AIRWAY (A dalam ABCDE). Obstruksi = airway definitif segera. Intubasi orotrakeal = gold standard airway definitif pada trauma. Kanul O₂ tidak cukup jika ada obstruksi. Posisi miring hanya untuk mencegah aspirasi, bukan mengatasi obstruksi struktural. Transfusi untuk perdarahan bukan prioritas bila airway belum aman. Bronkodilator untuk bronkospasmus (asma/PPOK) bukan obstruksi mekanik.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-wrap" id="q7">
+    <div class="q-num">Q8</div>
+    <div class="q-badge">Definisi</div>
+    <div class="q-q">Manakah penyebab hemothoraks yang paling sering?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(7,0,3)"><span class="ol">a</span> Infeksi thoraks</button>
+      <button class="q-opt" onclick="ans(7,1,3)"><span class="ol">b</span> Neoplasma thoraks</button>
+      <button class="q-opt" onclick="ans(7,2,3)"><span class="ol">c</span> Emboli thoraks</button>
+      <button class="q-opt" onclick="ans(7,3,3)"><span class="ol">d</span> Trauma thoraks</button>
+      <button class="q-opt" onclick="ans(7,4,3)"><span class="ol">e</span> Malformasi vaskular</button>
+    </div>
+    <div class="q-exp" id="exp7"><strong>✅ Jawaban: D — Trauma Thoraks</strong><br>Trauma adalah penyebab TERSERING hemothorax. Menyumbang &gt;70% kasus. Mekanisme: KLL (blunt), luka tusuk/tembak (penetrating), jatuh dari ketinggian. Sumber perdarahan: arteri intercostal, parenkim paru, pembuluh besar. Neoplasma, infeksi, dan malformasi vaskular menyebabkan hemothorax spontan yang jauh lebih jarang. Emboli thoraks = embolisme paru (bukan hemothorax).</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-wrap" id="q8">
+    <div class="q-num">Q9</div>
+    <div class="q-badge">Tension Pneumothorax</div>
+    <div class="q-vig">Pria 20 tahun, KLL, penurunan kesadaran, nyeri dada kanan, sesak. VS: RR 50, TD 70/50, Nadi 140, SpO₂ 86%. Paru hipersonor kiri, ekspansi tidak simetris, fremitus hemitoraks kiri meningkat, JVP meningkat.</div>
+    <div class="q-q">Manakah tindakan pertama yang harus dilakukan?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(8,0,3)"><span class="ol">a</span> Anestesi blok intercostal</button>
+      <button class="q-opt" onclick="ans(8,1,3)"><span class="ol">b</span> Torakotomy</button>
+      <button class="q-opt" onclick="ans(8,2,3)"><span class="ol">c</span> Pericardiosentesis</button>
+      <button class="q-opt" onclick="ans(8,3,3)"><span class="ol">d</span> Needle thorakosintesis (dekompresi jarum)</button>
+      <button class="q-opt" onclick="ans(8,4,3)"><span class="ol">e</span> Pemasangan WSD</button>
+    </div>
+    <div class="q-exp" id="exp8"><strong>✅ Jawaban: D — Needle Thorakosintesis</strong><br>Trias tension pneumothorax: <strong>hipersonor + deviasi trachea + JVP meningkat + syok obstruktif</strong>. Ini diagnosis KLINIS — tidak perlu foto thoraks, langsung tindakan! Needle decompression = first line, cepat, bisa dilakukan di mana saja. Lokasi: ICS 2 MCL (tradisional) atau ICS 4-5 AAL (lebih direkomendasikan sekarang, lebih tinggi success rate). Setelah needle decompression → SELALU lanjutkan dengan chest tube WSD. Torakotomi terlalu invasif untuk pertama kali. Pericardiosentesis untuk tamponade (temuan berbeda).</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-wrap" id="q9">
+    <div class="q-num">Q10</div>
+    <div class="q-badge">Cardiac Tamponade</div>
+    <div class="q-vig">Wanita 30 tahun, nyeri dada kiri, sesak makin berat saat nafas dalam. TD 70/50, RR 35, Nadi 125. JVP +15 cm, Kussmaul sign (+). Auskultasi thoraks: suara jantung menjauh.</div>
+    <div class="q-q">Apakah diagnosis pasien?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(9,0,1)"><span class="ol">a</span> Tension pneumothorak</button>
+      <button class="q-opt" onclick="ans(9,1,1)"><span class="ol">b</span> Tamponade cordis</button>
+      <button class="q-opt" onclick="ans(9,2,1)"><span class="ol">c</span> Hematothorak massif</button>
+      <button class="q-opt" onclick="ans(9,3,1)"><span class="ol">d</span> Hematothorak</button>
+      <button class="q-opt" onclick="ans(9,4,1)"><span class="ol">e</span> Flail chest</button>
+    </div>
+    <div class="q-exp" id="exp9"><strong>✅ Jawaban: B — Tamponade Cordis</strong><br><strong>Trias Beck:</strong> (1) Hipotensi (TD 70/50) (2) JVP meningkat (+15 cm) (3) Suara jantung menjauh (muffled). <strong>Kussmaul sign</strong> = JVP makin naik saat inspirasi (paradoksal) = sangat spesifik untuk tamponade atau perikarditis konstriktif. Tension PTX juga JVP naik tapi perkusi HIPERSONOR. Hemothorax perkusi REDUP dan JVP normal/turun. Flail chest = paradoxical breathing + fraktur iga, tidak ada Trias Beck.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q-wrap" id="q10">
+    <div class="q-num">Q11</div>
+    <div class="q-badge">Flail Chest</div>
+    <div class="q-vig">Pria 40 tahun, KLL mobil. Sesak nafas, TD 80/50, Nadi 115, RR 30. CVP 3 mmHg, perkusi redup kiri, suara vesicular turun kanan, paradoksal breathing. Rontgen: fraktur segmental costa 5, 6, 7 lateral kanan.</div>
+    <div class="q-q">Apa diagnosis pada pasien tersebut?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(10,0,3)"><span class="ol">a</span> Rupture tracheobronchial</button>
+      <button class="q-opt" onclick="ans(10,1,3)"><span class="ol">b</span> Tension pneumothorax</button>
+      <button class="q-opt" onclick="ans(10,2,3)"><span class="ol">c</span> Tamponade cordis</button>
+      <button class="q-opt" onclick="ans(10,3,3)"><span class="ol">d</span> Flail chest</button>
+      <button class="q-opt" onclick="ans(10,4,3)"><span class="ol">e</span> Hematothorax</button>
+    </div>
+    <div class="q-exp" id="exp10"><strong>✅ Jawaban: D — Flail Chest</strong><br>Hallmark flail chest: <strong>paradoksal breathing</strong> (segmen flail masuk saat inspirasi, keluar saat ekspirasi — berlawanan dengan gerakan thoraks normal). Diperkuat dengan temuan <strong>fraktur segmental costa 5, 6, 7 kanan</strong> (3 iga berdekatan, fraktur di 2+ tempat = flail chest). CVP 3 mmHg = normal/rendah (bukan tamponade yang CVP tinggi). Perkusi redup kiri mungkin hemothorax sekunder tapi diagnosis utama adalah flail chest berdasarkan mekanisme dan temuan paradoksal breathing.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q-wrap" id="q11">
+    <div class="q-num">Q12</div>
+    <div class="q-badge">Skenario Lengkap</div>
+    <div class="q-vig">Pria 76 tahun (kasus skenario kita), luka tembak posterior, sesak akut. SpO₂ 86%, HR 120, TD 140/90, RR 32. Perkusi redup kanan, asimetri kanan. CXR: opak masif hemitoraks kanan, benda asing di mediastinum posterior. Chest tube 24F ICS 5 → 500 mL darah.</div>
+    <div class="q-q">Peluru yang berada di mediastinum posterior pada skenario ini PALING berisiko mencederai struktur apa?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(11,0,0)"><span class="ol">a</span> Aorta thoracalis descendens + esofagus + n. vagus/simpatis</button>
+      <button class="q-opt" onclick="ans(11,1,0)"><span class="ol">b</span> Arcus aorta + trachea + n. phrenicus</button>
+      <button class="q-opt" onclick="ans(11,2,0)"><span class="ol">c</span> Jantung + perikardium + a. coronaria</button>
+      <button class="q-opt" onclick="ans(11,3,0)"><span class="ol">d</span> Vena cava superior + kelenjar timus</button>
+      <button class="q-opt" onclick="ans(11,4,0)"><span class="ol">e</span> Trachea + bronkus utama + kelenjar thyroid</button>
+    </div>
+    <div class="q-exp" id="exp11"><strong>✅ Jawaban: A — Aorta thoracalis descendens + esofagus + n. vagus/simpatis</strong><br><strong>Mediastinum posterior</strong> (di belakang perikardium, depan vertebra T5–T12) berisi: <strong>Aorta thoracalis descendens</strong> (risiko ruptur → hemothorax masif fatal), <strong>Esofagus</strong> (ruptur → mediastinitis), <strong>Duktus thoracicus</strong> (ruptur → kilothorax), <strong>Nervus vagus bilateral</strong>, <strong>Rantai simpatis thoraks</strong>. Mediastinum anterior: timus, aorta asendens, jantung. Mediastinum medial: trachea, bronkus, arkus aorta, vena cava, n. phrenicus. Ini penting karena benda asing di mediastinum posterior = alarm delayed vascular injury!</div>
+  </div>
+
+  <div class="score-box" id="scorebox">
+    <div>Nilai Kamu 🎉</div>
+    <div class="sc-big" id="score-num">0/12</div>
+    <div class="sc-msg" id="score-msg"></div>
+    <button class="btn-restart" onclick="restartQuiz()">🔄 Ulangi Latihan</button>
+  </div>
+</div>
+
+</div><!-- end wrap -->
+
+<script>
+// ========= NAVIGATION =========
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+  document.getElementById('sec-' + id).classList.add('on');
+  const btns = document.querySelectorAll('.nb');
+  btns.forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+      b.classList.add('on');
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ========= COLLAPSIBLE =========
+function toggleCol(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// ========= QUIZ =========
+let answered = new Array(12).fill(false);
+let correct = new Array(12).fill(false);
+let totalAnswered = 0;
+let totalCorrect = 0;
+
+function ans(qIdx, optIdx, correctIdx) {
+  if (answered[qIdx]) return;
+  answered[qIdx] = true;
+  totalAnswered++;
+
+  const qWrap = document.getElementById('q' + qIdx);
+  const opts = qWrap.querySelectorAll('.q-opt');
+  opts.forEach(o => o.disabled = true);
+
+  const selectedOpt = opts[optIdx];
+  const correctOpt = opts[correctIdx];
+
+  if (optIdx === correctIdx) {
+    selectedOpt.classList.add('correct');
+    correct[qIdx] = true;
+    totalCorrect++;
+    document.getElementById('pd' + qIdx).classList.add('ok');
+  } else {
+    selectedOpt.classList.add('wrong');
+    correctOpt.classList.add('correct');
+    document.getElementById('pd' + qIdx).classList.add('no');
+  }
+
+  document.getElementById('exp' + qIdx).classList.add('show');
+  document.getElementById('prog-lbl').textContent = totalAnswered + '/12 dijawab';
+
+  if (totalAnswered === 12) showScore();
+}
+
+function showScore() {
+  const box = document.getElementById('scorebox');
+  box.classList.add('show');
+  document.getElementById('score-num').textContent = totalCorrect + '/12';
+  const pct = Math.round((totalCorrect / 12) * 100);
+  let msg = '';
+  if (pct >= 90) msg = '🏆 Luar biasa! Kamu siap ujian!';
+  else if (pct >= 75) msg = '💪 Bagus! Tinggal poles yang masih salah.';
+  else if (pct >= 60) msg = '📚 Cukup baik, review bagian yang salah ya!';
+  else msg = '🔄 Yuk baca materi lagi dan coba ulang!';
+  document.getElementById('score-msg').textContent = msg + ' (' + pct + '%)';
+  box.scrollIntoView({ behavior: 'smooth' });
+}
+
+function restartQuiz() {
+  answered = new Array(12).fill(false);
+  correct = new Array(12).fill(false);
+  totalAnswered = 0;
+  totalCorrect = 0;
+  document.getElementById('prog-lbl').textContent = '0/12 dijawab';
+  document.getElementById('scorebox').classList.remove('show');
+
+  for (let i = 0; i < 12; i++) {
+    document.getElementById('pd' + i).className = 'pdot';
+    const qWrap = document.getElementById('q' + i);
+    const opts = qWrap.querySelectorAll('.q-opt');
+    opts.forEach(o => {
+      o.disabled = false;
+      o.className = 'q-opt';
+    });
+    const exp = document.getElementById('exp' + i);
+    if (exp) exp.classList.remove('show');
+  }
+  window.scrollTo({ top: document.getElementById('sec-quiz').offsetTop - 80, behavior: 'smooth' });
+}
+
+// Active nav on scroll section
+document.querySelectorAll('.section').forEach(s => {
+  if (s.classList.contains('on')) {
+    const id = s.id.replace('sec-', '');
+    document.querySelectorAll('.nb').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+        b.classList.add('on');
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
