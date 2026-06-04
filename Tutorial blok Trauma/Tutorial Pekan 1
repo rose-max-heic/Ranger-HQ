@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traumatologi: Spinal Cord Injury</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--maroon:#42251D;--cream:#F0E89F;--orange:#FB4D00;--blue:#D2E8FF;--maroon-light:#6b3d32;--maroon-dark:#2a1610;--cream-dark:#d4cc7a;--orange-light:#ff7a3d;--blue-dark:#a8c8e8;--white:#fefefe}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--maroon-dark);color:var(--cream);min-height:100vh;overflow-x:hidden}
+.hero{background:linear-gradient(135deg,var(--maroon-dark) 0%,var(--maroon) 50%,#5a2e22 100%);padding:60px 24px 40px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--orange)}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 40%,rgba(251,77,0,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(210,232,255,.05) 0%,transparent 50%);pointer-events:none}
+.hero-badge{display:inline-block;background:var(--orange);color:#fff;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:20px;text-transform:uppercase}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.1;color:var(--cream);margin-bottom:12px}
+.hero h1 span{color:var(--orange);font-style:italic}
+.hero-sub{font-size:1rem;color:var(--blue);opacity:.85;max-width:600px;margin:0 auto 30px;line-height:1.6}
+.hero-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.stat-pill{background:rgba(240,232,159,.1);border:1px solid rgba(240,232,159,.25);padding:8px 18px;border-radius:30px;font-size:13px;color:var(--cream)}
+.stat-pill strong{color:var(--orange)}
+.nav-tabs{position:sticky;top:0;z-index:100;background:var(--maroon-dark);border-bottom:2px solid rgba(251,77,0,.3);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 16px;gap:4px}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;background:none;border:none;border-bottom:3px solid transparent;color:rgba(240,232,159,.5);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:14px 16px;cursor:pointer;transition:all .25s;white-space:nowrap}
+.tab-btn:hover{color:var(--cream)}
+.tab-btn.active{color:var(--orange);border-bottom-color:var(--orange)}
+.section{display:none;padding:32px 16px;max-width:900px;margin:0 auto;animation:fadeIn .35s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--cream);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--orange);display:flex;align-items:center;gap:12px}
+.section-title .icon{width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.card{background:rgba(66,37,29,.5);border:1px solid rgba(240,232,159,.12);border-radius:12px;padding:20px;margin-bottom:16px;transition:border-color .2s}
+.card:hover{border-color:rgba(251,77,0,.4)}
+.card-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card p,.card li{font-size:14px;line-height:1.75;color:rgba(240,232,159,.85)}
+.card ul{padding-left:18px}
+.card ul li{margin-bottom:5px}
+.pearl{background:linear-gradient(135deg,rgba(251,77,0,.2),rgba(251,77,0,.05));border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;font-size:13.5px;line-height:1.7;color:var(--cream)}
+.pearl strong{color:var(--orange)}
+.pearl .pearl-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:6px}
+.note-box{background:rgba(210,232,255,.08);border:1px solid rgba(210,232,255,.25);border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.7;color:var(--blue);margin:10px 0}
+.warn-box{background:rgba(240,232,159,.08);border:1px solid rgba(240,232,159,.3);border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.7;color:var(--cream);margin:10px 0}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;font-family:'DM Mono',monospace;letter-spacing:.5px}
+.badge-red{background:var(--orange);color:#fff}
+.badge-blue{background:var(--blue);color:var(--maroon)}
+.badge-cream{background:var(--cream);color:var(--maroon)}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:16px}
+.table-wrap{overflow-x:auto;margin:12px 0;border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--maroon);color:var(--cream);padding:10px 12px;text-align:left;font-weight:600;border-bottom:2px solid var(--orange);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid rgba(240,232,159,.08);color:rgba(240,232,159,.85);vertical-align:top;line-height:1.5}
+tr:nth-child(even) td{background:rgba(66,37,29,.4)}
+tr:hover td{background:rgba(251,77,0,.08)}
+.spine-visual{display:flex;gap:20px;margin:16px 0;flex-wrap:wrap}
+.spine-column{flex:1;min-width:200px}
+.spine-segment{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;margin-bottom:4px;font-size:12px;cursor:default;transition:transform .2s}
+.spine-segment:hover{transform:translateX(4px)}
+.seg-cervical{background:rgba(251,77,0,.2);border-left:3px solid var(--orange)}
+.seg-thoracic{background:rgba(210,232,255,.12);border-left:3px solid var(--blue)}
+.seg-lumbar{background:rgba(240,232,159,.12);border-left:3px solid var(--cream)}
+.seg-sacral{background:rgba(107,61,50,.4);border-left:3px solid var(--maroon-light)}
+.seg-label{font-family:'DM Mono',monospace;font-weight:600;font-size:11px;min-width:30px;color:var(--cream)}
+.seg-info{color:rgba(240,232,159,.8);line-height:1.4}
+.syndrome-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.syndrome-card{border-radius:10px;padding:16px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.syndrome-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.syndrome-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc-anterior{background:rgba(251,77,0,.12);border:1px solid rgba(251,77,0,.3)}
+.sc-anterior::before{background:var(--orange)}
+.sc-central{background:rgba(240,232,159,.08);border:1px solid rgba(240,232,159,.25)}
+.sc-central::before{background:var(--cream)}
+.sc-posterior{background:rgba(210,232,255,.08);border:1px solid rgba(210,232,255,.25)}
+.sc-posterior::before{background:var(--blue)}
+.sc-brown{background:rgba(107,61,50,.3);border:1px solid rgba(107,61,50,.6)}
+.sc-brown::before{background:var(--maroon-light)}
+.sc-conus{background:rgba(66,37,29,.5);border:1px solid rgba(66,37,29,.8)}
+.sc-conus::before{background:#8a5544}
+.sc-cauda{background:rgba(251,77,0,.06);border:1px solid rgba(251,77,0,.2)}
+.sc-cauda::before{background:#ff9966}
+.syndrome-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:8px}
+.syndrome-key{font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--orange);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.syndrome-desc{font-size:12.5px;line-height:1.6;color:rgba(240,232,159,.8)}
+.syndrome-trick{margin-top:10px;padding:8px;background:rgba(0,0,0,.2);border-radius:6px;font-size:11.5px;color:var(--cream-dark);font-style:italic}
+.asia-row{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start}
+.asia-grade{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'DM Mono',monospace;font-size:14px;flex-shrink:0}
+.grade-a{background:#c0392b;color:#fff}
+.grade-b{background:#e67e22;color:#fff}
+.grade-c{background:#f1c40f;color:var(--maroon)}
+.grade-d{background:#27ae60;color:#fff}
+.grade-e{background:var(--blue);color:var(--maroon)}
+.asia-desc{font-size:13px;line-height:1.6;color:rgba(240,232,159,.85);padding-top:2px}
+.fracture-item{background:rgba(66,37,29,.4);border:1px solid rgba(240,232,159,.1);border-radius:10px;padding:16px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s}
+.fracture-item:hover{border-color:rgba(251,77,0,.35)}
+.frac-icon{width:44px;height:44px;border-radius:8px;background:var(--maroon);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:1px solid rgba(251,77,0,.3)}
+.frac-content{flex:1}
+.frac-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:4px}
+.frac-mechanism{font-size:12px;color:var(--orange);font-weight:600;font-family:'DM Mono',monospace;margin-bottom:6px;letter-spacing:.3px}
+.frac-desc{font-size:13px;line-height:1.65;color:rgba(240,232,159,.8)}
+.quiz-card{background:rgba(66,37,29,.5);border:1px solid rgba(240,232,159,.12);border-radius:12px;padding:20px;margin-bottom:18px}
+.quiz-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.quiz-q{font-size:15px;font-weight:500;color:var(--cream);margin-bottom:14px;line-height:1.6}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-radius:8px;border:1px solid rgba(240,232,159,.12);background:rgba(0,0,0,.15);cursor:pointer;transition:all .2s;font-size:13px;line-height:1.5;color:rgba(240,232,159,.8);text-align:left;width:100%}
+.option:hover{border-color:rgba(251,77,0,.4);background:rgba(251,77,0,.08);color:var(--cream)}
+.option.correct{background:rgba(39,174,96,.2);border-color:#27ae60;color:#7dffb0}
+.option.wrong{background:rgba(192,57,43,.2);border-color:#c0392b;color:#ffaaaa}
+.option-letter{font-family:'DM Mono',monospace;font-weight:700;color:var(--orange);flex-shrink:0;width:16px}
+.explanation{margin-top:12px;padding:12px;background:rgba(39,174,96,.1);border:1px solid rgba(39,174,96,.3);border-radius:8px;font-size:13px;line-height:1.7;color:rgba(240,232,159,.9);display:none}
+.explanation.show{display:block}
+.quiz-btn{margin-top:14px;background:var(--orange);color:#fff;border:none;padding:9px 20px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+.quiz-btn:hover{background:#e04400}
+.score-display{text-align:center;padding:20px;background:rgba(66,37,29,.5);border:1px solid var(--orange);border-radius:12px;margin-bottom:20px}
+.score-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--orange)}
+.flow-steps{display:flex;flex-direction:column;gap:4px;margin:12px 0}
+.flow-step{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(66,37,29,.4);border-radius:8px;font-size:13px;line-height:1.5;color:rgba(240,232,159,.85);position:relative}
+.flow-step::after{content:'▼';position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--orange);z-index:1}
+.flow-step:last-child::after{display:none}
+.flow-num{width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-weight:700;font-family:'DM Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scenario-box{background:rgba(210,232,255,.06);border:1px solid rgba(210,232,255,.2);border-radius:10px;padding:16px;margin-bottom:20px;font-size:13.5px;line-height:1.7;color:var(--blue)}
+.scenario-title{font-family:'Playfair Display',serif;color:var(--cream);font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tag{background:rgba(251,77,0,.15);border:1px solid rgba(251,77,0,.3);color:var(--cream);padding:3px 10px;border-radius:20px;font-size:12px}
+.accordion-item{background:rgba(66,37,29,.4);border:1px solid rgba(240,232,159,.1);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.accordion-header{padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--cream);transition:background .2s}
+.accordion-header:hover{background:rgba(251,77,0,.08)}
+.accordion-arrow{font-size:10px;color:var(--orange);transition:transform .25s}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 16px;font-size:13.5px;line-height:1.75;color:rgba(240,232,159,.8)}
+.accordion-body.open{max-height:800px;padding-bottom:14px}
+.accordion-arrow.open{transform:rotate(180deg)}
+.accordion-body ul{padding-left:18px;margin-top:8px}
+.accordion-body li{margin-bottom:5px}
+.footer{text-align:center;padding:30px 16px;color:rgba(240,232,159,.4);font-size:12px;border-top:1px solid rgba(251,77,0,.15);margin-top:30px}
+code{font-family:'DM Mono',monospace;background:rgba(0,0,0,.2);padding:1px 5px;border-radius:3px;font-size:12px;color:var(--cream-dark)}
+h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream);margin:18px 0 10px}
+h4{font-size:13px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;margin:12px 0 6px;font-family:'DM Mono',monospace}
+@media(max-width:600px){.hero{padding:40px 16px 30px}.section{padding:24px 14px}.grid-2{grid-template-columns:1fr}.syndrome-grid{grid-template-columns:1fr}.hero-stats{gap:10px}.spine-visual{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Blok Traumatologi - Pekan 1</div>
+  <h1>Spinal Cord <span>Injury</span></h1>
+  <p class="hero-sub">Panduan komprehensif — anatomi, patofisiologi, klasifikasi, tatalaksana, dan latihan soal. Siap untuk quiz-mu hari ini!</p>
+  <div class="hero-stats">
+    <div class="stat-pill"><strong>13</strong> Soal Latihan</div>
+    <div class="stat-pill"><strong>6</strong> Sindrom SCI</div>
+    <div class="stat-pill"><strong>5</strong> Tipe Fraktur</div>
+    <div class="stat-pill"><strong>5</strong> ASIA Grade</div>
+  </div>
+</div>
+
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('skenario',this)">Skenario</button>
+  <button class="tab-btn" onclick="showTab('anatomi',this)">Anatomi</button>
+  <button class="tab-btn" onclick="showTab('patofisio',this)">Patofisiologi</button>
+  <button class="tab-btn" onclick="showTab('klasifikasi',this)">Klasifikasi</button>
+  <button class="tab-btn" onclick="showTab('fraktur',this)">Fraktur Spinal</button>
+  <button class="tab-btn" onclick="showTab('sindrom',this)">Sindrom SCI</button>
+  <button class="tab-btn" onclick="showTab('tatalaksana',this)">Tatalaksana</button>
+  <button class="tab-btn" onclick="showTab('quiz',this)">Quiz</button>
+</div>
+
+<!-- SKENARIO -->
+<div id="tab-skenario" class="section active">
+  <div class="section-title"><div class="icon">📋</div>Analisis Skenario</div>
+
+  <div class="scenario-box">
+    <div class="scenario-title">📖 Ringkasan Kasus</div>
+    Pria 40 tahun, datang ke IGD dengan kelemahan keempat ekstremitas selama 3 hari.
+    Mekanisme: terpeleset → jatuh ke kanan → berdiri → jatuh ke kiri → kepala kiri membentur dinding.
+    Hilang kesadaran +/- 5 menit. Keluhan: nyeri leher, sakit kepala, retensi urin+feses, sesak napas, mual.
+  </div>
+
+  <h3>Temuan Kritis (SOAP)</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Tanda Vital & Pemfis</div>
+      <ul>
+        <li>TD 120/80, Nadi 88 — <span class="badge badge-blue">NORMAL</span></li>
+        <li>RR 28 — <span class="badge badge-red">TINGGI</span> (normal &lt;20)</li>
+        <li>Suhu 36°C — normal</li>
+        <li>Bengkak merah hangat di servikal posterior</li>
+        <li>Distensi suprapubik + bising usus turun</li>
+      </ul>
+      <div class="pearl" style="margin-top:10px">
+        <span class="pearl-label">Clinical Pearl</span>
+        RR naik tapi TD & Nadi normal — bukan syok hipovolemik klasik. Waspadai spinal shock atau hipoksia dari kelemahan otot nafas! Pada SCI servikal, nervus phrenicus (C3-C5) terancam.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Pemeriksaan Neurologis</div>
+      <ul>
+        <li>GCS 15 (E4M6V5) — <span class="badge badge-blue">COMPOS MENTIS</span></li>
+        <li>Pupil isokor 3mm, reflek cahaya normal</li>
+        <li>Saraf kranial I-XII utuh</li>
+        <li>Kekuatan: <code>2/2</code> atas, <code>2/1</code> bawah</li>
+        <li>Hipoestesia di bawah C5, gangguan propriosepsi</li>
+        <li>Refleks fisiologis normal, refleks patologis (-)</li>
+        <li>Klonus (-) → masih fase spinal shock</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Pemeriksaan Penunjang</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Foto Servikal AP+Lateral</div>
+      <p>Fraktur kompresi vertebra <strong>C4-C6</strong></p>
+      <div class="note-box">Ini adalah wedge fracture — corpus vertebra hancur lebih di anterior akibat gaya fleksi + aksial.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Foto Abdomen Polos</div>
+      <p>Dilatasi loop usus</p>
+      <div class="note-box">Gambaran ileus paralitik — bukan obstruksi mekanik, tapi akibat hilangnya kontrol saraf otonom pada usus akibat SCI.</div>
+    </div>
+  </div>
+
+  <div class="pearl">
+    <span class="pearl-label">Mengapa GCS 15 padahal lemah 4 anggota gerak?</span>
+    Jalur kesadaran (ARAS ke korteks serebri) BERBEDA dari jalur motorik (traktus kortikospinal di medula spinalis). Lesi di medula spinalis servikal tidak mempengaruhi kesadaran selama otak tidak cedera! Hilang kesadaran 5 menit = concussion ringan akibat benturan kepala, bukan dari SCI-nya.
+  </div>
+
+  <h3>Diagnosis</h3>
+  <div class="tag-row">
+    <span class="tag" style="background:rgba(251,77,0,.25);border-color:var(--orange)">Central Cord Syndrome</span>
+    <span class="tag">Incomplete SCI C4-C6</span>
+    <span class="tag">Fraktur kompresi C4-C6</span>
+    <span class="tag">Spinal Shock fase akut</span>
+  </div>
+  <div class="warn-box" style="margin-top:12px">
+    <strong>Mengapa bukan complete SCI?</strong> Karena masih ada sedikit gerakan (skor 2/2, 2/1) — artinya ada serabut saraf yang tidak putus total. Complete SCI = skor 0 di semua level.
+  </div>
+</div>
+
+<!-- ANATOMI -->
+<div id="tab-anatomi" class="section">
+  <div class="section-title"><div class="icon">🦴</div>Anatomi Vertebra &amp; Medula Spinalis</div>
+
+  <h3>Segmentasi Vertebra</h3>
+  <div class="spine-visual">
+    <div class="spine-column">
+      <div class="spine-segment seg-cervical">
+        <span class="seg-label">C1-C8</span>
+        <div class="seg-info"><strong>Servikal</strong> (7 vertebra, 8 saraf) — Diafragma (C3-C5), lengan, leher</div>
+      </div>
+      <div class="spine-segment seg-thoracic">
+        <span class="seg-label">T1-T12</span>
+        <div class="seg-info"><strong>Torakal</strong> — Otot dada, abdomen atas</div>
+      </div>
+      <div class="spine-segment seg-lumbar">
+        <span class="seg-label">L1-L5</span>
+        <div class="seg-info"><strong>Lumbal</strong> — Tungkai bawah, pangkal paha</div>
+      </div>
+      <div class="spine-segment seg-sacral">
+        <span class="seg-label">S1-S5</span>
+        <div class="seg-info"><strong>Sakral</strong> — Perineum, kandung kemih, sfingter</div>
+      </div>
+    </div>
+    <div class="spine-column">
+      <div class="card" style="height:100%">
+        <div class="card-title">Myotom Penting (Hafal!)</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Level</th><th>Fungsi</th></tr>
+            <tr><td><code>C3-C5</code></td><td>Diafragma (pernafasan!)</td></tr>
+            <tr><td><code>C5-C6</code></td><td>Fleksi siku (biceps)</td></tr>
+            <tr><td><code>C6-C7</code></td><td>Ekstensi siku (triceps)</td></tr>
+            <tr><td><code>C7-C8</code></td><td>Fleksi jari</td></tr>
+            <tr><td><code>L2-L4</code></td><td>Fleksi paha (iliopsoas)</td></tr>
+            <tr><td><code>L3-L4</code></td><td>Ekstensi lutut (quadriceps)</td></tr>
+            <tr><td><code>L4-L5</code></td><td>Dorsofleksi kaki</td></tr>
+            <tr><td><code>S1-S2</code></td><td>Plantar fleksi kaki</td></tr>
+            <tr><td><code>S2-S4</code></td><td>Sfingter vesika/ani</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pearl">
+    <span class="pearl-label">Kenapa pasien susah nafas?</span>
+    Cedera C4-C6 mengenai jalur nervus phrenicus (C3-C5) yang mengontrol diafragma! Semakin tinggi level cedera servikal, semakin besar risiko gagal nafas. <strong>C3 ke atas = butuh ventilator seumur hidup!</strong>
+  </div>
+
+  <h3>Dua Jalur Sensorik Utama</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title" style="color:var(--orange)">Traktus Spinotalamikus</div>
+      <ul>
+        <li><strong>Modalitas:</strong> Nyeri, suhu, raba kasar</li>
+        <li><strong>Perjalanan:</strong> Masuk → menyeberang LANGSUNG (ipsilateral masuk, kontralateral naik)</li>
+        <li><strong>Posisi:</strong> Anterolateral medula spinalis</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--blue)">Kolumna Dorsalis (DCML)</div>
+      <ul>
+        <li><strong>Modalitas:</strong> Propriosepsi, vibrasi, raba halus, posisi sendi</li>
+        <li><strong>Perjalanan:</strong> Masuk → naik IPSILATERAL dulu, baru menyeberang di batang otak</li>
+        <li><strong>Posisi:</strong> Posterior/dorsal medula spinalis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pearl">
+    <span class="pearl-label">Dermatom C5 — Kenapa Penting?</span>
+    Pada kasus ini, hipoestesia ditemukan di bawah dermatom C5. Dermatom = area kulit yang dipersarafi satu segmen spinal. Level sensoris = segmen paling kaudal dengan sensasi normal. Fraktur menekan medula di C4-C6 → defisit di C5 ke bawah. Rumus: <strong>lesi di level X = defisit di X dan bawahnya.</strong>
+  </div>
+
+  <h3>Penampang Medula Spinalis (Cross Section)</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Struktur</th><th>Posisi</th><th>Fungsi</th></tr>
+      <tr><td><strong>Cornu anterior</strong></td><td>Tanduk depan abu-abu</td><td>Motor neuron bawah (LMN)</td></tr>
+      <tr><td><strong>Cornu posterior</strong></td><td>Tanduk belakang abu-abu</td><td>Relay sensorik</td></tr>
+      <tr><td><strong>Traktus kortikospinal</strong></td><td>Kolumna lateral putih</td><td>Motorik volunter (UMN)</td></tr>
+      <tr><td><strong>Traktus spinotalamikus</strong></td><td>Anterolateral putih</td><td>Nyeri &amp; suhu (menyeberang)</td></tr>
+      <tr><td><strong>Kolumna dorsalis</strong></td><td>Posterior putih</td><td>Propriosepsi (ipsilateral)</td></tr>
+    </table>
+  </div>
+
+  <div class="pearl">
+    <span class="pearl-label">Dari Kuliah Pakar — SCIWORA!</span>
+    Ligamentum adalah komponen terkuat mempertahankan cervical. Cedera ligamen (tanpa fraktur) bisa menyebabkan defisit neurologis meski foto polos NORMAL. Ini disebut <strong>SCIWORA</strong> (Spinal Cord Injury Without Radiographic Abnormality). Mekanisme: whiplash, hiperekstensi mendadak.
+  </div>
+</div>
+
+<!-- PATOFISIOLOGI -->
+<div id="tab-patofisio" class="section">
+  <div class="section-title"><div class="icon">⚡</div>Patogenesis &amp; Patofisiologi</div>
+
+  <h3>Primary vs Secondary Injury</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title" style="color:var(--orange)">Primary Injury</div>
+      <p>Kerusakan langsung saat trauma — tidak bisa dicegah setelah kejadian.</p>
+      <ul style="margin-top:8px">
+        <li>Kompresi mekanik medula</li>
+        <li>Kontusio/memar jaringan saraf</li>
+        <li>Laserasi serabut saraf</li>
+        <li>Transeksi (putus total)</li>
+      </ul>
+      <div class="note-box" style="margin-top:8px">Target kita: <strong>Mencegah secondary injury!</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:#ff9966">Secondary Injury</div>
+      <p>Kerusakan yang terjadi jam-hari setelah trauma — inilah yang bisa kita cegah!</p>
+      <ul style="margin-top:8px">
+        <li>Iskemia vaskular</li>
+        <li>Edema → tekanan meningkat</li>
+        <li>Eksitotoksisitas glutamat</li>
+        <li>Peroksidasi lipid (radikal bebas)</li>
+        <li>Apoptosis sel saraf</li>
+        <li>Inflamasi → puncak hari 2-3!</li>
+      </ul>
+      <div class="pearl" style="margin-top:8px">
+        <span class="pearl-label">Clinical Pearl</span>
+        <strong>Hipoksia</strong> adalah penyebab secondary injury terbesar! Jaga airway &amp; saturasi O2 sejak awal!
+      </div>
+    </div>
+  </div>
+
+  <h3>Timeline Nekrosis Medula Spinalis</h3>
+  <div class="pearl">
+    <span class="pearl-label">KRUSIAL — Sering Keluar di Soal!</span>
+    Proses nekrosis pada SCI terjadi dalam <strong>72 JAM (3 hari)</strong> setelah cedera. Window treatment dengan steroid adalah &lt; 8 jam pertama.
+  </div>
+  <div class="flow-steps" style="margin-top:14px">
+    <div class="flow-step"><div class="flow-num">1</div><span><strong>Menit-Jam pertama:</strong> Hemorrhagic necrosis di grey matter, edema sel</span></div>
+    <div class="flow-step"><div class="flow-num">2</div><span><strong>24-72 jam:</strong> Puncak inflamasi, edema maksimal, white matter ikut rusak — KRITIS!</span></div>
+    <div class="flow-step"><div class="flow-num">3</div><span><strong>Hari 3-7:</strong> Fase subakut, mulai terbentuk kavitasi</span></div>
+    <div class="flow-step"><div class="flow-num">4</div><span><strong>Minggu-Bulan:</strong> Astrogliosis, pembentukan scar glial — hambatan regenerasi</span></div>
+  </div>
+
+  <h3>Spinal Shock — Konsep Wajib!</h3>
+  <div class="card">
+    <p>Spinal shock = <strong>hilangnya SEMUA fungsi neurologis</strong> (sensorik, motorik, refleks, otonom) di bawah level lesi, terjadi segera setelah SCI akut. Ini bukan "shock" hemodinamik — istilah neurologis!</p>
+    <div class="grid-2" style="margin-top:12px">
+      <div>
+        <h4>Fase Akut (jam-hari pertama)</h4>
+        <ul>
+          <li>Arefleksia (semua refleks hilang)</li>
+          <li>Flaksid (hipotonus)</li>
+          <li>Retensi urin &amp; feses</li>
+          <li>Hipotensi + bradikardi (neurogenik)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Fase Lanjut (minggu-bulan)</h4>
+        <ul>
+          <li>Refleks mulai kembali (hiperrefleksia)</li>
+          <li>Spastisitas muncul</li>
+          <li>Refleks Babinski (+)</li>
+          <li>Tonus meningkat</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pearl" style="margin-top:12px">
+      <span class="pearl-label">Kenapa pasien kita klonus (-) dan refleks patologis (-)?</span>
+      Karena masih dalam fase AKUT spinal shock! Refleks akan kembali dan bahkan menjadi hiperaktif setelah fase akut berlalu. Tanda berakhirnya spinal shock = kembalinya <strong>bulbocavernous reflex</strong>.
+    </div>
+  </div>
+
+  <h3>Mekanisme Retensi Urin &amp; Ileus</h3>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="flow-num">1</div><span>SCI servikal → gangguan jalur saraf otonom desendens</span></div>
+    <div class="flow-step"><div class="flow-num">2</div><span>Kontrol parasimpatis kandung kemih terganggu (S2-S4) → otot detrusor arefleks</span></div>
+    <div class="flow-step"><div class="flow-num">3</div><span>Kandung kemih tidak bisa berkontraksi → <strong>retensi urin</strong> → distensi suprapubik</span></div>
+    <div class="flow-step"><div class="flow-num">4</div><span>Kontrol saraf otonom usus terganggu → motilitas menurun → <strong>ileus paralitik</strong></span></div>
+    <div class="flow-step"><div class="flow-num">5</div><span>Dilatasi loop usus pada foto abdomen + bising usus menurun</span></div>
+  </div>
+
+  <h3>Syok Neurogenik vs Hipovolemik</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Parameter</th><th>Syok Neurogenik</th><th>Syok Hipovolemik</th></tr>
+      <tr><td>Mekanisme</td><td>Hilang tonus simpatis → vasodilasi</td><td>Kehilangan volume darah</td></tr>
+      <tr><td>Tekanan Darah</td><td>Turun</td><td>Turun</td></tr>
+      <tr><td>Nadi</td><td>Normal/bradikardi</td><td>Takikardi</td></tr>
+      <tr><td>Kulit</td><td>Hangat, kering</td><td>Dingin, basah</td></tr>
+      <tr><td>Terapi utama</td><td>Vasopressor, atropin</td><td>Resusitasi cairan</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- KLASIFIKASI -->
+<div id="tab-klasifikasi" class="section">
+  <div class="section-title"><div class="icon">📊</div>Klasifikasi SCI</div>
+
+  <h3>Skala Kekuatan Otot (MRC Scale)</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Skor</th><th>Deskripsi</th><th>Contoh</th></tr>
+      <tr><td><code>0</code></td><td>Tidak ada kontraksi</td><td>Total paralisis</td></tr>
+      <tr><td><code>1</code></td><td>Kontraksi terlihat/teraba, tanpa gerakan</td><td>Otot berkedut saja</td></tr>
+      <tr><td><code>2</code></td><td>Gerak aktif, <strong>tidak melawan gravitasi</strong></td><td>Bisa geser tangan di kasur</td></tr>
+      <tr><td><code>3</code></td><td>Gerak aktif, melawan gravitasi</td><td>Bisa angkat tangan</td></tr>
+      <tr><td><code>4</code></td><td>Melawan gravitasi + sedikit tahanan</td><td>Ada tapi lemah</td></tr>
+      <tr><td><code>5</code></td><td>Kekuatan normal</td><td>Normal</td></tr>
+    </table>
+  </div>
+  <div class="pearl">
+    <span class="pearl-label">Analisis Kasus</span>
+    Pasien: <strong>2/2 atas, 2/1 bawah</strong>. Semua ekstremitas bisa digerakkan tapi TIDAK bisa melawan gravitasi. Tungkai kiri (skor 1) lebih berat dari tungkai kanan (skor 2) → asimetri → mendukung incomplete injury!
+  </div>
+
+  <h3>Skala ASIA</h3>
+  <div class="card">
+    <div class="asia-row">
+      <div class="asia-grade grade-a">A</div>
+      <div class="asia-desc"><strong>Complete:</strong> Tidak ada fungsi sensorik/motorik pada segmen sakral S4-S5</div>
+    </div>
+    <div class="asia-row">
+      <div class="asia-grade grade-b">B</div>
+      <div class="asia-desc"><strong>Incomplete:</strong> Fungsi sensorik masih ada di bawah lesi sampai S4-S5, tapi motorik tidak ada</div>
+    </div>
+    <div class="asia-row">
+      <div class="asia-grade grade-c">C</div>
+      <div class="asia-desc"><strong>Incomplete:</strong> Fungsi motorik masih ada di bawah lesi, tapi sebagian besar otot kunci &lt; grade 3</div>
+    </div>
+    <div class="asia-row">
+      <div class="asia-grade grade-d">D</div>
+      <div class="asia-desc"><strong>Incomplete:</strong> Fungsi motorik masih ada di bawah lesi, sebagian besar otot kunci &ge; grade 3</div>
+    </div>
+    <div class="asia-row">
+      <div class="asia-grade grade-e">E</div>
+      <div class="asia-desc"><strong>Normal:</strong> Fungsi sensorik dan motorik normal</div>
+    </div>
+    <div class="pearl" style="margin-top:14px">
+      <span class="pearl-label">Kunci Membedakan A vs B</span>
+      Perbedaan Grade A dan B adalah ada/tidaknya <strong>sacral sparing</strong> — yaitu sisa fungsi sensorik/motorik di area sakral (S4-S5). Jika ada sacral sparing → incomplete → prognosis lebih baik!
+    </div>
+  </div>
+
+  <h3>Terminologi Defisit Neurologis</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Berdasarkan Distribusi</div>
+      <ul>
+        <li><strong>Tetraplegia/Quadriplegia:</strong> 4 ekstremitas lumpuh (cedera servikal)</li>
+        <li><strong>Paraplegia:</strong> 2 ekstremitas bawah lumpuh (cedera torakal/lumbal)</li>
+        <li><strong>Hemiplegia:</strong> Satu sisi tubuh (biasanya lesi otak)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Berdasarkan Derajat</div>
+      <ul>
+        <li><strong>Complete:</strong> Tidak ada fungsi sama sekali di bawah lesi</li>
+        <li><strong>Incomplete:</strong> Masih ada sebagian fungsi</li>
+        <li><strong>Sacral Sparing:</strong> Ada sisa fungsi di S4-S5 → tanda incomplete</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>GCS — Glasgow Coma Scale</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Komponen</th><th>Skor</th><th>Keterangan</th></tr>
+      <tr><td rowspan="4"><strong>Eye (E)</strong></td><td>4</td><td>Buka spontan</td></tr>
+      <tr><td>3</td><td>Buka dengan perintah verbal</td></tr>
+      <tr><td>2</td><td>Buka dengan nyeri</td></tr>
+      <tr><td>1</td><td>Tidak buka</td></tr>
+      <tr><td rowspan="6"><strong>Motor (M)</strong></td><td>6</td><td>Mengikuti perintah</td></tr>
+      <tr><td>5</td><td>Melokalisasi nyeri</td></tr>
+      <tr><td>4</td><td>Menarik dari nyeri</td></tr>
+      <tr><td>3</td><td>Fleksi abnormal (dekortikasi)</td></tr>
+      <tr><td>2</td><td>Ekstensi abnormal (deserebrasi)</td></tr>
+      <tr><td>1</td><td>Tidak ada respon</td></tr>
+      <tr><td rowspan="5"><strong>Verbal (V)</strong></td><td>5</td><td>Orientasi penuh</td></tr>
+      <tr><td>4</td><td>Bingung tapi bisa bicara</td></tr>
+      <tr><td>3</td><td>Kata-kata tidak tepat</td></tr>
+      <tr><td>2</td><td>Suara tidak bermakna</td></tr>
+      <tr><td>1</td><td>Tidak ada suara</td></tr>
+    </table>
+  </div>
+  <div class="note-box">Pasien kita: E4+M6+V5 = <strong>15</strong> = Compos Mentis</div>
+</div>
+
+<!-- FRAKTUR -->
+<div id="tab-fraktur" class="section">
+  <div class="section-title"><div class="icon">💥</div>Jenis-Jenis Fraktur Spinal</div>
+
+  <div class="note-box" style="margin-bottom:20px">
+    Fraktur spinal diklasifikasikan berdasarkan <strong>mekanisme trauma</strong> dan lokasi anatomis. Memahami mekanisme membantu memprediksi stabilitas dan cedera medula!
+  </div>
+
+  <div class="fracture-item">
+    <div class="frac-icon">🗜️</div>
+    <div class="frac-content">
+      <div class="frac-name">Wedge Fracture (Fraktur Kompresi)</div>
+      <div class="frac-mechanism">Mekanisme: Fleksi + Kompresi aksial</div>
+      <div class="frac-desc">Bagian anterior corpus vertebrae lebih hancur daripada posterior → bentuk baji (wedge). Biasanya <strong>stabil</strong> karena ligamen posterior utuh. <strong>Ini yang terjadi pada kasus kita: fraktur kompresi C4-C6.</strong></div>
+      <div class="pearl" style="margin-top:8px;padding:8px 12px;font-size:12.5px"><strong>Mnemonic:</strong> "Wedge = punggung buku yang remuk bagian depan saja"</div>
+    </div>
+  </div>
+
+  <div class="fracture-item">
+    <div class="frac-icon">💣</div>
+    <div class="frac-content">
+      <div class="frac-name">Burst Fracture</div>
+      <div class="frac-mechanism">Mekanisme: Kompresi aksial murni (gaya dari atas)</div>
+      <div class="frac-desc">Corpus vertebra hancur meledak ke semua arah — fragmen bisa masuk ke kanalis spinalis! Lebih tidak stabil daripada wedge. Sering pada jatuh dari ketinggian. Khas pada C1 → Jefferson fracture!</div>
+      <div class="warn-box" style="margin-top:6px;font-size:12px">Fragmentasi ke posterior → berisiko tinggi mengenai medula spinalis!</div>
+    </div>
+  </div>
+
+  <div class="fracture-item">
+    <div class="frac-icon">🏺</div>
+    <div class="frac-content">
+      <div class="frac-name">Jefferson Fracture</div>
+      <div class="frac-mechanism">Mekanisme: Benturan di puncak kepala → kompresi vertikal → C1 burst</div>
+      <div class="frac-desc">Fraktur burst pada vertebra C1 (atlas). Arcus posterior dan anterior C1 retak secara bilateral. Mekanisme: menyelam ke kolam dangkal, jatuh menimpa kepala. Foto open-mouth view → lateral mass C1 keluar melewati C2.</div>
+      <div class="pearl" style="margin-top:8px;padding:8px 12px;font-size:12.5px"><strong>Pearl:</strong> "Atlas meledak seperti cincin yang diinjak dari atas"</div>
+    </div>
+  </div>
+
+  <div class="fracture-item">
+    <div class="frac-icon">🪓</div>
+    <div class="frac-content">
+      <div class="frac-name">Hangman's Fracture</div>
+      <div class="frac-mechanism">Mekanisme: Hiperekstensi + distraksi → fraktur pedicle C2</div>
+      <div class="frac-desc">Fraktur bilateral pada pedicle C2 (axis). Paradoksnya, sering TIDAK ada defisit neurologis karena kanalis C1-C2 lebar! Jika ada kompresi medula → fatal karena dekat pusat napas. Sering pada kecelakaan mobil (whiplash hiperekstensi).</div>
+    </div>
+  </div>
+
+  <div class="fracture-item">
+    <div class="frac-icon">🍕</div>
+    <div class="frac-content">
+      <div class="frac-name">Slice Fracture (Fraktur Irisan)</div>
+      <div class="frac-mechanism">Mekanisme: Fleksi + Rotasi → mengenai ligamen posterior</div>
+      <div class="frac-desc">Ligamentum posterior robek → fragmen anterior bergeser/mengiris ke anterior. Fraktur yang <strong>tidak stabil</strong>! Pada soal: fraktur yang mengenai ligamentum posterior dan menyebabkan kompresi ke arah anterior = Slice Fracture!</div>
+      <div class="pearl" style="margin-top:8px;padding:8px 12px;font-size:12.5px"><strong>Pearl:</strong> "Slice = iris seperti memotong, ligamen posterior sobek, vertebra geser ke depan"</div>
+    </div>
+  </div>
+
+  <div class="pearl" style="margin-top:16px">
+    <span class="pearl-label">Ringkasan Perbandingan Fraktur</span>
+    <div class="table-wrap" style="margin-top:8px">
+      <table>
+        <tr><th>Jenis</th><th>Mekanisme</th><th>Level Khas</th><th>Stabilitas</th></tr>
+        <tr><td>Wedge/Kompresi</td><td>Fleksi + kompresi</td><td>Semua level</td><td>Relatif stabil</td></tr>
+        <tr><td>Burst</td><td>Kompresi aksial</td><td>Semua level</td><td>Tidak stabil</td></tr>
+        <tr><td>Jefferson</td><td>Kompresi aksial C1</td><td>C1</td><td>Bervariasi</td></tr>
+        <tr><td>Hangman</td><td>Hiperekstensi</td><td>C2</td><td>Tidak stabil</td></tr>
+        <tr><td>Slice</td><td>Fleksi + rotasi</td><td>Semua level</td><td>Sangat tidak stabil</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SINDROM -->
+<div id="tab-sindrom" class="section">
+  <div class="section-title"><div class="icon">🧩</div>Sindrom-Sindrom SCI</div>
+
+  <div class="note-box" style="margin-bottom:16px">
+    Sindrom SCI inkomplet memiliki pola defisit khas sesuai lokasi anatomis lesi di dalam medula spinalis. Hafal pola setiap sindrom — selalu muncul di soal!
+  </div>
+
+  <div class="syndrome-grid">
+    <div class="syndrome-card sc-central">
+      <div class="syndrome-name">Central Cord Syndrome</div>
+      <div class="syndrome-key">Most Common Incomplete SCI!</div>
+      <div class="syndrome-desc">
+        <strong>Defisit:</strong><br>
+        - Kelemahan lengan &gt; tungkai (KHAS!)<br>
+        - Gangguan sensorik bervariasi<br>
+        - Disfungsi bladder<br>
+        - Sacral sparing (+)<br><br>
+        <strong>Mekanisme:</strong> Hiperekstensi pada servikal, sering pada orang tua dengan stenosis. Iskemia di sentral medula.
+      </div>
+      <div class="syndrome-trick">Trik: "Pusat cord rusak, pinggir (sakral) aman. Lengan lebih lemah dari kaki karena traktus untuk lengan ada di tengah!"</div>
+    </div>
+
+    <div class="syndrome-card sc-anterior">
+      <div class="syndrome-name">Anterior Cord Syndrome</div>
+      <div class="syndrome-key">Prognosis Terburuk di antara Incomplete!</div>
+      <div class="syndrome-desc">
+        <strong>Defisit:</strong><br>
+        - Hilang motorik bilateral<br>
+        - Hilang nyeri &amp; suhu bilateral<br>
+        - <strong>Propriosepsi &amp; vibrasi NORMAL!</strong><br><br>
+        <strong>Mekanisme:</strong> Infark arteri spinalis anterior (trauma, oklusi vaskular).
+      </div>
+      <div class="syndrome-trick">Trik: "Anterior hilang (motorik + nyeri), tapi bisa masih merasakan sentuhan halus dan posisi (kolumna dorsal selamat)"</div>
+    </div>
+
+    <div class="syndrome-card sc-posterior">
+      <div class="syndrome-name">Posterior Cord Syndrome</div>
+      <div class="syndrome-key">Paling Jarang!</div>
+      <div class="syndrome-desc">
+        <strong>Defisit:</strong><br>
+        - Hilang propriosepsi, vibrasi, raba halus bilateral<br>
+        - <strong>Motorik &amp; nyeri/suhu NORMAL!</strong><br><br>
+        <strong>Gejala:</strong> Ataksia sensorik — jalan sempoyongan tanpa tahu posisi kaki!
+      </div>
+      <div class="syndrome-trick">Trik: "Posterior = propriosepsi hilang = pasien tidak tahu posisi kaki = jalan tidak koordinasi"</div>
+    </div>
+
+    <div class="syndrome-card sc-brown">
+      <div class="syndrome-name">Brown-Sequard Syndrome</div>
+      <div class="syndrome-key">Hemiseksi — Paling Mudah Dikenali!</div>
+      <div class="syndrome-desc">
+        <strong>Ipsilateral lesi:</strong><br>
+        - Hilang motorik<br>
+        - Hilang propriosepsi<br><br>
+        <strong>Kontralateral lesi:</strong><br>
+        - Hilang nyeri &amp; suhu<br><br>
+        <strong>Mekanisme:</strong> Luka tusuk, fraktur lateral.
+      </div>
+      <div class="syndrome-trick">Trik: "Setengah body = setengah defisit. Motorik+propriosepsi ipsilateral, nyeri+suhu kontralateral (sudah menyeberang!)"</div>
+    </div>
+
+    <div class="syndrome-card sc-conus">
+      <div class="syndrome-name">Conus Medullaris Syndrome</div>
+      <div class="syndrome-key">Level T12-L1</div>
+      <div class="syndrome-desc">
+        <strong>Defisit:</strong><br>
+        - Campuran UMN + LMN<br>
+        - Disfungsi bladder &amp; bowel berat<br>
+        - Gangguan seksual<br>
+        - Anestesi "saddle" (S3-S5)<br>
+        - Sedikit kelemahan tungkai
+      </div>
+      <div class="syndrome-trick">Trik: "Ekor medula — sfingter dan sakral yang kena, tungkai relatif baik, tapi campuran UMN+LMN membingungkan"</div>
+    </div>
+
+    <div class="syndrome-card sc-cauda">
+      <div class="syndrome-name">Cauda Equina Syndrome</div>
+      <div class="syndrome-key">LMN Pure — Ekor Kuda!</div>
+      <div class="syndrome-desc">
+        <strong>Defisit:</strong><br>
+        - <strong>Paralisis FLAKSID</strong> tungkai bawah<br>
+        - Hilang refleks tungkai bawah<br>
+        - Anestesi saddle (perineum, anus)<br>
+        - Retensi/inkontinensia urin &amp; feses<br>
+        - Nyeri radikuler
+      </div>
+      <div class="syndrome-trick">Trik: "Bukan medula — akar saraf saja yang kena → LMN pure = flaksid + arefleks. Seperti ujung tali yang terurai!"</div>
+    </div>
+  </div>
+
+  <div class="pearl" style="margin-top:16px">
+    <span class="pearl-label">Peta Cepat Membedakan Sindrom SCI</span>
+    <div class="table-wrap" style="margin-top:8px">
+      <table>
+        <tr><th>Sindrom</th><th>Motorik</th><th>Nyeri/Suhu</th><th>Propriosepsi</th><th>Keyword</th></tr>
+        <tr><td>Central Cord</td><td>Lengan &gt; Tungkai</td><td>Turun</td><td>Turun</td><td>Sacral sparing, lansia, hiperekstensi</td></tr>
+        <tr><td>Anterior Cord</td><td>Hilang bilateral</td><td>Hilang bilateral</td><td><strong>Normal!</strong></td><td>A. spinalis anterior, prognosis buruk</td></tr>
+        <tr><td>Posterior Cord</td><td>Normal</td><td>Normal</td><td><strong>Hilang bilateral!</strong></td><td>Ataksia sensorik</td></tr>
+        <tr><td>Brown-Sequard</td><td>Hilang ipsilateral</td><td>Hilang kontralateral</td><td>Hilang ipsilateral</td><td>Luka tusuk, hemiseksi</td></tr>
+        <tr><td>Conus Med.</td><td>Campuran UMN+LMN</td><td>Turun saddle</td><td>Turun</td><td>Sfingter + seksual, T12-L1</td></tr>
+        <tr><td>Cauda Equina</td><td><strong>Flaksid!</strong></td><td>Turun saddle</td><td>Turun</td><td>Arefleks, LMN pure, L2 ke bawah</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TATALAKSANA -->
+<div id="tab-tatalaksana" class="section">
+  <div class="section-title"><div class="icon">💊</div>Tatalaksana SCI</div>
+
+  <h3>Primary Survey (ABCDE) + Stabilisasi</h3>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="flow-num">A</div><span><strong>Airway + C-spine:</strong> Jaga patensi jalan nafas. Segera pasang cervical collar! (Dari kuliah pakar: sandal jepit + tali jika tidak ada collar — improvisasi!)</span></div>
+    <div class="flow-step"><div class="flow-num">B</div><span><strong>Breathing:</strong> Pantau RR, saturasi O2. Jika SCI servikal tinggi → intubasi profilaksis. NGT jika distensi abdomen menekan diafragma!</span></div>
+    <div class="flow-step"><div class="flow-num">C</div><span><strong>Circulation:</strong> Bedakan syok neurogenik vs hipovolemik. Pasang IV line, monitor BP &amp; HR.</span></div>
+    <div class="flow-step"><div class="flow-num">D</div><span><strong>Disability:</strong> GCS, pemeriksaan neurologis lengkap, tentukan level lesi, ASIA grading.</span></div>
+    <div class="flow-step"><div class="flow-num">E</div><span><strong>Exposure:</strong> Periksa seluruh tubuh (log-roll dengan inline stabilization!). Cari cedera tersembunyi.</span></div>
+  </div>
+
+  <h3>Farmakoterapi: Methylprednisolone (MPSS)</h3>
+  <div class="card">
+    <div class="pearl">
+      <span class="pearl-label">AO Spine 2017 — Sering Keluar di Soal!</span>
+      MPSS "dapat ditawarkan" (bukan wajib!) jika pasien datang &lt;8 jam setelah cedera, diberikan sebagai infus 24 jam.
+    </div>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <tr><th>Onset Datang</th><th>Durasi Pemberian</th><th>Status</th></tr>
+        <tr><td>&lt; 3 jam</td><td>24 jam</td><td>Dapat dipertimbangkan</td></tr>
+        <tr><td>3-8 jam</td><td>24 jam</td><td>Dapat dipertimbangkan (AO Spine 2017)</td></tr>
+        <tr><td>&gt; 8 jam</td><td>—</td><td>Tidak direkomendasikan</td></tr>
+      </table>
+    </div>
+    <div class="warn-box" style="margin-top:10px">Pada kasus kita, pasien datang 3 HARI setelah cedera → sudah melewati window period! MPSS tidak lagi diindikasikan.</div>
+  </div>
+
+  <h3>Tatalaksana Komprehensif</h3>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Imobilisasi &amp; Stabilisasi Spinal <span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <ul>
+        <li>Cervical collar (rigid) → imobilisasi eksternal servikal</li>
+        <li>Spine board/long board → transport aman</li>
+        <li>Log-roll technique → membalikkan pasien tanpa rotasi spinal</li>
+        <li>Jika tidak ada collar: improvised (sandal jepit + tali — dari kuliah pakar!)</li>
+        <li>Tujuan: mencegah secondary injury dari gerakan fragmen fraktur</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Manajemen Bedah (Operasi) <span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <ul>
+        <li>Indikasi: Fraktur tidak stabil, kompresi progresif, defisit neurologis memburuk</li>
+        <li>Tujuan: Dekompresi medula + fiksasi/fusi vertebra</li>
+        <li>Timing: Early surgery (&lt;24 jam) → outcome lebih baik</li>
+        <li>Konsultasi bedah saraf + ortopedi</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Manajemen Bladder &amp; Bowel <span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <ul>
+        <li>Retensi urin: Kateter urin Foley (kateterisasi intermiten lebih baik jangka panjang)</li>
+        <li>Ileus paralitik: NGT untuk dekompresi lambung, puasa, cairan IV</li>
+        <li>Monitor output urin (target &gt;0.5 ml/kg/jam)</li>
+        <li>Hindari distensi kandung kemih berlebihan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Manajemen Pernafasan <span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <ul>
+        <li>Pantau ketat RR dan saturasi O2 pada SCI servikal</li>
+        <li>C3-C5 (N. phrenicus) terlibat → pertimbangkan intubasi profilaksis</li>
+        <li>Ventilasi mekanis jika FVC &lt;15 ml/kg atau tanda kelelahan otot nafas</li>
+        <li>Fisioterapi dada untuk mencegah atelektasis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAcc(this)">Rehabilitasi Medik <span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <ul>
+        <li>Dimulai segera setelah kondisi stabil (early mobilization)</li>
+        <li>Fisioterapi: ROM exercise, penguatan otot residual</li>
+        <li>Occupational therapy: ADL training</li>
+        <li>Mencegah komplikasi imobilisasi: DVT, dekubitus, kontraktur</li>
+        <li>Psikologis: dukungan mental pasien dan keluarga</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Komplikasi SCI</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Akut</div>
+      <ul>
+        <li>Gagal nafas → kematian!</li>
+        <li>Syok neurogenik</li>
+        <li>Ileus paralitik</li>
+        <li>Retensi urin → ISK</li>
+        <li>Deep vein thrombosis (DVT)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Kronik</div>
+      <ul>
+        <li>Pressure ulcer (dekubitus)</li>
+        <li>Spastisitas berat</li>
+        <li>Autonomic dysreflexia</li>
+        <li>Nyeri neuropatik</li>
+        <li>Depresi dan gangguan psikologis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pearl" style="margin-top:16px">
+    <span class="pearl-label">Dari Kuliah Pakar — Mantra Tatalaksana</span>
+    <strong>"Curiga trauma → stabilisasi → beri steroid → rujuk."</strong>
+    Spinal shock dan dilatasi gaster akut → perhatikan saturasi oksigen. Jika abdomen membesar → menekan diafragma → dekompresi dengan NGT!
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="tab-quiz" class="section">
+  <div class="section-title"><div class="icon">✏️</div>Latihan Soal</div>
+
+  <div class="score-display" id="score-panel" style="display:none">
+    <div style="color:rgba(240,232,159,.7);font-size:14px">Skor Kamu</div>
+    <div class="score-num" id="score-val">0/0</div>
+    <div style="color:rgba(240,232,159,.7);font-size:13px;margin-top:4px" id="score-msg"></div>
+  </div>
+
+  <div class="quiz-card" data-correct="b">
+    <div class="quiz-num">Soal 01 — Patofisiologi</div>
+    <div class="quiz-q">Berapa lama proses nekrosis yang terjadi pada kasus cedera medula spinalis?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','b')"><span class="option-letter">A.</span>12 jam</button>
+      <button class="option" onclick="answer(this,'b','b')"><span class="option-letter">B.</span>72 jam</button>
+      <button class="option" onclick="answer(this,'c','b')"><span class="option-letter">C.</span>1 jam</button>
+      <button class="option" onclick="answer(this,'d','b')"><span class="option-letter">D.</span>6 jam</button>
+      <button class="option" onclick="answer(this,'e','b')"><span class="option-letter">E.</span>24 jam</button>
+    </div>
+    <div class="explanation">Jawaban B: 72 jam. Proses nekrosis pada SCI berlangsung dalam 72 jam (3 hari) setelah cedera. Inilah mengapa window treatment sangat penting. Inflamasi puncak di hari 2-3, sehingga methylprednisolone paling efektif diberikan dalam 8 jam pertama.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="c">
+    <div class="quiz-num">Soal 02 — Fraktur Spinal</div>
+    <div class="quiz-q">Jenis fraktur apakah yang terjadi akibat benturan pada puncak kepala dan menyebabkan fraktur pada arcus posterior vertebra C1?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','c')"><span class="option-letter">A.</span>Slice fraktur</button>
+      <button class="option" onclick="answer(this,'b','c')"><span class="option-letter">B.</span>Wedge fraktur</button>
+      <button class="option" onclick="answer(this,'c','c')"><span class="option-letter">C.</span>Jefferson fraktur</button>
+      <button class="option" onclick="answer(this,'d','c')"><span class="option-letter">D.</span>Fraktur Hangman</button>
+      <button class="option" onclick="answer(this,'e','c')"><span class="option-letter">E.</span>Burst fraktur umum</button>
+    </div>
+    <div class="explanation">Jawaban C: Jefferson Fraktur. Spesifik burst fracture pada C1 (atlas) akibat kompresi aksial dari puncak kepala. Arcus anterior dan posterior C1 retak bilateral. Mekanisme: menyelam ke kolam dangkal, jatuh menimpa kepala.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="a">
+    <div class="quiz-num">Soal 03 — Klasifikasi Defisit</div>
+    <div class="quiz-q">Manakah gangguan yang dapat timbul bila terdapat cedera medula spinalis komplit setingkat Lumbal 1?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','a')"><span class="option-letter">A.</span>Paraplegia</button>
+      <button class="option" onclick="answer(this,'b','a')"><span class="option-letter">B.</span>Quadriplegia</button>
+      <button class="option" onclick="answer(this,'c','a')"><span class="option-letter">C.</span>Hemiparesis</button>
+      <button class="option" onclick="answer(this,'d','a')"><span class="option-letter">D.</span>Hemiplegia</button>
+      <button class="option" onclick="answer(this,'e','a')"><span class="option-letter">E.</span>Penurunan kesadaran</button>
+    </div>
+    <div class="explanation">Jawaban A: Paraplegia. Cedera L1 → kelumpuhan kedua tungkai (paraplegia), bukan keempat ekstremitas. Quadriplegia terjadi pada cedera servikal. Hemiplegia biasanya dari lesi otak, bukan SCI murni.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="b">
+    <div class="quiz-num">Soal 04 — Tatalaksana Farmakologi</div>
+    <div class="quiz-q">Manakah pernyataan yang benar mengenai penatalaksanaan farmakologis cedera medula spinalis berdasarkan AO Spine 2017?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','b')"><span class="option-letter">A.</span>Tidak direkomendasikan diberi Methyl Prednisolon sama sekali</button>
+      <button class="option" onclick="answer(this,'b','b')"><span class="option-letter">B.</span>Pemberian Metil Prednisolon, bila onset dari 3-8 jam, diberikan selama 24 jam</button>
+      <button class="option" onclick="answer(this,'c','b')"><span class="option-letter">C.</span>Pemberian Metil Prednisolon, bila onset lebih dari 3 jam, diberikan selama 24 jam</button>
+      <button class="option" onclick="answer(this,'d','b')"><span class="option-letter">D.</span>Pemberian Metil Prednisolon, bila onset kurang dari 3 jam, diberikan selama 24 jam</button>
+      <button class="option" onclick="answer(this,'e','b')"><span class="option-letter">E.</span>Pemberian Metil Prednisolon, bila onset kurang dari 3 jam, tidak direkomendasikan</button>
+    </div>
+    <div class="explanation">Jawaban B. AO Spine 2017: MPSS "dapat ditawarkan" jika onset kurang dari 8 jam. Untuk onset 3-8 jam → infus 24 jam. Kunci: window &lt;8 jam dan durasi 24 jam!</div>
+  </div>
+
+  <div class="quiz-card" data-correct="c">
+    <div class="quiz-num">Soal 05 — Fraktur Spinal</div>
+    <div class="quiz-q">Disebut apakah fraktur yang mengenai ligamentum posterior dan menyebabkan kompresi ke arah anterior?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','c')"><span class="option-letter">A.</span>Cedera ekstensi</button>
+      <button class="option" onclick="answer(this,'b','c')"><span class="option-letter">B.</span>Burst fraktur</button>
+      <button class="option" onclick="answer(this,'c','c')"><span class="option-letter">C.</span>Slice fraktur</button>
+      <button class="option" onclick="answer(this,'d','c')"><span class="option-letter">D.</span>Cedera kompresi vertikal</button>
+      <button class="option" onclick="answer(this,'e','c')"><span class="option-letter">E.</span>Wedge fraktur</button>
+    </div>
+    <div class="explanation">Jawaban C: Slice Fraktur. Terjadi akibat fleksi + rotasi → ligamentum posterior robek → fragmen anterior mengiris ke anterior → kompresi ke arah anterior. Fraktur TIDAK STABIL karena ligamentum posterior rusak.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="b">
+    <div class="quiz-num">Soal 06 — Klasifikasi ASIA</div>
+    <div class="quiz-q">Laki-laki 45 tahun jatuh dari pohon. Fungsi sensorik masih baik. Fungsi motorik terganggu pada segmen sakral S4-5. Berdasarkan ASIA/IMSOP, masuk grade berapa?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','b')"><span class="option-letter">A.</span>Grade C</button>
+      <button class="option" onclick="answer(this,'b','b')"><span class="option-letter">B.</span>Grade B</button>
+      <button class="option" onclick="answer(this,'c','b')"><span class="option-letter">C.</span>Grade E</button>
+      <button class="option" onclick="answer(this,'d','b')"><span class="option-letter">D.</span>Grade D</button>
+      <button class="option" onclick="answer(this,'e','b')"><span class="option-letter">E.</span>Grade A</button>
+    </div>
+    <div class="explanation">Jawaban B: Grade B. Grade B = Incomplete: sensorik masih ada, motorik TIDAK ada di S4-S5. Grade C = motorik ada tapi &lt;grade 3. Grade D = motorik ada &ge;grade 3. Grade A = tidak ada sama sekali.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="d">
+    <div class="quiz-num">Soal 07 — Sindrom SCI</div>
+    <div class="quiz-q">Disebut sindrom apakah bila terjadi kerusakan pada sensori dan lumpuh flaccid pada ekstremitas bawah serta kontrol berkemih dan defekasi pada trauma medulla spinalis?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','d')"><span class="option-letter">A.</span>Anterior cord syndrome</button>
+      <button class="option" onclick="answer(this,'b','d')"><span class="option-letter">B.</span>Central cord syndrome</button>
+      <button class="option" onclick="answer(this,'c','d')"><span class="option-letter">C.</span>Brown-Sequard Syndrome</button>
+      <button class="option" onclick="answer(this,'d','d')"><span class="option-letter">D.</span>Cauda equina syndrome</button>
+      <button class="option" onclick="answer(this,'e','d')"><span class="option-letter">E.</span>Posterior cord syndrome</button>
+    </div>
+    <div class="explanation">Jawaban D: Cauda Equina Syndrome. Khas: paralisis FLAKSID (LMN!) pada tungkai bawah, gangguan kontrol bladder/bowel, anestesi saddle. Flaksid karena ini bukan medula spinalis, tapi akar saraf yang terkena → LMN pure.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="a">
+    <div class="quiz-num">Soal 08 — Tatalaksana Awal</div>
+    <div class="quiz-q">Manakah terapi penanganan awal pada penderita dengan kecurigaan cedera medula spinalis?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','a')"><span class="option-letter">A.</span>Steroid</button>
+      <button class="option" onclick="answer(this,'b','a')"><span class="option-letter">B.</span>NSAID</button>
+      <button class="option" onclick="answer(this,'c','a')"><span class="option-letter">C.</span>Antibiotik</button>
+      <button class="option" onclick="answer(this,'d','a')"><span class="option-letter">D.</span>Anti konvulsan</button>
+      <button class="option" onclick="answer(this,'e','a')"><span class="option-letter">E.</span>Analgetik</button>
+    </div>
+    <div class="explanation">Jawaban A: Steroid (methylprednisolone) untuk mengurangi inflamasi sekunder pada SCI akut. Ingat: imobilisasi dan stabilisasi airway harus dilakukan lebih dulu secara prioritas, tapi dalam konteks pilihan farmakologi → steroid adalah jawabannya.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="c">
+    <div class="quiz-num">Soal 09 — Sindrom SCI</div>
+    <div class="quiz-q">Laki-laki 45 tahun jatuh dari pohon. Kelemahan motorik lengan lebih berat dari tungkai. Baal di bawah leher. Tidak bisa menahan kencing. Terdapat sacral sparing. Diagnosa paling tepat?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','c')"><span class="option-letter">A.</span>Cauda equina syndrome</button>
+      <button class="option" onclick="answer(this,'b','c')"><span class="option-letter">B.</span>Brown sequard syndrome</button>
+      <button class="option" onclick="answer(this,'c','c')"><span class="option-letter">C.</span>Central cord syndrome</button>
+      <button class="option" onclick="answer(this,'d','c')"><span class="option-letter">D.</span>Conus medullaris syndrome</button>
+      <button class="option" onclick="answer(this,'e','c')"><span class="option-letter">E.</span>Posterior cord syndrome</button>
+    </div>
+    <div class="explanation">Jawaban C: Central Cord Syndrome. Dua clue: (1) Lengan lebih lemah dari tungkai — khas Central Cord karena traktus kortikospinal untuk lengan ada di bagian lebih sentral; (2) Sacral sparing — serabut sakral di perifer terlindungi. Ini sindrom SCI inkomplet paling umum!</div>
+  </div>
+
+  <div class="quiz-card" data-correct="d">
+    <div class="quiz-num">Soal 10 — Brown-Sequard</div>
+    <div class="quiz-q">Laki-laki 20 tahun, luka tusuk punggung. Mengeluh lengan dan tungkai kiri sulit digerakkan. Kebas dari lengan kanan hingga kaki kanan. Neurologis: hemiparesis sinistra + hipoestesia sisi kanan tubuh. Mekanisme trauma yang paling mungkin?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','d')"><span class="option-letter">A.</span>Kerusakan columna posterior medula spinalis akibat tusukan</button>
+      <button class="option" onclick="answer(this,'b','d')"><span class="option-letter">B.</span>Hemiseksi medula spinalis sisi kanan akibat tusukan</button>
+      <button class="option" onclick="answer(this,'c','d')"><span class="option-letter">C.</span>Kerusakan columna anterior medula spinalis akibat tusukan</button>
+      <button class="option" onclick="answer(this,'d','d')"><span class="option-letter">D.</span>Hemiseksi medula spinalis sisi kiri akibat tusukan</button>
+      <button class="option" onclick="answer(this,'e','d')"><span class="option-letter">E.</span>Penusukan menyebabkan disrupsi pembuluh darah → iskemik central medula spinalis</button>
+    </div>
+    <div class="explanation">Jawaban D: Hemiseksi medula spinalis sisi kiri. Brown-Sequard: lesi kiri → motorik + propriosepsi hilang di KIRI (ipsilateral), nyeri + suhu hilang di KANAN (kontralateral, karena spinotalamikus sudah menyeberang). Pasien: hemiparesis sinistra + hipoestesia dextra → lesi di KIRI.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="c">
+    <div class="quiz-num">Soal 11 — Interpretasi Kasus</div>
+    <div class="quiz-q">Pada skenario kasus (fraktur C4-C6, kekuatan 2/2 atas dan 2/1 bawah, hipoestesia bawah C5, gangguan propriosepsi), diagnosis yang paling sesuai adalah?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','c')"><span class="option-letter">A.</span>Complete SCI grade A</button>
+      <button class="option" onclick="answer(this,'b','c')"><span class="option-letter">B.</span>Anterior cord syndrome</button>
+      <button class="option" onclick="answer(this,'c','c')"><span class="option-letter">C.</span>Central cord syndrome dengan incomplete SCI</button>
+      <button class="option" onclick="answer(this,'d','c')"><span class="option-letter">D.</span>Cauda equina syndrome</button>
+      <button class="option" onclick="answer(this,'e','c')"><span class="option-letter">E.</span>Brown-Sequard syndrome</button>
+    </div>
+    <div class="explanation">Jawaban C: Central cord syndrome dengan incomplete SCI. Clue: (1) Masih ada gerakan (skor 2) → incomplete; (2) Cedera servikal + fraktur C4-C6 (mekanisme hiperekstensi pada C-spine); (3) Propriosepsi terganggu (kolumna dorsal ikut terlibat); (4) GCS 15 = otak baik = lesi hanya di spinal.</div>
+  </div>
+
+  <div class="quiz-card" data-correct="b">
+    <div class="quiz-num">Soal 12 — Spinal Shock</div>
+    <div class="quiz-q">Pasien SCI akut datang dengan arefleksia, flaksid, dan retensi urin. Tidak ada klonus dan refleks patologis negatif. Kondisi ini paling tepat disebut?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','b')"><span class="option-letter">A.</span>Syok hipovolemik</button>
+      <button class="option" onclick="answer(this,'b','b')"><span class="option-letter">B.</span>Spinal shock</button>
+      <button class="option" onclick="answer(this,'c','b')"><span class="option-letter">C.</span>Syok septik</button>
+      <button class="option" onclick="answer(this,'d','b')"><span class="option-letter">D.</span>Fase kronik SCI</button>
+      <button class="option" onclick="answer(this,'e','b')"><span class="option-letter">E.</span>Cedera LMN murni</button>
+    </div>
+    <div class="explanation">Jawaban B: Spinal Shock. Spinal shock = hilangnya SEMUA fungsi neurologis akibat SCI akut. Ditandai: arefleksia, flaksid, retensi urin/feses, tidak ada refleks patologis. Fase sementara — akan menjadi spastik dan hiperrefleks setelah fase akut berlalu!</div>
+  </div>
+
+  <div class="quiz-card" data-correct="a">
+    <div class="quiz-num">Soal 13 — Anatomi Klinis</div>
+    <div class="quiz-q">Pasien SCI setingkat C4 datang dengan distress nafas. Penyebab utama gangguan nafas adalah?</div>
+    <div class="options">
+      <button class="option" onclick="answer(this,'a','a')"><span class="option-letter">A.</span>Kelemahan diafragma akibat gangguan nervus phrenicus (C3-C5)</button>
+      <button class="option" onclick="answer(this,'b','a')"><span class="option-letter">B.</span>Pneumotoraks akibat fraktur iga</button>
+      <button class="option" onclick="answer(this,'c','a')"><span class="option-letter">C.</span>Edema paru neurogenik</button>
+      <button class="option" onclick="answer(this,'d','a')"><span class="option-letter">D.</span>Obstruksi jalan nafas atas</button>
+      <button class="option" onclick="answer(this,'e','a')"><span class="option-letter">E.</span>Gangguan pergerakan iga oleh saraf torakal</button>
+    </div>
+    <div class="explanation">Jawaban A: Nervus phrenicus (C3-C5) mengontrol kontraksi diafragma — otot utama pernafasan. Cedera C4 → ganggu N. phrenicus → diafragma tidak bisa berkontraksi → gagal nafas. Semakin tinggi level SCI servikal → semakin besar risiko gagal nafas. C3 ke atas = butuh ventilator!</div>
+  </div>
+
+  <div style="text-align:center;margin-top:20px">
+    <button class="quiz-btn" onclick="showScore()" style="padding:12px 32px;font-size:15px">Lihat Skor Total</button>
+    <button class="quiz-btn" onclick="resetQuiz()" style="background:#6b3d32;margin-left:10px;padding:12px 32px;font-size:15px">Reset Soal</button>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Traumatologi Blok 1 · Spinal Cord Injury · Panduan Komprehensif</p>
+  <p style="margin-top:6px">Semoga nilainya bagus dan ilmunya bermanfaat!</p>
+</div>
+
+<script>
+function showTab(name,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleAcc(header){
+  const body=header.nextElementSibling;
+  const arrow=header.querySelector('.accordion-arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+let answered={},correct=0,total=0;
+function answer(btn,chosen,correctAns){
+  const card=btn.closest('.quiz-card');
+  const cardId=Array.from(document.querySelectorAll('.quiz-card')).indexOf(card);
+  if(answered[cardId])return;
+  answered[cardId]=true;
+  total++;
+  const buttons=card.querySelectorAll('.option');
+  buttons.forEach(b=>{
+    b.style.pointerEvents='none';
+    const letter=b.querySelector('.option-letter').textContent.replace('.','').toLowerCase();
+    if(letter===correctAns)b.classList.add('correct');
+    else if(letter===chosen&&chosen!==correctAns)b.classList.add('wrong');
+  });
+  if(chosen===correctAns)correct++;
+  card.querySelector('.explanation').classList.add('show');
+}
+function showScore(){
+  const panel=document.getElementById('score-panel');
+  panel.style.display='block';
+  document.getElementById('score-val').textContent=correct+'/'+total;
+  const pct=total>0?(correct/total*100):0;
+  let msg='';
+  if(pct===100)msg='Sempurna! Kamu siap ujian!';
+  else if(pct>=80)msg='Bagus banget! Hampir sempurna!';
+  else if(pct>=60)msg='Cukup baik! Review bagian yang kurang ya!';
+  else msg='Yuk review lagi materinya, kamu pasti bisa!';
+  document.getElementById('score-msg').textContent=msg;
+  panel.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(){
+  answered={};correct=0;total=0;
+  document.querySelectorAll('.option').forEach(b=>{b.classList.remove('correct','wrong');b.style.pointerEvents='';});
+  document.querySelectorAll('.explanation').forEach(e=>e.classList.remove('show'));
+  document.getElementById('score-panel').style.display='none';
+}
+</script>
+</body>
+</html>
