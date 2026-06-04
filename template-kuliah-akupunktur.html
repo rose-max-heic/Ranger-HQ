@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Materi Kuliah Akupunktur – Ranger HQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══════════════════════════════════════════════
+       GANTI WARNA DI SINI — cukup edit 3 variabel ini
+       --c-primary  : warna dominan / header & tombol
+       --c-accent   : warna aksen / badge / highlight
+       --c-surface  : warna latar search bar & nomor kartu
+    ══════════════════════════════════════════════ */
+    :root {
+      --c-primary : #43302E;   /* Old Burgundy  — header, tombol, footer  */
+      --c-accent  : #C1DBE8;   /* Pastel Blue   — aksen badge & tag        */
+      --c-surface : #FFF1B5;   /* Buttermilk    — search bar & nomor kartu */
+      --c-bg      : #FFF8DC;   /* Buttermilk terang — latar halaman        */
+      --c-text    : #2e1f1d;   /* turunan Old Burgundy gelap — teks utama  */
+      --c-muted   : rgba(67,48,46,0.48);
+      --c-card    : #ffffff;
+      --c-border  : rgba(67,48,46,0.10);
+      --c-mark    : #C1DBE8;   /* warna highlight search                   */
+      --radius    : 16px;
+      --radius-sm : 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Raleway', 'Segoe UI', sans-serif;
+      background: var(--c-bg);
+      color: var(--c-text);
+      min-height: 100vh;
+    }
+
+    /* ── BACK LINK ── */
+    .back-bar {
+      background: var(--c-primary);
+      padding: 10px 40px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .back-bar a {
+      color: var(--c-surface);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .back-bar a:hover { opacity: 0.75; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--c-primary);
+      padding: 44px 40px 38px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative circles */
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      background: var(--c-accent);
+      opacity: 0.08;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    header::after {
+      content: '🪡';
+      position: absolute;
+      right: 48px; top: 28px;
+      font-size: 5rem;
+      opacity: 0.10;
+      pointer-events: none;
+    }
+    .page-tag {
+      display: inline-block;
+      background: var(--c-accent);
+      color: var(--c-primary);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 40px;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--c-surface);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    header h1 span { color: var(--c-accent); }
+    .page-sub {
+      font-size: 0.9rem;
+      color: rgba(255,241,181,0.60);
+      font-weight: 500;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      background: var(--c-surface);
+      padding: 18px 40px;
+      border-bottom: 3px solid var(--c-primary);
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; gap: 14px;
+    }
+    #search-input {
+      flex: 1;
+      background: var(--c-card);
+      border: 2px solid var(--c-border);
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--c-text);
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    #search-input:focus {
+      border-color: var(--c-primary);
+      box-shadow: 0 0 0 3px rgba(67,48,46,0.10);
+    }
+    #search-input::placeholder { color: var(--c-muted); font-weight: 500; }
+    #search-count {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--c-primary);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+    .search-clear {
+      background: var(--c-primary);
+      color: var(--c-surface);
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      display: none;
+      font-family: inherit;
+      transition: opacity 0.18s;
+    }
+    .search-clear:hover { opacity: 0.80; }
+    .search-clear.visible { display: block; }
+
+    /* ── MAIN ── */
+    main { max-width: 900px; margin: 0 auto; padding: 40px 32px 80px; }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 24px;
+    }
+    .section-heading-icon {
+      width: 44px; height: 44px;
+      background: var(--c-primary);
+      color: var(--c-accent);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .section-heading-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--c-text);
+      letter-spacing: -0.01em;
+    }
+    .section-heading-sub {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--c-muted);
+      margin-top: 2px;
+    }
+    .section-heading-line {
+      flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--c-border), transparent);
+      border-radius: 2px;
+    }
+    .section-count {
+      background: var(--c-accent);
+      color: var(--c-primary);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── KULIAH CARD ── */
+    .kuliah-card {
+      background: var(--c-card);
+      border: 2px solid var(--c-border);
+      border-left: 4px solid var(--c-accent);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+      cursor: pointer;
+    }
+    .kuliah-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 24px rgba(67,48,46,0.12);
+      border-color: var(--c-primary);
+      border-left-color: var(--c-primary);
+    }
+    .kuliah-card.hidden { display: none; }
+
+    .card-num {
+      background: var(--c-surface);
+      color: var(--c-primary);
+      font-size: 0.7rem;
+      font-weight: 900;
+      min-width: 34px; height: 34px;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+      border: 1.5px solid rgba(67,48,46,0.12);
+    }
+    .card-body { flex: 1; min-width: 0; }
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--c-text);
+      margin-bottom: 5px;
+      line-height: 1.35;
+    }
+    .card-doctor {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--c-muted);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .card-arrow {
+      color: var(--c-muted);
+      font-size: 1rem;
+      align-self: center;
+      flex-shrink: 0;
+      transition: color 0.18s, transform 0.18s;
+    }
+    .kuliah-card:hover .card-arrow {
+      color: var(--c-primary);
+      transform: translateX(4px);
+    }
+
+    /* ── HIGHLIGHT ── */
+    mark.search-mark {
+      background: var(--c-mark);
+      color: var(--c-primary);
+      border-radius: 3px;
+      padding: 0 3px;
+      font-weight: 900;
+    }
+
+    /* ── EMPTY STATE ── */
+    #no-result {
+      display: none;
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--c-muted);
+    }
+    #no-result .nr-icon { font-size: 2.8rem; margin-bottom: 14px; }
+    #no-result p { font-size: 0.9rem; font-weight: 600; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--c-primary);
+      color: rgba(255,241,181,0.45);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+    footer span { color: var(--c-surface); }
+
+    @media (max-width: 600px) {
+      .back-bar, header { padding-left: 20px; padding-right: 20px; }
+      .search-wrap { padding: 14px 20px; }
+      main { padding: 28px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BACK -->
+<div class="back-bar">
+  <a href="../ranger-hq.html">← Ranger HQ</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="page-tag">🪡 Elektif Akupunktur</div>
+  <h1>Materi Kuliah <span>Akupunktur</span></h1>
+  <p class="page-sub">Blok Elektif Akupunktur · Semester 6</p>
+</header>
+
+<!-- SEARCH BAR -->
+<div class="search-wrap">
+  <input type="text" id="search-input" placeholder="🔍  Cari judul kuliah atau nama dokter..." oninput="doSearch(this.value)"/>
+  <span id="search-count"></span>
+  <button class="search-clear" id="clear-btn" onclick="clearSearch()">✕ Clear</button>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- Section Heading -->
+  <div class="section-heading">
+    <div class="section-heading-icon">📖</div>
+    <div>
+      <div class="section-heading-text">Daftar Materi Kuliah</div>
+      <div class="section-heading-sub">Tambahkan materi sesuai jadwal kuliah</div>
+    </div>
+    <div class="section-heading-line"></div>
+    <div class="section-count" id="total-count">0 materi</div>
+  </div>
+
+  <div id="content-area">
+
+    <!--
+    ╔═══════════════════════════════════════════════════════╗
+    ║  CARA MENAMBAH KARTU MATERI                           ║
+    ║                                                       ║
+    ║  Salin blok di bawah ini (dari <div class="kuliah     ║
+    ║  -card"> sampai </div> penutup yang sesuai),          ║
+    ║  lalu ganti:                                          ║
+    ║    • data-title  → judul kuliah (untuk search)        ║
+    ║    • data-doctor → nama dokter (untuk search)         ║
+    ║    • card-num    → nomor urut (01, 02, dst.)          ║
+    ║    • card-title  → judul kuliah yang tampil           ║
+    ║    • card-doctor → nama dokter yang tampil            ║
+    ║    • onclick     → ganti '#' dengan path file html    ║
+    ║                    rangkumannya nanti                 ║
+    ╚═══════════════════════════════════════════════════════╝
+    -->
+
+    <div class="kuliah-card"
+         data-title="Sejarah dan Filosofi Akupunktur"
+         data-doctor="dr. Contoh Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">01</div>
+      <div class="card-body">
+        <div class="card-title">Sejarah dan Filosofi Akupunktur</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Teori Yin Yang dan Lima Unsur"
+         data-doctor="dr. Contoh2 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">02</div>
+      <div class="card-body">
+        <div class="card-title">Teori Yin Yang dan Lima Unsur</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh2, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Sistem Meridian dan Titik Akupunktur"
+         data-doctor="dr. Contoh3 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">03</div>
+      <div class="card-body">
+        <div class="card-title">Sistem Meridian dan Titik Akupunktur</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh3, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Diagnosis dalam Akupunktur"
+         data-doctor="dr. Contoh4 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">04</div>
+      <div class="card-body">
+        <div class="card-title">Diagnosis dalam Akupunktur</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh4, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Indikasi dan Kontraindikasi Akupunktur"
+         data-doctor="dr. Contoh5 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">05</div>
+      <div class="card-body">
+        <div class="card-title">Indikasi dan Kontraindikasi Akupunktur</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh5, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Teknik Penusukan dan De Qi"
+         data-doctor="dr. Contoh6 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">06</div>
+      <div class="card-body">
+        <div class="card-title">Teknik Penusukan dan De Qi</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh6, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Akupunktur untuk Nyeri"
+         data-doctor="dr. Contoh7 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">07</div>
+      <div class="card-body">
+        <div class="card-title">Akupunktur untuk Nyeri</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh7, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <div class="kuliah-card"
+         data-title="Evidens Ilmiah Akupunktur"
+         data-doctor="dr. Contoh8 Sp.Ak"
+         onclick="openPage('#')">
+      <div class="card-num">08</div>
+      <div class="card-body">
+        <div class="card-title">Evidens Ilmiah Akupunktur</div>
+        <div class="card-doctor">👨‍⚕️ dr. Contoh8, Sp.Ak</div>
+      </div>
+      <div class="card-arrow">→</div>
+    </div>
+
+    <!-- No result message -->
+    <div id="no-result">
+      <div class="nr-icon">🔍</div>
+      <p>Tidak ada hasil untuk pencarian ini.</p>
+    </div>
+
+  </div><!-- /content-area -->
+</main>
+
+<footer>Ranger HQ &nbsp;·&nbsp; <span>Elektif Akupunktur</span> &nbsp;·&nbsp; Semester 6</footer>
+
+<script>
+  // ── HITUNG TOTAL MATERI ──────────────────────────
+  function updateTotalCount() {
+    const total = document.querySelectorAll('.kuliah-card').length;
+    document.getElementById('total-count').textContent = total + ' materi';
+  }
+  updateTotalCount();
+
+  // ── SEARCH ──────────────────────────────────────
+  function doSearch(query) {
+    const q = query.trim().toLowerCase();
+    const cards = document.querySelectorAll('.kuliah-card');
+    const clearBtn = document.getElementById('clear-btn');
+    const countEl  = document.getElementById('search-count');
+    let found = 0;
+
+    clearBtn.classList.toggle('visible', q.length > 0);
+
+    cards.forEach(card => {
+      const title  = card.dataset.title.toLowerCase();
+      const doctor = card.dataset.doctor.toLowerCase();
+      const show   = q === '' || title.includes(q) || doctor.includes(q);
+
+      card.classList.toggle('hidden', !show);
+      if (show) {
+        found++;
+        highlightCard(card, q);
+      }
+    });
+
+    countEl.textContent = q ? `${found} hasil` : '';
+    document.getElementById('no-result').style.display =
+      (found === 0 && q !== '') ? 'block' : 'none';
+  }
+
+  function highlightCard(card, query) {
+    const titleEl  = card.querySelector('.card-title');
+    const doctorEl = card.querySelector('.card-doctor');
+    [titleEl, doctorEl].forEach(el => {
+      if (!el) return;
+      const original = el.getAttribute('data-original') || el.textContent;
+      el.setAttribute('data-original', original);
+      if (!query) { el.innerHTML = original; return; }
+      const re = new RegExp(`(${escapeRe(query)})`, 'gi');
+      el.innerHTML = original.replace(re, '<mark class="search-mark">$1</mark>');
+    });
+  }
+
+  function clearSearch() {
+    document.getElementById('search-input').value = '';
+    doSearch('');
+  }
+
+  function openPage(url) {
+    if (url && url !== '#') window.location.href = url;
+  }
+
+  function escapeRe(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+</script>
+
+</body>
+</html>
