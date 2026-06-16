@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSCE Guide – Mata & Abdomen | Rona</title>
+<style>
+:root {
+  --teal-50:  #e0f7f4;
+  --teal-100: #b2ede6;
+  --teal-200: #80e0d4;
+  --teal-400: #26c6b8;
+  --teal-500: #00b0a0;
+  --teal-600: #00897b;
+  --teal-700: #00695c;
+  --pink-50:  #fce4ec;
+  --pink-100: #f8bbd0;
+  --pink-300: #f48fb1;
+  --pink-400: #ec407a;
+  --pink-500: #e91e63;
+  --pink-600: #c2185b;
+  --white: #ffffff;
+  --bg: #f0faf8;
+  --text: #1a3330;
+  --text-sub: #4a706a;
+  --border: #b2ede6;
+  --shadow: rgba(0,176,160,.10);
+  --r: 14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+
+/* ─── HERO ─── */
+.hero{
+  background:linear-gradient(135deg,var(--teal-50) 0%,var(--pink-50) 100%);
+  padding:48px 24px 36px;
+  text-align:center;
+  border-bottom:2px solid var(--border);
+}
+.hero-badge{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--teal-500),var(--pink-400));
+  color:#fff;font-size:.7rem;font-weight:800;
+  padding:5px 18px;border-radius:20px;letter-spacing:1.5px;
+  text-transform:uppercase;margin-bottom:14px;
+}
+.hero h1{
+  font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;
+  background:linear-gradient(120deg,var(--teal-600) 0%,var(--pink-500) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:10px;
+}
+.hero p{color:var(--text-sub);font-size:.9rem;max-width:520px;margin:0 auto}
+
+/* ─── TABS ─── */
+.tab-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(240,250,248,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid var(--border);
+  display:flex;overflow-x:auto;padding:0 16px;
+  scrollbar-width:none;
+}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{
+  flex-shrink:0;
+  padding:14px 20px;
+  font-size:.82rem;font-weight:700;
+  color:var(--text-sub);
+  border:none;background:transparent;cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:all .2s;white-space:nowrap;
+}
+.tab-btn:hover{color:var(--teal-500)}
+.tab-btn.active{color:var(--teal-600);border-bottom-color:var(--teal-500)}
+
+/* ─── TAB PANELS ─── */
+.panel{display:none;max-width:900px;margin:0 auto;padding:28px 18px 48px}
+.panel.active{display:block}
+
+/* ─── SECTION TITLE ─── */
+.sec-title{
+  display:flex;align-items:center;gap:12px;
+  margin:32px 0 16px;
+}
+.sec-title .ico{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+}
+.ico-teal{background:var(--teal-100)}
+.ico-pink{background:var(--pink-100)}
+.sec-title h2{font-size:1.15rem;font-weight:800;color:var(--text)}
+.sec-title .sub{font-size:.75rem;color:var(--text-sub);margin-top:2px}
+
+/* ─── CARD ─── */
+.card{
+  background:#fff;border-radius:var(--r);
+  border:1.5px solid var(--border);
+  padding:20px 22px;margin-bottom:14px;
+  box-shadow:0 2px 14px var(--shadow);
+}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.dt{background:var(--teal-400)}.dp{background:var(--pink-400)}
+
+/* ─── STEP LIST ─── */
+.sl{list-style:none}
+.sl li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--teal-50)}
+.sl li:last-child{border-bottom:none}
+.sn{min-width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;color:#fff;flex-shrink:0;margin-top:2px}
+.sn-t{background:linear-gradient(135deg,var(--teal-400),var(--teal-600))}
+.sn-p{background:linear-gradient(135deg,var(--pink-300),var(--pink-500))}
+.sc strong{font-size:.85rem;font-weight:700;display:block;color:var(--text)}
+.sc span{font-size:.8rem;color:var(--text-sub)}
+code{background:var(--teal-50);border:1px solid var(--teal-100);border-radius:5px;padding:1px 6px;font-size:.76rem;color:var(--teal-600);font-family:monospace}
+
+/* ─── MNEMONIC ─── */
+.mnem{
+  background:linear-gradient(120deg,var(--teal-50),var(--pink-50));
+  border-left:4px solid var(--teal-400);
+  border-radius:0 12px 12px 0;
+  padding:14px 18px;margin:12px 0;
+}
+.mnem.pink{border-left-color:var(--pink-400);background:linear-gradient(120deg,var(--pink-50),var(--teal-50))}
+.mnem .lbl{font-size:.68rem;font-weight:800;color:var(--teal-600);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.mnem.pink .lbl{color:var(--pink-500)}
+.mnem .phrase{font-size:1rem;font-weight:900;color:var(--teal-700);letter-spacing:1.5px;margin-bottom:5px}
+.mnem.pink .phrase{color:var(--pink-600)}
+.mnem .exp{font-size:.8rem;color:var(--text-sub)}
+.mnem .exp b{color:var(--text)}
+
+/* ─── TABLE ─── */
+.tw{overflow-x:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.79rem}
+th{background:linear-gradient(90deg,var(--teal-100),var(--pink-50));color:var(--text);font-weight:700;padding:9px 11px;text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
+td{padding:8px 11px;border-bottom:1px solid var(--teal-50);vertical-align:top}
+tr:nth-child(even) td{background:var(--bg)}
+tr:hover td{background:var(--teal-50);transition:.15s}
+
+/* ─── ALERT ─── */
+.alert{border-radius:10px;padding:13px 17px;margin:10px 0;font-size:.81rem}
+.at{background:var(--teal-50);border-left:4px solid var(--teal-400)}
+.ap{background:var(--pink-50);border-left:4px solid var(--pink-400)}
+.alert strong{display:block;margin-bottom:3px;font-size:.8rem}
+
+/* ─── DX GRID ─── */
+.dxg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:12px}
+.dxc{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:0 2px 8px var(--shadow);transition:transform .15s}
+.dxc:hover{transform:translateY(-2px)}
+.dxc .nm{font-weight:700;font-size:.86rem;margin-bottom:5px;color:var(--text)}
+.dxc .cl{font-size:.75rem;color:var(--text-sub);line-height:1.55}
+.badge{display:inline-block;font-size:.63rem;font-weight:800;padding:2px 9px;border-radius:10px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.bt{background:var(--teal-100);color:var(--teal-700)}
+.bp{background:var(--pink-50);color:var(--pink-600)}
+
+/* ─── VISUAL BLOCK ─── */
+.vb{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:16px;box-shadow:0 2px 12px var(--shadow);text-align:center}
+.vb svg{max-width:100%;height:auto}
+.vb p{font-size:.77rem;color:var(--text-sub);margin-top:6px}
+
+/* ─── DIVIDER ─── */
+hr.div{border:none;height:2px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:28px 0}
+
+/* ─── FLASHCARD ─── */
+.fc-wrap{background:linear-gradient(135deg,var(--teal-50),var(--pink-50));border-radius:20px;padding:26px 18px;border:2px solid var(--border)}
+.fc-prog{font-size:.78rem;color:var(--text-sub);text-align:center;margin-bottom:14px}
+.fc-prog b{color:var(--teal-600)}
+.scene{perspective:900px;height:200px;cursor:pointer;max-width:600px;margin:0 auto 20px}
+.ci{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.ci.flipped{transform:rotateY(180deg)}
+.face{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.front{background:linear-gradient(135deg,var(--teal-400),var(--teal-700));color:#fff}
+.back{background:linear-gradient(135deg,var(--pink-300),var(--pink-600));color:#fff;transform:rotateY(180deg)}
+.flbl{font-size:.67rem;font-weight:800;opacity:.75;text-transform:uppercase;letter-spacing:1px;margin-bottom:9px}
+.ftxt{font-size:.95rem;font-weight:700;line-height:1.5;text-align:center}
+.fhint{font-size:.72rem;opacity:.8;margin-top:7px}
+.fctrl{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.btn{padding:9px 20px;border-radius:22px;font-weight:700;font-size:.8rem;border:2px solid transparent;cursor:pointer;transition:all .2s}
+.btn-t{background:var(--teal-500);color:#fff}
+.btn-t:hover{background:var(--teal-700);transform:translateY(-1px)}
+.btn-p{background:var(--pink-400);color:#fff}
+.btn-p:hover{background:var(--pink-600);transform:translateY(-1px)}
+.btn-o{background:transparent;border-color:var(--teal-400);color:var(--teal-600)}
+.btn-o:hover{background:var(--teal-50)}
+.fc-res{text-align:center;font-size:.79rem;color:var(--text-sub)}
+.fc-res b{color:var(--teal-600)}
+
+/* ─── FILTER PILL ─── */
+.pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.pill{font-size:.73rem;font-weight:700;padding:5px 14px;border-radius:20px;border:2px solid;cursor:pointer;transition:all .15s}
+.pill-t{border-color:var(--teal-400);color:var(--teal-600);background:transparent}
+.pill-t.on{background:var(--teal-500);color:#fff}
+.pill-p{border-color:var(--pink-400);color:var(--pink-500);background:transparent}
+.pill-p.on{background:var(--pink-400);color:#fff}
+.pill-all{border-color:var(--border);color:var(--text-sub);background:transparent}
+.pill-all.on{background:var(--text);color:#fff;border-color:var(--text)}
+
+/* ─── FOOTER ─── */
+footer{background:linear-gradient(135deg,var(--teal-600),var(--pink-500));color:#fff;text-align:center;padding:36px 20px;margin-top:0}
+footer .qt{font-size:1rem;font-weight:700;margin-bottom:6px}
+footer .nm{font-size:1.1rem;font-weight:900;letter-spacing:1px;margin-top:12px}
+footer .sub{font-size:.78rem;opacity:.85;margin-top:4px}
+
+@media(max-width:600px){
+  .dxg{grid-template-columns:1fr 1fr}
+  .tab-btn{padding:12px 14px;font-size:.76rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✨ OSCE Semester 6</div>
+  <h1>Mata & Abdomen<br>Study Guide</h1>
+  <p>Pemeriksaan fisik, diagnosis & diagnosis banding — lengkap, terstruktur, dan siap OSCE.</p>
+</div>
+
+<!-- TABS -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('mata-pmx',this)">👁️ Pemeriksaan Mata</button>
+  <button class="tab-btn" onclick="showTab('mata-dx',this)">🔍 Diagnosis Mata</button>
+  <button class="tab-btn" onclick="showTab('abd-pmx',this)">🫀 Pemeriksaan Abdomen</button>
+  <button class="tab-btn" onclick="showTab('abd-dx',this)">🔍 Diagnosis Abdomen</button>
+  <button class="tab-btn" onclick="showTab('flashcard',this)">🃏 Flashcard</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TAB 1 — PEMERIKSAAN MATA
+══════════════════════════════════════════════════════════ -->
+<div id="mata-pmx" class="panel active">
+
+  <!-- VISUS -->
+  <div class="sec-title">
+    <div class="ico ico-teal">👁️</div>
+    <div><h2>Pemeriksaan Visus</h2><div class="sub">Snellen Chart · Pinhole · Interpretasi</div></div>
+  </div>
+
+  <div class="vb">
+    <svg viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="210" cy="80" rx="145" ry="68" fill="#e0f7f4" stroke="#00b0a0" stroke-width="2.2"/>
+      <circle cx="210" cy="80" r="40" fill="#80e0d4" opacity=".6"/>
+      <circle cx="210" cy="80" r="26" fill="#00695c" opacity=".75"/>
+      <circle cx="210" cy="80" r="13" fill="#001a17"/>
+      <circle cx="220" cy="70" r="5" fill="white" opacity=".5"/>
+      <text x="210" y="155" text-anchor="middle" font-size="10" fill="#4a706a" font-weight="600">Kornea → Aqueous Humor → Lensa → Vitreous → Retina</text>
+      <line x1="65" y1="80" x2="170" y2="80" stroke="#ec407a" stroke-width="1.8" stroke-dasharray="6,3"/>
+      <text x="65" y="68" font-size="10" fill="#c2185b" font-weight="700">← 6 meter →</text>
+      <text x="50" y="100" font-size="8.5" fill="#00897b">Jarak Snellen</text>
+      <path d="M70,80 Q210,20 350,80" fill="none" stroke="#f8bbd0" stroke-width="2.5"/>
+      <path d="M70,80 Q210,140 350,80" fill="none" stroke="#f8bbd0" stroke-width="2.5"/>
+    </svg>
+    <p>Media refraksi & posisi standar pemeriksaan visus Snellen</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dt"></span>Langkah Pemeriksaan Visus (OSCE)</h3>
+    <ul class="sl">
+      <li><span class="sn sn-t">1</span><div class="sc"><strong>Posisi & Alat</strong><span>Pasien duduk 6 meter dari Snellen chart. Alat: snellen chart, pinhole, penlight. Cuci tangan 6 langkah WHO terlebih dahulu.</span></div></li>
+      <li><span class="sn sn-t">2</span><div class="sc"><strong>Tutup salah satu mata</strong><span>Mulai dari mata kanan. Pasien menutup mata tanpa menekan bola mata. Jangan menyipitkan/memicingkan mata.</span></div></li>
+      <li><span class="sn sn-t">3</span><div class="sc"><strong>Baca Snellen Chart</strong><span>Minta pasien membaca huruf dari baris paling atas sampai baris terakhir yang masih bisa terbaca. Catat hasil sebagai <code>6/...</code></span></div></li>
+      <li><span class="sn sn-t">4</span><div class="sc"><strong>Pemeriksaan Pinhole</strong><span>Letakkan pinhole di mata yang diperiksa. Pasien melanjutkan membaca dari huruf terakhir yang tidak bisa terbaca tadi.</span></div></li>
+      <li><span class="sn sn-t">5</span><div class="sc"><strong>Ulangi untuk mata kiri</strong><span>Prosedur sama. Catat OD (kanan) dan OS (kiri) masing-masing sebelum dan sesudah pinhole.</span></div></li>
+      <li><span class="sn sn-t">6</span><div class="sc"><strong>Sampaikan Hasil & DD</strong><span>Bandingkan visus sebelum dan sesudah pinhole. Sampaikan interpretasi dan diagnosis banding.</span></div></li>
+    </ul>
+  </div>
+
+  <div class="mnem">
+    <div class="lbl">🧠 Mnemonic Pinhole</div>
+    <div class="phrase">MEMBAIK = REFRAKSI · TIDAK MEMBAIK = ORGANIK</div>
+    <div class="exp">Pinhole <b>membaik</b> → Kelainan refraksi (Miopia, Hipermetropia, Astigmatisma) — perlu kacamata<br>
+    Pinhole <b>tidak membaik</b> → Bukan refraksi murni → cari penyebab organik (katarak, retina, glaukoma)</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dp"></span>Tabel Interpretasi Visus</h3>
+    <div class="tw"><table>
+      <tr><th>Notasi</th><th>Artinya</th><th>Status</th></tr>
+      <tr><td><code>6/6</code></td><td>Visus normal — baca huruf dari 6 m, normal juga 6 m</td><td>✅ Normal</td></tr>
+      <tr><td><code>6/9 – 6/18</code></td><td>Turun ringan</td><td>⚠️ Sedikit turun</td></tr>
+      <tr><td><code>6/60</code></td><td>Baca dari 6 m, orang normal dari 60 m</td><td>⚠️ Turun</td></tr>
+      <tr><td><code>3/60</code></td><td>Hitung jari dari jarak 3 meter</td><td>❌ Turun berat</td></tr>
+      <tr><td><code>1/300</code></td><td>Hanya melihat lambaian tangan</td><td>❌ Berat sekali</td></tr>
+      <tr><td><code>1/∞</code></td><td>Hanya persepsi cahaya (LP)</td><td>❌ Sangat berat</td></tr>
+      <tr><td><code>0 / NLP</code></td><td>No Light Perception — buta total</td><td>❌ Buta</td></tr>
+    </table></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- SEGMEN ANTERIOR -->
+  <div class="sec-title">
+    <div class="ico ico-pink">🔬</div>
+    <div><h2>Pemeriksaan Segmen Anterior</h2><div class="sub">Palpebra · Konjungtiva · Sklera · Kornea · COA · Iris · Pupil · Lensa</div></div>
+  </div>
+
+  <div class="vb">
+    <svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="230" cy="110" rx="175" ry="88" fill="#fce4ec" stroke="#ec407a" stroke-width="2"/>
+      <ellipse cx="230" cy="110" rx="52" ry="52" fill="#e0f7f4" stroke="#00b0a0" stroke-width="2.2" opacity=".85"/>
+      <circle cx="230" cy="110" r="34" fill="#80e0d4" opacity=".55"/>
+      <circle cx="230" cy="110" r="18" fill="#00695c" opacity=".8"/>
+      <circle cx="230" cy="110" r="9" fill="#001a17"/>
+      <circle cx="238" cy="102" r="4" fill="white" opacity=".5"/>
+      <path d="M55,110 Q230,28 405,110" fill="none" stroke="#f48fb1" stroke-width="3"/>
+      <path d="M55,110 Q230,192 405,110" fill="none" stroke="#f48fb1" stroke-width="3"/>
+      <!-- labels -->
+      <text x="230" y="19" text-anchor="middle" font-size="9.5" fill="#c2185b" font-weight="700">Palpebra Superior</text>
+      <text x="230" y="208" text-anchor="middle" font-size="9.5" fill="#c2185b" font-weight="700">Palpebra Inferior</text>
+      <text x="85" y="75" font-size="9" fill="#e91e63" font-weight="600">Konjungtiva</text>
+      <line x1="135" y1="78" x2="165" y2="93" stroke="#e91e63" stroke-width="1"/>
+      <text x="230" y="50" text-anchor="middle" font-size="9" fill="#00897b" font-weight="700">Kornea</text>
+      <line x1="230" y1="54" x2="230" y2="64" stroke="#00897b" stroke-width="1.2"/>
+      <text x="335" y="78" font-size="9" fill="#00695c" font-weight="600">Iris</text>
+      <line x1="330" y1="81" x2="268" y2="100" stroke="#00695c" stroke-width="1"/>
+      <text x="230" y="114" text-anchor="middle" font-size="8" fill="white" font-weight="700">Pupil</text>
+      <text x="168" y="114" font-size="8" fill="#00b0a0" font-weight="600">COA</text>
+    </svg>
+    <p>Anatomi segmen anterior — urutan pemeriksaan dari luar ke dalam</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dt"></span>Urutan Pemeriksaan Segmen Anterior (9 Struktur)</h3>
+    <div class="mnem" style="margin-bottom:14px">
+      <div class="lbl">🧠 Mnemonic</div>
+      <div class="phrase">P · B · K · S · K · C · I · P · L</div>
+      <div class="exp"><b>P</b>alpebra → <b>B</b>ulu mata → <b>K</b>onjungtiva → <b>S</b>klera → <b>K</b>ornea → <b>C</b>OA → <b>I</b>ris → <b>P</b>upil → <b>L</b>ensa<br>
+      <i>"Papa Bawa Kucing Setiap Kami Cari Ibu Pulang Lewat sini"</i></div>
+    </div>
+    <ul class="sl">
+      <li><span class="sn sn-p">1</span><div class="sc"><strong>Palpebra</strong><span>Periksa edema, hiperemis, entropion/ektropion, ptosis, lagoftalmos. Hordeolum = benjolan nyeri akut. Chalazion = benjolan tidak nyeri kronik.</span></div></li>
+      <li><span class="sn sn-p">2</span><div class="sc"><strong>Bulu Mata</strong><span>Arah tumbuh normal ke luar. Trichiasis = tumbuh ke dalam (posisi palpebra normal). Districhiasis = barisan ekstra bulu mata.</span></div></li>
+      <li><span class="sn sn-p">3</span><div class="sc"><strong>Konjungtiva (3 bagian)</strong><span><b>Superior:</b> pasien lihat bawah, evert palpebra atas. <b>Inferior:</b> pasien lihat atas, tarik palpebra bawah. <b>Bulbi:</b> lihat langsung. Normal: tidak hiperemis, tidak ada sekret, tidak ada injeksi.</span></div></li>
+      <li><span class="sn sn-p">4</span><div class="sc"><strong>Sklera</strong><span>Normal: putih bersih. Kuning = ikterus. Merah pink = episkleritis. Merah biru (blueish) = skleritis.</span></div></li>
+      <li><span class="sn sn-p">5</span><div class="sc"><strong>Kornea</strong><span>Normal: jernih, permukaan halus, tidak ada sikatrik/ulkus/infiltrat/edema. Gunakan penlight oblique dari samping untuk evaluasi kejernihan.</span></div></li>
+      <li><span class="sn sn-p">6</span><div class="sc"><strong>COA (Camera Oculi Anterior)</strong><span>Normal: kedalaman normal. Dangkal → curiga glaukoma akut (iris bombans). Hipopion (lapisan pus) → uveitis/keratitis berat.</span></div></li>
+      <li><span class="sn sn-p">7</span><div class="sc"><strong>Iris</strong><span>Normal: bulat sempurna, warna coklat/gelap, tidak ada sinekia anterior/posterior, tidak ada neovaskularisasi (rubeosis iridis).</span></div></li>
+      <li><span class="sn sn-p">8</span><div class="sc"><strong>Pupil — Direct & Indirect</strong><span><b>Direct:</b> lampu ke mata yg diperiksa → konstriksi ipsilateral (N.II + N.III ipsilateral). <b>Indirect/konsensual:</b> mata kontralateral juga konstriksi. Normal: bulat, isokor, reflex (+).</span></div></li>
+      <li><span class="sn sn-p">9</span><div class="sc"><strong>Lensa (dengan Oftalmoskop)</strong><span>Jarak ±33 cm. Normal: jernih, red reflex (+) — pantulan kuning-kemerahan. Keruh = katarak → red reflex (-). Shadow test untuk menentukan derajat katarak senilis.</span></div></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dp"></span>Shadow Test — Derajat Katarak Senilis</h3>
+    <div class="tw"><table>
+      <tr><th>Stadium</th><th>Shadow Test</th><th>COA</th><th>Iris</th><th>Visus</th></tr>
+      <tr><td>Insipiens</td><td>(-)</td><td>Normal</td><td>Normal</td><td>≤ 20/20</td></tr>
+      <tr><td>Imatur</td><td>(+) — bayangan crescent</td><td>Dangkal</td><td>Terdorong</td><td>&gt; 20/200</td></tr>
+      <tr><td>Matur</td><td>(-) — korteks habis</td><td>Normal</td><td>Normal</td><td>&lt; 20/200</td></tr>
+      <tr><td>Hipermatur/Morgagni</td><td>Pseudopositif</td><td>Dalam</td><td>Tremulans</td><td>1/60–1/300</td></tr>
+    </table></div>
+    <div class="alert at" style="margin-top:10px">
+      <strong>⚠️ Komplikasi Katarak → Glaukoma</strong>
+      Katarak imatur/matur → <b>Glaukoma Fakomorfik</b> (sudut tertutup sekunder) |
+      Katarak hipermatur → <b>Glaukoma Fakolitik</b> (sudut terbuka, protein bocor menyumbat trabekula)
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dt"></span>Injeksi Konjungtiva vs Injeksi Silier</h3>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Injeksi Konjungtiva (CI)</th><th>Injeksi Silier / Pericorneal (PCI)</th></tr>
+      <tr><td>Lokasi</td><td>Seluruh konjungtiva, terutama <b>perifer</b></td><td>Sekeliling limbus kornea (dekat kornea)</td></tr>
+      <tr><td>Warna</td><td>Merah terang (bright red)</td><td>Merah keunguan / rose-pink</td></tr>
+      <tr><td>Gerakan konjungtiva</td><td>Ikut bergerak</td><td>Tidak ikut bergerak</td></tr>
+      <tr><td>Fenilefrin 2,5%</td><td>Memutih / blanching (+)</td><td>Tidak memutih</td></tr>
+      <tr><td>Makna klinis</td><td>Penyakit permukaan (konjungtivitis, dll)</td><td>Penyakit lebih dalam (keratitis, uveitis, glaukoma akut)</td></tr>
+    </table></div>
+    <div class="mnem pink" style="margin-top:10px">
+      <div class="lbl">🧠 Cara Mudah Ingat</div>
+      <div class="phrase">CI = outer · PCI = inner</div>
+      <div class="exp">CI (Conjunctival Injection) = merah di <b>luar/perifer</b> → penyakit permukaan<br>
+      PCI (Pericorneal/Ciliary Injection) = merah <b>melingkar di limbus</b> → penyakit lebih dalam</div>
+    </div>
+  </div>
+
+</div><!-- end panel mata-pmx -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TAB 2 — DIAGNOSIS MATA
+══════════════════════════════════════════════════════════ -->
+<div id="mata-dx" class="panel">
+
+  <div class="sec-title">
+    <div class="ico ico-teal">🔍</div>
+    <div><h2>Diagnosis & Diagnosis Banding Mata</h2><div class="sub">Berdasarkan visus & temuan segmen anterior</div></div>
+  </div>
+
+  <!-- BIG TABLE mata merah -->
+  <div class="card">
+    <h3><span class="dot dt"></span>Tabel Besar Mata Merah — Visus & Temuan</h3>
+    <div class="tw"><table>
+      <tr><th>Kondisi</th><th>Visus</th><th>Injeksi</th><th>Kornea</th><th>COA</th><th>Pupil</th><th>TIO</th></tr>
+      <tr><td><b>Konjungtivitis</b></td><td>Normal</td><td>CI (+)</td><td>Normal</td><td>Normal</td><td>Normal</td><td>Normal</td></tr>
+      <tr><td><b>Perdarahan Subkonj.</b></td><td>Normal</td><td>Merah fokal berbatas tegas</td><td>Normal</td><td>Normal</td><td>Normal</td><td>Normal</td></tr>
+      <tr><td><b>Episkleritis</b></td><td>Normal</td><td>CI (+), pink</td><td>Normal</td><td>Normal</td><td>Normal</td><td>Normal</td></tr>
+      <tr><td><b>Skleritis</b></td><td>Normal/turun</td><td>CI (+), biru</td><td>Normal</td><td>Normal</td><td>Normal</td><td>Normal</td></tr>
+      <tr><td><b>Keratitis</b></td><td>Turun</td><td>CI+PCI</td><td>Infiltrat (+)</td><td>Normal</td><td>Normal</td><td>Normal</td></tr>
+      <tr><td><b>Uveitis Anterior</b></td><td>Turun</td><td>PCI (+)</td><td>KP (+)</td><td>Dalam, turgid</td><td>Miosis, irreguler</td><td>Normal</td></tr>
+      <tr><td><b>Glaukoma Akut</b></td><td>Turun</td><td>CI+PCI</td><td>Edema (+)</td><td>Dangkal</td><td>Mid-midriasis, oval, reflex (-)</td><td>🔺🔺 Tinggi sekali</td></tr>
+    </table></div>
+    <div class="mnem" style="margin-top:12px">
+      <div class="lbl">🧠 Mnemonic Mata Merah Visus Turun</div>
+      <div class="phrase">K – U – G</div>
+      <div class="exp"><b>K</b>eratitis → infiltrat kornea, CI+PCI, fotofobia, epifora<br>
+      <b>U</b>veitis anterior → KP, sinekia, miosis irreguler, hipopion, nyeri saat fokus<br>
+      <b>G</b>laukoma akut → COA dangkal, pupil mid-midriasis oval, TIO 40–80 mmHg, nyeri kepala, mual muntah, halo</div>
+    </div>
+  </div>
+
+  <!-- KONJUNGTIVITIS PEMBEDA -->
+  <div class="card">
+    <h3><span class="dot dp"></span>Pembeda Jenis Konjungtivitis 🔑</h3>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Viral</th><th>Bakteri Non-Gonokokal</th><th>Chlamydia / Trachoma</th><th>Gonokokal</th><th>Alergi</th></tr>
+      <tr><td><b>Discharge</b></td><td>Serous (encer)</td><td>Mukopurulen</td><td>Mukopurulen</td><td>Hiperpurulen (deras)</td><td>Serous/mukoid</td></tr>
+      <tr><td><b>Gatal</b></td><td>Minimal</td><td>Minimal</td><td>Minimal</td><td>Minimal</td><td>+++ (sangat gatal)</td></tr>
+      <tr><td><b>Reaksi Konj.</b></td><td>Folikel (bintil putih)</td><td>Papil (bintil merah)</td><td>Folikel + Herbert pits</td><td>Papil + pseudomembran</td><td>Papil / cobblestone (vernal)</td></tr>
+      <tr><td><b>KGB preaurikular</b></td><td>++ membesar</td><td>+ membesar</td><td>++ membesar</td><td>++ membesar</td><td>Normal</td></tr>
+      <tr><td><b>Onset</b></td><td>Akut, menular</td><td>Akut</td><td>Kronik (bertahap)</td><td>Hiperakut (12–24 jam)</td><td>Musiman / tahunan</td></tr>
+      <tr><td><b>Ciri Khas</b></td><td>Riwayat tertular dari keluarga/teman</td><td>Secret lengket, krusta pagi hari</td><td>Herbert pits (limbus), potensi kebutaan</td><td>Diplokokus gram (–), bisa invasi kornea</td><td>Papil giant (vernal: cobblestone), Trantas dots</td></tr>
+      <tr><td><b>Terapi</b></td><td>Artificial tears, self-limiting</td><td>Kloramfenikol 1% oint 3×1 / 3 hari</td><td>Tetrasiklin salep 4×1 / 3 mgg + Azitromisin 1g PO SD</td><td>Kloramfenikol tetes 1 tetes/jam + Ceftriaxon 1g IM + Azitromisin 1g PO</td><td>Antihistamin, stabilizer sel mast, hindari alergen</td></tr>
+    </table></div>
+    <div class="mnem pink" style="margin-top:12px">
+      <div class="lbl">🧠 Mnemonic Reaksi Konjungtiva</div>
+      <div class="phrase">B A Pil = Bakteri · Alergi → Papil</div>
+      <div class="exp">Folikel (bintil putih bening) → <b>Virus</b> dan <b>Chlamydia</b><br>
+      Papil (bintil merah) → <b>Bakteri</b> dan <b>Alergi</b><br>
+      Giant papil → <b>Alergi kronik / lensa kontak</b></div>
+    </div>
+  </div>
+
+  <!-- KERATITIS PEMBEDA -->
+  <div class="card">
+    <h3><span class="dot dt"></span>Pembeda Jenis Keratitis</h3>
+    <div class="tw"><table>
+      <tr><th>Jenis</th><th>Faktor Risiko Khas</th><th>Gambaran Infiltrat</th><th>Terapi</th></tr>
+      <tr><td><b>Bakteri (Pseudomonas)</b></td><td>Luka kornea, immunocompromised</td><td>Ulkus irreguler, mucopurulen kehijauan, nekrosis</td><td>Siprofloksasin 0.3% tetes</td></tr>
+      <tr><td><b>Bakteri (S. aureus)</b></td><td>Idem</td><td>Ulkus oval, putih kekuningan, batas tegas</td><td>Kloramfenikol / eritromisin tetes</td></tr>
+      <tr><td><b>Herpes Simplex (HSV)</b></td><td>Immunocompromised, stress</td><td>Ulkus dendritik (seperti ranting pohon), tes fluorescein (+)</td><td>Asiklovir salep 3% 5×1 / 7–10 hari + PO 5×400mg</td></tr>
+      <tr><td><b>Herpes Zoster (HZV)</b></td><td>Usia tua, immunocompromised</td><td>Pseudo-dendritik, distribusi dermatomal</td><td>Asiklovir PO 5×800mg / 7–10 hari</td></tr>
+      <tr><td><b>Jamur (Aspergillus/Fusarium)</b></td><td>Trauma terkena tumbuhan/ranting</td><td>Infiltrat keabu-abuan, tepi "berbulu" (feathery edges), lesi satelit</td><td>Natamisin 5% tetes 4–6×/hari</td></tr>
+      <tr><td><b>Acanthamoeba</b></td><td>Lensa kontak, dicuci air keran, berenang</td><td>Infiltrat CINCIN (ring-shaped / Wessely ring), sangat nyeri tidak sebanding</td><td>PHMB 0.02% 1×/jam atau Klorheksidin 0.02%</td></tr>
+    </table></div>
+  </div>
+
+  <!-- DX GRID VISUS TURUN -->
+  <div class="sec-title">
+    <div class="ico ico-pink">📋</div>
+    <div><h2>Diagnosis Banding — Visus Turun</h2><div class="sub">Mendadak vs perlahan, mata merah vs tenang</div></div>
+  </div>
+
+  <div class="dxg">
+    <div class="dxc"><span class="badge bt">Visus Turun Perlahan · Mata Tenang</span><div class="nm">Katarak</div><div class="cl">Lensa keruh, shadow test (+) imatur, red reflex (–). Visus tidak maju dengan pinhole. Silau saat terkena cahaya.</div></div>
+    <div class="dxc"><span class="badge bt">Visus Turun Perlahan · Mata Tenang</span><div class="nm">Glaukoma Kronik (POAG)</div><div class="cl">Asimtomatis awal → tunnel vision progresif. C/D ratio >0.5, TIO meningkat. Riwayat DM, miopia, usia >40.</div></div>
+    <div class="dxc"><span class="badge bp">Visus Turun Perlahan · Mata Tenang</span><div class="nm">Retinopati DM</div><div class="cl">Riwayat DM lama. Fundus: mikroaneurisma, dot-blot hemorrhage, hard exudate, neovaskularisasi. Mata tenang, visus turun perlahan.</div></div>
+    <div class="dxc"><span class="badge bp">Visus Turun Perlahan · Mata Tenang</span><div class="nm">Retinopati Hipertensi</div><div class="cl">AV crossing/nicking, copper-silver wire, cotton wool spots, flame hemorrhage, edema papil (grade 4).</div></div>
+    <div class="dxc"><span class="badge bt">Visus Turun Perlahan · Mata Tenang</span><div class="nm">Kelainan Refraksi</div><div class="cl">Pinhole membaik → miopia/hipermetropia/astigmatisma. Presbiopia: usia >40 tahun, kesulitan baca dekat, koreksi lensa (+).</div></div>
+    <div class="dxc"><span class="badge bt">Visus Turun MENDADAK · Mata Tenang</span><div class="nm">CRAO (Oklusi Arteri Retina Sentral)</div><div class="cl">Visus mendadak turun total, tidak nyeri. Fundus: retina pucat, cherry-red spot di makula. Defek pupil aferen. Riwayat HT/stroke.</div></div>
+    <div class="dxc"><span class="badge bp">Visus Turun MENDADAK · Mata Tenang</span><div class="nm">CRVO (Oklusi Vena Retina Sentral)</div><div class="cl">Visus turun mendadak perifer, tidak nyeri. Fundus: blood and thunder appearance (perdarahan difus seluruh kuadran), edema diskus.</div></div>
+    <div class="dxc"><span class="badge bt">Visus Turun MENDADAK · Mata Tenang</span><div class="nm">Ablasio Retina</div><div class="cl">Fotopsia (kilatan cahaya) + floaters + tirai gelap dari perifer. Riwayat miopia tinggi/trauma. Red reflex (–). Bedah cito jika makula masih melekat.</div></div>
+    <div class="dxc"><span class="badge bp">Visus Turun MENDADAK · Mata Tenang</span><div class="nm">Neuritis Optik</div><div class="cl">Mata tenang, nyeri saat gerak bola mata, defek lapang pandang, buta warna. Marcus Gunn pupil (+). Terkait Multiple Sclerosis.</div></div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h3><span class="dot dt"></span>Hordeolum vs Chalazion — Infeksi Kelenjar Mata</h3>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Hordeolum Interna</th><th>Hordeolum Eksterna</th><th>Chalazion</th></tr>
+      <tr><td><b>Kelenjar</b></td><td>Meibom</td><td>Zeis / Moll</td><td>Meibom (tersumbat)</td></tr>
+      <tr><td><b>Sifat</b></td><td>Supuratif akut</td><td>Supuratif akut</td><td>Granuloma kronik non-infeksi</td></tr>
+      <tr><td><b>Nyeri</b></td><td>++ nyeri</td><td>++ nyeri</td><td>Tidak nyeri</td></tr>
+      <tr><td><b>Tanda Radang</b></td><td>Hiperemis (+)</td><td>Hiperemis (+)</td><td>Tidak hiperemis</td></tr>
+      <tr><td><b>Penonjolan</b></td><td>Ke dalam (palpebra)</td><td>Ke luar</td><td>Ke dalam/luar, tidak fluktuatif</td></tr>
+      <tr><td><b>Terapi</b></td><td>Kompres hangat, AB topikal. Supurasi: insisi vertikal</td><td>Kompres hangat, AB topikal. Supurasi: insisi horizontal</td><td>Kompres hangat, injeksi kortikosteroid intralesi, ekokleasi</td></tr>
+    </table></div>
+    <div class="mnem pink" style="margin-top:10px">
+      <div class="lbl">🧠 Mnemonic</div>
+      <div class="phrase">Hordeolum = HOT · Chalazion = COLD (compress)</div>
+      <div class="exp">Kelenjar: <b>IteM</b> → Internal = <b>M</b>eibom · External = <b>M</b>oll + <b>Z</b>eis → <b>EMeZ</b></div>
+    </div>
+  </div>
+
+</div><!-- end mata-dx -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TAB 3 — PEMERIKSAAN ABDOMEN
+══════════════════════════════════════════════════════════ -->
+<div id="abd-pmx" class="panel">
+
+  <div class="sec-title">
+    <div class="ico ico-teal">🫀</div>
+    <div><h2>Pemeriksaan Fisik Abdomen</h2><div class="sub">Inspeksi · Auskultasi · Perkusi · Palpasi</div></div>
+  </div>
+
+  <div class="vb">
+    <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+      <rect x="40" y="18" width="340" height="224" rx="16" fill="#e0f7f4" stroke="#00b0a0" stroke-width="2"/>
+      <line x1="210" y1="18" x2="210" y2="242" stroke="#00b0a0" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <line x1="40" y1="130" x2="380" y2="130" stroke="#00b0a0" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <!-- Labels kuadran -->
+      <text x="100" y="70" text-anchor="middle" font-size="11" fill="#00695c" font-weight="800">RUQ / KKA</text>
+      <text x="100" y="84" text-anchor="middle" font-size="8.5" fill="#00897b">Hepar, GB, Duodenum</text>
+      <text x="320" y="70" text-anchor="middle" font-size="11" fill="#00695c" font-weight="800">LUQ / KKI</text>
+      <text x="320" y="84" text-anchor="middle" font-size="8.5" fill="#00897b">Lambung, Lien, Kolon</text>
+      <text x="100" y="185" text-anchor="middle" font-size="11" fill="#c2185b" font-weight="800">RLQ / KBA</text>
+      <text x="100" y="199" text-anchor="middle" font-size="8.5" fill="#e91e63">Appendix, Caecum</text>
+      <text x="320" y="185" text-anchor="middle" font-size="11" fill="#00695c" font-weight="800">LLQ / KBI</text>
+      <text x="320" y="199" text-anchor="middle" font-size="8.5" fill="#00897b">Sigmoid, Kolon desc.</text>
+      <!-- Umbilicus -->
+      <circle cx="210" cy="130" r="9" fill="#80e0d4" stroke="#00b0a0" stroke-width="1.5"/>
+      <text x="210" y="134" text-anchor="middle" font-size="8" fill="#00695c" font-weight="800">U</text>
+      <!-- McBurney -->
+      <circle cx="140" cy="160" r="7" fill="#f48fb1" stroke="#e91e63" stroke-width="1.5"/>
+      <text x="155" y="155" font-size="8" fill="#c2185b" font-weight="700">Mc Burney</text>
+      <!-- Murphy -->
+      <circle cx="105" cy="88" r="7" fill="#80e0d4" stroke="#00897b" stroke-width="1.5"/>
+      <text x="120" y="83" font-size="8" fill="#00695c" font-weight="700">Murphy's</text>
+      <!-- Ludwig -->
+      <circle cx="290" cy="80" r="7" fill="#f8bbd0" stroke="#ec407a" stroke-width="1.5"/>
+      <text x="305" y="75" font-size="8" fill="#c2185b" font-weight="700">Ludwig</text>
+      <!-- CVA -->
+      <text x="210" y="240" text-anchor="middle" font-size="8.5" fill="#4a706a">Nyeri ketok CVA: posisi duduk, ketok sudut kostovertebra kiri/kanan</text>
+    </svg>
+    <p>Kuadran abdomen & titik pemeriksaan penting OSCE</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dt"></span>Urutan IAPP — Ingat Auskultasi Sebelum Perkusi & Palpasi!</h3>
+    <div class="mnem" style="margin-bottom:14px">
+      <div class="lbl">🧠 Mnemonic Urutan</div>
+      <div class="phrase">I – A – P – P</div>
+      <div class="exp"><b>I</b>nspeksi → <b>A</b>uskultasi → <b>P</b>erkusi → <b>P</b>alpasi<br>
+      <i>Berbeda dari sistem lain! Auskultasi DULUAN agar bising usus tidak terganggu manipulasi.</i></div>
+    </div>
+    <ul class="sl">
+      <li><span class="sn sn-t">1</span><div class="sc"><strong>Inspeksi</strong><span>Permukaan kulit (sikatriks, striae/Cushing, vena melebar/caput medusae), kontur abdomen (flat/distended/scaphoid), umbilikus, simetrisitas, peristaltik, pulsasi. Posisi: sejajarkan mata dengan dinding abdomen.</span></div></li>
+      <li><span class="sn sn-t">2</span><div class="sc"><strong>Auskultasi (4 kuadran, tiap ~15 detik)</strong><span>Normal: bising usus (+) tidak meningkat/menurun (~5–35×/menit). Meningkat → diare/gastroenteritis. Menurun/hilang → ileus paralitik/peritonitis.</span></div></li>
+      <li><span class="sn sn-t">3</span><div class="sc"><strong>Perkusi 4 Kuadran</strong><span>Normal: timpani di semua kuadran. Perkusi batas hepar di garis midklavikula dextra: sonor → redup (batas atas), redup → timpani (batas bawah). Periksa shifting dullness dan undulasi untuk asites. Nyeri ketok CVA untuk ginjal.</span></div></li>
+      <li><span class="sn sn-t">4</span><div class="sc"><strong>Palpasi Superfisial (4 regio)</strong><span>Nyeri tekan, defans muskuler (rigiditas otot → peritonitis), masa/benjolan. Pasien posisi lutut ditekuk, relaks.</span></div></li>
+      <li><span class="sn sn-t">5</span><div class="sc"><strong>Palpasi Dalam: Hepar</strong><span>Tangan kiri di bawah arcus costae kanan, tangan kanan di kuadran kanan atas. Minta pasien tarik napas sambil perlahan tekan. Normal: hepar teraba halus, kenyal, tidak hepatomegali.</span></div></li>
+      <li><span class="sn sn-t">6</span><div class="sc"><strong>Palpasi Dalam: Lien</strong><span>Tangan kiri di bawah arcus costae kiri, tangan kanan di kuadran kiri atas. Minta tarik napas. Normal: lien tidak teraba (tidak splenomegali).</span></div></li>
+      <li><span class="sn sn-t">7</span><div class="sc"><strong>McBurney Sign</strong><span>Tarik garis SIAS kanan ke umbilikus. Titik McBurney = ⅓ lateral. Tekan → nyeri? Lepas tiba-tiba → nyeri lepas? Normal: tidak nyeri. Positif → appendisitis.</span></div></li>
+      <li><span class="sn sn-t">8</span><div class="sc"><strong>Murphy's Sign</strong><span>Tekan di RUQ bawah arcus costae. Minta pasien inspirasi dalam. Positif: pasien menahan napas karena nyeri (arrest of inspiration). Normal: tidak ada nyeri. Positif → kolesistitis akut.</span></div></li>
+      <li><span class="sn sn-t">9</span><div class="sc"><strong>Shifting Dullness (Asites)</strong><span>Perkusi dari umbilikus ke lateral kiri — tandai batas timpani/pekak. Miringkan pasien ke kanan, tunggu, perkusi kembali. Positif asites: batas pekak bergeser mengikuti gravitasi cairan.</span></div></li>
+    </ul>
+  </div>
+
+  <div class="mnem">
+    <div class="lbl">🧠 Mnemonic Inspeksi Kulit Abdomen</div>
+    <div class="phrase">S – S – V – D – P</div>
+    <div class="exp">
+      <b>S</b>ikatriks (bekas operasi) → <b>S</b>triae (Cushing's syndrome) → <b>V</b>ena melebar/caput medusae (sirosis hepatis) → <b>D</b>arm contour/steifung (gerakan usus tampak, ileus obstruktif) → <b>P</b>ulsasi aorta (aneurisma aorta)
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dp"></span>Interpretasi Auskultasi Abdomen</h3>
+    <div class="tw"><table>
+      <tr><th>Temuan Auskultasi</th><th>Kondisi</th></tr>
+      <tr><td>Normal (5–35×/menit)</td><td>Abdomen normal</td></tr>
+      <tr><td>Meningkat (hiperperistaltik)</td><td>Diare, gastroenteritis, ileus obstruktif awal</td></tr>
+      <tr><td>Menurun / hilang</td><td>Ileus paralitik, peritonitis, pasca operasi</td></tr>
+      <tr><td>Metallic sound</td><td>Ileus obstruktif (high-pitched borborygmi)</td></tr>
+      <tr><td>Bruit di atas aorta</td><td>Aneurisma aorta abdominalis</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot dt"></span>Interpretasi Perkusi Abdomen</h3>
+    <div class="tw"><table>
+      <tr><th>Temuan Perkusi</th><th>Bunyi</th><th>Diagnosis Curiga</th></tr>
+      <tr><td>4 kuadran normal</td><td>Timpani semua</td><td>Normal</td></tr>
+      <tr><td>Shifting dullness (+)</td><td>Pekak bergeser saat posisi berubah</td><td>Asites (sirosis, peritonitis, Ca, TB peritoneum)</td></tr>
+      <tr><td>Pekak seluruh abdomen</td><td>Redup difus</td><td>Tumor besar, organomegali masif</td></tr>
+      <tr><td>Batas hepar meluas ke bawah</td><td>Area pekak meluas</td><td>Hepatomegali</td></tr>
+      <tr><td>Nyeri ketok CVA (+)</td><td>Nyeri saat ketukan</td><td>Pyelonephritis, nefrolitiasis</td></tr>
+      <tr><td>Hipertimpani + distensi</td><td>Timpani keras / metalik</td><td>Ileus obstruktif (gas terperangkap)</td></tr>
+    </table></div>
+  </div>
+
+</div><!-- end abd-pmx -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TAB 4 — DIAGNOSIS ABDOMEN
+══════════════════════════════════════════════════════════ -->
+<div id="abd-dx" class="panel">
+
+  <div class="sec-title">
+    <div class="ico ico-pink">🔍</div>
+    <div><h2>Diagnosis & Diagnosis Banding Abdomen</h2><div class="sub">Berdasarkan temuan pemeriksaan fisik</div></div>
+  </div>
+
+  <!-- TANDA PATOGNOMONIK -->
+  <div class="card">
+    <h3><span class="dot dt"></span>Tanda Klinis Patognomonik — Wajib Hafal!</h3>
+    <div class="tw"><table>
+      <tr><th>Tanda</th><th>Cara Periksa</th><th>Positif → Diagnosis</th></tr>
+      <tr><td><b>Murphy's Sign</b></td><td>Tekan RUQ saat pasien inspirasi dalam</td><td>Kolesistitis akut ⭐</td></tr>
+      <tr><td><b>McBurney Sign</b></td><td>Nyeri tekan & nyeri lepas di ⅓ lateral SIAS–umbilikus</td><td>Appendisitis ⭐</td></tr>
+      <tr><td><b>Shifting Dullness</b></td><td>Perkusi lateral, miringkan pasien, perkusi lagi</td><td>Asites ⭐</td></tr>
+      <tr><td><b>Ludwig Sign</b></td><td>Nyeri tekan sela iga ke-6 linea axilaris anterior</td><td>Abses hepar</td></tr>
+      <tr><td><b>Trias Charcot</b></td><td>Nyeri RUQ + Demam + Ikterus</td><td>Kolangitis ⭐</td></tr>
+      <tr><td><b>Pentad Reynolds</b></td><td>Trias Charcot + Hipotensi + Penurunan kesadaran</td><td>Kolangitis berat / sepsis</td></tr>
+      <tr><td><b>Cullen Sign</b></td><td>Ekimosis periumbilikalis</td><td>Pankreatitis akut berat</td></tr>
+      <tr><td><b>Grey Turner Sign</b></td><td>Ekimosis di flank/pinggang</td><td>Pankreatitis akut berat</td></tr>
+      <tr><td><b>Courvoisier Sign</b></td><td>GB teraba + painless jaundice</td><td>Ca caput pankreas ⭐</td></tr>
+      <tr><td><b>Caput Medusae</b></td><td>Vena melebar di dinding abdomen memancar dari umbilikus</td><td>Sirosis hepatis / hipertensi porta</td></tr>
+    </table></div>
+  </div>
+
+  <!-- DIAGNOSIS BANDING GRID -->
+  <div class="sec-title" style="margin-top:24px">
+    <div class="ico ico-teal">📋</div>
+    <div><h2>Diagnosis Banding per Keluhan</h2><div class="sub">Klik kartu untuk mempelajari perbedaannya</div></div>
+  </div>
+
+  <div class="dxg">
+    <div class="dxc"><span class="badge bt">Nyeri Epigastrium</span><div class="nm">GERD</div><div class="cl">Heartburn, regurgitasi asam pahit. Memburuk setelah makan/berbaring. Tanpa alarm symptom → PPI trial 2 minggu.</div></div>
+    <div class="dxc"><span class="badge bp">Nyeri Epigastrium</span><div class="nm">Gastritis / Ulkus Gaster</div><div class="cl">Nyeri BERTAMBAH saat makan (<i>pain-food-more pain</i>). Nyeri sesaat setelah makan. Riwayat NSAID, alkohol, H. pylori.</div></div>
+    <div class="dxc"><span class="badge bt">Nyeri Epigastrium</span><div class="nm">Ulkus Duodenum</div><div class="cl">Nyeri BERKURANG saat makan (<i>pain-food-relieve-pain</i>). Nyeri 2–3 jam pasca makan, bisa membangunkan tidur. Riwayat NSAID, H. pylori.</div></div>
+    <div class="dxc"><span class="badge bp">Nyeri Epigastrium → Punggung</span><div class="nm">Pankreatitis Akut</div><div class="cl">Nyeri berat menembus ke punggung. Memburuk berbaring. Cullen sign + Grey Turner sign (berat). Lipase ≥3× normal. Riwayat alkohol / batu empedu.</div></div>
+    <div class="dxc"><span class="badge bt">Nyeri RUQ + Murphy (+)</span><div class="nm">Kolesistitis Akut</div><div class="cl">Murphy sign (+). Nyeri RUQ >6 jam post prandial, menjalar ke bahu kanan. Demam (+). Tanpa ikterus. USG: penebalan GB >3mm, acoustic shadow.</div></div>
+    <div class="dxc"><span class="badge bp">Nyeri RUQ + Ikterus</span><div class="nm">Koledokolitiasis</div><div class="cl">Nyeri RUQ, ikterus (+), tanpa demam. ALP & GGT meningkat. USG: dilatasi CBD. ERCP = diagnosis + terapi.</div></div>
+    <div class="dxc"><span class="badge bt">Trias Charcot</span><div class="nm">Kolangitis Akut</div><div class="cl">Nyeri RUQ + Demam + Ikterus. Jika + hipotensi + penurunan kesadaran = Pentad Reynolds → rawat ICU, drainase segera.</div></div>
+    <div class="dxc"><span class="badge bp">Nyeri RLQ + McBurney (+)</span><div class="nm">Appendisitis Akut</div><div class="cl">McBurney sign (+), nyeri tekan + nyeri lepas RLQ. Demam, anoreksia, mual. Rovsing sign, Psoas sign, Obturator sign opsional.</div></div>
+    <div class="dxc"><span class="badge bt">Hepatomegali + Stigmata</span><div class="nm">Sirosis Hepatis</div><div class="cl">5 dari 7 tanda: splenomegali, eritema palmaris, ginekomastia, asites, spider nevi, albumin turun, hematemesis melena.</div></div>
+    <div class="dxc"><span class="badge bp">Hepatomegali + AFP ↑</span><div class="nm">Hepatocellular Carcinoma</div><div class="cl">Hepar keras, berdungkul-dungkul. Penurunan BB. AFP meningkat. Riwayat sirosis / HBV / HCV.</div></div>
+    <div class="dxc"><span class="badge bt">GB teraba + Painless Jaundice</span><div class="nm">Ca Caput Pankreas</div><div class="cl">Courvoisier sign (+). Ikterus tanpa nyeri, BAB berminyak (steatorrhea). CA 19-9 meningkat. Merokok = faktor risiko terkuat.</div></div>
+    <div class="dxc"><span class="badge bp">Asites + Shifting Dullness (+)</span><div class="nm">Sirosis / Ca / TB Peritoneum</div><div class="cl">Shifting dullness (+) dan/atau undulasi (+) → cairan bebas peritoneum. Bedakan: sirosis (stigmata +), Ca (benjolan/penurunan BB), TB (demam kronik).</div></div>
+    <div class="dxc"><span class="badge bt">BAB encer + Peristaltik ↑</span><div class="nm">Diare / Gastroenteritis</div><div class="cl">Bising usus meningkat. Berlendir + darah → disentri. Air cucian beras → kolera. pH asam + bau busuk → amoeba. pH basa → shigella.</div></div>
+    <div class="dxc"><span class="badge bp">Bising Usus ↓ / Hilang</span><div class="nm">Ileus Paralitik / Peritonitis</div><div class="cl">Bising usus menurun/menghilang. Ileus: distensi tanpa nyeri kolik. Peritonitis: defans muskuler, nyeri seluruh abdomen, demam tinggi.</div></div>
+    <div class="dxc"><span class="badge bt">Nyeri CVA (+)</span><div class="nm">Pyelonephritis / Nefrolitiasis</div><div class="cl">Nyeri ketok CVA (+). Pyelonephritis: demam, disuria, piuria. Nefrolitiasis: nyeri kolik, hematuria, intermiten.</div></div>
+  </div>
+
+  <!-- Tabel Pembeda Disentri -->
+  <div class="card" style="margin-top:18px">
+    <h3><span class="dot dp"></span>Pembeda Disentri Basiler vs Amoeba</h3>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Disentri Basiler (Shigella)</th><th>Disentri Amoeba (E. histolytica)</th></tr>
+      <tr><td>Frekuensi BAB</td><td>>10 kali/hari</td><td>6–8 kali/hari</td></tr>
+      <tr><td>Volume</td><td>Sedikit</td><td>Banyak</td></tr>
+      <tr><td>Bau</td><td>Tidak berbau / minimal</td><td>Bau busuk</td></tr>
+      <tr><td>Warna darah</td><td>Merah terang</td><td>Merah gelap / coklat</td></tr>
+      <tr><td>pH feses</td><td><b>Basa</b></td><td><b>Asam</b> ⭐</td></tr>
+      <tr><td>Kristal Charcot-Leyden</td><td>Tidak ada</td><td>Ada ⭐</td></tr>
+      <tr><td>Gold standard</td><td>Kultur agar MacConkey</td><td>Mikroskopi feses</td></tr>
+      <tr><td>Terapi lini pertama</td><td>Siprofloksasin 2×500mg PO / 3 hari</td><td>Metronidazol 3×500mg PO / 7–10 hari</td></tr>
+    </table></div>
+    <div class="mnem pink" style="margin-top:10px">
+      <div class="lbl">🧠 Mnemonic</div>
+      <div class="phrase">AMOEBA = Asam · Bau · Banyak · Coklat</div>
+      <div class="exp">pH <b>A</b>sam, <b>B</b>au busuk, volume <b>B</b>anyak, warna <b>C</b>oklat/gelap → Amoeba<br>
+      Sisanya (basa, tidak berbau, sedikit, merah terang) → Basiler (Shigella)</div>
+    </div>
+  </div>
+
+  <!-- Sirosis Hepatis 5/7 tanda -->
+  <div class="card">
+    <h3><span class="dot dt"></span>5 dari 7 Tanda Sirosis Dekompensata</h3>
+    <div class="mnem">
+      <div class="lbl">🧠 Mnemonic 7 Tanda Sirosis</div>
+      <div class="phrase">SEGAS – HA</div>
+      <div class="exp">
+        <b>S</b>plenomegali → <b>E</b>ritema palmaris → <b>G</b>inekomastia → <b>A</b>sites → <b>S</b>pider nevi → <b>H</b>ematemesis melena → <b>A</b>lbumin turun (invers albumin globulin)
+      </div>
+    </div>
+    <div class="alert at" style="margin-top:8px">
+      <strong>⭐ Kunci OSCE:</strong> Diagnosis sirosis dekompensata ditegakkan jika ditemukan <b>minimal 5 dari 7 tanda</b> di atas pada pemeriksaan fisik.
+    </div>
+  </div>
+
+</div><!-- end abd-dx -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TAB 5 — FLASHCARD
+══════════════════════════════════════════════════════════ -->
+<div id="flashcard" class="panel">
+
+  <div style="text-align:center;padding:20px 0 14px">
+    <h2 style="font-size:1.25rem;font-weight:800;color:var(--teal-600)">🃏 Flashcard Review</h2>
+    <p style="font-size:.84rem;color:var(--text-sub);margin-top:4px">Klik kartu untuk lihat jawaban. Latih hafalan sebelum OSCE!</p>
+  </div>
+
+  <!-- Filter pills -->
+  <div class="pill-row" style="justify-content:center;margin-bottom:16px">
+    <button class="pill pill-all on" onclick="filterCards('all',this)">Semua</button>
+    <button class="pill pill-t" onclick="filterCards('visus',this)">👁️ Visus</button>
+    <button class="pill pill-p" onclick="filterCards('segmen',this)">🔬 Segmen Anterior</button>
+    <button class="pill pill-t" onclick="filterCards('konjungtivitis',this)">👁️ Konjungtivitis</button>
+    <button class="pill pill-p" onclick="filterCards('abdomen',this)">🫀 Abdomen</button>
+    <button class="pill pill-t" onclick="filterCards('geh',this)">🔍 Diagnosis GEH</button>
+  </div>
+
+  <div class="fc-wrap">
+    <div class="fc-prog">Kartu <b id="cur">1</b> dari <b id="tot">—</b> &nbsp;|&nbsp; ✅ <b id="ok">0</b> &nbsp; ❌ <b id="nok">0</b></div>
+
+    <div class="scene" onclick="flip()">
+      <div class="ci" id="ci">
+        <div class="face front">
+          <div class="flbl">Pertanyaan — klik untuk flip 👆</div>
+          <div class="ftxt" id="fq">—</div>
+          <div class="fhint" id="fcat"></div>
+        </div>
+        <div class="face back">
+          <div class="flbl">Jawaban</div>
+          <div class="ftxt" id="fa">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fctrl">
+      <button class="btn btn-o" onclick="prev()">⬅️</button>
+      <button class="btn btn-t" onclick="markOk()">✅ Paham</button>
+      <button class="btn btn-p" onclick="markNok()">❌ Belum</button>
+      <button class="btn btn-o" onclick="next()">➡️</button>
+      <button class="btn btn-o" onclick="shuffle()">🔀 Acak</button>
+      <button class="btn btn-o" onclick="reset()">🔄 Reset</button>
+    </div>
+    <div class="fc-res" id="fcr"></div>
+  </div>
+
+</div><!-- end flashcard -->
+
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:1.4rem;margin-bottom:8px">💖</div>
+  <div class="qt">Setiap halaman yang kamu baca hari ini<br>adalah satu langkah lebih dekat ke dokter yang kamu impikan.</div>
+  <div class="qt" style="font-size:.88rem;margin-top:8px;font-weight:600;opacity:.9">Kamu udah berjuang keras — percaya sama proses dan percaya sama dirimu sendiri. 🌿</div>
+  <div style="margin-top:18px;font-size:.78rem;opacity:.8">Made with 💚🩷 for</div>
+  <div class="nm">Rona Nasywa Mahira</div>
+  <div class="sub">OSCE Semester 6 · Gastroenterohepatologi & Oftalmologi</div>
+</footer>
+
+<script>
+// ── TAB LOGIC ──
+function showTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ── FLASHCARD DATA ──
+const ALL = [
+  // VISUS
+  {q:"Apa arti visus 6/6?", a:"Visus NORMAL. Pasien membaca huruf dari 6 meter, orang normal juga dari 6 meter.", cat:"visus"},
+  {q:"Visus 6/30, setelah pinhole menjadi 6/6. Interpretasi?", a:"Ada PERBAIKAN dengan pinhole → ini KELAINAN REFRAKSI (miopia, hipermetropia, astigmatisma). Perlu koreksi kacamata.", cat:"visus"},
+  {q:"Visus turun perlahan, pinhole tidak membaik, lensa keruh, red reflex (–). Diagnosis?", a:"KATARAK. Derajat ditentukan shadow test: (+) = imatur, (–) = matur. Visus tidak maju dengan pinhole karena bukan kelainan refraksi.", cat:"visus"},
+  {q:"Visus turun mendadak, tidak nyeri, fundus: cherry-red spot, retina pucat. Diagnosis?", a:"Central Retinal Artery Occlusion (CRAO). Emboli arteri retina → iskemia → cherry-red spot. Tidak nyeri, riwayat HT/stroke/emboli.", cat:"visus"},
+  {q:"Kapan dilakukan pemeriksaan pinhole dan apa prinsipnya?", a:"Setelah visus biasa. Prinsip: pinhole memfokuskan sinar masuk → mengurangi efek kelainan refraksi. Membaik = refraksi. Tidak membaik = organik.", cat:"visus"},
+
+  // SEGMEN ANTERIOR
+  {q:"Sebutkan urutan 9 struktur pemeriksaan segmen anterior!", a:"Palpebra → Bulu mata → Konjungtiva → Sklera → Kornea → COA → Iris → Pupil → Lensa. Mnemonic: 'Papa Bawa Kucing Setiap Kami Cari Ibu Pulang Lewat sini'", cat:"segmen"},
+  {q:"Mata merah, visus turun, COA dangkal, pupil mid-midriasis OVAL, TIO 60 mmHg. Diagnosis?", a:"GLAUKOMA AKUT SUDUT TERTUTUP (PACG). Nyeri berat mendadak, mual muntah, halo sign, edema kornea. Tatalaksana: asetazolamid IV 500mg, timolol, pilokarpin, iridektomi.", cat:"segmen"},
+  {q:"Mata merah, visus turun, PCI (+), KP (+), hipopion, pupil miosis irreguler. Diagnosis?", a:"UVEITIS ANTERIOR. KP = keratic precipitate (endapan sel radang di kornea). Sinekia posterior. Terapi: steroid topikal + sikloplegik (cegah sinekia).", cat:"segmen"},
+  {q:"Injeksi konjungtiva vs injeksi silier: blanching test dengan fenilefrin bagaimana?", a:"CI (konjungtiva) → blanching (+) → memutih dengan fenilefrin 2,5%. PCI (silier/pericorneal) → tidak memutih karena pembuluh lebih dalam.", cat:"segmen"},
+  {q:"Shadow test (+) pada katarak senilis menandakan stadium apa?", a:"IMATUR. Masih ada korteks lensa → cahaya pantulan dari temporal membentuk bayangan crescent/sabit pada iris. Matur = tidak ada bayangan (shadow test –) karena korteks habis.", cat:"segmen"},
+  {q:"Mata merah, visus normal, merah BIRU (blueish), sangat nyeri saat gerak bola mata, riwayat RA. Diagnosis?", a:"SKLERITIS. Sclera biru = blue sclera. Nyeri berat ++++ hingga kepala dan wajah. Fenilefrin tidak blanching. Berhubungan dengan penyakit autoimun (RA, SLE, ankylosing spondylitis).", cat:"segmen"},
+
+  // KONJUNGTIVITIS
+  {q:"Konjungtivitis dengan discharge hiperpurulen, onset hiperakut 12–24 jam, KGB preaurikular membesar. Etiologi dan terapi?", a:"KONJUNGTIVITIS GONOKOKAL (N. gonorrhea). Terapi: tetes kloramfenikol 0,5–1% 1 tetes/jam + Ceftriaxon 1g IM + Azitromisin 1g PO. Bisa invasi kornea intak.", cat:"konjungtivitis"},
+  {q:"Reaksi konjungtiva: folikel vs papil — masing-masing etiologi apa?", a:"FOLIKEL (bintil putih bening) → Virus dan Chlamydia. PAPIL (bintil merah, ada pembuluh darah sentral) → Bakteri dan Alergi. Giant papil → alergi kronik / lensa kontak. Mnemonic: B A Pil = Bakteri Alergi → Papil.", cat:"konjungtivitis"},
+  {q:"Konjungtivitis dengan gatal +++ (paling dominan), discharge mukoid, papil/cobblestone, musiman. Diagnosis dan terapi?", a:"KONJUNGTIVITIS ALERGI (vernal jika ada cobblestone dan Trantas dots). Terapi: HINDARI ALERGEN, antihistamin, stabilizer sel mast (sodium kromoglikat 2%), steroid topikal.", cat:"konjungtivitis"},
+  {q:"Konjungtivitis kronik, Herbert pits di limbus, potensi kebutaan tinggi. Etiologi dan terapi?", a:"TRACHOMA — Chlamydia trachomatis serotipe A, B, Ba, C. Terapi: salep mata tetrasiklin 1% / eritromisin 0,5% 4×1 selama 3 minggu + Azitromisin 1g PO single dose.", cat:"konjungtivitis"},
+  {q:"Apa perbedaan discharge konjungtivitis viral vs bakteri vs gonokokal?", a:"Viral → Serous (encer, jernih). Bakteri non-GC → Mukopurulen. Chlamydia → Mukopurulen + folikel. Gonokokal → Hiperpurulen (sangat banyak dan deras, seperti nanah mengalir).", cat:"konjungtivitis"},
+
+  // ABDOMEN
+  {q:"Urutan pemeriksaan fisik abdomen — kenapa auskultasi sebelum perkusi?", a:"Urutan: IAPP (Inspeksi → Auskultasi → Perkusi → Palpasi). Auskultasi DULUAN agar bising usus tidak terganggu oleh manipulasi (perkusi/palpasi bisa mempengaruhi peristaltik).", cat:"abdomen"},
+  {q:"Murphy's sign: cara melakukan dan positif menandakan apa?", a:"Tekan di RUQ bawah arcus costae kanan. Minta pasien inspirasi dalam. Positif = pasien MENAHAN NAPAS karena nyeri (arrest of inspiration). Diagnosis: KOLESISTITIS AKUT.", cat:"abdomen"},
+  {q:"McBurney sign: letak titik McBurney dan maknanya?", a:"⅓ lateral dari garis SIAS kanan ke umbilikus. Nyeri tekan + nyeri lepas = McBurney (+) → APPENDISITIS AKUT. Nyeri lepas = lepas tangan tiba-tiba dari titik tekan → nyeri memberat.", cat:"abdomen"},
+  {q:"Shifting dullness: cara pemeriksaan dan interpretasi positif?", a:"Perkusi umbilikus ke lateral → tandai batas timpani-pekak. Miringkan pasien ke satu sisi, tunggu, perkusi lagi. Positif ASITES: batas pekak bergeser mengikuti gravitasi (cairan pindah ke sisi bawah).", cat:"abdomen"},
+  {q:"Bising usus menurun atau hilang → curiga apa?", a:"Ileus paralitik (pasca operasi, peritonitis difus, gangguan elektrolit) atau PERITONITIS. Peradangan peritoneum → reflex hambat peristaltik. Ileus obstruktif awal bisa meningkat, lalu menurun di fase lanjut.", cat:"abdomen"},
+
+  // GEH DIAGNOSIS
+  {q:"Nyeri epigastrik berat menembus punggung + Cullen sign. Diagnosis dan penyebab tersering?", a:"PANKREATITIS AKUT. Cullen sign = ekimosis periumbilikalis. Grey Turner = ekimosis flank. Penyebab: batu empedu (40%) + alkohol (30%). Penanda: Lipase ≥3× normal (lebih spesifik).", cat:"geh"},
+  {q:"Trias Charcot vs Pentad Reynolds — apa bedanya?", a:"Trias Charcot = Nyeri RUQ + Demam + Ikterus → KOLANGITIS. Pentad Reynolds = Trias Charcot + HIPOTENSI + PENURUNAN KESADARAN → Kolangitis berat/sepsis bilier → ICU + drainase segera.", cat:"geh"},
+  {q:"Courvoisier sign: apa itu dan menandakan apa?", a:"Kandung empedu teraba membesar + PAINLESS JAUNDICE (ikterus tanpa nyeri). Menandakan CA CAPUT PANKREAS. Obstruksi bukan batu (kalau batu biasanya nyeri), tapi tumor → GB mengembang tanpa radang.", cat:"geh"},
+  {q:"pH asam pada feses + bau busuk + kristal Charcot-Leyden → diagnosis disentri apa?", a:"DISENTRI AMOEBA (Entamoeba histolytica). pH asam, bau busuk, volume banyak, merah gelap. Terapi: Metronidazol 3×500mg / 7–10 hari. Beda dengan basiler (shigella): pH basa, tidak berbau, merah terang.", cat:"geh"},
+  {q:"5 dari 7 tanda sirosis dekompensata — sebutkan semua!", a:"1. Splenomegali 2. Eritema palmaris 3. Ginekomastia 4. Asites 5. Spider nevi 6. Albumin turun (invers albumin globulin) 7. Hematemesis melena. Mnemonic: SEGAS-HA", cat:"geh"},
+];
+
+let pool = [...ALL];
+let idx = 0, ok = 0, nok = 0, flipped = false;
+let activeFilter = 'all';
+
+function renderCard() {
+  const c = pool[idx];
+  document.getElementById('fq').textContent = c.q;
+  document.getElementById('fa').textContent = c.a;
+  document.getElementById('fcat').textContent = ({visus:'👁️ Visus',segmen:'🔬 Segmen Anterior',konjungtivitis:'👁️ Konjungtivitis',abdomen:'🫀 Abdomen',geh:'🔍 Diagnosis GEH'})[c.cat]||c.cat;
+  document.getElementById('cur').textContent = idx+1;
+  document.getElementById('tot').textContent = pool.length;
+  document.getElementById('ok').textContent = ok;
+  document.getElementById('nok').textContent = nok;
+  document.getElementById('ci').classList.remove('flipped');
+  flipped = false;
+  updateRes();
+}
+
+function flip() {
+  document.getElementById('ci').classList.toggle('flipped');
+  flipped = !flipped;
+}
+function next() { idx = (idx+1)%pool.length; renderCard(); }
+function prev() { idx = (idx-1+pool.length)%pool.length; renderCard(); }
+function markOk() { ok++; next(); }
+function markNok() { nok++; next(); }
+function shuffle() {
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  idx=0; renderCard();
+}
+function reset() {
+  pool = activeFilter==='all' ? [...ALL] : ALL.filter(c=>c.cat===activeFilter);
+  idx=0; ok=0; nok=0; renderCard();
+}
+function filterCards(cat, btn) {
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  activeFilter = cat;
+  pool = cat==='all' ? [...ALL] : ALL.filter(c=>c.cat===cat);
+  idx=0; ok=0; nok=0; renderCard();
+}
+function updateRes() {
+  const t=ok+nok;
+  if(!t){document.getElementById('fcr').innerHTML='';return;}
+  const pct=Math.round(ok/t*100);
+  const em = pct>=80?'🌟':pct>=60?'💪':'📚';
+  document.getElementById('fcr').innerHTML=`${em} Dari <b>${t}</b> soal yang dijawab, skor kamu <b>${pct}%</b> benar!`;
+}
+
+renderCard();
+</script>
+</body>
+</html>
