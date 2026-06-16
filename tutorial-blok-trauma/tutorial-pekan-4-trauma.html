@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trauma Tumpul Dada & Asfiksia — Rangkuman Komprehensif</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:      #FDF6EE;
+  --cream-dark: #F0E4D4;
+  --cream-mid:  #FAF0E6;
+  --orange:     #F4845F;
+  --orange-pale:#FDE8DF;
+  --orange-deep:#D95F34;
+  --pink:       #F2A7B8;
+  --pink-pale:  #FDEEF3;
+  --pink-deep:  #D97090;
+  --pink-soft:  #FBD5E0;
+  --mauve:      #C9879A;
+  --text:       #2E1E18;
+  --muted:      #7A5A52;
+  --border:     #E8D5C8;
+  --white:      #FFFFFF;
+  --shadow:     0 4px 24px rgba(80,30,20,0.08);
+  --shadow-sm:  0 2px 10px rgba(80,30,20,0.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);font-size:14.5px;line-height:1.8;}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#3D1F1A 0%,#6B3030 50%,#8B4060 100%);padding:60px 48px 52px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:400px;height:400px;border-radius:50%;background:rgba(242,167,184,0.08);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-30px;width:280px;height:280px;border-radius:50%;background:rgba(244,132,95,0.08);pointer-events:none;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(242,167,184,0.18);border:1px solid rgba(242,167,184,0.35);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 15px;border-radius:20px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,56px);font-weight:800;color:#FDF6EE;line-height:1.08;margin-bottom:14px;}
+.hero h1 em{color:var(--orange);font-style:normal;}
+.hero-sub{color:rgba(253,246,238,0.65);font-size:13.5px;max-width:600px;line-height:1.8;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.pill{background:rgba(253,246,238,0.1);border:1px solid rgba(253,246,238,0.18);color:rgba(253,246,238,0.78);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;}
+
+/* ===== SKENARIO BAR ===== */
+.scenario-bar{background:linear-gradient(135deg,var(--orange),#E86A42);padding:22px 36px;display:flex;align-items:flex-start;gap:16px;}
+.scenario-bar .ico{font-size:22px;flex-shrink:0;margin-top:2px;}
+.scenario-bar .txt{color:#FDF6EE;font-size:13.5px;line-height:1.75;}
+.scenario-bar .txt strong{display:block;font-size:15px;margin-bottom:4px;letter-spacing:0.2px;}
+
+/* ===== NAV ===== */
+.nav-wrap{position:sticky;top:0;z-index:200;background:#3D1F1A;display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:0 3px 20px rgba(40,10,5,0.25);}
+.nav-wrap::-webkit-scrollbar{display:none;}
+.nb{background:none;border:none;color:rgba(253,246,238,0.5);font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:0.4px;padding:14px 18px;white-space:nowrap;cursor:pointer;border-bottom:2.5px solid transparent;transition:all 0.2s;}
+.nb:hover,.nb.on{color:var(--pink);border-bottom-color:var(--pink);}
+
+/* ===== MAIN WRAP ===== */
+.wrap{max-width:980px;margin:0 auto;padding:44px 24px;}
+.section{display:none;animation:fadeUp 0.3s ease;}
+.section.on{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== SECTION HEADERS ===== */
+.sh{margin-bottom:32px;}
+.sh h2{font-family:'Playfair Display',serif;font-size:29px;font-weight:700;color:#3D1F1A;margin-bottom:6px;}
+.sh p{color:var(--muted);font-size:13px;padding-bottom:18px;border-bottom:2px solid var(--border);}
+.lo-badge{display:inline-flex;align-items:center;gap:6px;background:#3D1F1A;color:var(--pink);font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:12px;margin-bottom:12px;}
+
+/* ===== CARDS ===== */
+.card{background:var(--white);border-radius:18px;padding:24px 28px;margin-bottom:18px;border:1.5px solid var(--border);box-shadow:var(--shadow);transition:box-shadow 0.2s,transform 0.2s;}
+.card:hover{box-shadow:0 10px 32px rgba(80,30,20,0.12);transform:translateY(-2px);}
+.card-title{font-family:'Playfair Display',serif;font-size:17.5px;font-weight:700;color:#3D1F1A;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.ci{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+
+/* ===== ALERTS ===== */
+.alert{padding:13px 17px;border-radius:11px;margin:10px 0;font-size:13.5px;display:flex;gap:11px;line-height:1.7;}
+.a-pink{background:var(--pink-pale);border-left:4px solid var(--pink-deep);color:#7A2040;}
+.a-orange{background:var(--orange-pale);border-left:4px solid var(--orange-deep);color:#7A2A10;}
+.a-cream{background:var(--cream-dark);border-left:4px solid var(--mauve);color:#4A2030;}
+.a-mauve{background:#F5E8EE;border-left:4px solid var(--mauve);color:#5A2035;}
+.a-red{background:#FDEAEA;border-left:4px solid #D94040;color:#7A1010;}
+.ai{flex-shrink:0;font-size:15px;margin-top:1px;}
+
+/* ===== TABLES ===== */
+.tw{overflow-x:auto;border-radius:13px;border:1.5px solid var(--border);margin:12px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:#3D1F1A;color:var(--cream);padding:11px 15px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.3px;}
+td{padding:10px 15px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.65;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:#FBF5F0;}
+tr:hover td{background:var(--pink-pale);transition:background 0.15s;}
+
+/* ===== GRIDS ===== */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr;}}
+
+/* ===== MINI CARDS ===== */
+.mc{background:var(--cream-mid);border:1.5px solid var(--border);border-radius:13px;padding:16px 19px;}
+.mc h4{font-family:'Playfair Display',serif;font-size:14.5px;color:#3D1F1A;margin-bottom:9px;font-weight:700;}
+.mc ul{padding-left:16px;}
+.mc li{font-size:13px;color:var(--muted);margin-bottom:4px;line-height:1.65;}
+.mc p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ===== STYLED LIST ===== */
+.sl{list-style:none;padding:0;}
+.sl li{padding:6px 0 6px 22px;border-bottom:1px solid var(--border);font-size:13.5px;position:relative;line-height:1.65;}
+.sl li::before{content:'◆';position:absolute;left:0;color:var(--pink-deep);font-size:9px;top:10px;}
+.sl li:last-child{border-bottom:none;}
+
+/* ===== STEPS ===== */
+.steps{counter-reset:st;}
+.step{counter-increment:st;padding:14px 14px 14px 54px;position:relative;border-left:3px solid var(--pink);background:var(--white);border-radius:0 12px 12px 0;margin-bottom:8px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-right:1.5px solid var(--border);}
+.step::before{content:counter(st);position:absolute;left:-16px;top:50%;transform:translateY(-50%);width:30px;height:30px;background:var(--pink);color:#3D1F1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+.step strong{display:block;color:#3D1F1A;font-size:14px;margin-bottom:4px;}
+.step p,.step span{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* ===== PEARL ===== */
+.pearl{background:linear-gradient(135deg,var(--orange-pale),#FFF8F5);border:2px solid var(--orange);border-radius:14px;padding:16px 20px;margin:12px 0;}
+.pearl-lbl{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:6px;}
+.pearl p{font-size:13.5px;color:#3D1F1A;line-height:1.75;}
+
+/* ===== SCENARIO LINK ===== */
+.sk-box{background:linear-gradient(135deg,#3D1F1A,#6B3040);border:1.5px solid rgba(242,167,184,0.3);border-radius:14px;padding:16px 20px;margin:16px 0;}
+.sk-box::before{content:'🔗 Keterkaitan Skenario';font-weight:600;color:var(--pink);font-size:11px;letter-spacing:0.5px;display:block;margin-bottom:7px;}
+.sk-box p{color:rgba(253,246,238,0.82);font-size:13px;line-height:1.75;}
+
+/* ===== HIGHLIGHTS ===== */
+.hp{background:var(--pink-pale);color:var(--pink-deep);padding:1px 8px;border-radius:5px;font-weight:700;font-size:13px;}
+.ho{background:var(--orange-pale);color:var(--orange-deep);padding:1px 8px;border-radius:5px;font-weight:700;font-size:13px;}
+.hm{background:#F5E8EE;color:var(--mauve);padding:1px 8px;border-radius:5px;font-weight:700;font-size:13px;}
+.hr{background:#FDEAEA;color:#C02020;padding:1px 8px;border-radius:5px;font-weight:700;font-size:13px;}
+
+/* ===== COMPARE ===== */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.cmp-a{background:var(--pink-pale);border:2px solid var(--pink-deep);border-radius:13px;padding:16px;}
+.cmp-b{background:var(--orange-pale);border:2px solid var(--orange);border-radius:13px;padding:16px;}
+.cmp-a h4{color:var(--pink-deep);font-family:'Playfair Display',serif;margin-bottom:10px;font-weight:700;}
+.cmp-b h4{color:var(--orange-deep);font-family:'Playfair Display',serif;margin-bottom:10px;font-weight:700;}
+.crow{display:flex;font-size:12.5px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.07);gap:8px;line-height:1.6;}
+.crow:last-child{border-bottom:none;}
+.crow span:first-child{width:95px;flex-shrink:0;opacity:0.6;font-size:12px;}
+@media(max-width:600px){.cmp{grid-template-columns:1fr;}}
+
+/* ===== DIVIDER ===== */
+.div{height:1px;background:var(--border);margin:20px 0;}
+
+/* ===== FLOW ===== */
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:12px;padding:11px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:11px;margin-bottom:4px;font-size:13.5px;}
+.flow-item .fn{width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;margin-top:1px;}
+.flow-arrow{text-align:center;color:var(--pink-deep);font-size:18px;margin:1px auto;line-height:1;}
+.flow-item.danger{background:#FDF0F0;border-color:#D94040;}
+.flow-item.safe{background:var(--pink-pale);border-color:var(--pink-deep);}
+.flow-item.warn{background:var(--orange-pale);border-color:var(--orange);}
+
+/* ===== PROTOCOL STEPS ===== */
+.proto-wrap{background:var(--white);border-radius:14px;padding:20px;border:1.5px solid var(--border);}
+.proto-step{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px dashed var(--border);}
+.proto-step:last-child{border-bottom:none;}
+.ps-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;border:2px solid;}
+.ps-a{background:var(--pink-pale);border-color:var(--pink-deep);color:var(--pink-deep);}
+.ps-b{background:var(--orange-pale);border-color:var(--orange-deep);color:var(--orange-deep);}
+.ps-c{background:#F0EAF8;border-color:#8A60B0;color:#6A40A0;}
+.ps-d{background:#FDF0F0;border-color:#D94040;color:#C02020;}
+.ps-e{background:var(--cream-dark);border-color:var(--mauve);color:var(--mauve);}
+.ps-content strong{display:block;font-size:14px;color:#3D1F1A;margin-bottom:4px;}
+.ps-content span{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ===== QUIZ ===== */
+.q-wrap{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:26px;margin-bottom:22px;position:relative;overflow:hidden;}
+.q-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--orange));}
+.q-num{position:absolute;top:14px;right:20px;background:#3D1F1A;color:var(--pink);font-size:10.5px;font-weight:600;letter-spacing:1px;padding:3px 13px;border-radius:10px;}
+.q-badge{display:inline-block;background:var(--pink-pale);color:var(--pink-deep);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 10px;border-radius:8px;margin-bottom:11px;}
+.q-vig{background:var(--cream-dark);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:12px 16px;font-size:13.5px;line-height:1.75;margin-bottom:14px;color:#3A1A10;}
+.q-q{font-weight:600;font-size:14px;margin-bottom:14px;color:#3D1F1A;}
+.q-opts{display:flex;flex-direction:column;gap:7px;}
+.q-opt{background:var(--cream-mid);border:1.5px solid var(--border);border-radius:11px;padding:11px 15px;font-size:13.5px;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;display:flex;gap:10px;align-items:flex-start;transition:all 0.18s;color:var(--text);}
+.q-opt:hover:not(:disabled){border-color:var(--orange);background:var(--orange-pale);}
+.ol{font-weight:700;font-size:11px;min-width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.q-opt.correct{background:var(--pink-pale)!important;border-color:var(--pink-deep)!important;color:var(--pink-deep);}
+.q-opt.correct .ol{background:var(--pink-deep);color:#fff;}
+.q-opt.wrong{background:#FDF0F0!important;border-color:#D94040!important;color:#C02020;}
+.q-opt.wrong .ol{background:#D94040;color:#fff;}
+.q-opt:disabled{cursor:default;}
+.q-exp{display:none;margin-top:14px;background:var(--cream-dark);border-radius:11px;padding:15px 18px;font-size:13.5px;line-height:1.8;color:#3A1A10;border-left:3px solid var(--orange);}
+.q-exp.show{display:block;animation:fadeUp 0.3s ease;}
+.q-exp strong{color:#3D1F1A;}
+.q-prog{display:flex;gap:7px;margin-bottom:28px;flex-wrap:wrap;align-items:center;}
+.pdot{width:10px;height:10px;border-radius:50%;background:rgba(61,31,26,0.12);transition:background 0.3s;}
+.pdot.ok{background:var(--pink-deep);}
+.pdot.no{background:#D94040;}
+.q-prog-lbl{font-size:12px;color:var(--muted);margin-left:4px;}
+.score-box{background:linear-gradient(135deg,#3D1F1A,#6B3040);color:var(--cream);border-radius:20px;padding:40px;text-align:center;display:none;margin-top:26px;}
+.score-box.show{display:block;animation:fadeUp 0.4s ease;}
+.sc-big{font-family:'Playfair Display',serif;font-size:72px;font-weight:800;color:var(--pink);line-height:1;}
+.sc-msg{font-size:14px;opacity:0.7;margin-top:9px;}
+.btn-restart{margin-top:20px;background:var(--orange);color:#fff;border:none;border-radius:25px;padding:12px 30px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:transform 0.2s,opacity 0.2s;}
+.btn-restart:hover{transform:translateY(-2px);opacity:0.9;}
+
+/* ===== HYPOXIA GRID ===== */
+.hx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid #3D1F1A;border-radius:14px;overflow:hidden;margin:12px 0;}
+.hx-head{background:#3D1F1A;color:var(--cream);padding:10px 13px;font-size:12px;font-weight:600;text-align:center;}
+.hx-lbl{background:var(--cream-dark);font-weight:600;color:#3D1F1A;text-align:left;font-size:12px;padding:10px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+.hx-cell{padding:10px 13px;font-size:12.5px;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border);line-height:1.55;}
+.hx-cell:last-child{border-right:none;}
+.hx-a{background:var(--orange-pale);}
+.hx-b{background:var(--pink-pale);}
+.hx-c{background:#F0E8F8;}
+.hx-d{background:var(--cream-dark);}
+@media(max-width:700px){.hx-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ===== MNEMO ===== */
+.mnemo{background:linear-gradient(135deg,var(--cream-dark),var(--pink-pale));border:2px solid var(--pink-deep);border-radius:14px;padding:18px 22px;margin:12px 0;}
+.mnemo-lbl{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--pink-deep);margin-bottom:6px;}
+.mnemo-txt{font-family:'Playfair Display',serif;font-size:22px;color:#3D1F1A;font-weight:800;}
+.mnemo-sub{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.7;}
+
+@media(max-width:600px){
+  .hero{padding:38px 20px 32px;}
+  .wrap{padding:28px 16px;}
+  .card{padding:18px 19px;}
+  .scenario-bar{padding:16px 20px;}
+  .hx-grid{font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">🩺 Blok Traumatologi · Pekan 2 · Tutorial</div>
+  <h1>Trauma Tumpul Dada<br>&amp; <em>Asfiksia</em></h1>
+  <p class="hero-sub">Panduan komprehensif kasus KLL sepeda motor dengan kontusio paru dan asfiksia traumatik. Mencakup 13 Learning Objective, tabel perbandingan, protokol ATLS, dan 10 latihan soal.</p>
+  <div class="hero-pills">
+    <span class="pill">💨 Asfiksia Traumatik</span>
+    <span class="pill">🫁 Kontusio Paru</span>
+    <span class="pill">🩸 Hipoksia & AGD</span>
+    <span class="pill">📋 ATLS / ABCDE</span>
+    <span class="pill">📝 10 Latihan Soal</span>
+  </div>
+</div>
+
+<!-- SKENARIO -->
+<div class="scenario-bar">
+  <div class="ico">🏥</div>
+  <div class="txt">
+    <strong>Skenario Klinis Referensi</strong>
+    Pria 25 tahun, KLL sepeda motor vs mobil, dada membentur setang. Cemas, bicara kalimat pendek. TD 120/80, HR 106, RR 24, SpO₂ 92%. Tampak perubahan warna wajah/dada atas, petechiae wajah &amp; konjungtiva, pembengkakan wajah ringan. Suara nafas bilateral menurun, nyeri tekan anterior. BGA: pH 7,33, PaO₂ 70 mmHg, PaCO₂ 46. CXR: kekeruhan bilateral ringan. EKG: sinus takikardia.
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap" id="nav">
+  <button class="nb on" onclick="show('overview')">🗺 Peta Konsep</button>
+  <button class="nb" onclick="show('lo12')">LO 1–2 · ATLS &amp; Oksigenasi</button>
+  <button class="nb" onclick="show('lo34')">LO 3–4 · Definisi &amp; Etiologi</button>
+  <button class="nb" onclick="show('lo5')">LO 5 · Epidemiologi</button>
+  <button class="nb" onclick="show('lo6')">LO 6 · Patofisiologi</button>
+  <button class="nb" onclick="show('lo7')">LO 7 · Manifestasi Klinis</button>
+  <button class="nb" onclick="show('lo89')">LO 8–9 · Diagnosis &amp; DD</button>
+  <button class="nb" onclick="show('lo10')">LO 10 · Tatalaksana</button>
+  <button class="nb" onclick="show('lo11')">LO 11 · Komplikasi</button>
+  <button class="nb" onclick="show('lo1213')">LO 12–13 · Monitoring &amp; Edukasi</button>
+  <button class="nb" onclick="show('quiz')">📝 Latihan Soal</button>
+</div>
+
+<div class="wrap">
+
+<!-- ========== OVERVIEW ========== -->
+<div id="sec-overview" class="section on">
+  <div class="sh"><h2>Peta Konsep — Baca Ini Dulu</h2><p>Kerangka besar kasus sebelum masuk ke detail tiap LO.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">🗺</span> Grand Story Kasus Ini</div>
+    <div class="flow">
+      <div class="flow-item warn"><span class="fn">1</span><div><strong>Mekanisme trauma:</strong> dada membentur setang → kompresi tiba-tiba dada anterior → gaya kompresi tiba-tiba pada dinding dada</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="fn">2</span><div><strong>Dua lesi utama terjadi serentak:</strong> (a) Asfiksia traumatik — darah terpompa balik ke vena kepala/wajah, (b) Kontusio paru bilateral — parenkim paru memar, berdarah mikro</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item warn"><span class="fn">3</span><div><strong>Gangguan pertukaran gas:</strong> alveolus berisi darah + edema → V/Q mismatch → PaO₂ ↓ 70 mmHg, SpO₂ 92%, pH 7,33 (asidosis respiratorik)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item safe"><span class="fn">4</span><div><strong>Tanda klinis khas:</strong> petechiae wajah &amp; konjungtiva (asfiksia traumatik), pembengkakan wajah, bilateral suara nafas ↓ (kontusio paru), takikardia (kompensasi)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item safe"><span class="fn">5</span><div><strong>Tatalaksana:</strong> O₂ aliran tinggi segera → ABCDE survei → optimasi oksigenasi → monitoring ketat → konsul bedah/ICU bila memburuk</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔑</span> Angka &amp; Nilai Kritis yang Sering Diuji</div>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Nilai Normal</th><th>Skenario Ini</th><th>Makna</th></tr>
+      <tr><td>SpO₂</td><td>≥ 95%</td><td><span class="hr">92%</span></td><td>Hipoksia ringan-sedang, butuh O₂ tambahan</td></tr>
+      <tr><td>PaO₂</td><td>80–100 mmHg</td><td><span class="hr">70 mmHg</span></td><td>Hipoksemia — target &gt;80 dengan terapi</td></tr>
+      <tr><td>PaCO₂</td><td>35–45 mmHg</td><td><span class="ho">46 mmHg</span></td><td>Sedikit retensi CO₂ → hipoventilasi relatif</td></tr>
+      <tr><td>pH</td><td>7,35–7,45</td><td><span class="hr">7,33</span></td><td>Asidosis respiratorik</td></tr>
+      <tr><td>HR</td><td>60–100</td><td><span class="ho">106</span></td><td>Takikardia — kompensasi nyeri &amp; hipoksia</td></tr>
+      <tr><td>RR</td><td>12–20</td><td><span class="ho">24</span></td><td>Takipnea — usaha kompensasi oksigenasi</td></tr>
+      <tr><td>TD</td><td>90–140/60–90</td><td><span class="hp">120/80 ✓</span></td><td>Normal — hemodinamik masih kompensasi</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--cream-dark)">🎯</span> Dua Diagnosis Utama — Sekilas Pandang</div>
+    <div class="cmp">
+      <div class="cmp-a">
+        <h4>🌸 Asfiksia Traumatik</h4>
+        <div class="crow"><span>Mekanisme</span> Kompresi dada mendadak → darah balik ke atas</div>
+        <div class="crow"><span>Tanda khas</span> Petechiae wajah, edema wajah, sklera merah</div>
+        <div class="crow"><span>Zona terdampak</span> Wajah, leher, konjungtiva, otak</div>
+        <div class="crow"><span>Kondisi jantung</span> Glottis tertutup → tekanan tinggi</div>
+        <div class="crow"><span>Prognosis</span> Baik bila tanpa cedera penyerta berat</div>
+      </div>
+      <div class="cmp-b">
+        <h4>🍊 Kontusio Paru</h4>
+        <div class="crow"><span>Mekanisme</span> Kompresi → perdarahan alveolar bilateral</div>
+        <div class="crow"><span>Tanda khas</span> Suara nafas bilateral ↓, CXR opak bilateral</div>
+        <div class="crow"><span>Gas darah</span> Hipoksemia, hiperkapnia, asidosis</div>
+        <div class="crow"><span>Waktu puncak</span> Memburuk 24–72 jam setelah trauma</div>
+        <div class="crow"><span>Prognosis</span> Bergantung pada luas kontusio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LO 1-2 ========== -->
+<div id="sec-lo12" class="section">
+  <div class="sh"><div class="lo-badge">LO 1 · 2</div><h2>ATLS &amp; Identifikasi Tanda Gangguan Oksigenasi</h2><p>Prinsip primary survey dan cara mengenali hipoksia secara klinis.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">🚨</span> LO 1 — Primary Survey ATLS: ABCDE</div>
+    <div class="alert a-pink"><span class="ai">📌</span><div><strong>Prinsip emas ATLS:</strong> Tangani ancaman nyawa terbesar lebih dahulu. Selesaikan satu huruf sebelum maju ke huruf berikutnya. Resusitasi dan asesmen berjalan SIMULTAN.</div></div>
+
+    <div class="proto-wrap" style="margin-top:16px;">
+      <div class="proto-step">
+        <div class="ps-num ps-a">A</div>
+        <div class="ps-content">
+          <strong>AIRWAY — dengan kontrol C-spine</strong>
+          <span><em>Skenario:</em> Pasien masih berbicara (kalimat pendek) → airway terbuka. Namun bicara kalimat pendek = tanda sesak berat → awasi ketat. Cek: Look (pergerakan dada, stridor), Listen (gurgling, snoring), Feel (hembusan udara). Jika ada obstruksi → jaw thrust + suction + airway definitif.</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-b">B</div>
+        <div class="ps-content">
+          <strong>BREATHING — masalah utama skenario ini!</strong>
+          <span>SpO₂ 92%, RR 24, suara nafas bilateral ↓ → gangguan pertukaran gas! Evaluasi: inspeksi (asimetri, retraksi), palpasi (fremitus), perkusi (normal bilateral = bukan hemothorax/PTX), auskultasi (vesikuler ↓ bilateral = kontusio). Berikan O₂ aliran tinggi (NRM 10–15 L/mnt) SEGERA.</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-c">C</div>
+        <div class="ps-content">
+          <strong>CIRCULATION — kontrol perdarahan</strong>
+          <span>HR 106, TD 120/80 → Syok Kelas I (kompensasi awal). Pasang 2 IV line besar, ambil darah lengkap (Hb, Ht, goldar, crossmatch, koagulasi). Monitoring ketat — HR bisa meningkat seiring waktu. Tidak ada perdarahan eksternal aktif, tapi internal? Evaluasi terus.</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-d">D</div>
+        <div class="ps-content">
+          <strong>DISABILITY — status neurologi</strong>
+          <span>Pasien sadar, berorientasi, tidak ada defisit fokal → GCS 15. Pupil? Evaluasi tetap diperlukan karena asfiksia traumatik bisa menyebabkan edema serebral dan perdarahan retina. Waspada terhadap penurunan kesadaran bertahap!</span>
+        </div>
+      </div>
+      <div class="proto-step">
+        <div class="ps-num ps-e">E</div>
+        <div class="ps-content">
+          <strong>EXPOSURE + Environmental Control</strong>
+          <span>Buka semua pakaian untuk melihat luka tersembunyi. Temukan: perubahan warna dada atas, petechiae → konfirmasi asfiksia traumatik. Cegah hipotermia. Cek punggung untuk exit wound/luka tersembunyi. Log roll bila perlu.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert a-orange" style="margin-top:16px;"><span class="ai">⚠️</span><div><strong>Jangan abaikan C-spine!</strong> Setiap trauma mekanisme benturan tinggi (KLL, jatuh), asumsikan ada cedera servikal hingga terbukti tidak. Gunakan collar servikal, teknik manual in-line stabilization saat airway management.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">👁</span> LO 2 — Tanda &amp; Gejala Gangguan Oksigenasi</div>
+    <div class="alert a-pink"><span class="ai">📌</span><div>Hipoksia dapat hadir <strong>tanpa sianosis</strong> (terutama pada anemia atau awal perjalanan penyakit). Jangan menunggu sianosis untuk tindakan — gunakan SpO₂ dan gas darah!</div></div>
+
+    <div class="tw"><table>
+      <tr><th>Sistem</th><th>Tanda Ringan (SpO₂ 91–94%)</th><th>Tanda Berat (SpO₂ &lt;90%)</th></tr>
+      <tr><td>Respirasi</td><td>RR 20–24, retraksi minimal, flared nostrils</td><td>RR &gt;30, retraksi intercostal berat, stridor, sianosis</td></tr>
+      <tr><td>Kardiovaskular</td><td>HR 100–120, TD masih normal</td><td>HR &gt;130, TD turun, aritmia</td></tr>
+      <tr><td>Neurologis</td><td>Cemas, gelisah, konsentrasi ↓</td><td>Bingung, somnolen, koma</td></tr>
+      <tr><td>Kulit</td><td>Pucat, kulit lembab</td><td>Sianosis sentral, akral dingin</td></tr>
+      <tr><td>Gas darah</td><td>PaO₂ 60–80 mmHg, pH 7,33–7,38</td><td>PaO₂ &lt;60 mmHg, pH &lt;7,30</td></tr>
+    </table></div>
+
+    <div class="sk-box"><p>Pasien ini: SpO₂ 92%, RR 24, cemas, bicara kalimat pendek, HR 106 → hipoksia RINGAN-SEDANG. Namun BGA menunjukkan pH 7,33 dan PaO₂ 70 → tanda deteriorasi dini yang tidak boleh diremehkan. Tindakan O₂ segera sudah tepat!</p></div>
+
+    <div class="pearl"><div class="pearl-lbl">🌸 Clinical Pearl — Bicara Kalimat Pendek</div><p>"One-word dyspnea" = gawat darurat pernapasan. Bila pasien hanya bisa mengucapkan 1–3 kata setiap hembusan nafas, itu tanda sesak berat (RR sangat tinggi, usaha nafas maksimal). Segera prioritaskan B dalam ABCDE!</p></div>
+  </div>
+</div>
+
+<!-- ========== LO 3-4 ========== -->
+<div id="sec-lo34" class="section">
+  <div class="sh"><div class="lo-badge">LO 3 · 4</div><h2>Definisi, Klasifikasi &amp; Etiologi Asfiksia</h2><p>Memahami asfiksia dari definisi paling dasar hingga akar penyebabnya.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">📖</span> LO 3 — Definisi &amp; Klasifikasi Asfiksia</div>
+    <div class="alert a-pink"><span class="ai">📌</span><div><strong>Asfiksia</strong> = kondisi di mana tubuh kekurangan oksigen DAN penumpukan karbon dioksida secara bersamaan akibat gangguan pertukaran gas, ventilasi, atau suplai oksigen ke jaringan.</div></div>
+    <div class="div"></div>
+    <p style="font-weight:600;color:#3D1F1A;margin-bottom:12px;font-size:14px;">Klasifikasi Asfiksia Berdasarkan Mekanisme:</p>
+    <div class="tw"><table>
+      <tr><th>Tipe</th><th>Mekanisme</th><th>Contoh Klinis</th><th>Keterkaitan Skenario</th></tr>
+      <tr><td><strong>Asfiksia Traumatik</strong></td><td>Kompresi dada mendadak → tekanan intrathorak naik tiba-tiba → darah terpompa retrograd ke vena kepala via vena cava superior</td><td>KLL, tertimpa benda berat, ledakan</td><td>✅ Sesuai skenario — setang dada</td></tr>
+      <tr><td><strong>Asfiksia Mekanik</strong></td><td>Hambatan fisik jalur nafas (eksternal)</td><td>Penggantungan, pencekikan, pembekapan</td><td>❌ Tidak sesuai</td></tr>
+      <tr><td><strong>Asfiksia Toksik</strong></td><td>Zat kimia menghambat transportasi/utilisasi O₂</td><td>Keracunan CO, sianida</td><td>❌ Tidak sesuai</td></tr>
+      <tr><td><strong>Asfiksia Patologis</strong></td><td>Penyakit paru/jantung mengganggu pertukaran gas</td><td>Asma berat, ARDS, edema paru</td><td>Komplikasi lanjut kontusio paru</td></tr>
+      <tr><td><strong>Asfiksia Posisional</strong></td><td>Posisi tubuh menghalangi ventilasi efektif</td><td>Terperangkap dalam posisi terlipat</td><td>❌ Tidak sesuai</td></tr>
+    </table></div>
+
+    <div class="alert a-orange"><span class="ai">💡</span><div><strong>Penting:</strong> Dalam skenario ini terjadi <em>dua komponen asfiksia sekaligus</em> — asfiksia traumatik (akibat kompresi dada akut) DAN gangguan pertukaran gas (akibat kontusio paru bilateral). Keduanya saling memperburuk!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">⚡</span> LO 4 — Etiologi &amp; Faktor Risiko</div>
+    <div class="g2">
+      <div class="mc" style="border-top:3px solid var(--pink-deep);">
+        <h4>🚗 Penyebab Trauma (Tersering)</h4>
+        <ul>
+          <li>KLL sepeda motor (kasus ini) → dada terpukul setang/bodi kendaraan</li>
+          <li>KLL mobil → dada terbentur setir / airbag</li>
+          <li>Jatuh dari ketinggian (axial loading)</li>
+          <li>Tertimpa benda berat (crush injury)</li>
+          <li>Ledakan / blast injury</li>
+          <li>Trauma olahraga kontak keras</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange);">
+        <h4>⚕️ Penyebab Non-Trauma</h4>
+        <ul>
+          <li>Kompresi eksternal: penggantungan, pencekikan, pembekapan</li>
+          <li>Sumbatan jalan nafas: benda asing, spasme laring, edema</li>
+          <li>Tenggelam (drowning/near-drowning)</li>
+          <li>Keracunan CO, sianida, metanol</li>
+          <li>Serangan asma berat / status asmatikus</li>
+          <li>Emboli paru masif</li>
+        </ul>
+      </div>
+    </div>
+    <div class="div"></div>
+    <p style="font-weight:600;color:#3D1F1A;margin-bottom:12px;font-size:14px;">Faktor Risiko yang Memperberat:</p>
+    <div class="g3">
+      <div class="mc" style="border-top:3px solid var(--mauve);"><h4>👤 Individu</h4><p>Tidak memakai helm/sabuk pengaman, riw. penyakit paru kronis (PPOK, asma), osteoporosis (iga mudah patah), usia tua</p></div>
+      <div class="mc" style="border-top:3px solid var(--mauve);"><h4>🌍 Lingkungan</h4><p>Kecepatan tinggi, jalan rusak, visibilitas rendah, malam hari, kondisi jalan licin</p></div>
+      <div class="mc" style="border-top:3px solid var(--mauve);"><h4>⚙️ Mekanisme</h4><p>Energi tinggi (kecepatan &gt;60 km/jam), arah benturan anterior → dada, komponen motor tanpa pelindung badan</p></div>
+    </div>
+    <div class="sk-box"><p>Skenario: pria 25 tahun, KLL motor vs mobil, dada membentur setang → energi kinetik tinggi terpusat ke dada anterior → ideal untuk terjadi asfiksia traumatik + kontusio paru bilateral. Usia muda adalah faktor protektif (cadangan fisiologis baik), sehingga masih bisa kompensasi dengan TD dan status mental normal.</p></div>
+  </div>
+</div>
+
+<!-- ========== LO 5 ========== -->
+<div id="sec-lo5" class="section">
+  <div class="sh"><div class="lo-badge">LO 5</div><h2>Epidemiologi Asfiksia</h2><p>Data angka dan konteks populasi.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">🌍</span> Data Epidemiologi Kunci</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:600;color:#3D1F1A;font-size:13.5px;margin-bottom:10px;">Asfiksia Traumatik Spesifik:</p>
+        <ul class="sl">
+          <li>Insidensi rendah tersendiri, namun sering menyertai trauma thoraks (1–8% kasus)</li>
+          <li>Lebih sering pada pria usia produktif (20–40 tahun) — sesuai profil skenario</li>
+          <li>KLL adalah penyebab terbesar trauma thoraks (70–80% kasus)</li>
+          <li>Mortalitas asfiksia traumatik murni: rendah (bila tertangani cepat)</li>
+          <li>Mortalitas meningkat drastis bila ada cedera penyerta otak, aorta, atau abdomen</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#3D1F1A;font-size:13.5px;margin-bottom:10px;">Asfiksia Umum / Konteks Trauma:</p>
+        <ul class="sl">
+          <li>Trauma thoraks menyumbang &gt;25% kematian trauma akut</li>
+          <li>Kontusio paru: terjadi pada ~75% trauma dada tumpul energi tinggi</li>
+          <li>Indonesia: KLL adalah penyebab kematian ke-3 usia 15–29 tahun (Kemenkes)</li>
+          <li>WHO: &gt;1,35 juta kematian/tahun akibat KLL global</li>
+          <li>80% korban KLL fatal di Indonesia adalah pengendara roda dua</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert a-mauve" style="margin-top:12px;"><span class="ai">💡</span><div><strong>Konteks klinis penting:</strong> Asfiksia traumatik sering terlewat atau dianggap tidak serius karena tanda vitalnya bisa masih normal di awal. Petechiae dan perubahan warna wajah adalah "penanda tidak langsung" yang harus selalu diperhatikan pada trauma dada!</div></div>
+  </div>
+</div>
+
+<!-- ========== LO 6 ========== -->
+<div id="sec-lo6" class="section">
+  <div class="sh"><div class="lo-badge">LO 6</div><h2>Patogenesis, Patofisiologi &amp; Jenis Hipoksia</h2><p>Mekanisme molekuler-seluler di balik gejala pasien.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔬</span> Patogenesis Asfiksia Traumatik</div>
+    <div class="flow">
+      <div class="flow-item warn"><span class="fn">1</span><div><strong>Kompresi mendadak dada anterior</strong> — setang membentur dada dengan kecepatan tinggi → pressure spike intrathorakal dalam milidetik</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="fn">2</span><div><strong>Refleks penutupan glottis</strong> — tubuh merespons dengan menutup glottis secara refleks + kontraksi otot dada → udara terperangkap → tekanan positif intrathorakal melonjak tinggi</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item warn"><span class="fn">3</span><div><strong>Transmisi tekanan retrograd</strong> — tekanan tinggi mendorong darah dari jantung kanan → atrium kanan → vena cava superior → vena kepala, leher, otak (TIDAK bisa ke vena cava inferior karena katup-katup)</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item danger"><span class="fn">4</span><div><strong>Kongesti vaskular masif kepala-leher</strong> — vena kapiler kecil di wajah, konjungtiva, dan otak mengalami tekanan berlebih → ruptur → <em>petechiae</em>, edema wajah, perdarahan konjungtiva, potensi edema serebral</div></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item safe"><span class="fn">5</span><div><strong>Pemulihan bertahap</strong> — tekanan berkurang setelah kompresi berhenti, namun petechiae dan edema tetap ada beberapa hari</div></div>
+    </div>
+    <div class="pearl"><div class="pearl-lbl">🌸 Mengapa Hanya Atas Diafragma?</div><p>Asfiksia traumatik HANYA menyebabkan manifestasi di atas diafragma (wajah, leher, dada atas). Ini karena vena jugularis dan vena subklavia <strong>tidak memiliki katup</strong> → tekanan retrograd bebas menjalar ke atas. Sebaliknya, vena di bawah diafragma memiliki katup → tekanan tertahan di bawah. Ini sebabnya perut dan kaki tidak ikut terdampak!</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">🫁</span> Patofisiologi Kontusio Paru</div>
+    <div class="g2">
+      <div>
+        <ul class="sl">
+          <li>Benturan → gelombang tekanan melewati parenkim paru → robekan kapiler alveolus</li>
+          <li>Darah dan cairan masuk ke alveolus (alveolar hemorrhage) dan interstisium</li>
+          <li>Surfaktan terganggu → alveolus kolaps (atelektasis)</li>
+          <li>V/Q mismatch → darah yang melewati paru tidak terfoksigenasi</li>
+          <li>Intrapulmonary shunt meningkat → SpO₂ dan PaO₂ turun</li>
+        </ul>
+      </div>
+      <div>
+        <div class="alert a-orange"><span class="ai">⏰</span><div><strong>Kontusio paru memburuk dalam 24–72 jam!</strong> Tidak selalu terlihat di CXR awal. Bisa berkembang menjadi ARDS (Acute Respiratory Distress Syndrome). Monitoring serial sangat penting!</div></div>
+        <div class="alert a-pink"><span class="ai">💡</span><div>CXR skenario: "kekeruhan bilateral ringan" = tanda awal kontusio paru. Bisa terlihat seperti infiltrat tidak merata atau ground-glass opacity.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--cream-dark)">💧</span> 4 Jenis Hipoksia — Wajib Hafal!</div>
+    <div class="hx-grid">
+      <div class="hx-head">Parameter</div>
+      <div class="hx-head">Hipoksik</div>
+      <div class="hx-head">Anemik</div>
+      <div class="hx-head">Stagnant</div>
+      <div class="hx-head">Histotoksik</div>
+
+      <div class="hx-lbl">Mekanisme</div>
+      <div class="hx-cell hx-a">O₂ kurang di paru (PaO₂ ↓)</div>
+      <div class="hx-cell hx-b">Hb rendah / disfungsional</div>
+      <div class="hx-cell hx-c">Aliran darah ke jaringan ↓</div>
+      <div class="hx-cell hx-d">Sel tidak bisa pakai O₂</div>
+
+      <div class="hx-lbl">PaO₂</div>
+      <div class="hx-cell hx-a">↓↓</div>
+      <div class="hx-cell hx-b">Normal</div>
+      <div class="hx-cell hx-c">Normal</div>
+      <div class="hx-cell hx-d">Normal</div>
+
+      <div class="hx-lbl">Hb</div>
+      <div class="hx-cell hx-a">Normal</div>
+      <div class="hx-cell hx-b">↓ atau disfungsi</div>
+      <div class="hx-cell hx-c">Normal</div>
+      <div class="hx-cell hx-d">Normal</div>
+
+      <div class="hx-lbl">Saturasi O₂</div>
+      <div class="hx-cell hx-a">↓↓</div>
+      <div class="hx-cell hx-b">Normal/↓</div>
+      <div class="hx-cell hx-c">Normal</div>
+      <div class="hx-cell hx-d">Normal</div>
+
+      <div class="hx-lbl">Contoh Klinis</div>
+      <div class="hx-cell hx-a">Kontusio paru, PTX, ARDS, ketinggian</div>
+      <div class="hx-cell hx-b">Anemia, keracunan CO (Hb terikat CO)</div>
+      <div class="hx-cell hx-c">Syok kardiogenik, gagal jantung, emboli</div>
+      <div class="hx-cell hx-d">Keracunan sianida, sepsis berat</div>
+    </div>
+    <div class="alert a-pink"><span class="ai">🎯</span><div><strong>Jenis hipoksia pada skenario ini = HIPOKSIK</strong> (PaO₂ 70 mmHg ↓ akibat kontusio paru → V/Q mismatch → PaO₂ turun). Tatalaksana: perbaiki pertukaran gas dengan O₂ aliran tinggi. Bukan jenis anemik/stagnant/histotoksik.</div></div>
+  </div>
+</div>
+
+<!-- ========== LO 7 ========== -->
+<div id="sec-lo7" class="section">
+  <div class="sh"><div class="lo-badge">LO 7</div><h2>Manifestasi Klinis &amp; Keterkaitan dengan Jenis Asfiksia</h2><p>Menghubungkan setiap temuan klinis dengan mekanisme patofisiologinya.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">🩺</span> Temuan Klinis &amp; Penjelasan Mekanismenya</div>
+    <div class="tw"><table>
+      <tr><th>Temuan Klinis</th><th>Mekanisme</th><th>Tipe Asfiksia</th></tr>
+      <tr><td><strong>Petechiae wajah &amp; konjungtiva</strong></td><td>Tekanan retrograd → kapiler vena pecah → perdarahan titik-titik kecil</td><td><span class="hp">Traumatik ✓</span></td></tr>
+      <tr><td><strong>Pembengkakan wajah ringan</strong></td><td>Edema akibat kongesti vaskular → transudasi cairan ke interstisium wajah</td><td><span class="hp">Traumatik ✓</span></td></tr>
+      <tr><td><strong>Perubahan warna wajah/dada atas</strong></td><td>Sianosis/kemerahan lokal akibat darah terperangkap di kapiler permukaan</td><td><span class="hp">Traumatik ✓</span></td></tr>
+      <tr><td><strong>SpO₂ 92%, PaO₂ 70</strong></td><td>V/Q mismatch dari kontusio paru → oksigenasi tidak optimal</td><td><span class="ho">Hipoksik ✓</span></td></tr>
+      <tr><td><strong>Suara nafas bilateral ↓</strong></td><td>Alveolus berisi darah/edema → konduksi suara berkurang bilateral</td><td><span class="ho">Kontusio paru ✓</span></td></tr>
+      <tr><td><strong>Takipnea (RR 24)</strong></td><td>Tubuh kompensasi hipoksia → pernafasan lebih cepat untuk ↑ pasokan O₂</td><td>Kompensasi</td></tr>
+      <tr><td><strong>Takikardia (HR 106)</strong></td><td>Kompensasi hipoksia + nyeri → HR meningkat untuk ↑ cardiac output</td><td>Kompensasi</td></tr>
+      <tr><td><strong>pH 7,33 / PaCO₂ 46</strong></td><td>Hipoventilasi relatif → retensi CO₂ → asidosis respiratorik</td><td>Gangguan ventilasi</td></tr>
+      <tr><td><strong>Cemas, bicara kalimat pendek</strong></td><td>Air hunger (lapar udara) akibat hipoksia + stimulus simpatetis</td><td>Sistemik</td></tr>
+    </table></div>
+
+    <div class="pearl" style="margin-top:14px;"><div class="pearl-lbl">🌸 Tanda Patognomonik Asfiksia Traumatik</div><p>Kombinasi <strong>petechiae wajah + edema wajah + perubahan warna dada atas</strong> setelah trauma kompresi dada = hampir pasti asfiksia traumatik. Kadang disertai perdarahan subkonjungtival (mata merah) dan dalam kasus berat, perdarahan retina atau edema serebral.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔍</span> Pemeriksaan Fisik Sistematis</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:600;color:#3D1F1A;font-size:13.5px;margin-bottom:10px;">Inspeksi</p>
+        <ul class="sl">
+          <li>Petechiae pinpoint wajah &amp; konjungtiva</li>
+          <li>Pembengkakan/edema wajah ringan</li>
+          <li>Perubahan warna (ungu/merah gelap) dada atas</li>
+          <li>RR meningkat, retraksi intercostal minimal</li>
+          <li>Ekspresi cemas, posisi duduk tegak (orthopnea)</li>
+        </ul>
+        <p style="font-weight:600;color:#3D1F1A;font-size:13.5px;margin:14px 0 10px;">Palpasi</p>
+        <ul class="sl">
+          <li>Nyeri tekan dada anterior (kontusio)</li>
+          <li>Fremitus taktil — bilateral ↓ (cairan/darah di alveolus)</li>
+          <li>Crepitasi: tidak ada (tidak ada fraktur iga pada skenario)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600;color:#3D1F1A;font-size:13.5px;margin-bottom:10px;">Perkusi</p>
+        <ul class="sl">
+          <li>Normal bilateral (membedakan dari hemothorax yang redup)</li>
+          <li>Tidak ada hipersonor (membedakan dari pneumothorax)</li>
+        </ul>
+        <p style="font-weight:600;color:#3D1F1A;font-size:13.5px;margin:14px 0 10px;">Auskultasi</p>
+        <ul class="sl">
+          <li>Suara nafas vesikuler ↓ bilateral (bukan unilateral)</li>
+          <li>Ronki basah halus mungkin terdengar (edema alveolus)</li>
+          <li>Bunyi jantung normal (tidak ada tamponade)</li>
+          <li>Tidak ada wheezing (bukan bronkospasmus)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LO 8-9 ========== -->
+<div id="sec-lo89" class="section">
+  <div class="sh"><div class="lo-badge">LO 8 · 9</div><h2>Penegakan Diagnosis &amp; Diagnosis Banding</h2><p>Cara menegakkan diagnosis asfiksia dan membedakannya dari kondisi lain.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">📋</span> LO 8 — Penegakan Diagnosis Asfiksia Traumatik</div>
+    <div class="alert a-pink"><span class="ai">📌</span><div><strong>Diagnosis asfiksia traumatik = klinis!</strong> Tidak ada test spesifik tunggal. Ditegakkan berdasarkan kombinasi: (1) mekanisme trauma khas + (2) tanda klinis karakteristik + (3) pemeriksaan penunjang mendukung.</div></div>
+    
+    <div class="tw" style="margin-top:14px;"><table>
+      <tr><th>Modalitas</th><th>Temuan pada Asfiksia/Kontusio Paru</th><th>Kegunaan Spesifik</th></tr>
+      <tr><td><strong>Foto Thoraks (CXR)</strong></td><td>Kekeruhan/infiltrat bilateral (patchy), tidak ada pneumothorax/hemothorax, tidak ada fraktur iga jelas</td><td>Skrining cepat, eliminasi DD, evaluasi awal kontusio</td></tr>
+      <tr><td><strong>Gas Darah Arteri (BGA)</strong></td><td>PaO₂ ↓, PaCO₂ normal/↑, pH ↓ (asidosis respiratorik), SaO₂ ↓</td><td>Kuantifikasi derajat hipoksia dan ventilasi</td></tr>
+      <tr><td><strong>CT Scan Thoraks</strong></td><td>Kontusio paru terlihat lebih jelas (konsolidasi, ground-glass), evaluasi cedera penyerta</td><td>Gold standard evaluasi kontusio paru, pasien stabil</td></tr>
+      <tr><td><strong>EKG</strong></td><td>Sinus takikardia (kompensasi), kadang perubahan ST bila ada kontusio jantung</td><td>Evaluasi kontusio miokard yang bisa menyertai</td></tr>
+      <tr><td><strong>eFAST/USG</strong></td><td>Tidak ada cairan pleura bebas, tidak ada tamponade</td><td>Singkirkan DD cepat di IGD</td></tr>
+      <tr><td><strong>Lab Darah</strong></td><td>Hb mungkin normal awal, Troponin meningkat bila kontusio jantung, D-dimer bila curiga emboli</td><td>Komprehensif, evaluasi cedera multisistem</td></tr>
+    </table></div>
+
+    <div class="mnemo">
+      <div class="mnemo-lbl">Kriteria Diagnosis Asfiksia Traumatik</div>
+      <div class="mnemo-txt">PETCEQ</div>
+      <div class="mnemo-sub">
+        <strong>P</strong>etechiae wajah/konjungtiva &nbsp;·&nbsp; 
+        <strong>E</strong>dema wajah &nbsp;·&nbsp;
+        <strong>T</strong>rauma kompresi dada khas &nbsp;·&nbsp;
+        <strong>C</strong>yanosis/perubahan warna atas diafragma &nbsp;·&nbsp;
+        <strong>E</strong>ksklusi DD (tidak ada PTX/HTX/tamponade) &nbsp;·&nbsp;
+        <strong>Q</strong>uantifikasi BGA (hipoksia)
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">🔍</span> LO 9 — Diagnosis Banding pada Pasien Sesak Nafas Setelah Trauma Dada</div>
+    <div class="tw"><table>
+      <tr><th>Kondisi</th><th>Persamaan</th><th>Perbedaan Kunci</th><th>Pemeriksaan Pembeda</th></tr>
+      <tr><td><strong>Kontusio Paru</strong></td><td>Sesak, suara nafas ↓, trauma dada</td><td>Tidak ada petechiae/edema wajah; CXR opak bilateral</td><td>CT scan, BGA</td></tr>
+      <tr><td><strong>Pneumothorax</strong></td><td>Sesak, suara nafas ↓</td><td>Perkusi <span class="ho">hipersonor</span>, unilateral, CXR radiolucent</td><td>CXR, eFAST</td></tr>
+      <tr><td><strong>Hemothorax</strong></td><td>Sesak, trauma dada, takikardia</td><td>Perkusi <span class="hp">redup</span>, unilateral, TD mungkin turun</td><td>CXR, eFAST, Hb</td></tr>
+      <tr><td><strong>Tension PTX</strong></td><td>Sesak berat, hipoksia</td><td>Deviasi trachea, JVP ↑, hemodinamik unstable</td><td>Diagnosis klinis!</td></tr>
+      <tr><td><strong>Tamponade Jantung</strong></td><td>Sesak, takikardia</td><td>Trias Beck, JVP ↑, suara jantung menjauh</td><td>eFAST, EKG</td></tr>
+      <tr><td><strong>Kontusio Miokard</strong></td><td>Nyeri dada, takikardia, trauma dada</td><td>EKG: perubahan ST/aritmia, Troponin ↑</td><td>EKG serial, Troponin</td></tr>
+      <tr><td><strong>Emboli Paru</strong></td><td>Sesak, takikardia, SpO₂ ↓</td><td>Tidak ada trauma langsung, D-dimer ↑, CT angiografi</td><td>D-dimer, CTPA</td></tr>
+    </table></div>
+    <div class="alert a-pink"><span class="ai">🎯</span><div><strong>Kunci membedakan skenario ini dari PTX/HTX:</strong> Perkusi NORMAL bilateral (bukan redup/hipersonor), bilateral suara nafas ↓ (bukan unilateral), hemodinamik stabil, tidak ada tanda tension. Yang khas: petechiae + edema wajah = asfiksia traumatik!</div></div>
+  </div>
+</div>
+
+<!-- ========== LO 10 ========== -->
+<div id="sec-lo10" class="section">
+  <div class="sh"><div class="lo-badge">LO 10</div><h2>Prinsip Tatalaksana: Airway, Breathing, Oksigenasi, Posisi</h2><p>Dari intervensi paling dasar hingga yang paling definitif.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">💊</span> Algoritma Tatalaksana Umum</div>
+    <div class="steps">
+      <div class="step"><strong>1. Pastikan Airway Paten</strong><p>Jaw thrust / chin lift (dengan in-line C-spine stabilization). Suction sekret/darah bila ada. Pertimbangkan oropharyngeal airway (OPA) bila tidak sadar. Intubasi bila: GCS ≤8, apnea, gagal nafas berat, SpO₂ tidak naik dengan O₂ tinggi.</p></div>
+      <div class="step"><strong>2. Oksigenasi Segera (Prioritas!)</strong><p>Non-rebreather mask (NRM) O₂ 10–15 L/menit → target SpO₂ ≥95%. Bila SpO₂ tidak naik dalam 15 menit → pertimbangkan HFNC atau NIV (BiPAP). Awasi PaO₂ dengan BGA serial setiap 1–4 jam.</p></div>
+      <div class="step"><strong>3. Posisi Optimal</strong><p>Semi-recumbent 30–45° (posisi semi-duduk) → memaksimalkan pengembangan paru, mengurangi edema wajah via gravitasi, mengurangi tekanan diafragma oleh organ perut. HINDARI supine datar → memperburuk kontusio paru dan edema wajah.</p></div>
+      <div class="step"><strong>4. Resusitasi Cairan Hati-hati</strong><p>Pasang IV line. Kristaloid secukupnya (bukan agresif!). Kontusio paru sangat sensitif terhadap kelebihan cairan → edema paru! Target: normovolemia, bukan hypervolemia. TD target ≥90/60 mmHg.</p></div>
+      <div class="step"><strong>5. Analgesik Adekuat</strong><p>Nyeri dada → pasien tidak mau bernafas dalam → atelektasis → hipoksia memburuk. Morfin/fentanyl titrasi IV, atau parasetamol + NSAID bila nyeri ringan. Blok intercostal untuk nyeri lokal berat.</p></div>
+      <div class="step"><strong>6. Monitoring Ketat &amp; Evaluasi Serial</strong><p>Monitor terus SpO₂, RR, HR, TD. BGA ulang tiap 1–4 jam. CXR ulang 6–24 jam (kontusio bisa memburuk). Siapkan untuk eskalasi bila gagal respons: NIV → intubasi → ICU.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">💉</span> Tatalaksana Farmakologis Spesifik</div>
+    <div class="tw"><table>
+      <tr><th>Obat/Intervensi</th><th>Dosis/Cara</th><th>Tujuan</th><th>Catatan</th></tr>
+      <tr><td><strong>O₂ via NRM</strong></td><td>10–15 L/mnt</td><td>Koreksi hipoksia segera</td><td>Mulai SEGERA, target SpO₂ ≥95%</td></tr>
+      <tr><td><strong>Morfin sulfat</strong></td><td>2–4 mg IV titrasi</td><td>Analgesik, mengurangi work of breathing</td><td>Hati-hati depresi napas, siapkan nalokson</td></tr>
+      <tr><td><strong>Parasetamol IV</strong></td><td>1 g IV tiap 6 jam</td><td>Analgesik non-opioid</td><td>Lebih aman untuk nyeri ringan-sedang</td></tr>
+      <tr><td><strong>RL/NS 0,9%</strong></td><td>Bolus 250–500 mL</td><td>Resusitasi cairan normovolemik</td><td>Jangan berlebih! Monitor urine output</td></tr>
+      <tr><td><strong>Kortikosteroid</strong></td><td>TIDAK direkomendasikan rutin</td><td>—</td><td>Kontroversi, tidak terbukti benefit pada kontusio paru</td></tr>
+      <tr><td><strong>Antibiotik profilaksis</strong></td><td>Hanya bila ada luka terbuka/prosedur invasif</td><td>Pencegahan infeksi sekunder</td><td>Cefazolin atau sesuai indikasi spesifik</td></tr>
+    </table></div>
+
+    <div class="pearl"><div class="pearl-lbl">🍊 Pearl — Posisi Semi-Recumbent</div><p>Posisi 30–45° membantu 3 cara sekaligus: (1) gravitasi membantu drainase edema wajah, (2) diafragma turun → paru bisa mengembang lebih luas, (3) mengurangi risiko aspirasi. Ini intervensi "tanpa obat" yang sangat efektif dan sering dilupakan!</p></div>
+  </div>
+</div>
+
+<!-- ========== LO 11 ========== -->
+<div id="sec-lo11" class="section">
+  <div class="sh"><div class="lo-badge">LO 11</div><h2>Komplikasi &amp; Prognosis Asfiksia</h2><p>Apa yang bisa terjadi bila tidak ditangani optimal.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">⚠️</span> Komplikasi Asfiksia Traumatik &amp; Kontusio Paru</div>
+    <div class="g2">
+      <div class="mc" style="border-top:3px solid var(--pink-deep);">
+        <h4>🧠 Komplikasi Neurologi</h4>
+        <ul>
+          <li>Edema serebral → peningkatan TIK → penurunan kesadaran bertahap</li>
+          <li>Perdarahan retina → gangguan penglihatan sementara/permanen</li>
+          <li>Stroke iskemik (emboli dari trombus vena)</li>
+          <li>Ensefalopati hipoksik bila hipoksia berkepanjangan</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange);">
+        <h4>🫁 Komplikasi Pulmoner</h4>
+        <ul>
+          <li><strong>ARDS (Acute Respiratory Distress Syndrome)</strong> — paling ditakuti! PaO₂/FiO₂ &lt;200</li>
+          <li>Pneumonia sekunder (aspirasi, tirah baring)</li>
+          <li>Atelektasis persisten → bronkiektasis</li>
+          <li>Fibrosis paru lanjut (jarang)</li>
+          <li>Persistant air leak / fistula bronkopleural</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--mauve);">
+        <h4>💓 Komplikasi Kardiovaskular</h4>
+        <ul>
+          <li>Aritmia (VF, VT) bila kontusio miokard</li>
+          <li>Emboli paru dari deep vein thrombosis (tirah baring)</li>
+          <li>Gagal jantung kanan (cor pulmonale akut) bila hipoksia berat prolonged</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--mauve);">
+        <h4>😷 Komplikasi Lokal/Sistemik</h4>
+        <ul>
+          <li>Infeksi luka / sepsis</li>
+          <li>Stres psikologis pasca trauma (PTSD)</li>
+          <li>Nyeri kronis dada pasca trauma</li>
+          <li>Multi Organ Dysfunction (bila trauma berat + syok)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert a-red"><span class="ai">🚨</span><div><strong>ARDS adalah komplikasi paling berbahaya!</strong> Tanda: PaO₂/FiO₂ &lt;200, infiltrat bilateral pada CXR, bukan akibat gagal jantung. Mortalitas ARDS trauma dapat mencapai 30–50%. Pencegahan: oksigenasi optimal, hindari over-hidrasi, ventilasi protektif bila intubasi.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">📈</span> Prognosis</div>
+    <div class="g2">
+      <div>
+        <div class="alert a-pink"><span class="ai">✅</span><div><strong>Prognosis baik pada kasus murni:</strong> Asfiksia traumatik tanpa cedera penyerta berat → pemulihan lengkap dalam 1–2 minggu. Petechiae dan edema wajah menghilang bertahap (3–7 hari). Fungsi paru kembali normal.</div></div>
+      </div>
+      <div>
+        <div class="alert a-orange"><span class="ai">⚠️</span><div><strong>Prognosis memburuk bila:</strong> Ada cedera penyerta berat (otak, aorta, abdomen), kontusio paru luas, terlambat ditangani, usia tua, komorbid paru kronis. Faktor paling menentukan: kecepatan respons tatalaksana!</div></div>
+      </div>
+    </div>
+    <div class="tw"><table>
+      <tr><th>Derajat Keparahan</th><th>Gambaran</th><th>Prognosis</th></tr>
+      <tr><td>Ringan</td><td>SpO₂ &gt;90%, tanda vital stabil, hanya petechiae wajah</td><td>Sangat baik, rawat observasi 24–48 jam</td></tr>
+      <tr><td>Sedang</td><td>SpO₂ 85–90%, RR meningkat, BGA asidosis ringan, kontusio paru bilateral</td><td>Baik dengan tatalaksana O₂ dan monitoring ketat</td></tr>
+      <tr><td>Berat</td><td>SpO₂ &lt;85%, hemodinamik terganggu, gangguan kesadaran, komplikasi</td><td>Mortalitas meningkat, butuh ICU &amp; ventilasi mekanik</td></tr>
+    </table></div>
+    <div class="sk-box"><p>Skenario ini: pasien 25 tahun, SpO₂ 92%, hemodinamik stabil, sadar penuh → termasuk derajat <strong>sedang</strong>. Prognosis baik dengan penanganan O₂ aliran tinggi, monitoring, dan posisi optimal. Risiko: pemburukan kontusio paru dalam 24–72 jam ke depan → harus dimonitor ketat!</p></div>
+  </div>
+</div>
+
+<!-- ========== LO 12-13 ========== -->
+<div id="sec-lo1213" class="section">
+  <div class="sh"><div class="lo-badge">LO 12 · 13</div><h2>Monitoring, Indikasi Rujukan &amp; Edukasi Keselamatan</h2><p>Dari lembar observasi IGD hingga edukasi masyarakat.</p></div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--pink-pale)">📊</span> LO 12 — Monitoring &amp; Indikasi Rujukan</div>
+    <p style="font-size:13.5px;margin-bottom:14px;color:var(--muted);">Parameter yang harus dipantau secara serial pada pasien trauma dada:</p>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Frekuensi</th><th>Target/Normal</th><th>Tindakan bila Abnormal</th></tr>
+      <tr><td>SpO₂ (oksimeter)</td><td>Kontinyu</td><td>≥ 95%</td><td>Tingkatkan O₂, pertimbangkan NIV/intubasi</td></tr>
+      <tr><td>Tekanan darah</td><td>Tiap 15–30 mnt</td><td>≥ 90/60 mmHg</td><td>Resusitasi cairan, pertimbangkan vasopressor</td></tr>
+      <tr><td>Frekuensi nadi</td><td>Kontinyu</td><td>60–100/mnt</td><td>Evaluasi penyebab (nyeri, hipovolemia, hipoksia)</td></tr>
+      <tr><td>Frekuensi nafas</td><td>Tiap 15–30 mnt</td><td>12–20/mnt</td><td>&gt;30 atau &lt;10 = intubasi pertimbangkan</td></tr>
+      <tr><td>Gas Darah Arteri</td><td>Tiap 1–4 jam</td><td>pH 7,35–7,45, PaO₂ &gt;80</td><td>Ventilasi mekanik bila asidosis progresif</td></tr>
+      <tr><td>Foto Thoraks</td><td>Setiap 6–24 jam</td><td>Tidak ada perkembangan infiltrat</td><td>Konsul bedah bila ada PTX/HTX baru</td></tr>
+      <tr><td>Urine output</td><td>Tiap jam</td><td>≥ 0,5 mL/kgBB/jam</td><td>Resusitasi cairan atau evaluasi ginjal</td></tr>
+      <tr><td>GCS/Kesadaran</td><td>Tiap 30–60 mnt</td><td>15 (E4V5M6)</td><td>Penurunan → CT kepala, konsul neurologi</td></tr>
+    </table></div>
+
+    <div class="div"></div>
+    <p style="font-weight:600;color:#3D1F1A;font-size:14px;margin-bottom:12px;">Indikasi Rujukan ke Spesialis / ICU:</p>
+    <div class="g2">
+      <ul class="sl">
+        <li>SpO₂ tidak naik dengan O₂ aliran tinggi (gagal respons)</li>
+        <li>PaO₂/FiO₂ &lt;200 (tanda ARDS)</li>
+        <li>RR &gt;30 atau usaha nafas sangat berat</li>
+        <li>Penurunan kesadaran (GCS turun)</li>
+        <li>Hemodinamik tidak stabil (TD &lt;90 sistolik)</li>
+      </ul>
+      <ul class="sl">
+        <li>Dugaan cedera mediastinum/aorta (CXR mediastinum lebar)</li>
+        <li>Kontusio paru progresif di CXR serial</li>
+        <li>Perdarahan aktif yang tidak terkontrol</li>
+        <li>Memerlukan intubasi/ventilasi mekanik</li>
+        <li>Fasilitas tidak memadai untuk monitoring ketat</li>
+      </ul>
+    </div>
+    <div class="alert a-orange"><span class="ai">💡</span><div><strong>Konsul DINI, bukan konsul terakhir!</strong> Hubungi spesialis bedah atau ICU sejak awal, jangan tunggu pasien memburuk baru konsul. Komunikasi efektif: sebutkan mekanisme, temuan klinis, BGA, intervensi yang sudah dilakukan, dan respons.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">👨‍👩‍👧 </span>LO 13 — Kedokteran Keluarga: Edukasi Keselamatan Diri</div>
+    <div class="alert a-pink"><span class="ai">📌</span><div><strong>Prinsip kedokteran keluarga:</strong> Dokter bukan hanya pengobati penyakit, tapi juga agen pencegahan dan promotor kesehatan keluarga &amp; masyarakat. Edukasi keselamatan = intervesi primer terpenting!</div></div>
+    <div class="div"></div>
+    <div class="g2">
+      <div class="mc" style="border-top:3px solid var(--pink-deep);">
+        <h4>🏍️ Keselamatan Berkendara Motor</h4>
+        <ul>
+          <li><strong>Helm SNI wajib</strong> → turunkan risiko kematian cedera kepala 40%</li>
+          <li>Jaket/pelindung dada (chest protector) → lindungi dari asfiksia traumatik</li>
+          <li>Tidak berkendara dalam pengaruh alkohol/obat</li>
+          <li>Patuhi batas kecepatan &amp; rambu lalu lintas</li>
+          <li>Jaga jarak aman (minimal 3 detik dari kendaraan depan)</li>
+          <li>Periksa kondisi kendaraan secara berkala</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange);">
+        <h4>🚗 Keselamatan dalam Kendaraan Roda 4</h4>
+        <ul>
+          <li>Sabuk pengaman selalu — pengendara &amp; penumpang</li>
+          <li>Child seat untuk anak &lt;12 tahun atau &lt;135 cm</li>
+          <li>Airbag harus berfungsi dengan baik</li>
+          <li>Tidak menggunakan ponsel saat berkendara</li>
+          <li>Istirahat setiap 2 jam pada perjalanan jauh</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--mauve);">
+        <h4>🏠 Keselamatan di Lingkungan Kerja/Rumah</h4>
+        <ul>
+          <li>APD sesuai (harness, helm, rompi) di konstruksi/industri</li>
+          <li>Tangga dalam kondisi baik, tidak licin</li>
+          <li>Jauhkan anak dari area berbahaya (mesin, ketinggian)</li>
+          <li>Pengetahuan P3K dasar untuk keluarga</li>
+        </ul>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--mauve);">
+        <h4>💡 Kapan Harus ke IGD (edukasi pasien)</h4>
+        <ul>
+          <li>Setelah kecelakaan dengan benturan dada, SELALU periksa ke dokter meski terasa baik</li>
+          <li>Segera ke IGD bila: sesak nafas memburuk, nyeri dada menjalar, SpO₂ turun, pusing berat, atau pingsan</li>
+          <li>Jangan berkendara sendiri pasca trauma dada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pearl"><div class="pearl-lbl">🌸 Pesan Kunci Edukasi</div><p>Statistik menunjukkan <strong>80% kematian KLL di Indonesia bisa dicegah</strong> dengan helm yang benar, tidak melanggar lampu merah, dan tidak menggunakan ponsel saat berkendara. Dokter keluarga memiliki peran unik untuk menyampaikan pesan ini di setiap kontak klinis — bukan hanya saat ada kecelakaan!</p></div>
+  </div>
+</div>
+
+<!-- ========== QUIZ ========== -->
+<div id="sec-quiz" class="section">
+  <div class="sh"><h2>📝 Latihan Soal — 10 Soal</h2><p>Berdasarkan Learning Objective skenario trauma tumpul dada &amp; asfiksia.</p></div>
+
+  <div class="q-prog">
+    <span class="pdot" id="pd0"></span><span class="pdot" id="pd1"></span><span class="pdot" id="pd2"></span><span class="pdot" id="pd3"></span><span class="pdot" id="pd4"></span>
+    <span class="pdot" id="pd5"></span><span class="pdot" id="pd6"></span><span class="pdot" id="pd7"></span><span class="pdot" id="pd8"></span><span class="pdot" id="pd9"></span>
+    <span class="q-prog-lbl" id="prog-lbl">0/10 dijawab</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-wrap" id="q0">
+    <div class="q-num">Q1</div>
+    <div class="q-badge">LO 3 · Definisi</div>
+    <div class="q-q">Pria 25 tahun mengalami trauma dada saat KLL. Ditemukanadanya petechiae pada wajah dan konjungtiva, pembengkakan wajah, serta perubahan warna keunguan pada dada atas setelah dadanya membentur setang. SpO₂ 92%. Apakah mekanisme utama yang paling tepat menjelaskan tanda-tanda pada wajah pasien ini?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(0,0,2)"><span class="ol">A</span> Trauma langsung pada pembuluh wajah akibat benturan</button>
+      <button class="q-opt" onclick="ans(0,1,2)"><span class="ol">B</span> Edema alergi akibat respons inflamasi terhadap bahan sepeda motor</button>
+      <button class="q-opt" onclick="ans(0,2,2)"><span class="ol">C</span> Tekanan intrathorakal meningkat mendadak → darah terpompa retrograd ke vena kepala dan leher</button>
+      <button class="q-opt" onclick="ans(0,3,2)"><span class="ol">D</span> Perdarahan sistemik akibat laserasi pembuluh besar di mediastinum</button>
+      <button class="q-opt" onclick="ans(0,4,2)"><span class="ol">E</span> Obstruksi vena cava inferior menyebabkan kongesti seluruh tubuh</button>
+    </div>
+    <div class="q-exp" id="exp0"><strong>✅ Jawaban: C</strong><br>Asfiksia traumatik terjadi saat kompresi dada mendadak menyebabkan penutupan glottis refleks + tekanan intrathorakal tinggi. Darah terdorong retrograd dari jantung kanan → vena cava superior → vena jugularis → kapiler wajah dan kepala (karena vena-vena ini tidak memiliki katup). Hasilnya: petechiae (kapiler pecah), edema, dan kongesti vaskular di atas diafragma. Vena di bawah diafragma tidak terdampak karena memiliki katup.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-wrap" id="q1">
+    <div class="q-num">Q2</div>
+    <div class="q-badge">LO 1 · ATLS</div>
+    <div class="q-vig">Menggunakan skenario yang sama: pasien datang cemas, bicara kalimat pendek, RR 24, SpO₂ 92%, HR 106, TD 120/80.</div>
+    <div class="q-q">Berdasarkan prinsip ATLS, tindakan manakah yang PERTAMA harus dilakukan?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(1,0,1)"><span class="ol">A</span> Pemasangan chest tube karena dicurigai pneumothorax</button>
+      <button class="q-opt" onclick="ans(1,1,1)"><span class="ol">B</span> Pemberian oksigen aliran tinggi via non-rebreather mask dan stabilisasi airway dengan proteksi C-spine</button>
+      <button class="q-opt" onclick="ans(1,2,1)"><span class="ol">C</span> CT scan thoraks segera untuk evaluasi komprehensif</button>
+      <button class="q-opt" onclick="ans(1,3,1)"><span class="ol">D</span> Intubasi orotrakeal segera karena SpO₂ &lt;95%</button>
+      <button class="q-opt" onclick="ans(1,4,1)"><span class="ol">E</span> Resusitasi cairan agresif dengan RL 2 liter bolus</button>
+    </div>
+    <div class="q-exp" id="exp1"><strong>✅ Jawaban: B</strong><br>Prinsip ATLS: tangani A (Airway) dan B (Breathing) terlebih dahulu. Pasien masih sadar dan berbicara → airway terbuka, tapi perlu diawasi. SpO₂ 92% → segera berikan O₂ aliran tinggi (NRM 10–15 L/mnt). Proteksi C-spine wajib pada semua trauma mekanisme benturan tinggi. CT scan bukan prioritas pertama pada pasien tidak stabil. Intubasi belum diperlukan (pasien masih sadar, SpO₂ 92%). Resusitasi cairan agresif berbahaya pada kontusio paru (bisa memperburuk edema alveolus).</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-wrap" id="q2">
+    <div class="q-num">Q3</div>
+    <div class="q-badge">LO 6 · Jenis Hipoksia</div>
+    <div class="q-q">Pasien dengan kontusio paru bilateral memiliki PaO₂ 70 mmHg, pH 7,33, PaCO₂ 46 mmHg, Hb 13 g/dL. Berdasarkan gas darah tersebut, jenis hipoksia apakah yang paling dominan pada pasien ini?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(2,0,0)"><span class="ol">A</span> Hipoksia hipoksik (hypoxic hypoxia)</button>
+      <button class="q-opt" onclick="ans(2,1,0)"><span class="ol">B</span> Hipoksia anemik (anemic hypoxia)</button>
+      <button class="q-opt" onclick="ans(2,2,0)"><span class="ol">C</span> Hipoksia stagnan (stagnant hypoxia)</button>
+      <button class="q-opt" onclick="ans(2,3,0)"><span class="ol">D</span> Hipoksia histotoksik (histotoxic hypoxia)</button>
+      <button class="q-opt" onclick="ans(2,4,0)"><span class="ol">E</span> Campuran hipoksia anemik dan stagnan</button>
+    </div>
+    <div class="q-exp" id="exp2"><strong>✅ Jawaban: A — Hipoksia Hipoksik</strong><br>Hipoksia hipoksik = PaO₂ rendah akibat gangguan pertukaran gas di paru. Pada kontusio paru: darah dan edema memenuhi alveolus → V/Q mismatch → PaO₂ turun menjadi 70 mmHg. Hb 13 normal → bukan anemik. Aliran darah tidak terganggu → bukan stagnan. Tidak ada paparan toksin → bukan histotoksik. Asidosis respiratorik (pH 7,33, PaCO₂ 46) mendukung hipoventilasi paru, bukan problem sirkulasi atau darah.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-wrap" id="q3">
+    <div class="q-num">Q4</div>
+    <div class="q-badge">LO 9 · Diagnosis Banding</div>
+    <div class="q-vig">Pasien pria 30 tahun, KLL, sesak nafas. TD 90/60, HR 130, RR 28. Pemeriksaan fisik: perkusi hipersonor dada kiri, trachea berdeviasi ke kanan, vena jugularis membesar, suara nafas kiri tidak terdengar.</div>
+    <div class="q-q">Diagnosis apakah yang paling mungkin pada pasien ini?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(3,0,2)"><span class="ol">A</span> Asfiksia traumatik</button>
+      <button class="q-opt" onclick="ans(3,1,2)"><span class="ol">B</span> Hemothorax masif</button>
+      <button class="q-opt" onclick="ans(3,2,2)"><span class="ol">C</span> Tension pneumothorax</button>
+      <button class="q-opt" onclick="ans(3,3,2)"><span class="ol">D</span> Tamponade jantung</button>
+      <button class="q-opt" onclick="ans(3,4,2)"><span class="ol">E</span> Kontusio miokard</button>
+    </div>
+    <div class="q-exp" id="exp3"><strong>✅ Jawaban: C — Tension Pneumothorax</strong><br>Trias klasik tension pneumothorax: (1) Hipersonor dada sisi lesi (kiri), (2) Deviasi trachea ke sisi kontralateral (kanan), (3) Distensi vena jugularis (JVP ↑). Plus: hemodinamik tidak stabil (TD 90/60, HR 130), suara nafas hilang. Ini diagnosis KLINIS — jangan tunggu foto thoraks, langsung dekompresi jarum (ICS 2 MCL atau ICS 4-5 AAL). Hemothorax: perkusi redup. Asfiksia traumatik: perkusi normal, petechiae wajah. Tamponade: suara jantung menjauh, Trias Beck.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-wrap" id="q4">
+    <div class="q-num">Q5</div>
+    <div class="q-badge">LO 8 · Diagnosis</div>
+    <div class="q-q">Hasil gas darah arteri pada pasien trauma dada menunjukkan: pH 7,28, PaO₂ 58 mmHg, PaCO₂ 52 mmHg, HCO₃ 23 mEq/L. Manakah interpretasi yang paling tepat?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(4,0,3)"><span class="ol">A</span> Asidosis metabolik terkompensasi dengan hipoksia ringan</button>
+      <button class="q-opt" onclick="ans(4,1,3)"><span class="ol">B</span> Alkalosis respiratorik dengan hipoksemia sedang</button>
+      <button class="q-opt" onclick="ans(4,2,3)"><span class="ol">C</span> Asidosis metabolik murni tanpa kompensasi</button>
+      <button class="q-opt" onclick="ans(4,3,3)"><span class="ol">D</span> Asidosis respiratorik akut dengan hipoksemia sedang</button>
+      <button class="q-opt" onclick="ans(4,4,3)"><span class="ol">E</span> Normal, tidak ada kelainan bermakna</button>
+    </div>
+    <div class="q-exp" id="exp4"><strong>✅ Jawaban: D — Asidosis Respiratorik Akut dengan Hipoksemia Sedang</strong><br>Cara baca BGA sistematis: (1) pH 7,28 → ASIDOSIS. (2) PaCO₂ 52 ↑ → penyebab asidosis = RESPIRATORIK (CO₂ tinggi menimbulkan asam). (3) HCO₃ 23 normal → belum ada kompensasi metabolik → AKUT (kompensasi ginjal membutuhkan 3–5 hari). (4) PaO₂ 58 mmHg → hipoksemia SEDANG (normal 80–100). Kesimpulan: asidosis respiratorik akut + hipoksemia sedang → sesuai kontusio paru dengan hipoventilasi.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-wrap" id="q5">
+    <div class="q-num">Q6</div>
+    <div class="q-badge">LO 10 · Tatalaksana</div>
+    <div class="q-q">Pasien kontusio paru bilateral dengan SpO₂ 88% tidak menunjukkan perbaikan setelah 20 menit pemberian O₂ via non-rebreather mask 15 L/menit. RR 32 x/menit, pasien tampak sangat kelelahan bernafas. Langkah tatalaksana selanjutnya yang paling tepat adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(5,0,2)"><span class="ol">A</span> Tambah dosis O₂ menjadi 20 L/menit via NRM</button>
+      <button class="q-opt" onclick="ans(5,1,2)"><span class="ol">B</span> Berikan bronkodilator inhalasi karena kemungkinan bronkospasmus</button>
+      <button class="q-opt" onclick="ans(5,2,2)"><span class="ol">C</span> Eskalasi ke ventilasi non-invasif (NIV/BiPAP) atau pertimbangkan intubasi</button>
+      <button class="q-opt" onclick="ans(5,3,2)"><span class="ol">D</span> Pasang chest tube bilateral karena mungkin ada pneumothorax tersembunyi</button>
+      <button class="q-opt" onclick="ans(5,4,2)"><span class="ol">E</span> Observasi lebih lanjut karena kondisi ini masih dapat membaik sendiri</button>
+    </div>
+    <div class="q-exp" id="exp5"><strong>✅ Jawaban: C — Eskalasi ke NIV atau Intubasi</strong><br>Pasien gagal dengan O₂ konvensional (SpO₂ 88% setelah NRM 15 L/mnt) + tanda respiratory distress berat (RR 32, kelelahan) → ini indikasi eskalasi. Langkah bertahap: O₂ NRM → HFNC/NIV (BiPAP) → Intubasi. NIV dapat membantu membuka alveolus dengan PEEP (positive end-expiratory pressure) → memperbaiki oksigenasi. Bila NIV gagal atau pasien tidak kooperatif/kesadaran turun → intubasi dan ventilasi mekanik. Bronkodilator tidak relevan (bukan bronkospasmus). Observasi saja = terlambat dan berbahaya.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-wrap" id="q6">
+    <div class="q-num">Q7</div>
+    <div class="q-badge">LO 7 · Manifestasi Klinis</div>
+    <div class="q-q">Perbedaan kunci yang PALING membedakan asfiksia traumatik dari kontusio paru murni pada pemeriksaan fisik adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(6,0,3)"><span class="ol">A</span> Adanya takipnea dan penggunaan otot bantu nafas</button>
+      <button class="q-opt" onclick="ans(6,1,3)"><span class="ol">B</span> Penurunan suara nafas bilateral pada auskultasi</button>
+      <button class="q-opt" onclick="ans(6,2,3)"><span class="ol">C</span> Nilai SpO₂ yang lebih rendah pada pulse oksimetri</button>
+      <button class="q-opt" onclick="ans(6,3,3)"><span class="ol">D</span> Petechiae wajah, edema wajah, dan perubahan warna di atas diafragma</button>
+      <button class="q-opt" onclick="ans(6,4,3)"><span class="ol">E</span> Takikardia dan hipotensi ringan</button>
+    </div>
+    <div class="q-exp" id="exp6"><strong>✅ Jawaban: D — Petechiae, Edema Wajah, Perubahan Warna Atas Diafragma</strong><br>Ini adalah tanda PATOGNOMONIK (sangat spesifik) asfiksia traumatik. Mekanismenya unik: tekanan retrograd ke vena kepala → petechiae + edema + diskolorasi wajah/dada atas. Kontusio paru murni (tanpa asfiksia traumatik) tidak menyebabkan petechiae wajah atau edema wajah. Takipnea, suara nafas ↓, SpO₂ rendah, dan takikardia bisa ada pada keduanya → bukan pembeda spesifik.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-wrap" id="q7">
+    <div class="q-num">Q8</div>
+    <div class="q-badge">LO 11 · Komplikasi</div>
+    <div class="q-q">Pasien kontusio paru bilateral dirawat 48 jam setelah trauma. Saat evaluasi ulang: SpO₂ turun dari 94% menjadi 87%, RR 36, foto thoraks menunjukkan infiltrat bilateral yang memburuk dan makin luas. PaO₂ 60 mmHg dengan FiO₂ 0,6 (SpO₂ via masker venturi 60%). Komplikasi apakah yang paling mungkin terjadi?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(7,0,3)"><span class="ol">A</span> Pneumonia aspirasi</button>
+      <button class="q-opt" onclick="ans(7,1,3)"><span class="ol">B</span> Edema paru kardiogenik</button>
+      <button class="q-opt" onclick="ans(7,2,3)"><span class="ol">C</span> Hemothorax lanjut</button>
+      <button class="q-opt" onclick="ans(7,3,3)"><span class="ol">D</span> ARDS (Acute Respiratory Distress Syndrome)</button>
+      <button class="q-opt" onclick="ans(7,4,3)"><span class="ol">E</span> Emboli paru akut</button>
+    </div>
+    <div class="q-exp" id="exp7"><strong>✅ Jawaban: D — ARDS</strong><br>ARDS memenuhi 3 kriteria Berlin: (1) Onset akut dalam 1 minggu setelah insultan (trauma), (2) Infiltrat bilateral di foto thoraks, (3) PaO₂/FiO₂ = 60/0.6 = 100 &lt;200 (kriteria ARDS berat). Plus: tidak disebabkan gagal jantung (bukan kardiogenik). ARDS adalah komplikasi tersering dan paling berbahaya kontusio paru bilateral, biasanya muncul 24–72 jam setelah trauma. Mortalitas ARDS trauma bisa mencapai 30–50%.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-wrap" id="q8">
+    <div class="q-num">Q9</div>
+    <div class="q-badge">LO 12 · Monitoring</div>
+    <div class="q-q">Pasien trauma dada stabil secara hemodinamik (TD 120/80, HR 100) sedang diobservasi di IGD. Parameter manakah yang paling penting dipantau secara KONTINYU pada pasien ini?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(8,0,1)"><span class="ol">A</span> Kadar hemoglobin setiap 2 jam</button>
+      <button class="q-opt" onclick="ans(8,1,1)"><span class="ol">B</span> Saturasi oksigen (SpO₂) dan frekuensi nafas</button>
+      <button class="q-opt" onclick="ans(8,2,1)"><span class="ol">C</span> EKG untuk mendeteksi aritmia jantung</button>
+      <button class="q-opt" onclick="ans(8,3,1)"><span class="ol">D</span> Kadar troponin setiap 4 jam</button>
+      <button class="q-opt" onclick="ans(8,4,1)"><span class="ol">E</span> CT scan thoraks serial setiap 6 jam</button>
+    </div>
+    <div class="q-exp" id="exp8"><strong>✅ Jawaban: B — SpO₂ dan Frekuensi Nafas</strong><br>Pada trauma dada, masalah utama adalah gangguan oksigenasi. SpO₂ kontinyu adalah monitor paling real-time untuk mendeteksi deteriorasi oksigenasi sebelum gejala klinis berat muncul. RR adalah salah satu tanda vital pertama yang berubah saat kondisi memburuk. Keduanya non-invasif, murah, dan bisa dipantau terus. Hb serial berguna tapi tidak perlu setiap 2 jam bila tidak ada perdarahan aktif. CT serial tidak praktis dan berisiko radiasi. Troponin diperlukan bila ada kecurigaan kontusio miokard, bukan semua kasus.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-wrap" id="q9">
+    <div class="q-num">Q10</div>
+    <div class="q-badge">LO 13 · Kedokteran Keluarga</div>
+    <div class="q-q">Pasien pria 25 tahun (skenario kita) telah dipulangkan setelah 3 hari dirawat. Sebagai dokter keluarga, edukasi preventif UTAMA manakah yang harus diberikan untuk mencegah kejadian serupa terulang?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(9,0,2)"><span class="ol">A</span> Edukasi untuk menghindari semua aktivitas fisik selama 6 bulan pasca trauma</button>
+      <button class="q-opt" onclick="ans(9,1,2)"><span class="ol">B</span> Konsumsi suplemen kalsium untuk memperkuat tulang rusuk</button>
+      <button class="q-opt" onclick="ans(9,2,2)"><span class="ol">C</span> Penggunaan helm SNI, jaket pelindung, mematuhi aturan lalu lintas, dan edukasi keselamatan berkendara secara komprehensif</button>
+      <button class="q-opt" onclick="ans(9,3,2)"><span class="ol">D</span> Pindah ke wilayah dengan lalu lintas lebih sepi</button>
+      <button class="q-opt" onclick="ans(9,4,2)"><span class="ol">E</span> Membeli kendaraan lebih besar agar lebih aman</button>
+    </div>
+    <div class="q-exp" id="exp9"><strong>✅ Jawaban: C — Edukasi Keselamatan Berkendara Komprehensif</strong><br>Prinsip kedokteran keluarga: pencegahan primer adalah intervensi terpenting. Untuk kasus KLL motor: (1) Helm SNI yang terpasang benar turunkan risiko kematian 40%, (2) Jaket pelindung dengan chest protector mencegah asfiksia traumatik, (3) Patuhi rambu & batas kecepatan, (4) Tidak berkendara di bawah pengaruh zat, (5) Periksa kondisi kendaraan berkala. Ini adalah intervensi evidence-based yang terbukti efektif. Menghindari aktivitas fisik tidak perlu dan tidak preventif. Suplemen kalsium tidak mencegah KLL. Perpindahan tempat dan membeli kendaraan bukan solusi preventif berbasis bukti.</div>
+  </div>
+
+  <div class="score-box" id="scorebox">
+    <div style="font-size:14px;opacity:0.7;">Nilai Akhir</div>
+    <div class="sc-big" id="score-num">0/10</div>
+    <div class="sc-msg" id="score-msg"></div>
+    <button class="btn-restart" onclick="restartQuiz()">🔄 Coba Lagi</button>
+  </div>
+</div>
+
+</div><!-- end wrap -->
+
+<script>
+// ===== NAVIGATION =====
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+  document.getElementById('sec-' + id).classList.add('on');
+  document.querySelectorAll('.nb').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+      b.classList.add('on');
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== QUIZ =====
+const TOTAL = 10;
+let answered = new Array(TOTAL).fill(false);
+let totalAnswered = 0;
+let totalCorrect = 0;
+
+function ans(qIdx, optIdx, correctIdx) {
+  if (answered[qIdx]) return;
+  answered[qIdx] = true;
+  totalAnswered++;
+
+  const qWrap = document.getElementById('q' + qIdx);
+  const opts = qWrap.querySelectorAll('.q-opt');
+  opts.forEach(o => o.disabled = true);
+
+  if (optIdx === correctIdx) {
+    opts[optIdx].classList.add('correct');
+    totalCorrect++;
+    document.getElementById('pd' + qIdx).classList.add('ok');
+  } else {
+    opts[optIdx].classList.add('wrong');
+    opts[correctIdx].classList.add('correct');
+    document.getElementById('pd' + qIdx).classList.add('no');
+  }
+
+  document.getElementById('exp' + qIdx).classList.add('show');
+  document.getElementById('prog-lbl').textContent = totalAnswered + '/' + TOTAL + ' dijawab';
+
+  if (totalAnswered === TOTAL) {
+    setTimeout(showScore, 500);
+  }
+}
+
+function showScore() {
+  const box = document.getElementById('scorebox');
+  box.classList.add('show');
+  document.getElementById('score-num').textContent = totalCorrect + '/' + TOTAL;
+  const pct = Math.round((totalCorrect / TOTAL) * 100);
+  let msg = '';
+  if (pct >= 90) msg = '🏆 Luar biasa! Kamu sangat siap ujian!';
+  else if (pct >= 70) msg = '💪 Bagus! Tinggal review yang salah ya.';
+  else if (pct >= 50) msg = '📚 Cukup baik, baca ulang materi dan coba lagi!';
+  else msg = '🔄 Yuk pelajari lagi materinya, kamu pasti bisa!';
+  document.getElementById('score-msg').textContent = msg + ' (' + pct + '%)';
+  box.scrollIntoView({ behavior: 'smooth' });
+}
+
+function restartQuiz() {
+  answered = new Array(TOTAL).fill(false);
+  totalAnswered = 0;
+  totalCorrect = 0;
+  document.getElementById('prog-lbl').textContent = '0/' + TOTAL + ' dijawab';
+  document.getElementById('scorebox').classList.remove('show');
+
+  for (let i = 0; i < TOTAL; i++) {
+    document.getElementById('pd' + i).className = 'pdot';
+    const qWrap = document.getElementById('q' + i);
+    qWrap.querySelectorAll('.q-opt').forEach(o => {
+      o.disabled = false;
+      o.className = 'q-opt';
+    });
+    const exp = document.getElementById('exp' + i);
+    if (exp) exp.classList.remove('show');
+  }
+  window.scrollTo({ top: document.getElementById('sec-quiz').offsetTop - 80, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
