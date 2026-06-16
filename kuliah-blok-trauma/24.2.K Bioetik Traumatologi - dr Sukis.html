@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚖️ Bioetik Traumatologi — Study Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow:    #F4C842;
+  --yellow-lt: #FDF3C2;
+  --yellow-dk: #B8940A;
+  --orange:    #E8883A;
+  --orange-lt: #FDE8D3;
+  --orange-dk: #9E5415;
+  --green:     #7BBF82;
+  --green-lt:  #D8F0DA;
+  --green-dk:  #3A6E42;
+  --cream:     #FEFAF2;
+  --white:     #FFFFFF;
+  --text:      #2A1F0A;
+  --text-m:    #6B5A35;
+  --border:    #EADBB8;
+  --red:       #C0392B;
+  --red-lt:    #FDECEA;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #C86A14 0%, #E8883A 45%, #F4C842 100%);
+  padding: 56px 48px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; top:-80px; right:-80px;
+  width:320px; height:320px; border-radius:50%;
+  background: rgba(255,255,255,0.08);
+  pointer-events:none;
+}
+.hero::after {
+  content:'';
+  position:absolute; bottom:-60px; left:10%;
+  width:200px; height:200px; border-radius:50%;
+  background: rgba(123,191,130,0.12);
+  pointer-events:none;
+}
+.hero-tag {
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.35);
+  color:#fff; font-size:11px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:5px 14px; border-radius:20px; margin-bottom:18px;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,5vw,56px);
+  font-weight:900; color:#fff; line-height:1.1; margin-bottom:10px;
+}
+.hero h1 em { font-style:italic; color:var(--yellow-lt); }
+.hero-sub {
+  color:rgba(255,255,255,0.85); font-size:14.5px;
+  font-weight:300; max-width:560px; line-height:1.7;
+}
+.hero-pills {
+  display:flex; flex-wrap:wrap; gap:9px; margin-top:24px;
+}
+.pill {
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.25);
+  color:#fff; padding:5px 14px; border-radius:30px;
+  font-size:12px; font-weight:500;
+}
+
+/* ── YT LINK ── */
+.yt-bar {
+  background: var(--orange-dk);
+  padding:10px 48px;
+  display:flex; align-items:center; gap:12px;
+  color:#fff; font-size:13px;
+}
+.yt-bar a {
+  color:var(--yellow-lt); font-weight:600;
+  text-decoration:none; display:flex; align-items:center; gap:6px;
+}
+.yt-bar a:hover { text-decoration:underline; }
+
+/* ── NAV ── */
+.sticky-nav {
+  position:sticky; top:0; z-index:200;
+  background: var(--orange-dk);
+  display:flex; overflow-x:auto;
+  scrollbar-width:none;
+  box-shadow:0 3px 16px rgba(100,50,0,0.3);
+}
+.sticky-nav::-webkit-scrollbar { display:none; }
+.nav-btn {
+  background:none; border:none;
+  color:rgba(253,243,194,0.7);
+  font-family:'DM Sans',sans-serif;
+  font-size:12px; font-weight:500;
+  letter-spacing:0.3px;
+  padding:13px 17px; white-space:nowrap;
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:all 0.2s;
+}
+.nav-btn:hover,.nav-btn.active {
+  color:var(--yellow-lt);
+  border-bottom-color:var(--green);
+}
+
+/* ── LAYOUT ── */
+.container { max-width:940px; margin:0 auto; padding:44px 24px; }
+
+/* ── SECTION ── */
+.section { display:none; animation:fadeUp 0.3s ease; }
+.section.active { display:block; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.section-heading {
+  font-family:'Playfair Display',serif;
+  font-size:28px; font-weight:700;
+  color:var(--orange-dk); margin-bottom:6px;
+}
+.section-desc {
+  color:var(--text-m); font-size:13.5px;
+  padding-bottom:18px;
+  border-bottom:2px solid var(--border);
+  margin-bottom:28px;
+}
+
+/* ── CARDS ── */
+.card {
+  background:var(--white);
+  border-radius:16px; padding:24px 28px;
+  margin-bottom:20px;
+  border:1px solid var(--border);
+  box-shadow:0 2px 12px rgba(200,120,0,0.07);
+  transition:box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow:0 6px 24px rgba(200,120,0,0.13); transform:translateY(-1px); }
+.card-title {
+  font-family:'Lora',serif;
+  font-size:17px; font-weight:600;
+  color:var(--orange-dk); margin-bottom:14px;
+  display:flex; align-items:center; gap:10px;
+}
+.card-icon {
+  width:30px; height:30px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; flex-shrink:0;
+}
+
+/* ── ALERTS ── */
+.alert {
+  padding:13px 17px; border-radius:10px;
+  margin:12px 0; font-size:13.5px;
+  display:flex; gap:10px; line-height:1.65;
+}
+.alert-yellow { background:var(--yellow-lt); border-left:4px solid var(--yellow); color:var(--yellow-dk); }
+.alert-orange { background:var(--orange-lt); border-left:4px solid var(--orange); color:var(--orange-dk); }
+.alert-green  { background:var(--green-lt);  border-left:4px solid var(--green);  color:var(--green-dk);  }
+.alert-red    { background:var(--red-lt);    border-left:4px solid var(--red);    color:#7a1a10; }
+.alert-icon { flex-shrink:0; font-size:15px; margin-top:1px; }
+
+/* ── DR NOTE ── */
+.dr-note {
+  background: linear-gradient(135deg, #FEF6DC, #FDF0C8);
+  border:1.5px solid var(--yellow);
+  border-radius:12px; padding:14px 18px;
+  margin:14px 0; font-size:13.5px; line-height:1.7;
+}
+.dr-note::before {
+  content:'🎤 dr. Siti Soekiswati menekankan: ';
+  font-weight:700; color:var(--orange-dk);
+}
+
+/* ── TABLES ── */
+.table-wrap { overflow-x:auto; border-radius:12px; border:1px solid var(--border); margin-bottom:16px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th {
+  background:var(--orange-dk); color:#fff;
+  padding:11px 14px; text-align:left;
+  font-weight:600; font-size:12px; letter-spacing:0.4px;
+}
+th:first-child { border-radius:11px 0 0 0; }
+th:last-child  { border-radius:0 11px 0 0; }
+td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; font-size:13.5px; }
+tr:last-child td { border-bottom:none; }
+tr:nth-child(even) td { background:#FEFAF2; }
+tr:hover td { background:var(--yellow-lt); transition:background .15s; }
+
+/* ── GRIDS ── */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+.grid-4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; }
+@media(max-width:640px) { .grid-2,.grid-3,.grid-4 { grid-template-columns:1fr; } }
+
+/* ── MINI CARDS ── */
+.mini-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px; padding:16px 18px;
+}
+.mini-card h4 {
+  font-family:'Lora',serif;
+  font-size:14px; color:var(--orange-dk); margin-bottom:8px;
+}
+.mini-card p,.mini-card li { font-size:13px; color:var(--text-m); line-height:1.65; }
+.mini-card ul { padding-left:16px; }
+.mini-card li { margin-bottom:3px; }
+
+/* ── FOUR BOX ── */
+.four-box {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:14px; margin:14px 0;
+}
+.box-cell {
+  border-radius:14px; padding:18px 20px;
+  border:2px solid;
+}
+.box-mi  { background:var(--yellow-lt); border-color:var(--yellow);  }
+.box-pp  { background:var(--orange-lt); border-color:var(--orange);  }
+.box-qol { background:var(--green-lt);  border-color:var(--green);   }
+.box-cf  { background:#E8F4FB;          border-color:#5A9CBF;        }
+.box-cell h4 { font-family:'Lora',serif; font-size:14px; margin-bottom:8px; }
+.box-mi h4  { color:var(--yellow-dk); }
+.box-pp h4  { color:var(--orange-dk); }
+.box-qol h4 { color:var(--green-dk);  }
+.box-cf h4  { color:#2D7499;           }
+.box-cell p,.box-cell li { font-size:13px; line-height:1.65; }
+.box-cell ul { padding-left:16px; }
+.box-cell li { margin-bottom:3px; }
+.box-badge {
+  display:inline-block;
+  font-size:10px; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:3px 9px; border-radius:6px; margin-bottom:8px;
+}
+.badge-yellow { background:var(--yellow); color:var(--yellow-dk); }
+.badge-orange { background:var(--orange); color:#fff; }
+.badge-green  { background:var(--green);  color:var(--green-dk); }
+.badge-blue   { background:#5A9CBF;       color:#fff; }
+@media(max-width:640px) { .four-box { grid-template-columns:1fr; } }
+
+/* ── STYLED LIST ── */
+.styled-list { list-style:none; padding:0; }
+.styled-list li {
+  padding:7px 0 7px 22px;
+  border-bottom:1px solid var(--border);
+  font-size:13.5px; position:relative; line-height:1.65;
+}
+.styled-list li::before {
+  content:'▸'; position:absolute; left:0;
+  color:var(--orange); font-size:11px; top:10px;
+}
+.styled-list li:last-child { border-bottom:none; }
+
+/* ── CLINICAL BOX ── */
+.cr-box {
+  background:linear-gradient(135deg, #FDF3C2, #FEF9E8);
+  border:1.5px solid var(--yellow);
+  border-radius:14px; padding:18px 22px; margin:14px 0;
+}
+.cr-label {
+  font-size:11px; font-weight:700;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--yellow-dk); margin-bottom:10px;
+}
+.cr-steps { counter-reset:cr; list-style:none; padding:0; }
+.cr-steps li {
+  counter-increment:cr;
+  padding:7px 0 7px 34px;
+  position:relative; font-size:13.5px;
+  border-bottom:1px solid rgba(244,200,66,0.3); line-height:1.65;
+}
+.cr-steps li:last-child { border-bottom:none; }
+.cr-steps li::before {
+  content:counter(cr);
+  position:absolute; left:0; top:8px;
+  width:22px; height:22px;
+  background:var(--orange); color:#fff;
+  border-radius:50%; font-size:11px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+}
+
+/* ── HIGHLIGHT ── */
+.hl-y { background:var(--yellow-lt); color:var(--yellow-dk); padding:1px 7px; border-radius:5px; font-weight:600; font-size:13px; }
+.hl-o { background:var(--orange-lt); color:var(--orange-dk); padding:1px 7px; border-radius:5px; font-weight:600; font-size:13px; }
+.hl-g { background:var(--green-lt);  color:var(--green-dk);  padding:1px 7px; border-radius:5px; font-weight:600; font-size:13px; }
+.hl-r { background:var(--red-lt);    color:var(--red);       padding:1px 7px; border-radius:5px; font-weight:600; font-size:13px; }
+
+/* ── MNEMONIC ── */
+.mnemonic {
+  background:linear-gradient(135deg,var(--yellow-lt),#fff);
+  border:2px solid var(--yellow);
+  border-radius:14px; padding:18px 22px; margin:14px 0;
+}
+.mnemonic-label { font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--yellow-dk); margin-bottom:6px; }
+.mnemonic-text { font-family:'Playfair Display',serif; font-size:18px; color:var(--text); font-weight:700; }
+.mnemonic-sub { font-size:13px; color:var(--text-m); margin-top:6px; line-height:1.6; }
+
+/* ── PASAL BADGE ── */
+.pasal-badge {
+  display:inline-flex; align-items:center;
+  background:var(--orange); color:#fff;
+  font-size:11px; font-weight:700;
+  padding:3px 10px; border-radius:8px; margin-right:6px;
+}
+
+/* ── COLLAPSE ── */
+.collapse-btn {
+  background:none; border:none; width:100%;
+  text-align:left; cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0; font-family:inherit;
+}
+.collapse-btn .chev { transition:transform .25s; font-size:11px; color:var(--text-m); }
+.collapse-btn.open .chev { transform:rotate(180deg); }
+.collapse-body { display:none; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+.collapse-body.open { display:block; animation:fadeUp .25s ease; }
+
+/* ── DIVIDER ── */
+.divider { height:1px; background:var(--border); margin:22px 0; }
+
+/* ── QUIZ ── */
+.quiz-q {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:16px; padding:26px; margin-bottom:24px;
+  position:relative;
+}
+.q-num {
+  position:absolute; top:-12px; left:22px;
+  background:var(--orange-dk); color:#fff;
+  font-size:11px; font-weight:700; letter-spacing:1px;
+  padding:4px 14px; border-radius:10px;
+}
+.q-vignette {
+  background:var(--orange-lt);
+  border-left:4px solid var(--orange);
+  border-radius:0 10px 10px 0;
+  padding:14px 17px; font-size:13.5px; line-height:1.7;
+  margin-bottom:15px; color:var(--orange-dk);
+}
+.q-question { font-weight:600; font-size:14px; margin-bottom:14px; color:var(--text); }
+.q-opts { display:flex; flex-direction:column; gap:8px; }
+.q-opt {
+  background:var(--cream); border:1.5px solid var(--border);
+  border-radius:10px; padding:11px 15px; font-size:13.5px;
+  cursor:pointer; text-align:left; font-family:inherit;
+  display:flex; gap:10px; align-items:flex-start;
+  transition:all .18s; color:var(--text);
+}
+.q-opt:hover:not(:disabled) { border-color:var(--orange); background:var(--orange-lt); }
+.q-opt .ol {
+  font-weight:700; font-size:12px;
+  min-width:20px; height:20px; border-radius:50%;
+  background:rgba(0,0,0,0.06);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; margin-top:1px;
+}
+.q-opt.correct { background:var(--green-lt) !important; border-color:var(--green) !important; color:var(--green-dk); }
+.q-opt.correct .ol { background:var(--green); color:#fff; }
+.q-opt.wrong { background:var(--red-lt) !important; border-color:var(--red) !important; color:var(--red); }
+.q-opt.wrong .ol { background:var(--red); color:#fff; }
+.q-opt:disabled { cursor:default; }
+.q-exp {
+  display:none; margin-top:14px;
+  background:var(--green-lt); border-radius:10px;
+  padding:14px 17px; font-size:13.5px; line-height:1.7;
+  color:var(--green-dk); border-left:3px solid var(--green);
+}
+.q-exp.show { display:block; animation:fadeUp .3s ease; }
+.quiz-progress { display:flex; gap:6px; margin-bottom:26px; flex-wrap:wrap; }
+.pdot { width:10px; height:10px; border-radius:50%; background:rgba(232,136,58,0.15); transition:background .3s; }
+.pdot.ok { background:var(--green); }
+.pdot.no { background:var(--red); }
+.score-card {
+  background:linear-gradient(135deg, var(--orange-dk), var(--orange));
+  color:#fff; border-radius:20px; padding:40px;
+  text-align:center; display:none; margin-top:28px;
+  animation:fadeUp .4s ease;
+}
+.score-card.show { display:block; }
+.score-big { font-family:'Playfair Display',serif; font-size:72px; font-weight:900; color:var(--yellow-lt); line-height:1; margin:10px 0; }
+.score-msg { font-size:15px; opacity:.85; margin-top:8px; }
+.btn-restart {
+  margin-top:22px; background:#fff; color:var(--orange-dk);
+  border:none; border-radius:30px; padding:12px 28px;
+  font-family:inherit; font-size:14px; font-weight:600;
+  cursor:pointer; transition:transform .2s;
+}
+.btn-restart:hover { transform:translateY(-2px); }
+
+/* ── BIOETIKA PILLARS ── */
+.pillar-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.pillar {
+  border-radius:14px; padding:18px 16px; text-align:center;
+  border:2px solid;
+}
+.p-auto  { background:var(--yellow-lt); border-color:var(--yellow);  }
+.p-bene  { background:var(--green-lt);  border-color:var(--green);   }
+.p-non   { background:var(--red-lt);    border-color:var(--red);     }
+.p-just  { background:var(--orange-lt); border-color:var(--orange);  }
+.p-vera  { background:#E8F4FB;          border-color:#5A9CBF;        }
+.p-conf  { background:#F5F0FF;          border-color:#9B7ECD;        }
+.pillar h4 { font-family:'Lora',serif; font-size:15px; margin-bottom:6px; }
+.p-auto h4 { color:var(--yellow-dk); }
+.p-bene h4 { color:var(--green-dk);  }
+.p-non  h4 { color:var(--red);       }
+.p-just h4 { color:var(--orange-dk); }
+.p-vera h4 { color:#2D7499;           }
+.p-conf h4 { color:#5A3EA0;           }
+.pillar .big-icon { font-size:28px; margin-bottom:8px; display:block; }
+.pillar p { font-size:12.5px; line-height:1.6; color:var(--text-m); }
+@media(max-width:640px) { .pillar-grid { grid-template-columns:1fr 1fr; } }
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px) {
+  .hero { padding:36px 20px 32px; }
+  .container { padding:28px 16px; }
+  .card { padding:18px 20px; }
+  .yt-bar { padding:10px 20px; }
+  .sticky-nav button { padding:12px 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">📚 Blok Traumatologi 2026 · Dr. dr. Siti Soekiswati SH, MHC.Med</div>
+  <h1>Bioetik &amp; Medikolegal<br>dalam <em>Traumatologi</em></h1>
+  <p class="hero-sub">Study companion lengkap dari PPT + rekaman kuliah dr. Siti. Pahami Four Box Method, kaidah bioetika, dan hak-kewajiban dokter-pasien untuk ujian.</p>
+  <div class="hero-pills">
+    <span class="pill">⚖️ Medikolegal</span>
+    <span class="pill">🧠 Kaidah Bioetika</span>
+    <span class="pill">📋 Hak &amp; Kewajiban</span>
+    <span class="pill">🗂️ Four Box Method</span>
+    <span class="pill">🩺 Analisis Kasus</span>
+    <span class="pill">📝 10 Soal Quiz</span>
+  </div>
+</div>
+
+<!-- YT BAR -->
+<div class="yt-bar">
+  <span>▶️</span>
+  <span>Rekaman Kuliah:</span>
+  <a href="https://youtu.be/96uKgShxqCU?si=wZ8hNhGX9YU20cHV" target="_blank">
+    🎥 Bioetik pada Kasus Traumatologi — dr. Siti Soekiswati
+  </a>
+</div>
+
+<!-- NAV -->
+<div class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('medikolegal')">⚖️ Medikolegal</button>
+  <button class="nav-btn" onclick="show('hakwajib')">📋 Hak &amp; Kewajiban</button>
+  <button class="nav-btn" onclick="show('bioetika')">🧠 Bioetika</button>
+  <button class="nav-btn" onclick="show('fourbox')">🗂️ Four Box</button>
+  <button class="nav-btn" onclick="show('kasus')">🩺 Analisis Kasus</button>
+  <button class="nav-btn" onclick="show('quiz')">📝 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- ========== OVERVIEW ========== -->
+<div id="sec-overview" class="section active">
+  <h2 class="section-heading">Peta Materi &amp; Big Picture</h2>
+  <p class="section-desc">Kerangka berpikir bioetika traumatologi dari hulu ke hilir — baca ini dulu sebelum masuk ke detail.</p>
+
+  <div class="dr-note">Di dunia traumatologi, dokter harus mengambil keputusan kritis dalam waktu sangat sempit — yang bicara saat itu BUKAN etika profesi biasa, tapi BIOETIKA. Refleks etik, bukan hitung-hitungan.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--yellow-lt)">🗺️</span> Grand Story: Mengapa Bioetika Penting di Traumatologi?</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Alur Logika</div>
+      <ol class="cr-steps">
+        <li><strong>Traumatologi = kondisi gawat darurat</strong> → keputusan klinis harus cepat, informasi terbatas</li>
+        <li><strong>Tantangan utama</strong>: pasien sering tidak sadar → tidak bisa memberikan persetujuan (otonomi negatif)</li>
+        <li><strong>Hukum berlaku</strong>: dokter tetap punya kewajiban menolong TANPA informed consent di kondisi darurat</li>
+        <li><strong>Bioetika sebagai kompas</strong>: 4 kaidah (Autonomy, Beneficence, Non-maleficence, Justice) + Four Box Method sebagai alat analisis</li>
+        <li><strong>Dokter aman secara hukum</strong> jika prosesnya benar, terdokumentasi, dan sesuai standar profesi</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--orange-lt)">⚠️</span> Permasalahan Bioetika yang Sering Muncul di Traumatologi</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--yellow)">
+        <h4>1. Informed Consent Gawat Darurat</h4>
+        <p>Pasien tidak sadar → tidak bisa minta IC. Hukum membolehkan tindakan tanpa IC untuk menyelamatkan nyawa. Setelah sadar / kepada keluarga → IC tetap harus dimintakan.</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--orange)">
+        <h4>2. Damage Control Surgery (DCS)</h4>
+        <p>Bedah darurat dengan risiko komplikasi. Efek samping yang mungkin muncul harus dikendalikan sejak awal. Contoh: tourniquet lupa dibuka → nekrosis.</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--green)">
+        <h4>3. Pengambilan Keputusan Cedera Kepala Berat</h4>
+        <p>Pasien GCS rendah (preekoma/delirium) tidak kompeten mengambil keputusan. Tangani dulu → resusitasi → IC minta setelahnya.</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid #5A9CBF">
+        <h4>4. Alokasi Sumber Daya Trauma Massal</h4>
+        <p>Di bencana, sumber daya terbatas. Prioritas pasien yang masih bisa diselamatkan (triage). Prinsip Justice harus tetap berjalan.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-lt)">💡</span> Bedah vs. Bioetika vs. Etika Profesi</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Aspek</th><th>Etika Profesi</th><th>Bioetika</th></tr>
+        <tr><td>Fokus</td><td>Bagaimana menjalani profesi secara benar</td><td>Penjiwaan moral yang menjadi refleks otomatis</td></tr>
+        <tr><td>Konteks</td><td>Umum, semua situasi klinis</td><td>Terutama dilemma etik, darurat, pengambilan keputusan kritis</td></tr>
+        <tr><td>Keputusan</td><td>Mengikuti prosedur/SOP</td><td>Mempertimbangkan nilai, kualitas hidup, keadilan</td></tr>
+        <tr><td>Contoh</td><td>Tidak mempromosikan layanan kesehatan secara tidak etis</td><td>Menentukan apakah operasi pada pasien terminal layak dilakukan</td></tr>
+      </table>
+    </div>
+    <div class="dr-note">Bioetika itu bukan hitung-hitungan. Seorang bioetician yang baik sudah tahu jawabannya tanpa harus mikir lama — karena itu sudah menjadi moralitas yang terinternalisasi.</div>
+  </div>
+</div>
+
+<!-- ========== MEDIKOLEGAL ========== -->
+<div id="sec-medikolegal" class="section">
+  <h2 class="section-heading">⚖️ Aspek Medikolegal Traumatologi</h2>
+  <p class="section-desc">Dasar hukum hubungan dokter-pasien — yang harus kamu hafal untuk ujian dan praktik klinis.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--yellow-lt)">📜</span> Hubungan Dokter-Pasien dalam Hukum Perdata</div>
+    <div class="alert alert-orange"><span class="alert-icon">📌</span><div><strong>Pasal 1234 KUHPerdata:</strong> Hubungan dokter-pasien = perikatan. Pasien sebagai <span class="hl-o">kreditur</span> (berhak atas prestasi), dokter sebagai <span class="hl-o">debitur</span> (berkewajiban melaksanakan prestasi).</div></div>
+    <div class="alert alert-yellow"><span class="alert-icon">📌</span><div><strong>Pasal 1233 KUHPerdata:</strong> Dengan terbentuknya perikatan, timbul hak dan kewajiban di antara para pihak.</div></div>
+
+    <div class="divider"></div>
+
+    <p style="font-weight:600; color:var(--orange-dk); margin-bottom:12px; font-size:13.5px;">Dua Jenis Perikatan dalam Jasa Dokter:</p>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--yellow)">
+        <h4>Perikatan Ikhtiar (Inspannings-verbintennis)</h4>
+        <p>Perikatan untuk mengerahkan upaya SEMAKSIMAL MUNGKIN mencapai tujuan. <strong>Yang dinilai: prosesnya</strong>, bukan hasilnya. Ini yang berlaku dalam praktik kedokteran!</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--orange)">
+        <h4>Perikatan Resultaat (Resultaats-verbintennis)</h4>
+        <p>Perikatan untuk menghasilkan sesuatu yang tertentu. Yang dinilai: hasilnya. <strong>TIDAK berlaku</strong> untuk dokter (dokter tidak menjanjikan sembuh).</p>
+      </div>
+    </div>
+
+    <div class="alert alert-green" style="margin-top:14px;"><span class="alert-icon">✅</span><div>Implikasi yuridis: jika terjadi hasil yang tidak memuaskan, <strong>yang dibuktikan bukan apakah pasien sembuh</strong>, tapi apakah dokter sudah berupaya sesuai standar profesi dan SPO dengan benar.</div></div>
+    <div class="dr-note">Yang dinilai bukan hasilnya. Pasien mesti sembuh, mesti hidup — itu bukan standar yang berlaku. Yang dinilai adalah PROSES. Apakah panjenengan sudah melakukannya dengan benar?</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--orange-lt)">📋</span> UU Kesehatan No. 17 / 2023 — Rangkuman Pasal Penting</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Pasal</th><th>Tentang</th><th>Isi Penting</th></tr>
+        <tr><td><span class="pasal-badge">276</span></td><td>Hak Pasien</td><td>7 hak dasar pasien: informasi, penjelasan, pelayanan bermutu, menolak/menyetujui tindakan, akses RM, second opinion, dll.</td></tr>
+        <tr><td><span class="pasal-badge">277</span></td><td>Kewajiban Pasien</td><td>Informasi lengkap dan jujur, mematuhi nasihat nakes, mematuhi aturan fasyankes, memberikan imbalan jasa</td></tr>
+        <tr><td><span class="pasal-badge">279</span></td><td>Kewajiban Nakes</td><td>Mengabdikan diri sesuai keilmuan, beretika, utamakan pasien &amp; masyarakat, update ilmu</td></tr>
+        <tr><td><span class="pasal-badge">293</span></td><td>IC Tindakan Medis</td><td>Pasien berhak mendapat penjelasan memadai sebelum tindakan (Informed Consent)</td></tr>
+        <tr><td><span class="pasal-badge">294</span></td><td>Biaya Pelayanan</td><td>Pasien berhak mendapat penjelasan atas biaya pelayanan kesehatan</td></tr>
+        <tr><td><span class="pasal-badge">297</span></td><td>Rekam Medis</td><td>Hak akses dan keamanan informasi rekam medis pasien</td></tr>
+        <tr><td><span class="pasal-badge">305</span></td><td>Pengaduan</td><td>Pasien / keluarga yang dirugikan dapat mengadukan ke MDP (Majelis Disiplin Profesi)</td></tr>
+        <tr><td><span class="pasal-badge">273</span></td><td>Hak Nakes</td><td>10 hak tenaga medis: perlindungan hukum, informasi lengkap, gaji layak, K3, jaminan, dll.</td></tr>
+        <tr><td><span class="pasal-badge">273 (2)</span></td><td>Penolakan Nakes</td><td>Nakes DAPAT menghentikan pelayanan yang tidak sesuai harkat &amp; martabat manusia, moral, kesusilaan</td></tr>
+      </table>
+    </div>
+
+    <div class="alert alert-yellow"><span class="alert-icon">🔑</span><div><strong>Key fact untuk ujian:</strong> Second opinion berlaku hanya untuk pasien yang biaya mandiri. Pasien BPJS tidak boleh minta second opinion di luar jalur rujukan.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-lt)">🔑</span> Informed Consent di IGD — Aturan Khusus</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Alur IC di Kondisi Darurat</div>
+      <ol class="cr-steps">
+        <li>Pasien datang dalam kondisi darurat, tidak sadar / tidak kompeten → <strong>Selamatkan nyawa dulu!</strong></li>
+        <li>IC tidak diperlukan saat itu (hukum membolehkan) — asal kondisi darurat nyata</li>
+        <li>Setelah pasien sadar → segera minta IC dan tanda tangan pasien</li>
+        <li>Jika pasien meninggal → tetap berikan IC/informasi kepada keluarga dan minta tanda tangan saat pengambilan jenazah</li>
+        <li><strong>Selalu dokumentasikan!</strong> Bukti tertulis adalah satu-satunya perlindungan dokter secara hukum</li>
+      </ol>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Jangan abai:</strong> Meskipun ada yang bilang "IGD tidak perlu IC", kenyataannya jika ada masalah hukum, IC selalu diminta sebagai bukti. Tidak ada → hukuman penjara.</div></div>
+    <div class="dr-note">Kalau nanti ada masalah, yang pertama dicari jaksa/lawyer adalah bukti tertulis. Kalau tidak ada — meskipun kamu sudah melakukan yang benar secara medis — kamu tidak aman.</div>
+  </div>
+</div>
+
+<!-- ========== HAK & KEWAJIBAN ========== -->
+<div id="sec-hakwajib" class="section">
+  <h2 class="section-heading">📋 Hak &amp; Kewajiban</h2>
+  <p class="section-desc">Ringkasan hak-kewajiban pasien dan dokter berdasarkan UU Kesehatan No. 17/2023 — high-yield untuk soal ujian.</p>
+
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="card-icon" style="background:var(--yellow-lt)">👤</span> Hak Pasien — Pasal 276</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <ul class="styled-list">
+        <li>Mendapat informasi mengenai kesehatannya <strong>secara pribadi</strong> (bukan keluarga/tetangga yang tanya ke dokter)</li>
+        <li>Mendapat penjelasan <strong>memadai</strong> terkait pelayanan kesehatan yang diterimanya</li>
+        <li>Mendapatkan pelayanan kesehatan sesuai kebutuhan medis, standar profesi, dan bermutu</li>
+        <li><strong>Menolak atau menyetujui</strong> tindakan medis — kecuali pencegahan penyakit menular dan penanggulangan KLB/Wabah</li>
+        <li>Mendapat akses terhadap informasi dalam <strong>Rekam Medis</strong></li>
+        <li>Meminta pendapat tenaga medis lain (<strong>second opinion</strong>) — khusus biaya mandiri, bukan BPJS</li>
+        <li>Mendapat hak lain sesuai ketentuan perundang-undangan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="card-icon" style="background:var(--orange-lt)">📝</span> Kewajiban Pasien — Pasal 277</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <ul class="styled-list">
+        <li>Memberikan informasi tentang kesehatannya dengan <strong>lengkap dan jujur</strong></li>
+        <li>Mematuhi petunjuk dan nasihat tenaga medis dan tenaga kesehatan</li>
+        <li>Mematuhi ketentuan yang berlaku di fasilitas pelayanan kesehatan (jam besuk, dll.)</li>
+        <li>Memberikan <strong>imbalan jasa</strong> atas pelayanan yang diterima</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="card-icon" style="background:var(--green-lt)">🩺</span> Hak Tenaga Medis — Pasal 273</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <ul class="styled-list">
+        <li>Perlindungan hukum sepanjang melaksanakan tugas sesuai standar profesi, SPO, dan etika profesi</li>
+        <li>Mendapat informasi lengkap dan benar dari pasien/keluarga</li>
+        <li>Mendapat gaji, imbalan jasa, dan tunjangan kinerja yang layak</li>
+        <li>Perlindungan K3 (keselamatan, kesehatan kerja, dan keamanan)</li>
+        <li>Jaminan kesehatan dan ketenagakerjaan</li>
+        <li>Perlindungan atas perlakuan yang tidak sesuai harkat &amp; martabat manusia</li>
+        <li>Penghargaan sesuai prestasi/kinerja</li>
+        <li>Kesempatan mengembangkan kompetensi dan karier</li>
+        <li><strong>Menolak keinginan pasien</strong> yang bertentangan dengan standar pelayanan, SPO, atau kode etik</li>
+        <li>Hak lain sesuai perundang-undangan</li>
+      </ul>
+      <div class="alert alert-yellow" style="margin-top:12px;"><span class="alert-icon">💡</span><div>Dokter juga bisa <strong>melaporkan dan menuntut</strong> keluarga pasien yang berperilaku tidak senonoh. Jangan diam saja — karena diam membuat mereka semakin berani.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="card-icon" style="background:#E8F4FB)">📚</span> Kewajiban Tenaga Medis — Pasal 279</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <ul class="styled-list">
+        <li>Mengabdikan diri sesuai bidang keilmuan yang dimiliki</li>
+        <li>Bersikap dan berperilaku sesuai etika profesi</li>
+        <li>Mengutamakan kepentingan pasien &amp; masyarakat atas kepentingan pribadi/kelompok</li>
+        <li>Menambah ilmu pengetahuan dan mengikuti perkembangan IPTEK</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--yellow-lt)">🆚</span> Perbandingan Cepat Hak &amp; Kewajiban</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th></th><th>Pasien</th><th>Dokter / Nakes</th></tr>
+        <tr><td><strong>Informasi</strong></td><td>Berhak mendapat info kesehatan sendiri</td><td>Berhak mendapat info lengkap dari pasien</td></tr>
+        <tr><td><strong>Penolakan</strong></td><td>Bisa menolak tindakan medis (kecuali wabah)</td><td>Bisa menolak keinginan pasien yang bertentangan SPO/etik</td></tr>
+        <tr><td><strong>Kerahasiaan</strong></td><td>Berhak atas kerahasiaan rekam medis</td><td>Wajib menjaga kerahasiaan pasien</td></tr>
+        <tr><td><strong>Second opinion</strong></td><td>Bisa minta (biaya sendiri), tidak boleh BPJS</td><td>Tidak berlaku</td></tr>
+        <tr><td><strong>Perlindungan hukum</strong></td><td>Bisa mengadu ke MDP jika dirugikan</td><td>Dilindungi hukum jika bekerja sesuai standar profesi</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== BIOETIKA ========== -->
+<div id="sec-bioetika" class="section">
+  <h2 class="section-heading">🧠 Kaidah Bioetika — Beauchamp &amp; Childress</h2>
+  <p class="section-desc">6 kaidah bioetika yang menjadi kompas pengambilan keputusan dokter — dari Tom Beauchamp dan James Childress.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--yellow-lt)">⚖️</span> 6 Kaidah Bioetika</div>
+    <div class="pillar-grid">
+      <div class="pillar p-auto">
+        <span class="big-icon">🙋</span>
+        <h4>Autonomy</h4>
+        <p>Kemandirian pasien dalam memilih terapi dan keputusan. Pasien berhak memilih / menolak tindakan.</p>
+      </div>
+      <div class="pillar p-bene">
+        <span class="big-icon">💚</span>
+        <h4>Beneficence</h4>
+        <p>Memberikan kemanfaatan terbesar untuk pasien. Dokter bekerja untuk kebaikan pasien.</p>
+      </div>
+      <div class="pillar p-non">
+        <span class="big-icon">🚫</span>
+        <h4>Non-maleficence</h4>
+        <p>Menghindari harm / cedera / kerugian pada pasien. Primum non nocere — pertama, jangan menyakiti.</p>
+      </div>
+      <div class="pillar p-just">
+        <span class="big-icon">⚖️</span>
+        <h4>Justice</h4>
+        <p>Distribusi sumber daya dan pelayanan yang adil. Tidak boleh membedakan pasien berdasarkan latar belakang.</p>
+      </div>
+      <div class="pillar p-vera">
+        <span class="big-icon">✅</span>
+        <h4>Veracity</h4>
+        <p>Kebenaran / kejujuran dalam menyampaikan informasi kepada pasien.</p>
+      </div>
+      <div class="pillar p-conf">
+        <span class="big-icon">🔒</span>
+        <h4>Confidentiality</h4>
+        <p>Kerahasiaan informasi medis pasien. Tidak boleh disebarkan tanpa izin pasien.</p>
+      </div>
+    </div>
+    <div class="mnemonic" style="margin-top:16px;">
+      <div class="mnemonic-label">🧠 Cara Ingat Urutan</div>
+      <div class="mnemonic-text">"A-BNJ + VC" → Autonomy, Beneficence, Non-maleficence, Justice + Veracity, Confidentiality</div>
+      <div class="mnemonic-sub">4 kaidah utama Beauchamp &amp; Childress (1979), 2 tambahan dari ahli lain. Yang 4 pertama paling sering diuji!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--orange-lt)">🔗</span> Kaitan Kaidah Bioetika dengan Four Box Method</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Komponen Four Box</th><th>Kaidah Bioetika yang Terkait</th></tr>
+        <tr><td><strong>Medical Indication</strong></td><td>Beneficence, Non-maleficence</td></tr>
+        <tr><td><strong>Patient Preference</strong></td><td>Autonomy</td></tr>
+        <tr><td><strong>Quality of Life</strong></td><td>Beneficence, Non-maleficence, Autonomy</td></tr>
+        <tr><td><strong>Contextual Features</strong></td><td>Justice</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-lt)">📖</span> Penerapan Khusus di Traumatologi</div>
+    <div class="grid-2">
+      <div>
+        <div class="alert alert-yellow"><span class="alert-icon">⚠️</span><div><strong>Kondisi darurat → Otonomi NEGATIF:</strong> Pasien tidak kompeten → IC tidak bisa diperoleh → Beneficence dan Non-maleficence mengambil alih. Selamatkan nyawa.</div></div>
+        <div class="alert alert-green"><span class="alert-icon">✅</span><div><strong>Trauma massal → Justice:</strong> Prioritaskan pasien yang masih bisa diselamatkan. Sumber daya terbatas harus didistribusikan secara adil (triage).</div></div>
+      </div>
+      <div>
+        <div class="alert alert-orange"><span class="alert-icon">💡</span><div><strong>DCS → Non-maleficence:</strong> Operasi darurat punya risiko. Damage yang mungkin terjadi harus dikendalikan sejak awal (contoh: tourniquet harus dilepas setelah operasi).</div></div>
+        <div class="alert alert-yellow"><span class="alert-icon">📌</span><div><strong>Family otonomi (lokal Indonesia):</strong> Jika pasien tidak sadar, keluarga bisa mengambil keputusan. Ini bagian dari contextual feature yang harus dipertimbangkan.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== FOUR BOX ========== -->
+<div id="sec-fourbox" class="section">
+  <h2 class="section-heading">🗂️ Four Box Method</h2>
+  <p class="section-desc">Alat analisis etik paling sistematis untuk kasus traumatologi — wajib kuasai untuk ujian dan praktik!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--yellow-lt)">📊</span> Kerangka Four Box Method (Jonsen, Siegler &amp; Winslade)</div>
+
+    <div class="four-box">
+      <div class="box-cell box-mi">
+        <div class="box-badge badge-yellow">1</div>
+        <h4>⚕️ Medical Indication</h4>
+        <ul>
+          <li><strong>Diagnosis:</strong> apa yang terjadi pada pasien?</li>
+          <li><strong>Prognosis:</strong> apa yang akan terjadi jika diobati / tidak?</li>
+          <li><strong>Pilihan terapi:</strong> apa opsi tindakan yang tersedia?</li>
+          <li><strong>Tujuan terapi:</strong> mengobati, meringankan, atau paliatif?</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--yellow-dk);">🔗 Terkait: <strong>Beneficence + Non-maleficence</strong></p>
+      </div>
+
+      <div class="box-cell box-pp">
+        <div class="box-badge badge-orange">2</div>
+        <h4>🙋 Patient Preference</h4>
+        <ul>
+          <li><strong>Kompetensi pasien:</strong> apakah pasien mampu memutuskan?</li>
+          <li><strong>Keinginan pasien:</strong> apa yang diinginkan pasien?</li>
+          <li><strong>Otonomi:</strong> apakah keputusannya sudah dibuat secara bebas dan informed?</li>
+          <li><strong>Jika tidak kompeten:</strong> siapa yang bisa mewakili? (keluarga/wali)</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--orange-dk);">🔗 Terkait: <strong>Autonomy</strong></p>
+      </div>
+
+      <div class="box-cell box-qol">
+        <div class="box-badge badge-green">3</div>
+        <h4>🌱 Quality of Life</h4>
+        <ul>
+          <li><strong>Sesudah terapi:</strong> bagaimana kualitas hidup pasien?</li>
+          <li><strong>Jika berhasil:</strong> apakah pasien bisa kembali ke kehidupan normal?</li>
+          <li><strong>Jika gagal:</strong> apa dampaknya?</li>
+          <li><strong>Paliatif:</strong> jika sudah terminal — kenyamanan vs intervensi agresif?</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--green-dk);">🔗 Terkait: <strong>Beneficence + Non-maleficence + Autonomy</strong></p>
+      </div>
+
+      <div class="box-cell box-cf">
+        <div class="box-badge badge-blue">4</div>
+        <h4>🌐 Contextual Features</h4>
+        <ul>
+          <li>Agama dan nilai budaya pasien</li>
+          <li>Kondisi keluarga dan social support</li>
+          <li>Kebijakan rumah sakit</li>
+          <li>Pembiayaan (BPJS vs mandiri)</li>
+          <li>Hukum dan regulasi yang berlaku</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:#2D7499;">🔗 Terkait: <strong>Justice</strong></p>
+      </div>
+    </div>
+
+    <div class="alert alert-orange" style="margin-top:6px;"><span class="alert-icon">🎯</span><div>Di ujian, soal sering meminta "analisis dengan Four Box Method" → buat tabel 2x2 dengan 4 kotak, isi setiap kotak dengan temuan dari kasus, lalu tarik kesimpulan bioetika dan keputusan klinis.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--orange-lt)">📝</span> Template Analisis Four Box</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Komponen</th><th>Pertanyaan Kunci</th><th>Kaidah Bioetika</th><th>Isi dari Kasus</th></tr>
+        <tr><td><strong>Medical Indication</strong></td><td>Diagnosis? Prognosis? Terapi?</td><td>Beneficence, Non-maleficence</td><td><em>Isi sesuai kasus</em></td></tr>
+        <tr><td><strong>Patient Preference</strong></td><td>Kompeten? Keinginan pasien/keluarga?</td><td>Autonomy</td><td><em>Isi sesuai kasus</em></td></tr>
+        <tr><td><strong>Quality of Life</strong></td><td>QoL pasca terapi? Worth it?</td><td>Beneficence, Non-maleficence, Autonomy</td><td><em>Isi sesuai kasus</em></td></tr>
+        <tr><td><strong>Contextual Features</strong></td><td>BPJS? Agama? Hukum? Keluarga?</td><td>Justice</td><td><em>Isi sesuai kasus</em></td></tr>
+        <tr><td colspan="4" style="text-align:center; font-weight:600; color:var(--orange-dk);">→ KESIMPULAN: Dokter melakukan apa? + Bukti dokumen apa yang diperlukan?</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== KASUS ========== -->
+<div id="sec-kasus" class="section">
+  <h2 class="section-heading">🩺 Analisis Kasus</h2>
+  <p class="section-desc">Dua kasus dari kuliah dr. Siti — dianalisis lengkap dengan Four Box Method sebagai contoh template jawaban.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--yellow-lt)">📋</span> Kasus 1 — Trauma Abdomen + Syok</div>
+    <div class="q-vignette">
+      Laki-laki 23 tahun mengalami kecelakaan sepeda motor. Datang ke IGD dengan <strong>GCS 7</strong>, tekanan darah <strong>90/60 mmHg</strong>, FAST positif menunjukkan <strong>hemoperitoneum masif</strong>. Tidak ada keluarga yang dapat dihubungi. Dokter memutuskan melakukan <strong>laparotomi emergensi</strong>.
+    </div>
+
+    <div class="four-box">
+      <div class="box-cell box-mi">
+        <div class="box-badge badge-yellow">Medical Indication</div>
+        <h4>⚕️ Indikasi Medis</h4>
+        <ul>
+          <li><strong>Dx:</strong> Trauma tumpul abdomen, syok hemoragik, perdarahan masif intraabdomen</li>
+          <li><strong>Prognosis:</strong> Risiko kematian tinggi jika tidak segera dioperasi</li>
+          <li><strong>Tx:</strong> Operasi emergensi, resusitasi cairan, transfusi darah</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--yellow-dk);">🔗 <strong>Beneficence</strong> — dokter memberikan kemampuan terbaik</p>
+      </div>
+
+      <div class="box-cell box-pp">
+        <div class="box-badge badge-orange">Patient Preference</div>
+        <h4>🙋 Preferensi Pasien</h4>
+        <ul>
+          <li>GCS 7 → <span class="hl-r">Pasien TIDAK kompeten</span></li>
+          <li>IC tidak dapat diperoleh</li>
+          <li>Tidak ada keluarga yang bisa dihubungi</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--orange-dk);">🔗 <strong>Autonomy (−)</strong> — penyelamatan nyawa lebih utama, tidak perlu IC</p>
+      </div>
+
+      <div class="box-cell box-qol">
+        <div class="box-badge badge-green">Quality of Life</div>
+        <h4>🌱 Kualitas Hidup</h4>
+        <ul>
+          <li>Jika operasi sukses → pasien pulih, tidak ada cedera neurologis permanen</li>
+          <li>Jika tidak dioperasi → kemungkinan meninggal sangat tinggi</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--green-dk);">🔗 <strong>Beneficence</strong> — terapi dokter meningkatkan kualitas hidup pasien</p>
+      </div>
+
+      <div class="box-cell box-cf">
+        <div class="box-badge badge-blue">Contextual Features</div>
+        <h4>🌐 Kontekstual</h4>
+        <ul>
+          <li>Tidak ada keluarga yang bisa dihubungi</li>
+          <li>Kondisi darurat → hukum membolehkan tanpa IC</li>
+          <li>IGD tidak boleh menolak pasien</li>
+          <li>Tidak ada faktor yang menghalangi operasi</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:#2D7499;">🔗 <strong>Justice</strong> — dokter harus menolong siapapun (tidak boleh diskriminasi)</p>
+      </div>
+    </div>
+
+    <div class="alert alert-green"><span class="alert-icon">✅</span><div><strong>Kesimpulan:</strong> Laparotomi emergensi adalah keputusan yang ETIS dan LEGAL. Dokter harus melakukan operasi segera tanpa IC (karena darurat, tidak ada keluarga). Setelah pasien sadar atau keluarga datang → IC tetap dimintakan dan terdokumentasikan.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--orange-lt)">📋</span> Kasus 2 (Post-Test) — Cedera Kepala Berat Terminal</div>
+    <div class="q-vignette">
+      Perempuan 72 tahun mengalami cedera kepala berat akibat kecelakaan lalu lintas. Pemeriksaan menunjukkan <strong>GCS 3</strong>, fixed dilated pupil bilateral, herniasi batang otak, perdarahan subdural akut masif. Dokter bedah saraf menilai <strong>peluang hidup &lt;5%</strong>. Keluarga meminta <strong>semua tindakan agresif tetap dilakukan</strong>.
+    </div>
+
+    <div class="four-box">
+      <div class="box-cell box-mi">
+        <div class="box-badge badge-yellow">Medical Indication</div>
+        <h4>⚕️ Indikasi Medis</h4>
+        <ul>
+          <li><strong>Dx:</strong> Cedera kepala berat, herniasi batang otak, SDH masif</li>
+          <li><strong>Prognosis:</strong> &lt;5% kemungkinan hidup — kondisi futile</li>
+          <li><strong>Tx:</strong> <span class="hl-o">Terapi PALIATIF</span> (bukan agresif) — O₂, infus, monitor, kenyamanan</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--yellow-dk);">🔗 <strong>Non-maleficence</strong> — intervensi agresif hanya menyakiti, tidak memberi manfaat</p>
+      </div>
+
+      <div class="box-cell box-pp">
+        <div class="box-badge badge-orange">Patient Preference</div>
+        <h4>🙋 Preferensi Pasien</h4>
+        <ul>
+          <li>GCS 3 → pasien tidak kompeten</li>
+          <li>Keluarga meminta tindakan agresif maksimal</li>
+          <li><strong>Family otonomi</strong> (local wisdom Indonesia) berlaku — keluarga bisa memutuskan</li>
+          <li>Dokter harus komunikasikan kondisi dengan jelas dan empati</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--orange-dk);">🔗 <strong>Autonomy</strong> — delegasi ke keluarga dengan komunikasi efektif</p>
+      </div>
+
+      <div class="box-cell box-qol">
+        <div class="box-badge badge-green">Quality of Life</div>
+        <h4>🌱 Kualitas Hidup</h4>
+        <ul>
+          <li>Bahkan jika bertahan hidup → kemungkinan besar kondisi vegetatif permanen</li>
+          <li>Terapi agresif hanya mengulur waktu, bukan meningkatkan QoL</li>
+          <li>Tujuan: beri <strong>kenyamanan</strong> di akhir hayat (comfort care)</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--green-dk);">🔗 <strong>Non-maleficence</strong> — hindari intervensi yang hanya menambah penderitaan</p>
+      </div>
+
+      <div class="box-cell box-cf">
+        <div class="box-badge badge-blue">Contextual Features</div>
+        <h4>🌐 Kontekstual</h4>
+        <ul>
+          <li>Keluarga ada dan bisa dimintai IC</li>
+          <li>BPJS/biaya — jelaskan keterbatasan tanggungan</li>
+          <li>Tidak ada alasan menolak pasien (IGD)</li>
+          <li>Nilai lokal: keluarga ingin maksimal → dokter harus komunikasi dengan empati</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:#2D7499;">🔗 <strong>Justice</strong> — distribusi sumber daya yang adil + informasi biaya transparan</p>
+      </div>
+    </div>
+
+    <div class="alert alert-orange"><span class="alert-icon">💡</span><div><strong>Kesimpulan:</strong> Dokter memberikan <strong>terapi PALIATIF (comfort care)</strong>: O₂, infus, monitor di ICU — bukan intervensi agresif (intubasi berat, pembedahan, dll.). Jelaskan kepada keluarga dengan komunikasi efektif. Mintakan tanda tangan IC kepada keluarga. Dokumentasikan semua bukti tertulis (termasuk via WA dari spesialis).</div></div>
+
+    <div class="dr-note">Terapi paliatif itu bukan "tidak menolong" — itu tetap menolong, tapi dengan memberikan kenyamanan bukan intervensi yang menyakitkan. Dokter TIDAK BOLEH langsung menyuruh keluarga bawa pulang pasien. Rawat di ICU, berikan paliatif.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-lt)">🔍</span> Perbedaan Kasus 1 vs Kasus 2</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Aspek</th><th>Kasus 1 (Laparotomi)</th><th>Kasus 2 (Terminal)</th></tr>
+        <tr><td><strong>GCS</strong></td><td>7 (tidak kompeten)</td><td>3 (tidak kompeten)</td></tr>
+        <tr><td><strong>Prognosis</strong></td><td>Baik jika dioperasi</td><td>&lt;5% kemungkinan hidup</td></tr>
+        <tr><td><strong>Keluarga</strong></td><td>Tidak ada / tidak bisa dihubungi</td><td>Ada, meminta tindakan agresif</td></tr>
+        <tr><td><strong>Keputusan</strong></td><td>Operasi emergensi tanpa IC</td><td>Terapi paliatif + IC keluarga</td></tr>
+        <tr><td><strong>IC</strong></td><td>Tidak diperlukan saat itu (darurat)</td><td>Dimintakan ke keluarga sekarang</td></tr>
+        <tr><td><strong>Kaidah dominan</strong></td><td>Beneficence</td><td>Non-maleficence + Justice</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== QUIZ ========== -->
+<div id="sec-quiz" class="section">
+  <h2 class="section-heading">📝 Quiz — Uji Pemahamanmu!</h2>
+  <p class="section-desc">10 soal vignette berbasis materi kuliah dr. Siti. Pastikan kamu paham Four Box Method dan kaidah bioetika!</p>
+
+  <div class="quiz-progress" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / KAIDAH BIOETIKA</div>
+    <div class="q-vignette">Seorang dokter IGD memutuskan melakukan resusitasi pada pasien tidak sadar tanpa menunggu informed consent dari keluarga, karena kondisi pasien sangat kritis dan setiap detik menentukan.</div>
+    <p class="q-question">Kaidah bioetika yang PALING dominan dalam pengambilan keputusan dokter tersebut adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Autonomy</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">B</span>Beneficence</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">C</span>Justice</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Confidentiality</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Veracity</button>
+    </div>
+    <div class="q-exp" id="exp-q1">✅ <strong>B. Beneficence</strong><br><br>Dalam kondisi darurat, saat pasien tidak kompeten (tidak sadar) dan nyawanya terancam, dokter mengutamakan kemanfaatan terbesar untuk pasien — yaitu menyelamatkan nyawa. Ini adalah prinsip Beneficence. Autonomy pasien sementara "dinonaktifkan" karena pasien tidak kompeten mengambil keputusan, dan ini diperbolehkan secara hukum dan etika.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / INFORMED CONSENT</div>
+    <div class="q-vignette">Pasien 40 tahun datang ke IGD dalam kondisi tidak sadar setelah kecelakaan. Operasi emergensi berhasil dilakukan. Keesokan harinya pasien sadar dan tidak ada keluarga yang mendampingi. Dokter langsung mengeluarkan pasien dari ICU tanpa memintakan informed consent.</div>
+    <p class="q-question">Apa yang SEHARUSNYA dilakukan dokter setelah pasien sadar?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Tidak perlu IC karena sudah terlanjur dioperasi</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">B</span>Memintakan IC kepada pasien sekarang karena pasien sudah kompeten dan dapat menandatangani</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">C</span>Menunggu keluarga datang baru memintakan IC</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>IC hanya diperlukan sebelum operasi, setelah operasi tidak perlu</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Langsung pulangkan pasien karena kondisinya sudah stabil</button>
+    </div>
+    <div class="q-exp" id="exp-q2">✅ <strong>B. Memintakan IC kepada pasien sekarang</strong><br><br>Meskipun IC tidak diperlukan saat kondisi darurat, <strong>setelah pasien sadar dan kembali kompeten</strong>, IC harus segera dimintakan dan ditandatangani. Ini penting sebagai bukti tertulis bahwa pasien sudah mendapat informasi dan menyetujui tindakan yang telah dilakukan. Tanpa IC → tidak ada perlindungan hukum untuk dokter.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / MEDIKOLEGAL</div>
+    <div class="q-vignette">Dokter umum di klinik swasta merawat pasien dengan riwayat hipertensi. Obat yang diberikan tidak memberikan efek yang diharapkan. Keluarga pasien menuntut dokter dengan alasan pengobatan "gagal" karena pasien masih hipertensi.</div>
+    <p class="q-question">Berdasarkan hukum perdata dalam hubungan dokter-pasien, jenis perikatan yang berlaku adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Perikatan resultaat — dokter harus menjamin pasien sembuh</button>
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">B</span>Perikatan ikhtiar — yang dinilai adalah proses, bukan hasil</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">C</span>Perikatan komersial — sesuai pembayaran yang diterima</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Perikatan resultaat karena pasien sudah membayar</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">E</span>Tidak ada perikatan — hubungan dokter-pasien bukan hubungan hukum</button>
+    </div>
+    <div class="q-exp" id="exp-q3">✅ <strong>B. Perikatan ikhtiar (inspannings-verbintennis)</strong><br><br>Hubungan dokter-pasien adalah perikatan IKHTIAR — yang dinilai adalah apakah dokter sudah berupaya sesuai standar profesi, bukan apakah hasilnya memuaskan. Dokter tidak bisa dituntut karena pasien "tidak sembuh" selama prosesnya sudah benar. Perikatan resultaat (menjamin hasil) TIDAK berlaku di kedokteran.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / FOUR BOX — CONTEXTUAL</div>
+    <div class="q-vignette">Pasien BPJS masuk IGD dengan kondisi kritis. Keluarga meminta dokter melakukan CT scan otak kepada pasien tersebut. Dokter mengetahui bahwa CT scan tidak ditanggung BPJS pada kondisi tersebut.</div>
+    <p class="q-question">Dalam Four Box Method, komponen apa yang paling relevan dengan situasi ini dan apa yang harus dilakukan dokter?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Medical Indication — langsung lakukan CT scan tanpa penjelasan</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Patient Preference — ikuti kemauan keluarga saja</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">C</span>Contextual Features — jelaskan bahwa CT scan tidak ditanggung BPJS dan mintakan persetujuan tertulis jika keluarga ingin melanjutkan dengan biaya sendiri</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>Quality of Life — tidak perlu CT scan karena tidak mengubah prognosis</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>Langsung tolak permintaan keluarga</button>
+    </div>
+    <div class="q-exp" id="exp-q4">✅ <strong>C. Contextual Features + jelaskan biaya</strong><br><br>Contextual Features mencakup pembiayaan (BPJS vs mandiri). Dokter wajib menjelaskan bahwa CT scan tidak ditanggung BPJS, berapa biayanya jika bayar mandiri, dan memintakan persetujuan TERTULIS jika keluarga setuju membayar sendiri. Ini sekaligus memenuhi kewajiban veracity (kejujuran) dan kewajiban dokter pada pasal 294 UU Kesehatan (penjelasan biaya).</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / HAK PASIEN</div>
+    <div class="q-vignette">Suami seorang pasien wanita datang ke dokter dan meminta informasi tentang diagnosis penyakit istrinya tanpa sepengetahuan istrinya.</div>
+    <p class="q-question">Berdasarkan UU Kesehatan No. 17/2023, tindakan dokter yang tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>Memberikan informasi karena suami adalah keluarga terdekat</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">B</span>Memberikan sebagian informasi saja kepada suami</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">C</span>Menolak memberikan informasi kepada suami — informasi hanya boleh diberikan kepada pasien secara pribadi, kecuali atas izin pasien</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Memberikan informasi karena suami punya hak sebagai kepala keluarga</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>Meminta suami menunggu istri datang lagi ke klinik</button>
+    </div>
+    <div class="q-exp" id="exp-q5">✅ <strong>C. Menolak memberikan informasi kepada suami</strong><br><br>Pasal 276 UU Kesehatan: Pasien berhak mendapat informasi mengenai kesehatannya <strong>secara pribadi</strong>. Dokter harus menjaga kerahasiaan (Confidentiality) informasi pasien. Suami tidak berhak mendapat informasi tanpa izin istrinya — meskipun hubungan suami-istri. Tetangga, saudara, atau siapapun yang bukan pasien sendiri juga tidak berhak mendapat informasi tersebut.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / NON-MALEFICENCE</div>
+    <div class="q-vignette">Seorang perawat melakukan operasi tourniquet pada kaki pasien saat operasi fraktur femur. Setelah operasi selesai, perawat lupa melepas tourniquet. Tiga hari kemudian, kaki pasien tampak biru dan hampir nekrosis.</div>
+    <p class="q-question">Dalam konteks bioetika dan medikolegal, kejadian ini dikategorikan sebagai pelanggaran terhadap kaidah apa dan disebut apa secara hukum?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Autonomy — pasien tidak memberi izin tourniquet dipasang</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">B</span>Non-maleficence — terjadi harm akibat kelalaian (Damage Control yang tidak terkendali)</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">C</span>Justice — pasien tidak mendapat pelayanan yang adil</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>Beneficence — dokter tidak memberikan manfaat terbaik</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Veracity — informasi tentang tourniquet tidak disampaikan</button>
+    </div>
+    <div class="q-exp" id="exp-q6">✅ <strong>B. Non-maleficence — kelalaian (Damage Control Surgery)</strong><br><br>Ini adalah contoh Damage Control Surgery yang GAGAL — harm yang seharusnya bisa dicegah terjadi akibat kelalaian (lalai melepas tourniquet). Secara bioetika ini melanggar Non-maleficence (menghindari harm). Secara medikolegal ini adalah <strong>negligence</strong> (kelalaian) — bukan kesalahan disengaja, tapi tetap dapat dituntut karena merupakan pelanggaran standar pelayanan.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / SECOND OPINION</div>
+    <div class="q-vignette">Pasien BPJS dengan keluhan nyeri sendi ingin mendapat pendapat dokter spesialis lain selain dokter yang merujuknya. Pasien meminta dokter PPK 1 untuk merujuk ke spesialis lain untuk second opinion.</div>
+    <p class="q-question">Tindakan dokter PPK 1 yang tepat berdasarkan regulasi adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>Wajib merujuk ke dokter lain karena itu hak pasien</button>
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">B</span>Menjelaskan bahwa second opinion untuk pasien BPJS tidak diperbolehkan — pasien harus mengikuti jalur rujukan yang ditetapkan</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">C</span>Merujuk ke dokter lain atas nama kemanusiaan</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>Menyarankan pasien membayar sendiri untuk second opinion</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Langsung menolak tanpa penjelasan</button>
+    </div>
+    <div class="q-exp" id="exp-q7">✅ <strong>B. Menjelaskan bahwa second opinion BPJS tidak diperbolehkan</strong><br><br>Pasal 276 UU Kesehatan memberikan hak second opinion, NAMUN ini berlaku untuk pasien yang membiayai sendiri. Untuk pasien BPJS, sistem merujuk bersifat berjenjang dan pasien harus mengikuti jalur yang ditetapkan. Dokter harus menjelaskan hal ini dengan jelas dan penuh hormat — ini adalah bagian dari veracity (kejujuran) dan contextual feature (kebijakan BPJS).</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / QUALITY OF LIFE</div>
+    <div class="q-vignette">Pria 65 tahun dengan GCS 3, fixed dilated pupil bilateral, dan kerusakan batang otak ireversibel. Dokter spesialis menyatakan prognosis sangat buruk (peluang hidup &lt;2%). Keluarga meminta ventilator dan semua alat penopang kehidupan dipasang.</div>
+    <p class="q-question">Dalam analisis Four Box Method — Quality of Life, apa yang paling tepat?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>Pasang semua alat karena keinginan keluarga harus dipenuhi</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">B</span>Tolak semua permintaan keluarga dan hentikan semua terapi</button>
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">C</span>Berikan terapi paliatif (comfort care) — O₂, infus, monitor. Jelaskan kepada keluarga bahwa intervensi agresif tidak akan meningkatkan kualitas hidup, hanya menambah penderitaan</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>Pasang ventilator karena itu satu-satunya cara untuk memenuhi beneficence</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Suruh keluarga bawa pulang pasien segera</button>
+    </div>
+    <div class="q-exp" id="exp-q8">✅ <strong>C. Terapi paliatif + komunikasi empati ke keluarga</strong><br><br>Quality of Life — pasien dengan prognosis &lt;2% dan kerusakan batang otak ireversibel, bahkan jika berhasil dipertahankan hidup, akan berada dalam kondisi vegetatif. Intervensi agresif (ventilator invasif, dll.) hanya memperpanjang penderitaan. Terapi paliatif (O₂, infus, monitor ICU) adalah pilihan yang menghormati Non-maleficence. Dokter TIDAK BOLEH langsung menyuruh keluarga pulang — pasien tetap dirawat di ICU dengan paliatif, keluarga diberi penjelasan lengkap dengan bukti tertulis.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / KEWAJIBAN DOKTER</div>
+    <div class="q-vignette">Seorang dokter IGD menolak merawat pasien karena pasien tersebut diketahui adalah pengedar narkoba dengan banyak tato di tubuhnya.</div>
+    <p class="q-question">Tindakan dokter tersebut melanggar kaidah bioetika dan pasal hukum apa?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Non-maleficence saja</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>Autonomy pasien</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">C</span>Justice — setiap pasien harus mendapat pelayanan yang adil tanpa diskriminasi; melanggar kewajiban dokter Pasal 279 UU 17/2023</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">D</span>Beneficence — dokter tidak memberikan manfaat</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Confidentiality</button>
+    </div>
+    <div class="q-exp" id="exp-q9">✅ <strong>C. Justice + Kewajiban Dokter Pasal 279</strong><br><br>Kaidah Justice mengharuskan distribusi pelayanan yang ADIL — dokter tidak boleh membedakan pasien berdasarkan latar belakang sosial, moral, agama, atau penampilan fisik. Pasal 279 mewajibkan dokter mengutamakan kepentingan pasien. Dalam Contextual Features Four Box: tidak ada faktor kontekstual yang menghalangi dokter untuk merawat pasien tersebut — bahkan pasien HIV, preman, atau siapapun yang dibenci sekalipun wajib ditolong di IGD.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / FOUR BOX KOMPREHENSIF</div>
+    <div class="q-vignette">Pria 28 tahun masuk IGD tidak sadar setelah KLL. GCS 8, TD 80/50 mmHg, perdarahan aktif dari luka terbuka di paha kiri. FAST negatif. Tidak ada keluarga. Dokter memutuskan melakukan resusitasi, transfusi, dan debridement emergensi.</div>
+    <p class="q-question">Dalam Medical Indication Four Box Method, komponen bioetika yang paling tepat mendasari keputusan dokter adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Autonomy — pasien punya hak menentukan sendiri</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">B</span>Justice — sumber daya harus didistribusikan secara adil</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">C</span>Beneficence + Non-maleficence — memberikan tindakan terbaik untuk menyelamatkan nyawa sekaligus menghindari harm lebih lanjut</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">D</span>Veracity — harus jujur tentang kondisi pasien</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Confidentiality — data pasien harus dirahasiakan</button>
+    </div>
+    <div class="q-exp" id="exp-q10">✅ <strong>C. Beneficence + Non-maleficence</strong><br><br>Medical Indication selalu terkait dengan Beneficence (memberikan terapi terbaik sesuai diagnosis) dan Non-maleficence (menghindari harm yang tidak perlu). Dalam kasus ini: Dx = syok hemoragik, Prognosis = baik jika ditangani segera, Tx = resusitasi + transfusi + debridement. Dokter sudah melakukan yang benar. IC tidak diperlukan saat darurat (Autonomy negatif karena GCS 8 = tidak kompeten), tapi setelah sadar IC harus dimintakan.</div>
+  </div>
+
+  <!-- Score -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:36px; margin-bottom:8px;">⚖️</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:18px; opacity:.8; margin-top:4px;">/ 10</div>
+    <p class="score-msg" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+</div><!-- /quiz -->
+
+</div><!-- /container -->
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// Quiz
+let answered = {}, score = 0, total = 10;
+function initDots() {
+  const p = document.getElementById('quizProg');
+  p.innerHTML = '';
+  for (let i=1; i<=total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot'; d.id = 'dot'+i;
+    p.appendChild(d);
+  }
+}
+function ans(btn, qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const qNum = parseInt(qid.replace('q',''));
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+  if (correct) {
+    btn.classList.add('correct'); score++;
+    document.getElementById('dot'+qNum).classList.add('ok');
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('dot'+qNum).classList.add('no');
+    card.querySelectorAll('.q-opt').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) b.classList.add('correct');
+    });
+  }
+  const exp = document.getElementById('exp-'+qid);
+  if (exp) exp.classList.add('show');
+  if (Object.keys(answered).length === total) setTimeout(showScore, 700);
+}
+function showScore() {
+  const sc = document.getElementById('scoreCard');
+  sc.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const msgs = ['Ayo review lagi materi bioetikanya! 💪', 'Sedikit lagi — baca ulang Four Box ya! 📖', 'Lumayan! Tinggal kuasai kasus-kasusnya 🌟', 'Bagus banget! Hampir sempurna dokter! 🔥', 'SEMPURNA! Bioetician masa depan! ⚖️'];
+  const idx = score<=3?0:score<=5?1:score<=7?2:score<=9?3:4;
+  document.getElementById('scoreMsg').textContent = msgs[idx];
+  sc.scrollIntoView({behavior:'smooth', block:'center'});
+}
+function resetQuiz() {
+  answered={}; score=0;
+  document.querySelectorAll('.q-opt').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+  document.querySelectorAll('.q-exp').forEach(e=>e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+initDots();
+</script>
+</body>
+</html>

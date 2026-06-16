@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🫁 Trauma Thoraks — dr. Hitaputra</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@300;400;500;600;700;800;900&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --y100: #FFFBF0;
+  --y200: #FFF3C4;
+  --y300: #FFE68A;
+  --y400: #FFCF47;
+  --y500: #F5A623;
+  --y600: #E08B00;
+  --o100: #FFF4EC;
+  --o200: #FFE0C0;
+  --o300: #FFBB7A;
+  --o400: #FF9A3C;
+  --o500: #E8740A;
+  --o600: #C45C00;
+  --cream: #FEFCF6;
+  --warm: #FFFEF9;
+  --text-dark: #2A1F0A;
+  --text-mid: #614A18;
+  --text-light: #9A7A3A;
+  --border: #F0E4C0;
+  --border-o: #FFD9A0;
+  --shadow: 0 4px 24px rgba(200,140,0,0.10);
+  --shadow-o: 0 4px 24px rgba(200,100,0,0.13);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--cream);
+  color:var(--text-dark);
+  line-height:1.75;
+  font-size:15px;
+}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#FFE68A 0%,#FFCF47 25%,#FFB347 55%,#FF9A3C 80%,#FF7A1A 100%);
+  padding:64px 48px 56px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 8% 15%,rgba(255,255,255,0.45) 0%,transparent 45%),
+    radial-gradient(circle at 92% 85%,rgba(255,255,255,0.30) 0%,transparent 40%),
+    radial-gradient(ellipse at 50% 110%,rgba(255,120,0,0.25) 0%,transparent 55%);
+}
+.hero::after{
+  content:'🫁';
+  position:absolute;right:48px;top:40px;
+  font-size:120px;opacity:0.12;
+  transform:rotate(-10deg);
+  pointer-events:none;
+}
+.hero-inner{position:relative;max-width:800px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.8);
+  color:var(--o600);
+  font-size:11px;font-weight:800;letter-spacing:1.8px;
+  text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(28px,5vw,54px);
+  color:var(--text-dark);
+  line-height:1.12;
+  margin-bottom:14px;
+  text-shadow:0 2px 8px rgba(200,100,0,0.12);
+}
+.hero h1 em{font-style:italic;color:#6B3000;}
+.hero-sub{
+  color:#5A3400;
+  font-size:14.5px;font-weight:600;
+  max-width:560px;line-height:1.7;
+}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
+.hero-pill{
+  background:rgba(255,255,255,0.7);
+  border:1px solid rgba(255,255,255,0.85);
+  color:var(--o600);
+  padding:5px 14px;border-radius:20px;
+  font-size:12px;font-weight:700;
+  backdrop-filter:blur(4px);
+}
+
+/* ── YOUTUBE BADGE ── */
+.yt-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(0,0,0,0.75);
+  color:white;
+  padding:10px 18px;border-radius:14px;
+  font-size:13px;font-weight:700;
+  text-decoration:none;
+  margin-top:20px;
+  transition:background 0.2s,transform 0.2s;
+  backdrop-filter:blur(8px);
+}
+.yt-badge:hover{background:rgba(180,0,0,0.85);transform:translateY(-2px);}
+.yt-badge svg{flex-shrink:0;}
+
+/* ── NAV ── */
+.nav-wrap{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,252,240,0.96);
+  backdrop-filter:blur(14px);
+  border-bottom:2px solid var(--border);
+  display:flex;overflow-x:auto;
+  scrollbar-width:none;
+  box-shadow:0 2px 16px rgba(200,140,0,0.08);
+}
+.nav-wrap::-webkit-scrollbar{display:none;}
+.nav-btn{
+  background:none;border:none;
+  font-family:'Nunito',sans-serif;
+  font-size:12.5px;font-weight:800;
+  color:var(--text-light);
+  padding:14px 18px;white-space:nowrap;
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+  letter-spacing:0.2px;
+  transition:all 0.2s;
+}
+.nav-btn:hover{color:var(--o500);}
+.nav-btn.active{color:var(--o600);border-bottom-color:var(--y400);}
+
+/* ── LAYOUT ── */
+.container{max-width:940px;margin:0 auto;padding:44px 24px;}
+.section{display:none;animation:fadeUp 0.32s ease;}
+.section.active{display:block;}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ── SEC HEADER ── */
+.sec-head{margin-bottom:30px;}
+.sec-title{font-family:'DM Serif Display',serif;font-size:28px;color:var(--text-dark);margin-bottom:5px;}
+.sec-desc{color:var(--text-light);font-size:13.5px;padding-bottom:18px;border-bottom:2px solid var(--border);}
+
+/* ── CARD ── */
+.card{
+  background:var(--warm);
+  border-radius:20px;
+  padding:26px 30px;
+  margin-bottom:20px;
+  border:1.5px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.card:hover{box-shadow:var(--shadow-o);transform:translateY(-2px);}
+.card.orange{border-color:var(--border-o);}
+.card-title{
+  font-family:'DM Serif Display',serif;
+  font-size:18px;color:var(--text-dark);
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.card-icon{
+  width:32px;height:32px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+
+/* ── ALERTS ── */
+.alert{
+  padding:13px 16px;border-radius:12px;
+  margin:12px 0;font-size:13.5px;
+  display:flex;gap:10px;line-height:1.65;
+}
+.alert-icon{flex-shrink:0;font-size:15px;margin-top:1px;}
+.alert-yellow{background:var(--y200);border-left:4px solid var(--y500);color:var(--o600);}
+.alert-orange{background:var(--o100);border-left:4px solid var(--o400);color:var(--o600);}
+.alert-red{background:#FFF0F0;border-left:4px solid #FF5555;color:#8B1A1A;}
+.alert-green{background:#F0FBF4;border-left:4px solid #4DB87E;color:#1D7A4A;}
+.alert-soft{background:#FFFBEC;border-left:4px solid var(--y500);color:#6A4F10;}
+
+.dr-note{
+  background:linear-gradient(135deg,var(--y100),var(--warm));
+  border:1.5px solid var(--y300);
+  border-radius:14px;
+  padding:15px 18px;
+  margin:14px 0;
+  font-size:13.5px;line-height:1.7;
+  color:var(--text-mid);
+}
+.dr-note::before{
+  content:'🎤 dr. Hita: ';
+  font-weight:900;color:var(--o600);
+}
+
+/* ── TABLE ── */
+.table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+th{padding:11px 14px;text-align:left;font-weight:800;font-size:12px;letter-spacing:0.4px;color:white;}
+.th-y th{background:var(--y500);}
+.th-o th{background:var(--o500);}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:var(--y100);}
+.th-o tr:nth-child(even) td{background:var(--o100);}
+tr:hover td{background:var(--y200);transition:background 0.15s;}
+
+/* ── GRID ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+@media(max-width:640px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+/* ── MINI CARD ── */
+.mini{
+  background:var(--warm);
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;
+}
+.mini.orange{border-color:var(--border-o);background:var(--o100);}
+.mini h4{font-family:'DM Serif Display',serif;font-size:14px;color:var(--text-dark);margin-bottom:8px;}
+.mini p,.mini li{font-size:13px;color:var(--text-mid);line-height:1.6;}
+.mini ul{padding-left:16px;}
+.mini li{margin-bottom:3px;}
+
+/* ── STEPS ── */
+.steps{list-style:none;padding:0;counter-reset:step;}
+.steps li{
+  counter-increment:step;
+  padding:9px 0 9px 38px;
+  position:relative;
+  border-bottom:1px solid var(--border);
+  font-size:13.5px;line-height:1.65;
+}
+.steps li:last-child{border-bottom:none;}
+.steps li::before{
+  content:counter(step);
+  position:absolute;left:0;top:10px;
+  width:24px;height:24px;
+  background:var(--y400);color:var(--text-dark);
+  border-radius:50%;font-size:11px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ── SLIST ── */
+.slist{list-style:none;padding:0;}
+.slist li{
+  padding:7px 0 7px 22px;
+  border-bottom:1px solid var(--border);
+  font-size:13.5px;position:relative;line-height:1.65;
+}
+.slist li::before{content:'◆';position:absolute;left:0;color:var(--y500);font-size:8px;top:11px;}
+.slist li:last-child{border-bottom:none;}
+
+/* ── HL ── */
+.hl-y{background:var(--y200);color:var(--o600);padding:1px 7px;border-radius:5px;font-weight:800;font-size:13px;}
+.hl-o{background:var(--o200);color:var(--o600);padding:1px 7px;border-radius:5px;font-weight:800;font-size:13px;}
+.hl-red{background:#FFE0E0;color:#B52020;padding:1px 7px;border-radius:5px;font-weight:800;font-size:13px;}
+.hl-green{background:#E0F5EC;color:#1D7A4A;padding:1px 7px;border-radius:5px;font-weight:800;font-size:13px;}
+
+/* ── BADGE ── */
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:800;margin:2px;}
+.b-red{background:#FFE0E0;color:#B52020;}
+.b-yellow{background:var(--y200);color:var(--o600);}
+.b-orange{background:var(--o200);color:var(--o600);}
+.b-green{background:#E0F5EC;color:#1D7A4A;}
+.b-dark{background:#333;color:white;}
+
+/* ── MNEMONIC ── */
+.mnemonic{
+  background:linear-gradient(135deg,var(--y100),var(--o100));
+  border:2px solid var(--y300);
+  border-radius:16px;
+  padding:20px 24px;margin:14px 0;
+}
+.mnemonic-label{font-size:10px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;color:var(--o600);margin-bottom:8px;}
+.mnemonic-text{font-family:'DM Serif Display',serif;font-size:22px;color:var(--text-dark);}
+.mnemonic-sub{font-size:13px;color:var(--text-mid);margin-top:6px;line-height:1.65;}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);margin:22px 0;}
+
+/* ── IMAGE CARD ── */
+.img-card{
+  border-radius:16px;
+  overflow:hidden;
+  border:2px solid var(--border-o);
+  margin:14px 0;
+  background:var(--o100);
+}
+.img-card img{
+  width:100%;display:block;
+  max-height:340px;object-fit:cover;
+}
+.img-caption{
+  padding:10px 16px;
+  font-size:12.5px;
+  color:var(--text-mid);
+  font-weight:600;
+  background:var(--o100);
+  border-top:1px solid var(--border-o);
+}
+
+/* ── CONDITION CARD ── */
+.cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+.cond-card{
+  border-radius:18px;padding:20px 22px;
+  border:2px solid;
+}
+.cond-card h3{font-family:'DM Serif Display',serif;font-size:16px;margin-bottom:10px;}
+.cond-card .label-row{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:900;letter-spacing:0.8px;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.cond-card ul{list-style:none;padding:0;}
+.cond-card li{font-size:13px;padding:3px 0;}
+.cc-tension{background:#FFF5F5;border-color:#FF7070;}
+.cc-tension h3{color:#8B1A1A;}
+.cc-open{background:#FFF9EC;border-color:var(--y400);}
+.cc-open h3{color:var(--o600);}
+.cc-hemo{background:#F5F0FF;border-color:#A084CA;}
+.cc-hemo h3{color:#4A2080;}
+.cc-flail{background:var(--o100);border-color:var(--o300);}
+.cc-flail h3{color:var(--o600);}
+.cc-tampo{background:#F0F8FF;border-color:#5BA8E0;}
+.cc-tampo h3{color:#1A4A8B;}
+.cc-hemo2{background:#F5FFFA;border-color:#4DB87E;}
+.cc-hemo2 h3{color:#1D7A4A;}
+
+/* ── WSD VISUAL ── */
+.wsd-bottles{display:flex;gap:20px;align-items:flex-end;justify-content:center;padding:20px;flex-wrap:wrap;}
+.bottle{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:var(--text-mid);
+}
+.bottle-body{
+  width:70px;border-radius:8px 8px 4px 4px;
+  border:3px solid;position:relative;
+  overflow:hidden;
+}
+.bottle-neck{
+  width:30px;height:16px;
+  border:3px solid;border-bottom:none;
+  margin:0 auto;border-radius:4px 4px 0 0;
+}
+.b1 .bottle-neck,.b1 .bottle-body{border-color:var(--o400);}
+.b2 .bottle-neck,.b2 .bottle-body{border-color:#5BA8E0;}
+.b3 .bottle-neck,.b3 .bottle-body{border-color:#4DB87E;}
+.bottle-fill{position:absolute;bottom:0;left:0;right:0;}
+.b1 .bottle-fill{height:35%;background:rgba(255,150,60,0.3);}
+.b2 .bottle-fill{height:50%;background:rgba(91,168,224,0.35);}
+.b3 .bottle-fill{height:30%;background:rgba(77,184,126,0.3);}
+.bottle-tube{width:3px;height:20px;background:var(--text-light);margin:0 auto;}
+.arrow-row{display:flex;align-items:center;gap:8px;font-size:18px;color:var(--text-light);}
+
+/* ── LETAL TRIAD ── */
+.triad-wrap{
+  display:flex;justify-content:center;align-items:center;
+  gap:0;margin:20px 0;flex-wrap:wrap;
+}
+.triad-item{
+  flex:1;min-width:160px;
+  text-align:center;padding:22px 16px;
+  border-radius:16px;margin:6px;
+  border:2px solid;
+}
+.triad-item h3{font-family:'DM Serif Display',serif;font-size:16px;margin-bottom:6px;}
+.triad-item p{font-size:12.5px;line-height:1.6;}
+.ti1{background:#FFE8EC;border-color:#FF7070;}
+.ti1 h3{color:#8B1A1A;}
+.ti2{background:#FFF5EC;border-color:var(--o300);}
+.ti2 h3{color:var(--o600);}
+.ti3{background:#F0F8FF;border-color:#5BA8E0;}
+.ti3 h3{color:#1A4A8B;}
+.triad-arrows{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:22px;color:var(--text-light);padding:0 8px;}
+
+/* ── QUIZ ── */
+.quiz-q{
+  background:var(--warm);
+  border:1.5px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  margin-bottom:22px;
+  position:relative;
+}
+.q-num{
+  position:absolute;top:-12px;left:22px;
+  background:var(--y500);color:white;
+  font-size:11px;font-weight:900;letter-spacing:1px;
+  padding:4px 14px;border-radius:10px;
+}
+.q-vignette{
+  background:linear-gradient(135deg,var(--y100),var(--o100));
+  border-radius:12px;
+  padding:14px 17px;
+  font-size:13.5px;line-height:1.7;
+  color:var(--text-mid);
+  margin-bottom:16px;
+}
+.q-question{font-weight:800;font-size:14px;margin-bottom:14px;color:var(--text-dark);}
+.q-opts{display:flex;flex-direction:column;gap:8px;}
+.q-opt{
+  background:var(--cream);
+  border:1.5px solid var(--border);
+  border-radius:12px;
+  padding:12px 16px;font-size:13.5px;
+  cursor:pointer;text-align:left;
+  font-family:inherit;
+  display:flex;gap:10px;align-items:flex-start;
+  transition:all 0.18s;color:var(--text-dark);
+}
+.q-opt:hover:not(:disabled){border-color:var(--y400);background:var(--y100);}
+.q-opt .ol{
+  font-weight:900;font-size:11px;
+  min-width:22px;height:22px;border-radius:50%;
+  background:rgba(0,0,0,0.07);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.q-opt.correct{background:var(--green-100,#F0FBF4)!important;border-color:#4DB87E!important;color:#1D7A4A;}
+.q-opt.correct .ol{background:#4DB87E;color:white;}
+.q-opt.wrong{background:#FFE8EC!important;border-color:#FF7070!important;color:#8B1A1A;}
+.q-opt.wrong .ol{background:#FF7070;color:white;}
+.q-opt:disabled{cursor:default;}
+.q-exp{
+  display:none;margin-top:14px;
+  background:#F0FBF4;border-radius:12px;
+  padding:14px 17px;font-size:13.5px;line-height:1.7;
+  color:#1D7A4A;border-left:3px solid #4DB87E;
+}
+.q-exp.show{display:block;animation:fadeUp 0.3s ease;}
+.quiz-prog{display:flex;gap:7px;margin-bottom:26px;flex-wrap:wrap;}
+.pdot{width:11px;height:11px;border-radius:50%;background:var(--border);transition:background 0.3s;}
+.pdot.ok{background:#4DB87E;}
+.pdot.no{background:#FF7070;}
+.score-card{
+  background:linear-gradient(135deg,var(--y400),var(--o400));
+  color:white;border-radius:22px;padding:44px;
+  text-align:center;display:none;margin-top:28px;
+  animation:fadeUp 0.4s ease;
+}
+.score-card.show{display:block;}
+.score-big{font-family:'DM Serif Display',serif;font-size:80px;line-height:1;margin:10px 0;}
+.score-msg{font-size:15px;opacity:0.9;margin-top:8px;font-weight:700;}
+.btn-restart{
+  margin-top:22px;
+  background:rgba(255,255,255,0.9);color:var(--text-dark);
+  border:none;border-radius:30px;
+  padding:12px 28px;
+  font-family:inherit;font-size:14px;font-weight:800;
+  cursor:pointer;transition:transform 0.2s;
+}
+.btn-restart:hover{transform:translateY(-2px);}
+
+/* ── FLOW BOX ── */
+.flow-box{
+  background:linear-gradient(135deg,var(--y100),var(--o100));
+  border:1.5px solid var(--y300);
+  border-radius:16px;padding:20px 24px;margin:14px 0;
+}
+.flow-label{font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:var(--o600);margin-bottom:12px;}
+
+/* ── ANATOMY SVG BOX ── */
+.anatomy-box{
+  background:var(--o100);
+  border:2px solid var(--border-o);
+  border-radius:18px;
+  padding:24px;
+  margin:16px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+.anatomy-box svg{max-width:100%;height:auto;}
+
+@media(max-width:600px){
+  .hero{padding:36px 20px 32px;}
+  .container{padding:28px 16px;}
+  .card{padding:18px 20px;}
+  .cond-grid{grid-template-columns:1fr;}
+  .hero::after{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">🫁 Blok Trauma · dr. Hitaputra Agung Wardhana, Sp.B., Finacs</div>
+    <h1>Trauma<br><em>Thoraks</em></h1>
+    <p class="hero-sub">Rangkuman PPT + transkrip rekaman kuliah. Tandai 🎤 = kata langsung dr. Hita di kelas. Sistem belajar terstruktur untuk mahasiswa FK.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">🏗️ Anatomi & Mekanisme</span>
+      <span class="hero-pill">⚡ 6 Kondisi Mengancam</span>
+      <span class="hero-pill">💧 WSD</span>
+      <span class="hero-pill">☠️ Lethal Triad</span>
+      <span class="hero-pill">🔄 Alur Klinis</span>
+      <span class="hero-pill">🧠 Quiz Soal</span>
+    </div>
+    <a class="yt-badge" href="https://youtu.be/Z9Uqf4JJrz4?si=vJQmYU21F0jdkm2z" target="_blank" rel="noopener">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><rect width="22" height="16" rx="4" fill="#FF0000"/><path d="M9 11.5V4.5L16 8L9 11.5Z" fill="white"/></svg>
+      Tonton Rekaman Kuliah dr. Hita
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap" id="nav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('anatomi')">🦴 Anatomi</button>
+  <button class="nav-btn" onclick="show('kondisi')">⚡ 6 Kondisi Bahaya</button>
+  <button class="nav-btn" onclick="show('wsd')">💧 WSD</button>
+  <button class="nav-btn" onclick="show('triad')">☠️ Lethal Triad</button>
+  <button class="nav-btn" onclick="show('alur')">🔄 Alur Klinis</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- ══ OVERVIEW ══ -->
+<div id="sec-overview" class="section active">
+  <div class="sec-head">
+    <h2 class="sec-title">Gambaran Besar Trauma Thoraks</h2>
+    <p class="sec-desc">Prinsip: sesak napas setelah trauma = akibat trauma SAMPAI TERBUKTI SEBALIKNYA. Golden period = 5 menit untuk identifikasi kondisi mengancam nyawa.</p>
+  </div>
+
+  <div class="dr-note">Kalau ada sesak nafas, ada riwayat trauma maka sesak nafasnya akibat dari trauma sampai terbukti tidak. Dan golden periodnya itu 5 menit — ini harus sudah diketahui yang emergensinya itu apa.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">📋</span> Kompetensi yang Harus Dikuasai (SKDI 3B)</div>
+    <div class="alert alert-orange"><span class="alert-icon">📌</span><div>Sebagian besar kondisi trauma thoraks masuk <strong>kompetensi 3B</strong> → harus bisa diagnosis + tatalaksana awal di IGD. Kecuali perikardiosintesis yang butuh kursus khusus.</div></div>
+    <div class="grid-3">
+      <div class="mini">
+        <h4>✅ Bisa dilakukan dokter umum</h4>
+        <ul>
+          <li>Needle thorakosintesis</li>
+          <li>Pemasangan plester 3 sisi</li>
+          <li>Pemasangan WSD (setelah latihan)</li>
+        </ul>
+      </div>
+      <div class="mini orange">
+        <h4>⚠️ Perlu kursus/spesialis</h4>
+        <ul>
+          <li>Perikardiosintesis</li>
+          <li>Torakotomi</li>
+          <li>Penjahitan paru</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>🔍 Pola pikir klinis</h4>
+        <ul>
+          <li>Sesak → trauma s/d terbukti tidak</li>
+          <li>Nyeri dada → trauma s/d terbukti tidak</li>
+          <li>Golden period: 5 menit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">🎯</span> Dua Dampak Utama Trauma Thoraks</div>
+    <div class="grid-2">
+      <div class="mini orange">
+        <h4>🫁 Gangguan Respiratorik</h4>
+        <p>Terjadi bila trauma mengenai paru-paru. Menyebabkan kegagalan ventilasi dan oksigenasi.</p>
+        <p style="margin-top:6px;"><strong>Contoh:</strong> Pneumotoraks, hemotoraks, kontusio pulmonal, flail chest</p>
+      </div>
+      <div class="mini orange">
+        <h4>🫀 Gangguan Sirkulasi / Hemodinamik</h4>
+        <p>Terjadi bila trauma mengenai jantung/pembuluh besar. Menyebabkan penurunan cardiac output.</p>
+        <p style="margin-top:6px;"><strong>Contoh:</strong> Tamponade jantung, kontusio miokard, ruptur aorta</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">🕐</span> Waktu Munculnya Komplikasi</div>
+    <div class="table-wrap th-y">
+      <table>
+        <tr><th>Waktu</th><th>Kondisi yang Perlu Diwaspadai</th><th>Catatan</th></tr>
+        <tr><td><span class="hl-y">Muncul saat awal</span></td><td>Tension pneumotoraks, Open pneumotoraks, Hemotoraks masif, Flail chest, Tamponade jantung, Obstruksi airway</td><td>Harus diidentifikasi di survei primer (5 menit pertama)</td></tr>
+        <tr><td><span class="hl-o">6–24 jam</span></td><td>Kontusio pulmonal, Emboli paru, STEMI post-trauma, Pneumotoraks simpel yang berkembang</td><td>Wajib observasi minimal 24 jam</td></tr>
+        <tr><td><span class="hl-y">&gt;24 jam</span></td><td>Empiema, Pneumonia, Efusi pleura sekunder</td><td>Biasanya muncul setelah perawatan</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-orange"><span class="alert-icon">💡</span><div>Kontusio pulmonal pada <strong>anak-anak</strong> sering tidak terlihat di foto awal karena dinding dada elastis. Foto awal bagus, tapi kerusakan dalam bisa cukup berat. Tetap observasi!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">🔍</span> Pendekatan Awal: Lihat-Dengar-Raba</div>
+    <div class="dr-note">Yang dilihat apa? Dilihat pernapasannya bagaimana, gerak napasnya simetris atau asimetris. Di daerah permukaan toraknya apakah ada luka atau ada jejas di sebelah mana. Kalau ada luka dilihat lukanya itu ada busan udara atau tidak.</div>
+    <div class="grid-3">
+      <div class="mini">
+        <h4>👁️ LIHAT</h4>
+        <ul>
+          <li>Gerak napas: simetris?</li>
+          <li>Jejas/luka di permukaan</li>
+          <li>Ada busan udara dari luka?</li>
+          <li>Warna bibir: pucat/sianosis?</li>
+          <li>Pengembangan dada tertinggal?</li>
+        </ul>
+      </div>
+      <div class="mini orange">
+        <h4>👂 DENGAR</h4>
+        <ul>
+          <li>Stridor → gangguan airway</li>
+          <li>Gurgling → ada cairan</li>
+          <li>Ronki, mengi</li>
+          <li>Suara napas menurun/hilang?</li>
+          <li>Suara jantung menjauh?</li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h4>✋ RABA</h4>
+        <ul>
+          <li>Krepitasi dinding dada</li>
+          <li>Deviasi trakea</li>
+          <li>Nadi: kuat/lemah?</li>
+          <li>Emfisema subkutis</li>
+          <li>Stabilitas dinding dada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ANATOMI ══ -->
+<div id="sec-anatomi" class="section">
+  <div class="sec-head">
+    <h2 class="sec-title">🦴 Anatomi & Mekanisme Cedera</h2>
+    <p class="sec-desc">Pahami strukturnya dulu → baru mekanisme cederanya masuk akal secara logis.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">🏗️</span> Struktur Rongga Toraks</div>
+
+    <!-- SVG Anatomy Illustration -->
+    <div class="anatomy-box">
+      <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;">
+        <!-- Ribcage outline -->
+        <ellipse cx="260" cy="160" rx="190" ry="140" fill="#FFF9EC" stroke="#F5A623" stroke-width="2.5" stroke-dasharray="6,3"/>
+        <!-- Sternum -->
+        <rect x="245" y="40" width="30" height="200" rx="8" fill="#FFE68A" stroke="#E08B00" stroke-width="2"/>
+        <text x="260" y="148" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="800" fill="#6B3000">STERNUM</text>
+        <!-- Spine -->
+        <rect x="247" y="40" width="26" height="200" rx="4" fill="none"/>
+        <ellipse cx="455" cy="160" rx="18" ry="120" fill="#FFD9A0" stroke="#E08B00" stroke-width="2"/>
+        <text x="455" y="163" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="800" fill="#6B3000">VERTEBRA</text>
+        <!-- Left lung -->
+        <ellipse cx="185" cy="158" rx="90" ry="110" fill="rgba(255,180,80,0.18)" stroke="#F5A623" stroke-width="2"/>
+        <text x="185" y="152" text-anchor="middle" font-family="DM Serif Display" font-size="13" fill="#8B5000">Paru Kiri</text>
+        <text x="185" y="170" text-anchor="middle" font-family="Nunito" font-size="10" fill="#9A7A3A">(pleura viseralis</text>
+        <text x="185" y="183" text-anchor="middle" font-family="Nunito" font-size="10" fill="#9A7A3A">& parietalis)</text>
+        <!-- Right lung -->
+        <ellipse cx="335" cy="158" rx="90" ry="110" fill="rgba(255,180,80,0.18)" stroke="#F5A623" stroke-width="2"/>
+        <text x="335" y="152" text-anchor="middle" font-family="DM Serif Display" font-size="13" fill="#8B5000">Paru Kanan</text>
+        <!-- Heart -->
+        <ellipse cx="248" cy="175" rx="38" ry="42" fill="rgba(255,100,80,0.18)" stroke="#E05050" stroke-width="2.5"/>
+        <text x="248" y="172" text-anchor="middle" font-family="DM Serif Display" font-size="12" fill="#8B1A1A">Jantung</text>
+        <text x="248" y="188" text-anchor="middle" font-family="Nunito" font-size="9" fill="#8B1A1A">(mobil, terfiksir</text>
+        <text x="248" y="199" text-anchor="middle" font-family="Nunito" font-size="9" fill="#8B1A1A">di aorta)</text>
+        <!-- Pericardium label -->
+        <ellipse cx="248" cy="178" rx="46" ry="50" fill="none" stroke="#C04040" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="196" y="135" text-anchor="middle" font-family="Nunito" font-size="9" fill="#8B1A1A" font-weight="700">Perikardium</text>
+        <!-- Intercostal labels -->
+        <line x1="96" y1="110" x2="130" y2="118" stroke="#E08B00" stroke-width="1.5"/>
+        <text x="72" y="106" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="700" fill="#6B3000">A/V/N</text>
+        <text x="72" y="118" text-anchor="middle" font-family="Nunito" font-size="9" fill="#6B3000">interkostal</text>
+        <!-- Pleura space -->
+        <text x="145" y="60" font-family="Nunito" font-size="9" fill="#614A18" font-weight="700">Rongga pleura</text>
+        <line x1="155" y1="65" x2="164" y2="78" stroke="#614A18" stroke-width="1"/>
+        <!-- Labels -->
+        <text x="260" y="298" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="600" fill="#9A7A3A">Pandangan anterior — struktur rongga toraks</text>
+      </svg>
+      <div class="img-caption">🫀 Jantung sifatnya MOBEL (dapat bergerak) — hanya terfiksir pada aorta. Bila trauma menyebabkan pergeseran jantung → terjadi torsi aorta → risiko aneurisma aorta.</div>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">🩴</span> Kosta — Yang Sering Fraktur</div>
+    <div class="dr-note">Yang paling sering (fraktur kosta) itu adalah pada sisi lateral. Adik-adik perhatikan bahwa kosta bagian posterior itu lebih tebal — kalau patahannya di posterior berarti energi yang diterima itu cukup besar. Maka harus waspada trauma di kepala, abdomen juga.</div>
+    <div class="grid-2">
+      <div>
+        <ul class="slist">
+          <li>Kosta 1–10 melekat pada vertebra dan sternum (berturut)</li>
+          <li>Kosta 11–12 = "costa fluitans" (melayang, tidak melekat di anterior)</li>
+          <li>Bagian <span class="hl-o">posterior lebih tebal</span> → fraktur posterior = energi besar</li>
+          <li>Paling sering fraktur: <span class="hl-y">sisi lateral</span> — korpus kosta</li>
+          <li>Di antara kosta ada muskulus interkostal + A/V/N interkostal</li>
+        </ul>
+      </div>
+      <div class="mini orange">
+        <h4>⚠️ Implikasi Fraktur Kosta</h4>
+        <p>Fraktur → bisa mencederai A/V/N interkostal → perdarahan → darah masuk rongga pleura jika pleura parietalis juga robek → <strong>hemotoraks</strong></p>
+        <p style="margin-top:8px;">Kalau fraktur posterior + besar = waspada multi-trauma (kepala, abdomen)!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">📦</span> Mekanisme "Kantong Kertas" (Fenomena Paper Bag)</div>
+    <div class="dr-note">Kalau orang itu akan mengalami kecelakaan, dia pasti akan terkejut. Kalau orang terkejut maka akibatnya dia akan menahan napas sehingga glotis agak tertutup. Maka di dalamnya ada paru-paru ini seperti kantong kertas yang berisi udara dipegang, ditukarnya akan pecah — begitu juga visera pleura akan robek.</div>
+
+    <!-- SVG Paper Bag Mechanism -->
+    <div class="anatomy-box">
+      <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg" style="max-width:480px;">
+        <!-- Step 1 -->
+        <rect x="10" y="40" width="120" height="80" rx="10" fill="#FFF9EC" stroke="#F5A623" stroke-width="2"/>
+        <text x="70" y="28" text-anchor="middle" font-family="Nunito" font-size="11" font-weight="800" fill="#6B3000">Sebelum trauma</text>
+        <ellipse cx="70" cy="80" rx="40" ry="28" fill="rgba(255,200,80,0.4)" stroke="#F5A623" stroke-width="2"/>
+        <text x="70" y="84" text-anchor="middle" font-family="Nunito" font-size="10" fill="#6B3000">Paru berisi udara</text>
+        <text x="70" y="98" text-anchor="middle" font-family="Nunito" font-size="9" fill="#9A7A3A">(glotis tertutup)</text>
+        <!-- Arrow -->
+        <text x="148" y="84" text-anchor="middle" font-size="22" fill="#E08B00">→</text>
+        <!-- Step 2 -->
+        <rect x="168" y="40" width="120" height="80" rx="10" fill="#FFF5EC" stroke="#E08B00" stroke-width="2"/>
+        <text x="228" y="28" text-anchor="middle" font-family="Nunito" font-size="11" font-weight="800" fill="#6B3000">Trauma menghantam</text>
+        <ellipse cx="228" cy="80" rx="40" ry="28" fill="rgba(255,150,50,0.4)" stroke="#E08B00" stroke-width="2.5"/>
+        <text x="228" y="75" text-anchor="middle" font-family="Nunito" font-size="10" fill="#6B3000">Tekanan</text>
+        <text x="228" y="88" text-anchor="middle" font-family="Nunito" font-size="10" fill="#6B3000">meningkat</text>
+        <text x="200" y="90" font-size="14" fill="#E08B00">👊</text>
+        <!-- Arrow -->
+        <text x="308" y="84" text-anchor="middle" font-size="22" fill="#E08B00">→</text>
+        <!-- Step 3 -->
+        <rect x="328" y="40" width="140" height="80" rx="10" fill="#FFE8EC" stroke="#FF5555" stroke-width="2"/>
+        <text x="398" y="28" text-anchor="middle" font-family="Nunito" font-size="11" font-weight="800" fill="#8B1A1A">Pleura robek</text>
+        <text x="398" y="70" text-anchor="middle" font-family="Nunito" font-size="10" fill="#8B1A1A">✂️ Pleura viseralis</text>
+        <text x="398" y="83" text-anchor="middle" font-family="Nunito" font-size="10" fill="#8B1A1A">robek → udara masuk</text>
+        <text x="398" y="96" text-anchor="middle" font-family="Nunito" font-size="10" fill="#8B1A1A">rongga pleura</text>
+        <text x="398" y="109" text-anchor="middle" font-family="Nunito" font-size="9" fill="#8B1A1A">→ PNEUMOTORAKS</text>
+        <!-- Caption -->
+        <text x="240" y="168" text-anchor="middle" font-family="Nunito" font-size="10" fill="#9A7A3A">Mekanisme paper bag: paru seperti kantong kertas berisi udara yang dipukul saat glotis tertutup</text>
+      </svg>
+    </div>
+
+    <div class="alert alert-orange"><span class="alert-icon">💡</span><div>Robekan pleura viseralis bisa bersifat <strong>ventil</strong> (udara masuk tapi tidak bisa keluar) → <span class="hl-red">Tension Pneumotoraks</span>. Atau bisa <strong>terbuka</strong> → pneumotoraks simpel/terbuka.</div></div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">💔</span> Mekanisme Tamponade Jantung</div>
+    <div class="dr-note">Perikardium ini tidak punya plastesnya tidak seperti kulit ya. Jadi dia punya maksimalnya. Apabila ada perdarahan di dalam perikardium, maka karena perikardium tidak bisa mengembang maka akibatnya dia menjadi menekan dari otot-otot jantungnya. Kontraktilitasnya terganggu. Suara jantungnya jadi menjauh karena kontraksinya tidak bagus.</div>
+    <div class="grid-2">
+      <div>
+        <ol class="steps">
+          <li>Trauma mengenai jantung atau pembuluh darah → perdarahan ke rongga perikardium</li>
+          <li>Perikardium <strong>tidak bisa mengembang</strong> → tekanan terus meningkat</li>
+          <li>Tekanan menekan otot jantung → kontraktilitas ↓ → cardiac output ↓</li>
+          <li>Aliran balik vena (VCI + VCS) terhambat → stagnasi → JVP meningkat</li>
+          <li>Suara jantung terdengar <span class="hl-o">menjauh</span> karena kontraksi tidak efektif</li>
+        </ol>
+      </div>
+      <div class="mini orange">
+        <h4>Trias Beck (Tamponade)</h4>
+        <p style="margin-bottom:6px;"><strong>① Hipotensi</strong><br><small>Cardiac output turun</small></p>
+        <p style="margin-bottom:6px;"><strong>② JVP meningkat</strong><br><small>Aliran balik vena terhambat</small></p>
+        <p><strong>③ Suara jantung menjauh</strong><br><small>Efek peredam dari darah di perikardium</small></p>
+        <div style="margin-top:10px;padding:8px;background:var(--y200);border-radius:8px;font-size:12px;color:var(--o600);font-weight:700;">
+          💡 Di soal: ada kunci "suara jantung menjauh" → langsung pikir tamponade!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 6 KONDISI ══ -->
+<div id="sec-kondisi" class="section">
+  <div class="sec-head">
+    <h2 class="sec-title">⚡ 6 Kondisi Mengancam Nyawa</h2>
+    <p class="sec-desc">Harus teridentifikasi dan ditangani dalam 5 menit pertama survei primer. Hafalkan + pahami mekanismenya.</p>
+  </div>
+
+  <div class="mnemonic">
+    <div class="mnemonic-label">🧠 Mnemonic — ATOM FC</div>
+    <div class="mnemonic-text">A · T · O · M · F · C</div>
+    <div class="mnemonic-sub">Airway obstruction · Tension pneumothorax · Open pneumothorax · Massive haemothorax · Flail chest + kontusio pulmonal · Cardiac tamponade</div>
+  </div>
+
+  <div class="cond-grid">
+    <!-- Tension Pneumo -->
+    <div class="cond-card cc-tension">
+      <div class="label-row"><span style="background:#FF7070;width:12px;height:12px;border-radius:50%;display:inline-block;"></span> TENSION PNEUMOTORAKS</div>
+      <h3>🌪️ Tekanan Pleura Naik Terus</h3>
+      <div style="font-size:12.5px;color:#4A0A0A;margin-bottom:10px;">Mekanisme ventil → udara masuk, tidak bisa keluar → tekanan semakin tinggi → mediastinum bergeser</div>
+      <ul>
+        <li>🔴 Hipersonor perkusi sisi sakit</li>
+        <li>🔴 <strong>Deviasi trakea</strong> (menjauhi sisi sakit)</li>
+        <li>🔴 JVP meningkat</li>
+        <li>🔴 Suara napas ↓ ipsilateral</li>
+        <li>🔴 Hipotensi + takikardi</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.6);border-radius:10px;font-size:12.5px;">
+        <strong>⚡ Tindakan:</strong><br>
+        Emergensi: <span class="hl-red">Needle thorakosintesis ICS 2 MCL</span><br>
+        Definitif: WSD
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:#8B1A1A;font-weight:700;">📌 Tidak perlu foto torak! Diagnosis klinis.</div>
+    </div>
+
+    <!-- Open Pneumo -->
+    <div class="cond-card cc-open">
+      <div class="label-row"><span style="background:var(--y400);width:12px;height:12px;border-radius:50%;display:inline-block;"></span> OPEN PNEUMOTORAKS</div>
+      <h3>🌬️ Luka Terbuka Dinding Dada</h3>
+      <div style="font-size:12.5px;color:var(--o600);margin-bottom:10px;">Saat inspirasi, udara atmosfer masuk lewat luka → paru tertekan. Saat ekspirasi, suara "hiss" (sucking chest wound).</div>
+      <ul>
+        <li>🟡 Luka terbuka dinding dada</li>
+        <li>🟡 Hipersonor perkusi</li>
+        <li>🟡 Suara napas ↓ sisi sakit</li>
+        <li>🟡 <strong>Suara "hiss/bus"</strong> saat bernapas (khas!)</li>
+        <li>🟡 Distres pernapasan</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.6);border-radius:10px;font-size:12.5px;">
+        <strong>⚡ Tindakan:</strong><br>
+        <span class="hl-y">Plester 3 sisi</span> menutup 3 sisi luka (sisi ke-4 terbuka untuk drainase ekspirasi)<br>
+        Definitif: WSD + penjahitan
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:var(--o600);font-weight:700;">📌 Kalau suara "bus bus" → open pneumotoraks!</div>
+    </div>
+
+    <!-- Hemotoraks Masif -->
+    <div class="cond-card cc-hemo">
+      <div class="label-row"><span style="background:#A084CA;width:12px;height:12px;border-radius:50%;display:inline-block;"></span> HEMOTORAKS MASIF</div>
+      <h3>🩸 &gt;1500 mL Darah di Pleura</h3>
+      <div style="font-size:12.5px;color:#4A2080;margin-bottom:10px;">Darah masuk rongga pleura dari robekan pembuluh darah interkostal atau aorta. Paru kolaps + syok hipovolemik.</div>
+      <ul>
+        <li>🟣 <strong>Perkusi redup</strong> sisi sakit</li>
+        <li>🟣 Suara napas ↓ sisi sakit</li>
+        <li>🟣 Hipotensi (syok)</li>
+        <li>🟣 Takikardi</li>
+        <li>🟣 JVP: normal/↓ (bukan meningkat)</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.6);border-radius:10px;font-size:12.5px;">
+        <strong>⚡ Tindakan:</strong><br>
+        <span class="hl-y">WSD + resusitasi cairan</span><br>
+        Bila output WSD &gt;200 mL/jam &gt;4 jam → torakotomi
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:#4A2080;font-weight:700;">📌 Kunci: redup (bukan hipersonor!)</div>
+    </div>
+
+    <!-- Flail Chest -->
+    <div class="cond-card cc-flail">
+      <div class="label-row"><span style="background:var(--o400);width:12px;height:12px;border-radius:50%;display:inline-block;"></span> FLAIL CHEST</div>
+      <h3>💥 Segmen Dinding Dada Lepas</h3>
+      <div style="font-size:12.5px;color:var(--o600);margin-bottom:10px;">Fraktur segmental ≥3 kosta berturut-turut di satu sisi → fragmen tidak stabil → mengikuti tekanan intratorakal → napas paradoksal.</div>
+      <ul>
+        <li>🟠 <strong>Napas paradoksal</strong> (khas!)</li>
+        <li>🟠 Krepitasi dinding dada</li>
+        <li>🟠 Nyeri dada hebat</li>
+        <li>🟠 Hipoksia progresif</li>
+        <li>🟠 Sering disertai kontusio pulmonal</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.6);border-radius:10px;font-size:12.5px;">
+        <strong>⚡ Tindakan:</strong><br>
+        Ventilasi adekuat + oksigenasi<br>
+        Analgesik agresif<br>
+        Fiksasi eksternal atau ventilasi mekanik
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:var(--o600);font-weight:700;">📌 Kunci: napas paradoksal = inspirasi dinding turun, ekspirasi naik</div>
+    </div>
+
+    <!-- Tamponade -->
+    <div class="cond-card cc-tampo">
+      <div class="label-row"><span style="background:#5BA8E0;width:12px;height:12px;border-radius:50%;display:inline-block;"></span> CARDIAC TAMPONADE</div>
+      <h3>💔 Darah di Perikardium</h3>
+      <div style="font-size:12.5px;color:#1A4A8B;margin-bottom:10px;">Perikardium tidak elastic → darah di dalamnya menekan miokard → kontraktilitas ↓ + obstruksi aliran balik vena.</div>
+      <ul>
+        <li>🔵 Hipotensi</li>
+        <li>🔵 <strong>JVP meningkat</strong></li>
+        <li>🔵 <strong>Suara jantung menjauh</strong></li>
+        <li>🔵 Perkusi paru: normal</li>
+        <li>🔵 Pulsus paradoksus</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.6);border-radius:10px;font-size:12.5px;">
+        <strong>⚡ Tindakan:</strong><br>
+        <span class="hl-y">Perikardiosintesis</span> (aspirasi rongga perikardium)<br>
+        Perlu kursus/spesialis bedah
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:#1A4A8B;font-weight:700;">📌 Trias Beck: Hipotensi + JVP ↑ + Suara jantung menjauh</div>
+    </div>
+
+    <!-- Hemotoraks Sedang -->
+    <div class="cond-card cc-hemo2">
+      <div class="label-row"><span style="background:#4DB87E;width:12px;height:12px;border-radius:50%;display:inline-block;"></span> KONTUSIO PULMONAL</div>
+      <h3>🫁 Memar Jaringan Paru</h3>
+      <div style="font-size:12.5px;color:#1D7A4A;margin-bottom:10px;">Trauma tumpul langsung → edema + perdarahan di parenkim paru tanpa robekan. Sering pada anak karena tulang masih elastis.</div>
+      <ul>
+        <li>🟢 Sesak napas (muncul 6–24 jam)</li>
+        <li>🟢 Foto awal bisa normal!</li>
+        <li>🟢 Hipoksia progresif</li>
+        <li>🟢 Suara napas ↓ atau ronki</li>
+        <li>🟢 Sering menyertai flail chest</li>
+      </ul>
+      <div style="margin-top:12px;padding:10px;background:rgba(255,255,255,0.6);border-radius:10px;font-size:12.5px;">
+        <strong>⚡ Tindakan:</strong><br>
+        Oksigenasi<br>
+        Ventilasi mekanik bila perlu<br>
+        Analgesia, fisioterapi dada
+      </div>
+      <div style="margin-top:8px;font-size:11.5px;color:#1D7A4A;font-weight:700;">📌 Pada anak: foto bagus ≠ tidak cedera. Tetap observasi!</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">📊</span> Tabel Perbandingan Cepat</div>
+    <div class="table-wrap th-o">
+      <table>
+        <tr><th>Kondisi</th><th>Perkusi</th><th>JVP</th><th>Suara Napas</th><th>Khas</th><th>Tindakan Segera</th></tr>
+        <tr>
+          <td><strong>Tension Pneumo</strong></td>
+          <td><span class="hl-y">Hipersonor</span></td>
+          <td>↑</td>
+          <td>↓ ipsilateral</td>
+          <td>Deviasi trakea</td>
+          <td>Needle ICS 2 MCL</td>
+        </tr>
+        <tr>
+          <td><strong>Open Pneumo</strong></td>
+          <td>Hipersonor</td>
+          <td>Normal</td>
+          <td>↓</td>
+          <td>Suara "hiss", luka terbuka</td>
+          <td>Plester 3 sisi</td>
+        </tr>
+        <tr>
+          <td><strong>Hemotoraks Masif</strong></td>
+          <td><span class="hl-red">Redup</span></td>
+          <td>↓/Normal</td>
+          <td>↓</td>
+          <td>Hipotensi, syok</td>
+          <td>WSD + resusitasi</td>
+        </tr>
+        <tr>
+          <td><strong>Flail Chest</strong></td>
+          <td>Normal</td>
+          <td>Normal</td>
+          <td>↓ area flail</td>
+          <td>Napas paradoksal</td>
+          <td>Ventilasi + analgesia</td>
+        </tr>
+        <tr>
+          <td><strong>Tamponade</strong></td>
+          <td>Normal (paru)</td>
+          <td>↑</td>
+          <td>Normal</td>
+          <td>Suara jantung menjauh</td>
+          <td>Perikardiosintesis</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-yellow"><span class="alert-icon">🧠</span><div><strong>Cara cepat bedakan:</strong> Hipersonor = ada udara (pneumo). Redup = ada cairan (hemo). JVP ↑ = ada hambatan aliran balik (tension atau tamponade). Bedakan keduanya: tension ada deviasi trakea, tamponade suara jantung menjauh.</div></div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">🌬️</span> Mekanisme Flail Chest — Napas Paradoksal</div>
+
+    <!-- SVG Flail Chest -->
+    <div class="anatomy-box">
+      <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" style="max-width:500px;">
+        <!-- INSPIRASI -->
+        <rect x="10" y="20" width="220" height="160" rx="12" fill="#FFF9EC" stroke="#F5A623" stroke-width="1.5"/>
+        <text x="120" y="14" text-anchor="middle" font-family="Nunito" font-size="11" font-weight="800" fill="#6B3000">INSPIRASI</text>
+        <!-- Dinding dada normal kiri -->
+        <path d="M30 50 Q60 40 90 50 Q120 60 150 50 Q175 40 200 50" stroke="#F5A623" stroke-width="2.5" fill="none"/>
+        <path d="M30 150 Q60 160 90 150 Q120 140 150 150 Q175 160 200 150" stroke="#F5A623" stroke-width="2.5" fill="none"/>
+        <!-- Flail segment (middle) going inward on inspiration -->
+        <path d="M90 50 Q120 72 150 50" stroke="#FF5555" stroke-width="3" fill="rgba(255,85,85,0.15)"/>
+        <text x="120" y="68" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="800" fill="#8B1A1A">Fragmen</text>
+        <text x="120" y="78" text-anchor="middle" font-family="Nunito" font-size="9" fill="#8B1A1A">tertarik ke dalam</text>
+        <!-- Arrows outward (normal wall) -->
+        <line x1="50" y1="98" x2="30" y2="98" stroke="#4DB87E" stroke-width="2"/>
+        <text x="24" y="102" font-size="12" fill="#4DB87E">←</text>
+        <line x1="170" y1="98" x2="190" y2="98" stroke="#4DB87E" stroke-width="2"/>
+        <text x="192" y="102" font-size="12" fill="#4DB87E">→</text>
+        <text x="120" y="102" text-anchor="middle" font-family="Nunito" font-size="9" fill="#1D7A4A">Dinding normal → mengembang</text>
+        <text x="120" y="185" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="700" fill="#8B1A1A">Fragmen masuk saat inspirasi</text>
+
+        <!-- EKSPIRASI -->
+        <rect x="270" y="20" width="220" height="160" rx="12" fill="#FFF5EC" stroke="#E08B00" stroke-width="1.5"/>
+        <text x="380" y="14" text-anchor="middle" font-family="Nunito" font-size="11" font-weight="800" fill="#6B3000">EKSPIRASI</text>
+        <path d="M290 60 Q320 50 350 60 Q380 70 410 60 Q435 50 460 60" stroke="#F5A623" stroke-width="2.5" fill="none"/>
+        <path d="M290 140 Q320 150 350 140 Q380 130 410 140 Q435 150 460 140" stroke="#F5A623" stroke-width="2.5" fill="none"/>
+        <!-- Flail segment going outward on expiration -->
+        <path d="M350 60 Q380 38 410 60" stroke="#FF5555" stroke-width="3" fill="rgba(255,85,85,0.15)"/>
+        <text x="380" y="50" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="800" fill="#8B1A1A">Fragmen</text>
+        <text x="380" y="40" text-anchor="middle" font-family="Nunito" font-size="9" fill="#8B1A1A">terdorong keluar</text>
+        <!-- Arrows inward -->
+        <line x1="310" y1="98" x2="330" y2="98" stroke="#FF9A3C" stroke-width="2"/>
+        <text x="304" y="102" font-size="12" fill="#FF9A3C">→</text>
+        <line x1="450" y1="98" x2="430" y2="98" stroke="#FF9A3C" stroke-width="2"/>
+        <text x="453" y="102" font-size="12" fill="#FF9A3C">←</text>
+        <text x="380" y="102" text-anchor="middle" font-family="Nunito" font-size="9" fill="#E08B00">Dinding normal → mengempis</text>
+        <text x="380" y="185" text-anchor="middle" font-family="Nunito" font-size="10" font-weight="700" fill="#8B1A1A">Fragmen keluar saat ekspirasi</text>
+      </svg>
+    </div>
+    <div class="alert alert-orange"><span class="alert-icon">💡</span><div>Definisi flail chest: <strong>fraktur segmental ≥3 kosta berturut-turut di satu sisi yang sama</strong>. Kalau tidak berturut-turut, yang tidak patah menjadi "baji" yang menahan, sehingga tidak terjadi flail.</div></div>
+  </div>
+</div>
+
+<!-- ══ WSD ══ -->
+<div id="sec-wsd" class="section">
+  <div class="sec-head">
+    <h2 class="sec-title">💧 Water Seal Drainage (WSD)</h2>
+    <p class="sec-desc">Prinsip fisika drainase pleura. Pahami fisiologinya dulu baru hafal indikasi dan tekniknya.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">📌</span> Prinsip Dasar WSD</div>
+    <div class="dr-note">WSD itu kepanjangan dari Water Seal Drainage. Ada tiga botol adik-adik. Botol pertama: botol penampung. Botol kedua: botol seal-nya — berisi air dengan kedalaman 2–3 cm. Botol ketiga: botol pengatur saksen.</div>
+
+    <!-- WSD Diagram -->
+    <div class="anatomy-box">
+      <svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" style="max-width:480px;">
+        <!-- Patient -->
+        <ellipse cx="50" cy="100" rx="30" ry="22" fill="#FFE0C0" stroke="#E08B00" stroke-width="2"/>
+        <text x="50" y="103" text-anchor="middle" font-family="Nunito" font-size="9" fill="#6B3000">Pasien</text>
+        <rect x="20" y="120" width="60" height="80" rx="8" fill="#FFD9A0" stroke="#E08B00" stroke-width="1.5"/>
+        <text x="50" y="165" text-anchor="middle" font-family="Nunito" font-size="8" fill="#6B3000">Rongga</text>
+        <text x="50" y="176" text-anchor="middle" font-family="Nunito" font-size="8" fill="#6B3000">pleura</text>
+        <!-- Chest tube -->
+        <line x1="80" y1="140" x2="115" y2="140" stroke="#888" stroke-width="4" stroke-linecap="round"/>
+        <text x="97" y="133" text-anchor="middle" font-family="Nunito" font-size="8" fill="#614A18">Chest tube</text>
+        <!-- Arrow -->
+        <text x="112" y="144" font-size="14" fill="#E08B00">→</text>
+
+        <!-- Bottle 1 - Collection -->
+        <rect x="125" y="80" width="80" height="130" rx="8" fill="rgba(255,180,100,0.2)" stroke="var(--o400)" stroke-width="2.5"/>
+        <rect x="125" y="150" width="80" height="60" rx="0" fill="rgba(255,100,60,0.25)"/><!-- blood fill -->
+        <rect x="148" y="62" width="34" height="20" rx="4" fill="none" stroke="var(--o400)" stroke-width="2"/>
+        <text x="165" y="78" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="800" fill="#8B3000">BOTOL 1</text>
+        <text x="165" y="142" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="700" fill="#6B1000">Penampung</text>
+        <text x="165" y="178" text-anchor="middle" font-family="Nunito" font-size="8" fill="#8B1A1A">Darah/</text>
+        <text x="165" y="190" text-anchor="middle" font-family="Nunito" font-size="8" fill="#8B1A1A">cairan</text>
+        <!-- Connection -->
+        <line x1="207" y1="140" x2="230" y2="140" stroke="#888" stroke-width="3"/>
+        <text x="218" y="133" font-size="14" fill="#E08B00">→</text>
+
+        <!-- Bottle 2 - Water Seal -->
+        <rect x="235" y="80" width="80" height="130" rx="8" fill="rgba(91,168,224,0.12)" stroke="#5BA8E0" stroke-width="2.5"/>
+        <rect x="235" y="150" width="80" height="60" rx="0" fill="rgba(91,168,224,0.3)"/><!-- water fill -->
+        <rect x="258" y="62" width="34" height="20" rx="4" fill="none" stroke="#5BA8E0" stroke-width="2"/>
+        <!-- Dip tube into water -->
+        <line x1="275" y1="82" x2="275" y2="165" stroke="#1A4A8B" stroke-width="3"/>
+        <text x="305" y="162" text-anchor="middle" font-family="Nunito" font-size="8" fill="#1A4A8B">2–3 cm</text>
+        <line x1="282" y1="160" x2="298" y2="160" stroke="#1A4A8B" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <line x1="282" y1="150" x2="298" y2="150" stroke="#1A4A8B" stroke-width="1" stroke-dasharray="2,2"/>
+        <text x="275" y="78" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="800" fill="#1A4A8B">BOTOL 2</text>
+        <text x="275" y="143" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="700" fill="#1A4A8B">Water Seal</text>
+        <text x="275" y="192" text-anchor="middle" font-family="Nunito" font-size="8" fill="#1A4A8B">Mencegah</text>
+        <text x="275" y="202" text-anchor="middle" font-family="Nunito" font-size="8" fill="#1A4A8B">udara balik</text>
+        <!-- Connection -->
+        <line x1="317" y1="140" x2="340" y2="140" stroke="#888" stroke-width="3"/>
+        <text x="328" y="133" font-size="14" fill="#E08B00">→</text>
+
+        <!-- Bottle 3 - Suction control -->
+        <rect x="345" y="80" width="80" height="130" rx="8" fill="rgba(77,184,126,0.12)" stroke="#4DB87E" stroke-width="2.5"/>
+        <rect x="345" y="160" width="80" height="50" rx="0" fill="rgba(77,184,126,0.25)"/>
+        <rect x="368" y="62" width="34" height="20" rx="4" fill="none" stroke="#4DB87E" stroke-width="2"/>
+        <text x="385" y="78" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="800" fill="#1D7A4A">BOTOL 3</text>
+        <text x="385" y="138" text-anchor="middle" font-family="Nunito" font-size="9" font-weight="700" fill="#1D7A4A">Pengatur</text>
+        <text x="385" y="150" text-anchor="middle" font-family="Nunito" font-size="9" fill="#1D7A4A">Suction</text>
+        <text x="385" y="195" text-anchor="middle" font-family="Nunito" font-size="8" fill="#1D7A4A">(opsional)</text>
+        <!-- To suction -->
+        <text x="437" y="130" font-size="12" fill="#1D7A4A">→ Suction</text>
+
+        <!-- Labels bottom -->
+        <text x="240" y="232" text-anchor="middle" font-family="Nunito" font-size="10" fill="#9A7A3A">WSD tiga botol: penampung → water seal → suction control (bila perlu)</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">📋</span> Prinsip Water Seal — Kenapa 2–3 cm?</div>
+    <div class="dr-note">Kenapa kok 3 cm? Kita tahu bahwa tekanan negatif inspirasi itu sampai minus 5. Kalau kita pakai 3 cm, maka tekanan dari luar tidak cukup untuk mendorong air masuk ke dalam — air tidak akan terhisap balik ke pasien. Ini fisiologisnya.</div>
+    <div class="grid-2">
+      <div>
+        <ul class="slist">
+          <li>Tekanan intrapleura negatif saat inspirasi: <span class="hl-y">sampai −5 cmH₂O</span></li>
+          <li>Selang dicelupkan 2–3 cm ke dalam air → memberi resistensi 2–3 cmH₂O</li>
+          <li>Cukup untuk mencegah udara masuk balik, tapi tidak terlalu tinggi menghambat drainase</li>
+          <li>Air yang berdenyut (swinging/fluctuating) → WSD berfungsi baik</li>
+          <li>Air tidak berdenyut → mungkin tersumbat atau paru sudah mengembang</li>
+        </ul>
+      </div>
+      <div class="mini orange">
+        <h4>💡 Indikasi Berapa Botol?</h4>
+        <p><strong>Pneumotoraks:</strong><br>1 botol (botol 2 = water seal saja)</p>
+        <p style="margin-top:8px;"><strong>Hemotoraks:</strong><br>2 botol (botol 1 penampung + botol 2 seal)</p>
+        <p style="margin-top:8px;"><strong>Pulmonologi (nanah kental, MPMA):</strong><br>3 botol (butuh suction)</p>
+        <div style="margin-top:10px;padding:8px;background:var(--y200);border-radius:8px;font-size:12px;color:var(--o600);font-weight:700;">
+          ⚠️ Trauma → JANGAN disaksen! Bisa sebabkan perdarahan ulang.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">📍</span> Lokasi Pemasangan WSD</div>
+    <div class="table-wrap th-y">
+      <table>
+        <tr><th>Kondisi</th><th>Posisi Insersi</th><th>Logika</th></tr>
+        <tr>
+          <td>Pneumotoraks (udara di atas)</td>
+          <td>ICS 2 garis midklavikula (anterior)</td>
+          <td>Udara naik ke atas → drainase dari atas</td>
+        </tr>
+        <tr>
+          <td>Hemotoraks / Efusi (cairan)</td>
+          <td>ICS 5 garis axilaris anterior (lateral)</td>
+          <td>Cairan terkumpul di bawah → drainase dari bawah/lateral</td>
+        </tr>
+        <tr>
+          <td>Needle thorakosintesis (emergensi)</td>
+          <td>ICS 2 MCL sisi sakit</td>
+          <td>Hanya untuk dekompresi cepat → dilanjutkan WSD</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-orange"><span class="alert-icon">⚠️</span><div>Insersi selalu di <strong>tepi atas kosta inferior</strong> (tepi atas kosta di bawah ICS yang dituju) — untuk menghindari A/V/N interkostal yang berjalan di tepi bawah kosta.</div></div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">📷</span> Posisi Foto untuk Hemotoraks</div>
+    <div class="dr-note">Kalau curiga hemotoraks, fotoradiologinya harus posisi setengah duduk. Karena sunatullahnya air itu mengalir dari atas ke bawah. Maka akan terjadi gambaran bawahnya itu cairan, atasnya itu udara — jadi ada fluid level.</div>
+    <div class="grid-2">
+      <div class="mini orange">
+        <h4>✅ Setengah duduk (upright/semi-erect)</h4>
+        <p>Cairan berkumpul di bawah → terlihat sebagai perselubungan / fluid level yang jelas. Gambaran khas: meniscus sign (batas melengkung cair-udara).</p>
+      </div>
+      <div class="mini">
+        <h4>⚠️ Tiduran (supine)</h4>
+        <p>Cairan menyebar merata → gambaran hanya berupa "pengabutan" (haziness) seluruh hemithoraks → bisa terlewat.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LETHAL TRIAD ══ -->
+<div id="sec-triad" class="section">
+  <div class="sec-head">
+    <h2 class="sec-title">☠️ Lethal Triad — Trias Kematian</h2>
+    <p class="sec-desc">Siklus maut yang harus diputus sedini mungkin. Tujuan utama resusitasi trauma adalah mencegah atau memutus siklus ini.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">☠️</span> Tiga Serangkai Kematian</div>
+    <div class="dr-note">Kalau ketiganya ini muncul berbarengan bisa dipastikan secara teoritis pasien itu akan meninggal. Maka adik-adik hati-hati kalau sudah di IGD usahakan pasien jangan sampai kedinginan. Kemudian atasi pendarahan yang ada.</div>
+
+    <div class="triad-wrap">
+      <div class="triad-item ti1">
+        <div style="font-size:32px;margin-bottom:8px;">❄️</div>
+        <h3>Hipotermia</h3>
+        <p>Suhu tubuh &lt;35°C. Enzim koagulasi tidak berfungsi optimal. Sering terjadi karena: darah dan cairan dingin, AC IGD, baju dilepas lama.</p>
+      </div>
+      <div class="triad-arrows">
+        <div>↔️</div>
+        <div style="font-size:11px;color:var(--text-light);text-align:center;">saling<br>memperparah</div>
+      </div>
+      <div class="triad-item ti2">
+        <div style="font-size:32px;margin-bottom:8px;">⚗️</div>
+        <h3>Asidosis</h3>
+        <p>Asidosis metabolik laktat akibat hipoperfusi jaringan. Sel tidak mendapat oksigen → metabolisme anaerob → laktat menumpuk → pH ↓.</p>
+      </div>
+      <div class="triad-arrows">
+        <div>↔️</div>
+      </div>
+      <div class="triad-item ti3">
+        <div style="font-size:32px;margin-bottom:8px;">🩸</div>
+        <h3>Koagulopati</h3>
+        <p>Faktor pembekuan habis karena digunakan terus (perdarahan berlanjut) + dilusional karena resusitasi cairan masif + disfungsi platelet akibat hipotermia.</p>
+      </div>
+    </div>
+
+    <div class="flow-box" style="margin-top:16px;">
+      <div class="flow-label">🔄 Siklus Maut</div>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--text-mid);">
+        <span class="badge b-red">Perdarahan</span>
+        <span>→</span>
+        <span class="badge b-yellow">Hipoperfusi</span>
+        <span>→</span>
+        <span class="badge b-orange">Asidosis laktat</span>
+        <span>→</span>
+        <span class="badge b-red">Koagulopati</span>
+        <span>→</span>
+        <span class="badge b-red">Perdarahan makin banyak</span>
+        <span>→</span>
+        <span class="badge b-dark">❄️ Hipotermia memperparah</span>
+        <span>→</span>
+        <span class="badge b-red">⚠️ Kematian</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">🛡️</span> Cara Memutus Lethal Triad</div>
+    <div class="grid-3">
+      <div class="mini orange">
+        <h4>❄️ → Atasi Hipotermia</h4>
+        <ul>
+          <li>Tutup pasien dengan selimut hangat SEGERA setelah pemeriksaan E</li>
+          <li>Berikan cairan IV yang <strong>dihangatkan 39°C</strong></li>
+          <li>Jaga suhu ruangan</li>
+          <li>Gunakan warmer bila tersedia</li>
+        </ul>
+      </div>
+      <div class="mini orange">
+        <h4>🩸 → Atasi Koagulopati</h4>
+        <ul>
+          <li>Kontrol sumber perdarahan (pressure, tourniquet, operasi)</li>
+          <li>Transfusi produk darah (FFP, cryoprecipitate, platelet)</li>
+          <li>Hindari resusitasi hanya kristaloid masif</li>
+          <li>Asam traneksamat dalam 3 jam pertama</li>
+        </ul>
+      </div>
+      <div class="mini orange">
+        <h4>⚗️ → Atasi Asidosis</h4>
+        <ul>
+          <li>Resusitasi adekuat → perbaiki perfusi jaringan</li>
+          <li>Oksigenasi optimal</li>
+          <li>Pertimbangkan bikarbonat bila pH &lt;7.1</li>
+          <li>Hilangkan sumber asidosis (kontrol perdarahan)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-yellow" style="margin-top:12px;"><span class="alert-icon">💡</span><div><strong>Prinsip Damage Control Resuscitation:</strong> Ratio transfusi darah merah : FFP : platelet = 1:1:1. Tujuan: hindari koagulopati dilusi akibat terlalu banyak kristaloid.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">🎯</span> Trias Beck vs Lethal Triad — Jangan Tertukar!</div>
+    <div class="grid-2">
+      <div class="mini" style="border-left:4px solid #5BA8E0;">
+        <h4>Trias Beck (Tamponade Jantung)</h4>
+        <p>① Hipotensi<br>② JVP meningkat<br>③ Suara jantung menjauh</p>
+        <p style="margin-top:8px;font-size:12px;color:var(--text-light);">Konteks: kondisi spesifik tamponade jantung → tindakan perikardiosintesis</p>
+      </div>
+      <div class="mini" style="border-left:4px solid #FF7070;">
+        <h4>Lethal Triad (Trias Kematian)</h4>
+        <p>① Hipotermia<br>② Asidosis metabolik<br>③ Koagulopati</p>
+        <p style="margin-top:8px;font-size:12px;color:var(--text-light);">Konteks: komplikasi syok perdarahan → tujuan resusitasi → damage control surgery</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ALUR ══ -->
+<div id="sec-alur" class="section">
+  <div class="sec-head">
+    <h2 class="sec-title">🔄 Alur Klinis — Pendekatan di IGD</h2>
+    <p class="sec-desc">Dari pasien masuk hingga tata laksana definitif. Hafal alurnya = bisa kerja cepat di IGD.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">🚪</span> Alur Sesak Napas Post-Trauma</div>
+    <div class="flow-box">
+      <div class="flow-label">📋 Alur Keputusan Klinis</div>
+      <ol class="steps">
+        <li><strong>Sesak napas + riwayat trauma?</strong> → Anggap akibat trauma SAMPAI TERBUKTI TIDAK</li>
+        <li><strong>Triase:</strong> Lihat-Dengar-Raba → label merah/kuning/hijau. Merah = &lt;5 menit sudah ketemu dokter</li>
+        <li><strong>Survei primer (ABCDE):</strong> Identifikasi kondisi ATOM-FC dalam 5 menit pertama</li>
+        <li><strong>Temuan hipersonor?</strong> → Pneumotoraks → ada deviasi trakea/JVP↑? → Tension → Needle ICS 2 MCL SEGERA</li>
+        <li><strong>Temuan redup?</strong> → Hemotoraks → ada syok? → Masif → WSD + resusitasi segera</li>
+        <li><strong>Temuan napas paradoksal?</strong> → Flail chest → ventilasi + analgesik</li>
+        <li><strong>Suara jantung menjauh + JVP↑ + hipotensi, paru normal?</strong> → Tamponade → perikardiosintesis</li>
+        <li><strong>Luka terbuka dada + suara hiss?</strong> → Open pneumo → plester 3 sisi</li>
+        <li><strong>Sesak muncul 6–24 jam setelah dirawat?</strong> → Pikirkan kontusio pulmonal, emboli paru, STEMI</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">🗓️</span> Alur Nyeri Dada Post-Trauma</div>
+    <div class="dr-note">Nyeri dada dianggap trauma sampai terbukti bukan. Alurnya sama ya — bedakannya itu merupakan gawat atau tidak gawat, dilihat ini hampir sama. Kalau ada pergerakan paradoksal berarti flail chest, berarti tamponade, biasanya masuk merah.</div>
+    <div class="alert alert-yellow"><span class="alert-icon">💡</span><div>Nyeri dada post-trauma → sama sekali jangan langsung pikirkan kardiak dulu. Singkirkan trauma thoraks dulu!</div></div>
+    <div class="flow-box">
+      <div class="flow-label">📋 Pendekatan Nyeri Dada</div>
+      <ol class="steps">
+        <li>Nyeri dada + trauma → anggap trauma sampai terbukti tidak</li>
+        <li>Cek hemodinamik: <strong>hipotensi?</strong> → masuk kondisi gawat → prioritas merah</li>
+        <li>Ada pergerakan paradoksal? → Flail chest → tangani ventilasi + analgesik</li>
+        <li>Sesak + perkusi hipersonor? → Pneumotoraks (± tension)</li>
+        <li>Sesak + perkusi redup? → Hemotoraks</li>
+        <li>Stabil + sudah 24 jam? → Pertimbangkan kontusio pulmonal, STEMI, emboli paru</li>
+        <li>Kontusio miokard → EKG, troponin, monitoring 24 jam</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--y200)">📊</span> Ringkasan Kompetensi & Tindakan</div>
+    <div class="table-wrap th-y">
+      <table>
+        <tr><th>Kondisi</th><th>Diagnosis</th><th>Tindakan Awal (Dokter Umum)</th><th>Tindakan Definitif</th></tr>
+        <tr>
+          <td>Tension Pneumotoraks</td>
+          <td>Klinis (no foto)</td>
+          <td>Needle thorakosintesis ICS 2 MCL</td>
+          <td>WSD</td>
+        </tr>
+        <tr>
+          <td>Open Pneumotoraks</td>
+          <td>Klinis + luka</td>
+          <td>Plester 3 sisi</td>
+          <td>WSD + penjahitan</td>
+        </tr>
+        <tr>
+          <td>Hemotoraks Masif</td>
+          <td>Klinis + foto</td>
+          <td>Resusitasi cairan + WSD</td>
+          <td>Torakotomi bila &gt;200 mL/jam</td>
+        </tr>
+        <tr>
+          <td>Flail Chest</td>
+          <td>Klinis</td>
+          <td>Oksigenasi + analgesik</td>
+          <td>Ventilasi mekanik / fiksasi</td>
+        </tr>
+        <tr>
+          <td>Tamponade Jantung</td>
+          <td>Trias Beck + USG</td>
+          <td>Resusitasi cairan sementara</td>
+          <td>Perikardiosintesis (butuh kursus)</td>
+        </tr>
+        <tr>
+          <td>Kontusio Pulmonal</td>
+          <td>Klinis + CT/foto serial</td>
+          <td>Oksigenasi</td>
+          <td>Ventilasi mekanik bila perlu</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card orange">
+    <div class="card-title"><span class="card-icon" style="background:var(--o200)">🎯</span> High-Yield Points untuk Ujian</div>
+    <div class="grid-2">
+      <div>
+        <ul class="slist">
+          <li><strong>Hipersonor + deviasi trakea + JVP↑</strong> = tension pneumo → needle thorakosintesis ICS 2 MCL</li>
+          <li><strong>Redup + hipotensi</strong> = hemotoraks masif → WSD + resusitasi</li>
+          <li><strong>Suara jantung menjauh + JVP↑ + hipotensi, perkusi normal</strong> = tamponade (Trias Beck)</li>
+          <li><strong>Napas paradoksal</strong> = flail chest (≥3 kosta berturut-turut)</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="slist">
+          <li><strong>Suara "hiss" + luka terbuka dada</strong> = open pneumo → plester 3 sisi</li>
+          <li><strong>Lethal triad</strong>: hipotermia + asidosis + koagulopati</li>
+          <li><strong>Insersi WSD/needle</strong>: di tepi atas kosta inferior (hindari A/V/N)</li>
+          <li><strong>WSD trauma: jangan disaksen</strong> → bisa sebabkan perdarahan ulang</li>
+          <li><strong>Anak-anak</strong>: foto awal bisa normal tapi kontusio pulmonal bisa berat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ QUIZ ══ -->
+<div id="sec-quiz" class="section">
+  <div class="sec-head">
+    <h2 class="sec-title">🧠 Quiz — Trauma Thoraks</h2>
+    <p class="sec-desc">10 soal skenario berbasis materi dr. Hita + soal bank Axon/Arthron. Selamat mencoba!</p>
+  </div>
+
+  <div class="quiz-prog" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / TENSION PNEUMO</div>
+    <div class="q-vignette">Laki-laki 33 tahun diantar polisi ke IGD karena KLL mobil. Mengeluh nyeri dada kanan dan sesak hebat. TD 100/70 mmHg, nadi 100x/mnt, RR 34x/mnt, JVP meningkat. Pemeriksaan toraks: pengembangan dada kiri tertinggal, suara vesikuler kiri menurun, perkusi <strong>hipersonor kiri</strong>, trakea deviasi ke kanan.</div>
+    <p class="q-question">Diagnosis dan tindakan emergensi PERTAMA yang tepat?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Hemotoraks masif — WSD segera</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Open pneumotoraks — plester 3 sisi</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">C</span>Tension pneumotoraks — needle thorakosintesis ICS 2 MCL kiri</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Tamponade jantung — perikardiosintesis</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Flail chest — ventilasi mekanik</button>
+    </div>
+    <div class="q-exp" id="exp-q1">✅ <strong>C. Tension Pneumotoraks → Needle ICS 2 MCL</strong><br><br>Triad khas: hipersonor + deviasi trakea + JVP meningkat. Trakea deviasi ke KANAN = sisi sakit KIRI. Tindakan emergensi = needle thorakosintesis di ICS 2 garis midklavikula KIRI. Tidak perlu foto torak — diagnosis klinis. Terapi definitif: WSD. Bedakan: hemotoraks → redup (bukan hipersonor). Tamponade → perkusi paru normal, suara jantung menjauh.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / FLAIL CHEST</div>
+    <div class="q-vignette">Laki-laki 40 tahun datang ke IGD setelah KLL mobil sebagai sopir. Mengeluh sesak napas. Pada pemeriksaan didapatkan RR 24x/mnt, ditemukan pernapasan paradoksal saat inspeksi dada. Tidak ada deviasi trakea.</div>
+    <p class="q-question">Diagnosis paling tepat dan syarat diagnosis ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Tension pneumotoraks — syarat: hipersonor + deviasi trakea</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">B</span>Flail chest — syarat: fraktur segmental ≥3 kosta berturut-turut satu sisi</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">C</span>Kontusio pulmonal — syarat: trauma tumpul + sesak tertunda</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>Open pneumotoraks — syarat: luka terbuka + suara hiss</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Hemotoraks — syarat: perkusi redup + hipotensi</button>
+    </div>
+    <div class="q-exp" id="exp-q2">✅ <strong>B. Flail Chest</strong><br><br>Napas paradoksal adalah tanda khas flail chest. Terjadi karena fraktur segmental ≥3 kosta berturut-turut di satu sisi → fragmen tidak stabil → saat inspirasi justru masuk ke dalam, saat ekspirasi justru keluar. Kalau tidak berturut-turut, kosta yang masih utuh menjadi "baji" yang menstabilkan.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / TAMPONADE JANTUNG</div>
+    <div class="q-vignette">Laki-laki 35 tahun diantar polisi ke IGD dengan KLL motor. Sesak napas, TD 110/75 mmHg, nadi 94x/mnt. Pemeriksaan paru: pengembangan dada simetris, suara vesikuler kanan-kiri normal, perkusi sonor bilateral. JVP meningkat. Suara jantung menjauh dan batas jantung melebar.</div>
+    <p class="q-question">Diagnosis yang paling tepat?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Hematopneumotoraks</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>Tension pneumotoraks</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">C</span>Hemotoraks</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Pneumotoraks</button>
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">E</span>Tamponade jantung</button>
+    </div>
+    <div class="q-exp" id="exp-q3">✅ <strong>E. Tamponade Jantung</strong><br><br>Trias Beck lengkap: (1) hipotensi relatif, (2) JVP meningkat, (3) suara jantung menjauh + batas jantung melebar. Perkusi paru sonor bilateral menyingkirkan pneumotoraks (hipersonor) dan hemotoraks (redup). Ini soal dari Axon'20 no. 75 dan Arthron'18 no. 71.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / WSD LOKASI</div>
+    <div class="q-vignette">Seorang dokter akan melakukan pemasangan WSD pada pasien dengan efusi pleura dextra (cairan di rongga pleura kanan). Dokter perlu menentukan lokasi insersi yang tepat.</div>
+    <p class="q-question">Manakah lokasi insersi WSD yang paling tepat untuk kondisi ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Linea axilaris anterior — ICS XI</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">B</span>Linea axilaris anterior — ICS V</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">C</span>Linea axilaris anterior — ICS IX</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>ICS 2 garis midklavikula</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>ICS 1 garis axilaris media</button>
+    </div>
+    <div class="q-exp" id="exp-q4">✅ <strong>B. Linea axilaris anterior ICS V</strong><br><br>Untuk hemotoraks/efusi (cairan), WSD dipasang di ICS 5 linea axilaris anterior — karena cairan terkumpul di bawah. Untuk pneumotoraks (udara), dipasang di ICS 2 MCL — karena udara naik ke atas. Sumber: PPT dr. Hita (Tatalaksana Trauma Thorax slide 23).</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / NEEDLE THORAKOSINTESIS</div>
+    <div class="q-vignette">Seorang laki-laki 23 tahun datang ke IGD dengan sesak napas setelah jatuh dari pohon. Tampak jejas di dada kiri. Suara napas kiri menghilang. TD 85/50 mmHg, nadi 130x/mnt, RR 36x/mnt. Diputuskan untuk melakukan needle thorakosintesis emergensi.</div>
+    <p class="q-question">Di manakah lokasi yang tepat untuk melakukan needle thorakosintesis?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>ICS 2, axilaris media line</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">B</span>ICS 4, axilaris anterior line</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">C</span>ICS 4, midklavikula line</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">D</span>ICS 2, midklavikula line kiri</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>ICS 6, axilaris posterior line</button>
+    </div>
+    <div class="q-exp" id="exp-q5">✅ <strong>D. ICS 2, midklavikula line kiri</strong><br><br>Needle thorakosintesis (dekompresi) dilakukan di ICS 2 garis midklavikula sisi yang sakit. Sisi sakit = kiri (suara napas hilang di kiri). Teknik: jarum di tepi atas kosta bawah (kosta 3) untuk menghindari A/V/N interkostal di tepi bawah kosta 2. Sumber: PPT dr. Hita slide 33.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / OPEN PNEUMO</div>
+    <div class="q-vignette">Seorang laki-laki datang ke IGD dengan luka tusuk di dada kiri. Saat bernafas terdengar suara seperti angin bocor "bus... bus..." dari luka tersebut. Pasien tampak sesak.</div>
+    <p class="q-question">Diagnosis dan mekanisme terjadinya kondisi ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Tension pneumotoraks — mekanisme ventil udara tidak bisa keluar</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">B</span>Open pneumotoraks — saat inspirasi tekanan pleura negatif sehingga udara atmosfer masuk lewat luka</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">C</span>Hemotoraks — darah masuk ke rongga pleura dari luka tusuk</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>Emfisema subkutis — udara masuk ke jaringan subkutan</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Pneumomediastinum — udara masuk ke mediastinum</button>
+    </div>
+    <div class="q-exp" id="exp-q6">✅ <strong>B. Open Pneumotoraks</strong><br><br>Suara "bus bus/hiss" saat bernapas = ciri khas open pneumotoraks (sucking chest wound). Mekanisme: inspirasi → dada mengembang → tekanan pleura negatif → udara atmosfer masuk lewat luka ke rongga pleura. Tindakan segera: plester 3 sisi (menutup 3 sisi, satu sisi terbuka untuk drainase saat ekspirasi).</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / LETHAL TRIAD</div>
+    <div class="q-vignette">Pasien laki-laki 30 tahun pasca laparotomi eksplorasi hari ke-2 akibat perdarahan intraabdominal. Riwayat syok sebelum operasi dan sudah mendapat transfusi 5 colf PRC. Analisa gas darah: pH 7.1, PaCO₂ 40 mmHg, HCO₃ 18 mEq/L. Pasien tampak kedinginan dan sudah diberitahu ada tanda-tanda perdarahan ulang.</div>
+    <p class="q-question">Kondisi apa yang sedang dialami pasien dan apa penyebab utama memburuknya kondisi ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>Syok kardiogenik — kegagalan pompa jantung</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">B</span>Alkalosis metabolik — kompensasi dari transfusi masif</button>
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">C</span>Lethal triad — asidosis metabolik + koagulopati + hipotermia yang saling memperparah</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>Asidosis respiratorik — gagal napas</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>SIRS pasca operasi — respons inflamasi normal</button>
+    </div>
+    <div class="q-exp" id="exp-q7">✅ <strong>C. Lethal Triad</strong><br><br>pH 7.1 + HCO₃ rendah (18) = asidosis metabolik. Riwayat perdarahan + banyak transfusi = risiko koagulopati (faktor pembekuan habis + dilusi). Kedinginan = hipotermia. Ketiganya ada = lethal triad. AGD: pH &lt;7.35 = asidosis. PaCO₂ normal = bukan respiratorik. HCO₃ &lt;22 = metabolik. Dx: asidosis metabolik tidak terkompensasi.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / WSD PRINSIP</div>
+    <div class="q-vignette">Pasien trauma thoraks dengan hemotoraks sudah dipasang WSD. Perawat bertanya kepada dokter jaga: "Dokter, apakah perlu disaksen (suction) supaya darahnya lebih cepat keluar?"</div>
+    <p class="q-question">Jawaban yang paling tepat dari dokter jaga tersebut?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>Ya, saksen diperlukan agar hemotoraks cepat terevakuasi</button>
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">B</span>Tidak boleh disaksen karena bisa menyebabkan perdarahan ulang</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">C</span>Saksen boleh dilakukan dengan tekanan rendah saja</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>Saksen hanya boleh bila pasien tidak ada gejala</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Keputusan saksen tergantung preferensi spesialis bedah</button>
+    </div>
+    <div class="q-exp" id="exp-q8">✅ <strong>B. Tidak boleh disaksen pada trauma</strong><br><br>Pada kasus trauma, WSD TIDAK boleh disaksen karena dapat menyebabkan perdarahan ulang. Berbeda dengan kasus pulmonologi (MPMA, nanah kental) yang memang butuh suction karena cairan terlalu kental untuk keluar sendiri. Pada trauma, gravitasi sudah cukup dan WSD dengan 2 botol sudah memadai.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / KONTUSIO PULMONAL</div>
+    <div class="q-vignette">Seorang anak perempuan 8 tahun dibawa ke IGD setelah dada terbentur stang sepeda. Orang tua bingung karena dokter mengatakan anaknya perlu dirawat dan diobservasi, padahal foto rontgen thoraks hasilnya normal.</div>
+    <p class="q-question">Apa alasan dokter tersebut memutuskan untuk tetap merawat pasien ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Prosedur standar — semua anak korban trauma harus dirawat</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>Foto rontgen salah posisi — perlu diulang</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">C</span>Pada anak, dinding dada elastis sehingga foto awal bisa normal namun kontusio pulmonal bisa berkembang 6–24 jam kemudian</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">D</span>Kemungkinan fraktur kosta tersembunyi yang tidak terlihat di foto polos</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Dokter ingin melakukan CT scan terlebih dahulu sebelum memulangkan</button>
+    </div>
+    <div class="q-exp" id="exp-q9">✅ <strong>C. Dinding dada anak elastis → foto awal bisa normal</strong><br><br>dr. Hita menjelaskan: "Kontusio pulmonal pada anak-anak lebih sering karena kerangka anak masih sangat elastis. Walaupun tidak terlihat fraktur di foto, kerusakan di dalam bisa cukup berat." Foto awal bisa bagus tapi kontusio pulmonal bisa muncul dan berkembang 6–24 jam kemudian. Observasi minimal 24 jam wajib!</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / PERKUSI KUNCI</div>
+    <div class="q-vignette">Dokter muda baru saja selesai pemeriksaan fisik pasien trauma thoraks. Ia menemukan perkusi hipersonor di dada kiri. Ia masih bingung apakah itu tension pneumotoraks atau pneumotoraks simpel.</div>
+    <p class="q-question">Temuan tambahan manakah yang PALING membedakan tension pneumotoraks dari pneumotoraks simpel?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Sesak napas yang lebih berat</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">B</span>Deviasi trakea dan JVP meningkat</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">C</span>Suara napas yang lebih menghilang</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">D</span>Nyeri dada yang lebih hebat</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Takikardi yang lebih tinggi</button>
+    </div>
+    <div class="q-exp" id="exp-q10">✅ <strong>B. Deviasi trakea + JVP meningkat</strong><br><br>Keduanya sama-sama hipersonor. Pembeda utama tension pneumo: tekanan pleura terus meningkat (mekanisme ventil) sehingga → mediastinum terdorong (deviasi trakea ke sisi sehat) + kompresi pembuluh darah balik (JVP meningkat + hipotensi). Pneumo simpel tidak ada deviasi trakea dan JVP tidak meningkat. Tension = kedaruratan → tidak perlu foto torak, langsung needle thorakosintesis!</div>
+  </div>
+
+  <!-- Score -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:44px;margin-bottom:8px;">🫁</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:18px;opacity:0.8;margin-top:4px;">/ 10</div>
+    <p class="score-msg" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Coba Lagi</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+let answered = {}, score = 0, total = 10;
+
+function initDots() {
+  const p = document.getElementById('quizProg');
+  p.innerHTML = '';
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot';
+    d.id = 'dot' + i;
+    p.appendChild(d);
+  }
+}
+
+function ans(btn, qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const qNum = parseInt(qid.replace('q',''));
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+  if (correct) {
+    btn.classList.add('correct');
+    score++;
+    document.getElementById('dot' + qNum).classList.add('ok');
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('dot' + qNum).classList.add('no');
+    card.querySelectorAll('.q-opt').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) b.classList.add('correct');
+    });
+  }
+  const exp = document.getElementById('exp-' + qid);
+  if (exp) exp.classList.add('show');
+  if (Object.keys(answered).length === total) setTimeout(showScore, 700);
+}
+
+function showScore() {
+  const sc = document.getElementById('scoreCard');
+  sc.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const msgs = [
+    '🌱 Masih perlu banyak review, tapi semangat ya!',
+    '🌿 Lumayan! Review lagi bagian yang masih bingung.',
+    '🌸 Bagus! Kamu sudah paham sebagian besar konsep.',
+    '🏅 Hampir sempurna! Tinggal sedikit lagi.',
+    '🏆 SEMPURNA! Siap jadi dokter IGD trauma thoraks! 🎉'
+  ];
+  const idx = score <= 2 ? 0 : score <= 5 ? 1 : score <= 7 ? 2 : score <= 9 ? 3 : 4;
+  document.getElementById('scoreMsg').textContent = msgs[idx];
+  sc.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function resetQuiz() {
+  answered = {}; score = 0;
+  document.querySelectorAll('.q-opt').forEach(b => { b.disabled = false; b.classList.remove('correct','wrong'); });
+  document.querySelectorAll('.q-exp').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+initDots();
+</script>
+</body>
+</html>

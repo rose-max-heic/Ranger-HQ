@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔴 Trauma Abdomen — Study Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:       #C0392B;
+  --red-light: #E05C4A;
+  --red-pale:  #FDECEA;
+  --red-deep:  #8B2117;
+  --orange:    #E07B39;
+  --orange-light: #F09A5C;
+  --orange-pale:  #FEF0E4;
+  --orange-deep:  #A35520;
+  --cream:     #FDF8F3;
+  --white:     #FFFFFF;
+  --text:      #2A1208;
+  --text-muted:#8A5340;
+  --border:    #F0D5C8;
+  --green:     #2D7A55;
+  --green-pale:#E8F5EE;
+  --blue:      #2D6FA0;
+  --blue-pale: #E3EFF8;
+  --purple:    #7B5EA7;
+  --purple-pale:#F2EEF8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);font-size:15px;line-height:1.75}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--red-deep) 0%,var(--red) 45%,var(--orange) 100%);padding:56px 48px 48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:380px;height:380px;border-radius:50%;background:rgba(254,240,228,.1);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-60px;left:10%;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.9);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,56px);font-weight:900;color:#fff;line-height:1.08;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--orange-pale)}
+.hero-sub{color:rgba(255,255,255,.78);font-size:14.5px;font-weight:300;max-width:540px;line-height:1.7;margin-bottom:24px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:9px}
+.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:5px 14px;border-radius:24px;font-size:12px;font-weight:500}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:300;background:var(--red-deep);display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:0 3px 18px rgba(139,33,23,.4)}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{background:none;border:none;color:rgba(254,240,228,.6);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.4px;padding:13px 17px;white-space:nowrap;cursor:pointer;border-bottom:2.5px solid transparent;transition:all .2s}
+.nav-btn:hover,.nav-btn.active{color:var(--orange-pale);border-bottom-color:var(--orange)}
+
+/* CONTAINER */
+.container{max-width:940px;margin:0 auto;padding:42px 22px}
+
+/* SECTIONS */
+.section{display:none;animation:up .3s ease}
+.section.active{display:block}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.section-heading{font-family:'Playfair Display',serif;font-size:29px;font-weight:700;color:var(--red-deep);margin-bottom:5px}
+.section-desc{color:var(--text-muted);font-size:13.5px;padding-bottom:18px;border-bottom:2px solid var(--border);margin-bottom:28px}
+
+/* CARDS */
+.card{background:var(--white);border-radius:16px;padding:22px 26px;margin-bottom:18px;border:1px solid var(--border);box-shadow:0 2px 14px rgba(192,57,43,.06);transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 6px 28px rgba(192,57,43,.12);transform:translateY(-1px)}
+.card-title{font-family:'Lora',serif;font-size:17px;font-weight:600;color:var(--red-deep);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+.cicon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+
+/* ALERTS */
+.alert{padding:12px 16px;border-radius:10px;margin:12px 0;font-size:13.5px;display:flex;gap:10px;line-height:1.65}
+.alert-red{background:var(--red-pale);border-left:4px solid var(--red);color:var(--red-deep)}
+.alert-orange{background:var(--orange-pale);border-left:4px solid var(--orange);color:var(--orange-deep)}
+.alert-green{background:var(--green-pale);border-left:4px solid var(--green);color:#1a4a30}
+.alert-blue{background:var(--blue-pale);border-left:4px solid var(--blue);color:#1a3a55}
+.alert-purple{background:var(--purple-pale);border-left:4px solid var(--purple);color:#3a1a6a}
+.ai{flex-shrink:0;font-size:15px;margin-top:1px}
+
+/* DR NOTE */
+.dr-note{background:linear-gradient(135deg,var(--orange-pale),#fff);border:1.5px solid var(--orange);border-radius:12px;padding:13px 17px;margin:13px 0;font-size:13.5px;line-height:1.7}
+.dr-note::before{content:'🎤 dr. Linda menekankan: ';font-weight:700;color:var(--orange-deep)}
+
+/* TABLES */
+.tw{overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--red-deep);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:.4px}
+th:first-child{border-radius:11px 0 0 0}th:last-child{border-radius:0 11px 0 0}
+td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#FDF3EE}
+tr:hover td{background:var(--orange-pale);transition:background .15s}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+
+/* MINI CARD */
+.mc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:15px 17px}
+.mc h4{font-family:'Lora',serif;font-size:14px;color:var(--red-deep);margin-bottom:7px}
+.mc p,.mc li{font-size:13px;color:var(--text-muted);line-height:1.65}
+.mc ul{padding-left:15px}
+.mc li{margin-bottom:3px}
+
+/* STYLED LIST */
+.sl{list-style:none;padding:0}
+.sl li{padding:6px 0 6px 20px;border-bottom:1px solid var(--border);font-size:13.5px;position:relative;line-height:1.65}
+.sl li::before{content:'▸';position:absolute;left:0;color:var(--orange);font-size:11px;top:9px}
+.sl li:last-child{border-bottom:none}
+
+/* CLINICAL REASONING */
+.cr{background:linear-gradient(135deg,var(--red-pale),#fff5f0);border:1.5px solid var(--red-light);border-radius:14px;padding:17px 21px;margin:13px 0}
+.cr-label{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red-deep);margin-bottom:9px}
+.cr-steps{counter-reset:cr;list-style:none;padding:0}
+.cr-steps li{counter-increment:cr;padding:6px 0 6px 33px;position:relative;font-size:13.5px;border-bottom:1px solid rgba(192,57,43,.15);line-height:1.65}
+.cr-steps li:last-child{border-bottom:none}
+.cr-steps li::before{content:counter(cr);position:absolute;left:0;top:7px;width:22px;height:22px;background:var(--red);color:#fff;border-radius:50%;font-size:10.5px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+/* MNEMONIC */
+.mnemonic{background:linear-gradient(135deg,var(--orange-pale),#fff);border:2px solid var(--orange);border-radius:14px;padding:17px 21px;margin:13px 0}
+.mnemonic-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:5px}
+.mnemonic-text{font-family:'Playfair Display',serif;font-size:17px;color:var(--text);font-weight:700}
+.mnemonic-sub{font-size:13px;color:var(--text-muted);margin-top:5px;line-height:1.6}
+
+/* HIGHLIGHT */
+.hr{background:var(--red-pale);color:var(--red-deep);padding:1px 7px;border-radius:5px;font-weight:600;font-size:13px}
+.ho{background:var(--orange-pale);color:var(--orange-deep);padding:1px 7px;border-radius:5px;font-weight:600;font-size:13px}
+.hg{background:var(--green-pale);color:var(--green);padding:1px 7px;border-radius:5px;font-weight:600;font-size:13px}
+.hb{background:var(--blue-pale);color:var(--blue);padding:1px 7px;border-radius:5px;font-weight:600;font-size:13px}
+
+/* DIVIDER */
+.div{height:1px;background:var(--border);margin:22px 0}
+
+/* COLLAPSE */
+.col-btn{background:none;border:none;width:100%;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:0;font-family:inherit}
+.col-btn .chev{transition:transform .25s;font-size:11px;color:var(--text-muted)}
+.col-btn.open .chev{transform:rotate(180deg)}
+.col-body{display:none;margin-top:13px;padding-top:13px;border-top:1px solid var(--border)}
+.col-body.open{display:block;animation:up .25s ease}
+
+/* COMPARE */
+.cw{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.cc{border-radius:12px;padding:17px;border:2px solid}
+.cc.left{background:var(--red-pale);border-color:var(--red)}
+.cc.right{background:var(--orange-pale);border-color:var(--orange)}
+.cc h4{font-family:'Lora',serif;font-size:15px;margin-bottom:9px}
+.cc.left h4{color:var(--red-deep)}
+.cc.right h4{color:var(--orange-deep)}
+.cr2{display:flex;font-size:13px;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06);gap:8px}
+.cr2:last-child{border-bottom:none}
+.cr2 span:first-child{opacity:.6;width:90px;flex-shrink:0;font-size:11.5px}
+@media(max-width:600px){.cw{grid-template-columns:1fr}}
+
+/* VIDEO CONTAINER */
+.video-wrap{position:relative;padding-bottom:56.25%;border-radius:14px;overflow:hidden;margin:16px 0;background:#000}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+
+/* FLOWCHART */
+.flow-box{background:var(--white);border:2px solid var(--border);border-radius:10px;padding:9px 14px;font-size:12.5px;text-align:center;line-height:1.45;font-weight:500}
+.flow-box.start{background:var(--red-pale);border-color:var(--red);color:var(--red-deep);font-weight:700}
+.flow-box.decision{background:var(--orange-pale);border-color:var(--orange);color:var(--orange-deep);border-radius:50%/30%;font-style:italic}
+.flow-box.action{background:var(--green-pale);border-color:var(--green);color:var(--green)}
+.flow-box.warn{background:var(--blue-pale);border-color:var(--blue);color:var(--blue)}
+.flow-arr{text-align:center;color:var(--text-muted);font-size:18px;line-height:1.2;margin:2px 0}
+
+/* QUIZ */
+.quiz-q{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:24px;margin-bottom:22px;position:relative}
+.q-num{position:absolute;top:-11px;left:20px;background:var(--red-deep);color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 13px;border-radius:10px}
+.q-vig{background:var(--orange-pale);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:13px 16px;font-size:13.5px;line-height:1.7;margin-bottom:14px;color:var(--orange-deep)}
+.q-question{font-weight:600;font-size:14px;margin-bottom:13px;color:var(--text)}
+.q-opts{display:flex;flex-direction:column;gap:7px}
+.q-opt{background:var(--cream);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13.5px;cursor:pointer;text-align:left;font-family:inherit;display:flex;gap:9px;align-items:flex-start;transition:all .18s;color:var(--text)}
+.q-opt:hover:not(:disabled){border-color:var(--red);background:var(--red-pale)}
+.q-opt .ol{font-weight:700;font-size:12px;min-width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.q-opt.correct{background:var(--green-pale)!important;border-color:var(--green)!important;color:var(--green)}
+.q-opt.correct .ol{background:var(--green);color:#fff}
+.q-opt.wrong{background:var(--red-pale)!important;border-color:var(--red)!important;color:var(--red)}
+.q-opt.wrong .ol{background:var(--red);color:#fff}
+.q-opt:disabled{cursor:default}
+.q-exp{display:none;margin-top:13px;background:var(--green-pale);border-radius:10px;padding:13px 16px;font-size:13.5px;line-height:1.7;color:#1a4a30;border-left:3px solid var(--green)}
+.q-exp.show{display:block;animation:up .3s ease}
+.quiz-prog{display:flex;gap:5px;margin-bottom:24px;flex-wrap:wrap}
+.pdot{width:10px;height:10px;border-radius:50%;background:rgba(192,57,43,.15);transition:background .3s}
+.pdot.ok{background:var(--green)}
+.pdot.no{background:var(--red)}
+.score-card{background:linear-gradient(135deg,var(--red-deep),var(--orange));color:#fff;border-radius:20px;padding:38px;text-align:center;display:none;margin-top:26px;animation:up .4s ease}
+.score-card.show{display:block}
+.score-big{font-family:'Playfair Display',serif;font-size:68px;font-weight:900;color:var(--orange-pale);line-height:1;margin:9px 0}
+.btn-restart{margin-top:20px;background:#fff;color:var(--red-deep);border:none;border-radius:28px;padding:11px 26px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:transform .2s}
+.btn-restart:hover{transform:translateY(-2px)}
+
+/* SKDI BADGE */
+.skdi{display:inline-flex;align-items:center;padding:2px 8px;border-radius:7px;font-size:11px;font-weight:700;margin-left:5px;vertical-align:middle}
+.skdi-3a{background:var(--blue-pale);color:var(--blue)}
+.skdi-3b{background:var(--orange-pale);color:var(--orange-deep)}
+
+/* AAST TABLE */
+.aast-I td{background:#fff !important}
+.aast-II td{background:#fff8f5 !important}
+.aast-III td{background:#fee9e3 !important}
+.aast-IV td{background:#fcd4c9 !important}
+.aast-V td{background:#f9b9ac !important}
+.aast-VI td{background:#f59e8e !important}
+
+@media(max-width:600px){.hero{padding:36px 18px 32px}.container{padding:26px 14px}.card{padding:16px 18px}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📚 Blok Trauma · UMS 2026 · dr. Linda Jana, SpB, FINACS, FICS</div>
+  <h1>Trauma <em>Abdomen</em><br>— Study Companion</h1>
+  <p class="hero-sub">Materi lengkap dari PPT, rekaman kuliah, & soal tahun lalu. Diperkaya ATLS 11th Ed, AAST, EAST, WSES guidelines.</p>
+  <div class="hero-pills">
+    <span class="pill">🔴 Definisi & Mekanisme</span>
+    <span class="pill">🩸 Klasifikasi Perdarahan</span>
+    <span class="pill">🔍 Diagnostik FAST/CT/DPL</span>
+    <span class="pill">🏥 Tatalaksana ATLS</span>
+    <span class="pill">🫀 Organ Injury Grading</span>
+    <span class="pill">🗡️ Trauma Penetrans</span>
+    <span class="pill">🎬 Video Kuliah</span>
+    <span class="pill">🧠 10 Soal Quiz</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('mekanisme')">⚡ Mekanisme</button>
+  <button class="nav-btn" onclick="show('perdarahan')">🩸 Kelas Perdarahan</button>
+  <button class="nav-btn" onclick="show('diagnostik')">🔍 Diagnostik</button>
+  <button class="nav-btn" onclick="show('tatalaksana')">🏥 Tatalaksana</button>
+  <button class="nav-btn" onclick="show('grading')">📊 Organ Grading</button>
+  <button class="nav-btn" onclick="show('penetrans')">🗡️ Penetrans</button>
+  <button class="nav-btn" onclick="show('video')">🎬 Video Kuliah</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- ===== OVERVIEW ===== -->
+<div id="sec-overview" class="section active">
+  <h2 class="section-heading">Peta Materi & Konsep Dasar</h2>
+  <p class="section-desc">Trauma abdomen: SKDI 3A (tumpul stabil) & 3B (tidak stabil/emergensi). Dari PPT dr. Linda + rekaman kuliah.</p>
+
+  <div class="alert alert-red"><span class="ai">🎯</span><div><strong>Grand Principle dr. Linda:</strong> "Kalau stabil → FAST dulu. Kalau tidak stabil → langsung USG/DPL → operasi! Jangan nunggu." Ingat prinsip ini untuk semua soal UKMPPD tentang trauma abdomen.</div></div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🗺️</span> Alur Besar Trauma Abdomen</div>
+    <div class="cr"><div class="cr-label">🧠 Grand Story</div>
+    <ol class="cr-steps">
+      <li><strong>Trauma terjadi</strong> → tumpul (kompresi/akselerasi/deselerasi) atau tajam/penetrans</li>
+      <li><strong>Organ terkena</strong>: padat (hepar, lien, ginjal) → <span class="hr">perdarahan</span>; atau berongga (usus, buli) → <span class="hr">peritonitis</span></li>
+      <li><strong>Primary survey xABCDE</strong> → nilai hemodinamik: stabil atau tidak stabil?</li>
+      <li><strong>Stabil</strong> → FAST/CT → manajemen konservatif atau operasi elektif</li>
+      <li><strong>Tidak stabil</strong> → resusitasi + USG/DPL → laparotomi emergensi!</li>
+      <li><strong>Trias kematian</strong> (Lethal Triad): Asidosis + Hipotermia + Koagulopati → cegah dengan resusitasi cepat!</li>
+    </ol></div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🫀</span> Organ Padat → Perdarahan</div>
+      <ul class="sl">
+        <li><strong>Hepar</strong> (paling sering di stab wound, 40%)</li>
+        <li><strong>Lien/Spleen</strong> (paling sering di trauma tumpul)</li>
+        <li><strong>Ginjal</strong> (retroperitoneal, sering stabil sendiri)</li>
+        <li><strong>Pankreas</strong> (jarang, tapi berat)</li>
+        <li>Manifestasi: perdarahan intraabdomen, syok hipovolemik</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">🫘</span> Organ Berongga → Peritonitis</div>
+      <ul class="sl">
+        <li><strong>Usus halus</strong> (paling sering di gunshot wound, 50%)</li>
+        <li><strong>Kolon</strong> (gunshot 40%, stab 10%)</li>
+        <li><strong>Lambung/Diafragma</strong></li>
+        <li><strong>Buli-buli</strong></li>
+        <li>Manifestasi: peritonitis, ileus, pneumoperitoneum</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">⚖️</span> SKDI & Level Kompetensi</div>
+    <div class="tw"><table>
+      <tr><th>Level</th><th>Artinya</th><th>Kasus Trauma Abdomen</th></tr>
+      <tr><td><span class="skdi skdi-3a">3A</span></td><td>Diagnosis + terapi awal + rujuk non-emergensi</td><td>Trauma tumpul hemodinamik stabil, cedera organ padat ringan</td></tr>
+      <tr><td><span class="skdi skdi-3b">3B</span></td><td>Diagnosis + terapi awal + rujuk <strong>EMERGENSI</strong></td><td>Trauma abdomen tidak stabil, peritonitis, laparotomi darurat</td></tr>
+    </table></div>
+    <div class="dr-note">Ingat: di kasus trauma, kamu dokter umum. Tugas kamu adalah STABILISASI + RUJUK, bukan operasi sendiri. Tapi kamu harus tahu kapan harus rujuk SEGERA (emergensi) vs bisa elektif.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">⚠️</span> Trias Kematian (Lethal Triad)</div>
+    <div class="g3">
+      <div class="mc" style="border-top:3px solid var(--red)">
+        <h4>❄️ Hipotermia</h4>
+        <p>Suhu &lt;35°C → mengganggu fungsi koagulasi. Cegah dengan hangatkan pasien (E = Exposure/Environment).</p>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange)">
+        <h4>🔵 Asidosis</h4>
+        <p>pH &lt;7.35 akibat hipoperfusi. Base deficit makin negatif = makin buruk prognosisnya.</p>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--purple)">
+        <h4>🩸 Koagulopati</h4>
+        <p>Kehilangan darah masif → faktor koagulasi habis → perdarahan tidak berhenti. Solusi: massive transfusion protocol (MTP).</p>
+      </div>
+    </div>
+    <div class="alert alert-orange"><span class="ai">💡</span><div><strong>Dari soal tahun lalu:</strong> "Tujuan resusitasi adalah mencegah trias of death" → <strong>Koagulopati + Hipotermia + Asidosis</strong> (Jawaban: A). Soal ini keluar di Axon'20 no. 98 dan Arthron'18 no. 5.</div></div>
+  </div>
+</div>
+
+<!-- ===== MEKANISME ===== -->
+<div id="sec-mekanisme" class="section">
+  <h2 class="section-heading">⚡ Mekanisme Trauma Abdomen</h2>
+  <p class="section-desc">Dari slide PPT dr. Linda + penjelasan rekaman kuliah — pahami mekanisme untuk prediksi organ yang cedera!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">💥</span> Trauma Tumpul — 3 Mekanisme</div>
+    <div class="g3">
+      <div class="mc" style="border-top:3px solid var(--red)">
+        <h4>🔨 Kompresi</h4>
+        <p>Hantaman <strong>langsung</strong> atau kompresi eksternal pada objek yang terfiksasi.</p>
+        <p style="margin-top:6px;color:var(--red-deep)">Contoh: ditabrak, terjepit dashboard mobil</p>
+        <p style="margin-top:6px">Organ paling rentan: <strong>lien, hepar</strong></p>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange)">
+        <h4>⚡ Akselerasi</h4>
+        <p>Organ internal awalnya <strong>diam</strong>, tiba-tiba mendapatkan hentakan keras.</p>
+        <p style="margin-top:6px;color:var(--orange-deep)">Contoh: ditabrak mobil dari samping, dipukul benda keras</p>
+        <p style="margin-top:6px">Organ paling rentan: <strong>mesenterium, usus</strong></p>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--blue)">
+        <h4>🛑 Deselerasi</h4>
+        <p>Tubuh awalnya bergerak cepat, tiba-tiba <strong>berhenti mendadak</strong>.</p>
+        <p style="margin-top:6px;color:var(--blue)">Contoh: KLL mobil kecepatan tinggi, jatuh dari ketinggian</p>
+        <p style="margin-top:6px">Organ paling rentan: <strong>hepar, aorta (shearing injury)</strong></p>
+      </div>
+    </div>
+    <div class="dr-note">Di rekaman kuliah: "Deselerasi itu karena dia merebang yang terus… nanti jelas kalian ketika sudah ATLS." Intinya: deselerasi → shearing force → cedera organ yang terfiksasi di satu titik (hepar terikat di lig. falciparum, ginjal di hilus).</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">🗡️</span> Trauma Tajam / Penetrans</div>
+    <div class="cw">
+      <div class="cc left">
+        <h4>🔫 Gunshot Wound</h4>
+        <div class="cr2"><span>Small bowel:</span><strong>50%</strong></div>
+        <div class="cr2"><span>Colon:</span><strong>40%</strong></div>
+        <div class="cr2"><span>Liver:</span><strong>30%</strong></div>
+        <div class="cr2"><span>Abd. Vascular:</span><strong>25%</strong></div>
+        <div class="alert alert-red" style="margin-top:10px;font-size:12.5px"><span class="ai">⚠️</span><div>Energi tinggi → kavitasi → kerusakan luas di luar jalur peluru. Hampir selalu laparotomi!</div></div>
+      </div>
+      <div class="cc right">
+        <h4>🔪 Stab Wound (Luka Tusuk)</h4>
+        <div class="cr2"><span>Liver:</span><strong>40%</strong></div>
+        <div class="cr2"><span>Small bowel:</span><strong>30%</strong></div>
+        <div class="cr2"><span>Diaphragm:</span><strong>20%</strong></div>
+        <div class="cr2"><span>Colon:</span><strong>10%</strong></div>
+        <div class="alert alert-orange" style="margin-top:10px;font-size:12.5px"><span class="ai">💡</span><div>Energi rendah → kerusakan lebih terlokalisir. Tidak selalu operasi — nilai hemodinamik dulu!</div></div>
+      </div>
+    </div>
+    <div class="dr-note">Dari kuliah: "Kalau luka tembak ini dia paling sering di usus langsung… sering juga dari bow (kolon)." Di pengalaman dr. Linda: "Kalau luka tusuk pasangan suami istri" — artinya luka tusuk sering kasus kekerasan domestik!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🔮</span> Prediksi Organ Cedera dari Mekanisme</div>
+    <div class="tw"><table>
+      <tr><th>Mekanisme</th><th>Organ Paling Sering Cedera</th><th>Tanda Klinis</th></tr>
+      <tr><td>Benturan LUQ / trauma lien</td><td>Lien</td><td><span class="hr">Kehr sign (+)</span>: nyeri bahu kiri</td></tr>
+      <tr><td>Benturan RUQ / setir mobil</td><td>Hepar</td><td>Nyeri RUQ, elevasi diafragma</td></tr>
+      <tr><td>Straddle injury (jatuh di palang)</td><td>Uretra anterior</td><td>Darah di meatus, hematoma perineal</td></tr>
+      <tr><td>Deselerasi cepat</td><td>Hepar (shearing), Aorta</td><td>Perdarahan masif, syok</td></tr>
+      <tr><td>Seat belt + deselerasi</td><td>Hollow viscus, vertebra lumbal</td><td>Tanda seat belt di perut</td></tr>
+      <tr><td>Tusuk hipokondrium kiri</td><td>Lien</td><td>Kehr sign (+), FAST (+)</td></tr>
+    </table></div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Ingat: Kehr Sign</div>
+      <div class="mnemonic-text">Nyeri bahu kiri = lien berdarah (referred pain)</div>
+      <div class="mnemonic-sub">Darah di subdiafragma mengiritasi diafragma → saraf frenikus C3-C5 → dirujuk ke bahu kiri. Keluar di BANYAK soal tahun lalu!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PERDARAHAN ===== -->
+<div id="sec-perdarahan" class="section">
+  <h2 class="section-heading">🩸 Klasifikasi Perdarahan & Syok</h2>
+  <p class="section-desc">Dari ATLS 11th Ed + PPT dr. Linda — WAJIB hafal untuk soal estimasi perdarahan!</p>
+
+  <div class="alert alert-red"><span class="ai">📌</span><div><strong>Rumus dasar:</strong> Volume darah orang dewasa = <span class="hr">7% × BB</span>. Pria 70 kg = ±5 L. Anak: 8–9% BB (70–80 mL/kg). Obese: hitung dari <em>ideal</em> body weight.</div></div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">📊</span> ATLS Hemorrhage Classification</div>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Kelas I</th><th>Kelas II (Mild)</th><th>Kelas III (Moderate)</th><th>Kelas IV (Severe)</th></tr>
+      <tr><td><strong>Blood Loss</strong></td><td>&lt;15%</td><td>15–30%</td><td>31–40%</td><td>&gt;40%</td></tr>
+      <tr><td>Volume (70 kg)</td><td>&lt;750 cc</td><td>750–1500 cc</td><td><span class="ho">1500–2000 cc</span></td><td><span class="hr">&gt;2000 cc</span></td></tr>
+      <tr><td><strong>Heart Rate</strong></td><td>↔</td><td>↔/↑</td><td>↑</td><td>↑↑↑</td></tr>
+      <tr><td><strong>Blood Pressure</strong></td><td>↔</td><td>↔</td><td>↔/↓</td><td>↓</td></tr>
+      <tr><td><strong>Pulse Pressure</strong></td><td>↔</td><td>↓</td><td>↓</td><td>↓</td></tr>
+      <tr><td><strong>RR</strong></td><td>↔</td><td>↔</td><td>↔/↑</td><td>↑</td></tr>
+      <tr><td><strong>Urine Output</strong></td><td>↔</td><td>↔</td><td>↓</td><td>↓↓</td></tr>
+      <tr><td><strong>GCS</strong></td><td>↔</td><td>↔</td><td>↓</td><td>↓</td></tr>
+      <tr><td><strong>Base Deficit</strong></td><td>0–(–2)</td><td>–2–(–6)</td><td>–6–(–10)</td><td>≤–10</td></tr>
+      <tr><td><strong>Blood Products</strong></td><td>Monitor</td><td>Possible</td><td><span class="ho">YES</span></td><td><span class="hr">Massive Transfusion</span></td></tr>
+    </table></div>
+    <div class="alert alert-orange"><span class="ai">💡</span><div><strong>Key point soal:</strong> Pasien dengan TD 70/40, HR 130, RR 40 → Kelas III (perdarahan 31–40% = ±1500–2000 cc dari 5L = sekitar 2L). Ini muncul berkali-kali di soal tahun lalu!</div></div>
+    <div class="dr-note">Dari rekaman kuliah: "Jangan gampang percaya ya. Kalau dikasih tahu darahnya cuma 200-300 cc tapi HR-nya berubah gitu… mungkin darahnya lebih banyak." Kita harus estimasi sendiri dari klinis!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">💧</span> Respons Terhadap Resusitasi Cairan Awal</div>
+    <div class="tw"><table>
+      <tr><th>Parameter</th><th>Rapid Response</th><th>Transient Response</th><th>Minimal/No Response</th></tr>
+      <tr><td>Vital signs</td><td>Kembali normal</td><td>Membaik sementara, lalu turun lagi</td><td>Tetap abnormal</td></tr>
+      <tr><td>Est. Blood Loss</td><td>Minimal (&lt;15%)</td><td>Moderate & ongoing (15–40%)</td><td>Severe (&gt;40%)</td></tr>
+      <tr><td>Need for Blood</td><td>Low</td><td>Moderate to High</td><td>Immediate</td></tr>
+      <tr><td>Blood Preparation</td><td>Type & crossmatch</td><td>Type-specific</td><td>Emergency blood release</td></tr>
+      <tr><td>Operative Intervention</td><td>Possibly</td><td><span class="ho">Likely</span></td><td><span class="hr">Highly Likely</span></td></tr>
+    </table></div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat</div>
+      <div class="mnemonic-text">Rapid = Beres. Transient = Masih Bleeding. No Response = Segera Operasi!</div>
+      <div class="mnemonic-sub">Resusitasi awal: isotonic crystalloid (RL) hingga 1000 mL dewasa / 20 mL/kg anak. Setelah itu evaluasi respons!</div>
+    </div>
+    <div class="dr-note">Dari rekaman: "Ini untuk menunjukkan bahwa perdarahannya masih berlangsung, sudah berhenti, atau cuma stop sesaat. Kalau transient response itu artinya dia masih bleeding — butuh operasi!"</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🩺</span> Kasus Latihan: Soal Sering Keluar</div>
+    <div class="alert alert-orange"><span class="ai">📝</span><div><strong>Skenario klasik</strong> (muncul 6x di soal tahun lalu!): "Laki-laki 50 tahun, jatuh motor diserempet. TD 70/40 mmHg, HR 130x/mnt, RR 40x/mnt, jejas hipokondrium kiri." → Ini <span class="hr">Syok Hipovolemik Kelas III</span> (→ Kelas IV menurut sebagian jawaban). Penanganan: <span class="hg">pasang IV kanula terbesar + guyur RL + darah!</span></div></div>
+    <div class="cr"><div class="cr-label">🧠 Step-by-step Kasus Tersebut</div>
+    <ol class="cr-steps">
+      <li>Nilai: TD 70/40, HR 130 → syok → perkirakan &gt;30% blood loss (Kelas III–IV)</li>
+      <li>xABCDE: X dahulu kalau ada perdarahan eksternal masif yang terlihat, lalu A → B → C</li>
+      <li>C: IV akses 2 jalur (kanula terbesar), RL 1–2L bolus → evaluasi respons</li>
+      <li>Jejas hipokondrium kiri → curiga lien injury → FAST!</li>
+      <li>Bila FAST (+) dan tidak stabil → laparotomi emergensi</li>
+      <li>Bila FAST (+) dan stabil → CT scan → grading → NOM vs operasi</li>
+    </ol></div>
+  </div>
+</div>
+
+<!-- ===== DIAGNOSTIK ===== -->
+<div id="sec-diagnostik" class="section">
+  <h2 class="section-heading">🔍 Diagnostik: FAST, CT, DPL</h2>
+  <p class="section-desc">Tiga alat diagnostik utama — kapan pakai yang mana bergantung pada status hemodinamik!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">🔊</span> USG FAST — Focused Abdominal Sonography for Trauma</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">4 Window FAST</p>
+        <ul class="sl">
+          <li><strong>1. RUQ</strong> — Hepatorenal space (Morrison's pouch)</li>
+          <li><strong>2. LUQ</strong> — Splenorenal space</li>
+          <li><strong>3. Pelvis</strong> — Douglas pouch (paling sensitif)</li>
+          <li><strong>4. Cardiac</strong> — Perikardial effusion</li>
+        </ul>
+        <div class="alert alert-orange" style="margin-top:10px"><span class="ai">⚠️</span><div>FAST (+) = free fluid terdeteksi = ada perdarahan intraabdomen sampai terbukti bukan. Sensitivitas ±90% untuk free fluid &gt;250 mL.</div></div>
+      </div>
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">Kapan Gunakan FAST?</p>
+        <ul class="sl">
+          <li>Hemodinamik <strong>stabil</strong>: FAST → bila (+) dan stabil, lanjut CT scan</li>
+          <li>Hemodinamik <strong>tidak stabil</strong>: FAST langsung di IGD, bila (+) → laparotomi</li>
+          <li>Bisa diulang setiap 30 menit (repeat FAST)</li>
+          <li>TIDAK bisa menilai cedera hollow viscus!</li>
+        </ul>
+        <div class="alert alert-green" style="margin-top:10px"><span class="ai">✅</span><div>FAST adalah alat TRIAGE, bukan diagnosis definitif. Cepat, bedside, bisa sambil resusitasi!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🖥️</span> CT Scan Abdomen</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">Indikasi CT Scan (dari PPT)</p>
+        <ul class="sl">
+          <li>Altered mental status</li>
+          <li>Confounding injury</li>
+          <li>Gross hematuria</li>
+          <li>Pelvic fracture</li>
+          <li>Abdominal tenderness</li>
+          <li>Unexplained Hct &lt;35%</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">Keunggulan CT Scan</p>
+        <ul class="sl">
+          <li>Gold standard untuk trauma tumpul stabil</li>
+          <li>Bisa menilai organ padat + berongga</li>
+          <li>Grading cedera organ (AAST)</li>
+          <li>Deteksi pneumoperitoneum</li>
+          <li>Evaluasi retroperitoneum</li>
+        </ul>
+        <div class="alert alert-red" style="margin-top:10px"><span class="ai">⚠️</span><div>JANGAN kirim ke CT scan pasien hemodinamik TIDAK STABIL. CT scan butuh waktu → pasien bisa memburuk!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🩺</span> DPL — Diagnostic Peritoneal Lavage</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">Indikasi DPL</p>
+        <ul class="sl">
+          <li>Hemodinamik tidak stabil + FAST equivocal</li>
+          <li>Tidak ada USG tersedia</li>
+          <li>Obese / banyak udara (FAST sulit)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">DPL Positif bila ada:</p>
+        <ul class="sl">
+          <li>Aspirasi darah gross</li>
+          <li><span class="hr">RBC &gt;100.000/mm³</span></li>
+          <li>WBC &gt;500/mm³</li>
+          <li>Amilase &gt;175 IU/dL</li>
+          <li>Enteric content (empedu, feses)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-orange"><span class="ai">💡</span><div><strong>Dari soal tahun lalu (Arthron'18 no. 70):</strong> DPL (+) bila RBC &gt;100.000/mm³ ATAU WBC &gt;500/mm³ ATAU Amilase &gt;175 m/dL → <strong>jawaban B</strong>.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">🗺️</span> Algoritma Diagnostik — Hemodinamik STABIL</div>
+    <div style="max-width:480px;margin:0 auto">
+      <div class="flow-box start">Hemodinamik STABIL</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box decision">Peritonitis?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
+        <div>
+          <div class="flow-arr" style="text-align:left">YES ↓</div>
+          <div class="flow-box action">Laparotomi</div>
+        </div>
+        <div>
+          <div class="flow-arr" style="text-align:right">↓ NO</div>
+          <div class="flow-box warn">FAST</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box decision">FAST (+)?</div>
+          <div class="flow-arr">↓ YES</div>
+          <div class="flow-box warn">CT Scan</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box action">NOM atau Laparotomi</div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-blue" style="margin-top:16px"><span class="ai">📌</span><div><strong>NOM</strong> = Non-Operative Management. Untuk solid organ injury (AAST grade rendah) yang stabil → observasi ketat + serial FAST/Hb. Tidak semua trauma abdomen harus operasi!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🗺️</span> Algoritma Diagnostik — Hemodinamik TIDAK STABIL</div>
+    <div style="max-width:400px;margin:0 auto">
+      <div class="flow-box start">Hemodinamik TIDAK STABIL</div>
+      <div class="flow-arr">↓ Resusitasi SEGERA!</div>
+      <div class="flow-box warn">USG FAST (bedside)</div>
+      <div class="flow-arr">↓</div>
+      <div class="flow-box decision">Free fluid (+)?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
+        <div>
+          <div class="flow-arr" style="text-align:left">YES ↓</div>
+          <div class="flow-box action" style="background:#f9b9ac;border-color:var(--red)">LAPAROTOMI EMERGENSI!</div>
+        </div>
+        <div>
+          <div class="flow-arr" style="text-align:right">↓ NO</div>
+          <div class="flow-box">Cari sumber syok lain (pelvis, dada)</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box warn">DPL atau Repeat FAST</div>
+        </div>
+      </div>
+    </div>
+    <div class="dr-note">Dari kuliah: "Kalau tidak stabil maka langsung USG. Kalau positif → laparotomi. Jangan kirim CT scan! Pasiennya bisa mati di jalan." Ini prinsip paling krusial trauma abdomen.</div>
+  </div>
+</div>
+
+<!-- ===== TATALAKSANA ===== -->
+<div id="sec-tatalaksana" class="section">
+  <h2 class="section-heading">🏥 Tatalaksana — ATLS 11th Ed xABCDE</h2>
+  <p class="section-desc">Primary & Secondary Survey lengkap dari PPT dr. Linda + tips dari rekaman kuliah.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🆘</span> Primary Survey: xABCDE</div>
+    <div class="tw"><table>
+      <tr><th>Step</th><th>Komponen</th><th>Tindakan Kunci</th></tr>
+      <tr><td><span class="hr">X</span></td><td><strong>Exanguinating Hemorrhage</strong></td><td>Hentikan perdarahan masif yang TERLIHAT: tourniquet, packing, direct pressure</td></tr>
+      <tr><td><span class="ho">A</span></td><td><strong>Airway</strong></td><td>Jaw thrust (curiga cedera servikal), suction, intubasi bila GCS ≤8</td></tr>
+      <tr><td><span class="ho">B</span></td><td><strong>Breathing</strong></td><td>Nilai expansi dada, auskultasi, SpO₂. Atasi tension pneumo/hemothorax</td></tr>
+      <tr><td><span class="ho">C</span></td><td><strong>Circulation</strong></td><td>IV akses 2 jalur, RL 1–2L bolus, nilai respons, cross-match</td></tr>
+      <tr><td><span class="ho">D</span></td><td><strong>Disability</strong></td><td>GCS, pupil, lateralisasi</td></tr>
+      <tr><td><span class="ho">E</span></td><td><strong>Exposure/Environment</strong></td><td>Buka semua pakaian! Cegah hipotermia (selimut hangat)</td></tr>
+    </table></div>
+    <div class="alert alert-red"><span class="ai">⚠️</span><div><strong>Update ATLS 11th Ed:</strong> Sekarang <span class="hr">xABCDE</span>, bukan ABCDE! X ditambahkan di depan untuk menekankan kontrol perdarahan masif SEBELUM airway pada perdarahan masif eksternal. Di UMS 2026 sudah dipakai ini.</div></div>
+    <div class="dr-note">Dari rekaman: "Jangan loncat-loncat. Kalau RW jalan nafasnya belum selesai, jangan langsung infus. Urutan keselamatan itu harus ikut urutan!" Intinya: ABCDE itu sequential, tidak boleh skip!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">🔧</span> Adjuncts to Primary Survey</div>
+    <div class="g2">
+      <div>
+        <ul class="sl">
+          <li>ECG monitoring</li>
+          <li><strong>Urinary catheter</strong> — monitor output urine (JANGAN pasang bila curiga ruptur uretra!)</li>
+          <li><strong>Gastric catheter (NGT)</strong> — dekompresi lambung, cegah aspirasi</li>
+          <li>Monitoring: ABG, Pulse oximeter, Blood pressure</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="sl">
+          <li>X-ray: AP CXR, AP Pelvis, C-spine</li>
+          <li><strong>DPL</strong></li>
+          <li><strong>USG FAST</strong></li>
+        </ul>
+        <div class="dr-note" style="margin-top:10px;font-size:12.5px">Dari kuliah: "Urin pertama yang keluar setelah pasang DC itu DIBUANG dulu! Baru hitung setelahnya. Sebab urin pertama itu sudah ada sejak tadi."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🔎</span> Secondary Survey — AMPLE + Head-to-Toe</div>
+    <div class="g2">
+      <div>
+        <div class="mnemonic">
+          <div class="mnemonic-label">📝 AMPLE History</div>
+          <div class="mnemonic-text">A–M–P–L–E</div>
+          <div class="mnemonic-sub"><strong>A</strong>llergies · <strong>M</strong>edications · <strong>P</strong>ast illness/Pregnancy · <strong>L</strong>ast meal · <strong>E</strong>vents/Environment</div>
+        </div>
+      </div>
+      <div>
+        <p style="font-weight:600;font-size:13px;color:var(--red-deep);margin-bottom:8px">Tanda Bahaya di Secondary Survey</p>
+        <ul class="sl">
+          <li><span class="hr">Peritonitis</span> — rigiditas, guarding, rebound tenderness</li>
+          <li><span class="hr">Syok</span> yang tidak respons resusitasi</li>
+          <li><span class="hr">Eviscerasi</span> — usus keluar dari luka</li>
+        </ul>
+        <div class="alert alert-red" style="margin-top:8px"><span class="ai">⚠️</span><div>Temukan salah satu tanda bahaya di atas → LAPAROTOMI!</div></div>
+      </div>
+    </div>
+    <div class="dr-note">Dari kuliah: "Buka semua bajunya! Sering banget dari masuk infus sudah masuk bangsal, tangannya tidak digerak-gerak, kasihan itu sudah sampai ada fraktur kalau fraktur ketok tidak ketok ya." Intinya: secondary survey itu BUKA SEMUANYA dan periksa dari kepala sampai kaki!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">🚦</span> Indikasi Laparotomi</div>
+    <div class="cw">
+      <div class="cc left">
+        <h4>Trauma TUMPUL</h4>
+        <ul class="sl">
+          <li>Hemodinamik tidak stabil meski sudah resusitasi</li>
+          <li>DPL positif</li>
+          <li>CT Scan: high grade spleen/liver injury</li>
+          <li>Pneumoperitoneum</li>
+          <li>Cedera organ retroperitoneal</li>
+          <li>Vascular injury</li>
+        </ul>
+      </div>
+      <div class="cc right">
+        <h4>Trauma PENETRANS</h4>
+        <ul class="sl">
+          <li>Hemodinamik tidak stabil meski sudah resusitasi</li>
+          <li>Eviscerasi / pneumoperitoneum</li>
+          <li>DPL positif</li>
+          <li>CT scan findings sama seperti tumpul</li>
+          <li>Luka tusuk dengan penetrasi fascia + DPL (+)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GRADING ===== -->
+<div id="sec-grading" class="section">
+  <h2 class="section-heading">📊 AAST Organ Injury Grading</h2>
+  <p class="section-desc">American Association for the Surgery of Trauma — skala cedera organ untuk menentukan tatalaksana.</p>
+
+  <div class="alert alert-orange"><span class="ai">💡</span><div><strong>Prinsip umum:</strong> Grade I–III biasanya bisa NOM (non-operative management) bila hemodinamik stabil. Grade IV–V sering butuh operasi. Grade VI = avulsi vaskuler → kematian hampir pasti.</div></div>
+
+  <!-- LIVER -->
+  <div class="card">
+    <button class="col-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="cicon" style="background:var(--orange-pale)">🫀</span> AAST Grading — Liver Injury</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="col-body">
+      <div class="tw"><table>
+        <tr><th>Grade</th><th>Tipe Injury</th><th>Deskripsi</th></tr>
+        <tr class="aast-I"><td>I</td><td>Hematoma/Laserasi</td><td>Subkapsular &lt;10% luas; robekan kapsul &lt;1 cm dalam</td></tr>
+        <tr class="aast-II"><td>II</td><td>Hematoma/Laserasi</td><td>Subkapsular 10–50%; intraparenkimal &lt;10 cm diameter; robekan 1–3 cm dalam, &lt;10 cm panjang</td></tr>
+        <tr class="aast-III"><td>III</td><td>Hematoma/Laserasi</td><td>Subkapsular &gt;50% atau ruptur; intraparenkimal &gt;10 cm atau expanding; &gt;3 cm dalam</td></tr>
+        <tr class="aast-IV"><td>IV</td><td>Laserasi</td><td>Disrubsi parenkim 25–75% hepatic lobe atau 1–3 segmen Couinaud</td></tr>
+        <tr class="aast-V"><td>V</td><td>Laserasi/Vascular</td><td>Disrubsi &gt;75% hepatic lobe; injuri vena retrohepatik/vena kava</td></tr>
+        <tr class="aast-VI"><td>VI</td><td>Vascular</td><td>Hepatic avulsion</td></tr>
+      </table></div>
+      <div class="alert alert-green"><span class="ai">✅</span><div>Grade I–III stabil → NOM dengan observasi ketat + serial CT scan. Grade IV–V → pertimbangkan operasi atau angioembolisasi. Grade VI → mortalitas sangat tinggi.</div></div>
+    </div>
+  </div>
+
+  <!-- SPLEEN -->
+  <div class="card">
+    <button class="col-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="cicon" style="background:var(--red-pale)">🫐</span> AAST Grading — Spleen Injury</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="col-body">
+      <div class="tw"><table>
+        <tr><th>Grade</th><th>Tipe Injury</th><th>Deskripsi</th></tr>
+        <tr class="aast-I"><td>I</td><td>Hematoma/Laserasi</td><td>Subkapsular &lt;10% luas; robekan kapsul &lt;1 cm dalam</td></tr>
+        <tr class="aast-II"><td>II</td><td>Hematoma/Laserasi</td><td>Subkapsular 10–50%; intraparenkimal &lt;5 cm diameter</td></tr>
+        <tr class="aast-III"><td>III</td><td>Hematoma/Laserasi</td><td>Subkapsular &gt;50% atau expanding; hematoma intraparenkimal ≥5 cm; &gt;3 cm dalam atau melibatkan trabecular vessel</td></tr>
+        <tr class="aast-IV"><td>IV</td><td>Laserasi</td><td>Melibatkan pembuluh segmental/hiler → devaskularisasi &gt;25% lien</td></tr>
+        <tr class="aast-V"><td>V</td><td>Laserasi/Vascular</td><td>Lien hancur total; hilar vascular injury devaskularisasi lien</td></tr>
+      </table></div>
+      <div class="dr-note">Dari rekaman: "Ginjal itu karena organnya retroperitoneal sehingga kalau masih stabil itu kita berusaha sebisa mungkin NOM karena retroperitoneum itu bisa jadi tamponade sendiri." Prinsip sama untuk spleen grade rendah!</div>
+    </div>
+  </div>
+
+  <!-- KIDNEY -->
+  <div class="card">
+    <button class="col-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0"><span class="cicon" style="background:var(--blue-pale)">🫘</span> AAST Grading — Kidney Injury</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="col-body">
+      <div class="tw"><table>
+        <tr><th>Grade</th><th>Tipe Injury</th><th>Deskripsi</th></tr>
+        <tr class="aast-I"><td>I</td><td>Contusion/Hematoma</td><td>Hematuria mikro/makro, studi urologis normal; subkapsular non-expanding tanpa laserasi</td></tr>
+        <tr class="aast-II"><td>II</td><td>Hematoma/Laserasi</td><td>Hematoma perirenal non-expanding; laserasi &lt;1 cm korteks tanpa ekstravasasi urin</td></tr>
+        <tr class="aast-III"><td>III</td><td>Laserasi</td><td>&gt;1 cm korteks tanpa ruptur collecting system</td></tr>
+        <tr class="aast-IV"><td>IV</td><td>Laserasi/Vascular</td><td>Laserasi menembus korteks-medula-collecting system; injuri arteri/vena renal utama dengan perdarahan terkontrol</td></tr>
+        <tr class="aast-V"><td>V</td><td>Laserasi/Vascular</td><td>Ginjal hancur total; avulsi hilus → devaskularisasi</td></tr>
+      </table></div>
+      <div class="alert alert-green"><span class="ai">✅</span><div>Ginjal punya tamponade retroperitoneal yang natural. Grade I–III hampir selalu NOM berhasil. Grade IV–V pertimbangkan angioembolisasi dulu sebelum operasi.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PENETRANS ===== -->
+<div id="sec-penetrans" class="section">
+  <h2 class="section-heading">🗡️ Trauma Penetrans Abdomen</h2>
+  <p class="section-desc">Algoritma berbeda dari trauma tumpul — nilai hemodinamik, peritonitis, dan fascia penetration!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🗺️</span> Algoritma Stab Wound Abdomen/Flank</div>
+    <div style="max-width:520px;margin:0 auto">
+      <div class="flow-box start">Luka Tusuk Abdomen / Flank</div>
+      <div class="flow-arr">↓</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>
+          <div class="flow-box warn" style="background:var(--red-pale);border-color:var(--red)">Hemodinamik abnormal / Peritonitis / Eviscerasi</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box action" style="background:#f9b9ac;border-color:var(--red)">LAPAROTOMI</div>
+        </div>
+        <div>
+          <div class="flow-box">Hemodinamik Normal, Asimtomatik</div>
+          <div class="flow-arr">↓</div>
+          <div class="flow-box warn">Wound Exploration</div>
+          <div class="flow-arr">↓</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+            <div>
+              <div class="flow-box" style="font-size:11px">Fascia Penetration (+)</div>
+              <div class="flow-arr" style="font-size:13px">↓</div>
+              <div class="flow-box warn" style="font-size:11px">DPL</div>
+              <div class="flow-arr" style="font-size:13px">↓</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+                <div class="flow-box action" style="font-size:10px">(+) → Laparotomi</div>
+                <div class="flow-box" style="font-size:10px">(−) → Observe</div>
+              </div>
+            </div>
+            <div>
+              <div class="flow-box" style="font-size:11px">No Fascia Penetration</div>
+              <div class="flow-arr" style="font-size:13px">↓</div>
+              <div class="flow-box action" style="font-size:11px">Observe / Discharge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dr-note">Dari rekaman: "Ada yang dia penyovasinya cuma di permukaan, tidak sampai ke peritoneum sebenarnya. Biasanya kalau cuma kulit saja kita jahit. Tapi kalau sampai fasia terbuka, itu harus eksplorasi dan rujuk."</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">📋</span> Manajemen Benda Tertancap</div>
+    <div class="cr"><div class="cr-label">🧠 Step-by-step</div>
+    <ol class="cr-steps">
+      <li><strong>JANGAN cabut</strong> benda yang tertancap di tempat kejadian atau di luar ruang operasi!</li>
+      <li>Stabilisasi benda dengan balutan tebal di sekitarnya</li>
+      <li>Rujuk dengan benda masih tertancap ke fasilitas bedah</li>
+      <li>Baru dicabut di ruang operasi oleh bedah, setelah akses vena terpasang dan anestesi siap</li>
+      <li>Mencabut sebelum operasi → perdarahan masif bisa tidak terkontrol</li>
+    </ol></div>
+    <div class="alert alert-red"><span class="ai">⚠️</span><div>Dari rekaman: "Nanti kok dicabut dia tusuk gitu terus disambung sampai gede jadi ada udara bebas kan. Kalau sebenarnya ini dan ini pun harus bisa sampai misalnya… pasti operasi." Intinya: cabut di luar OR → bisa fatal!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">🔎</span> Tanda Peritonitis — Wajib Kenal!</div>
+    <div class="g3">
+      <div class="mc" style="border-top:3px solid var(--red)">
+        <h4>🤚 Rigiditas</h4>
+        <p>Perut keras seperti papan saat palpasi. Involuntary guarding — otot perut kontraksi refleks karena iritasi peritoneum.</p>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--orange)">
+        <h4>🔙 Rebound Tenderness</h4>
+        <p>Nyeri meningkat saat tangan pemeriksa dilepas mendadak. Tanda Blumberg (+) → peritonitis parietal.</p>
+      </div>
+      <div class="mc" style="border-top:3px solid var(--red)">
+        <h4>📢 Bising Usus ↓</h4>
+        <p>Ileus paralitik akibat iritasi peritoneum. Peristaltik menurun atau menghilang sama sekali.</p>
+      </div>
+    </div>
+    <div class="alert alert-orange"><span class="ai">💡</span><div><strong>Pneumoperitoneum</strong> pada X-ray (udara bebas sub-diafragma) = tanda pasti hollow viscus rupture → indikasi operasi SEGERA! Dari soal: "posisi tegak → free air sub-diafragma → laparotomi."</div></div>
+  </div>
+</div>
+
+<!-- ===== VIDEO ===== -->
+<div id="sec-video" class="section">
+  <h2 class="section-heading">🎬 Video Kuliah — dr. Linda Jana, SpB</h2>
+  <p class="section-desc">Rekaman kuliah Trauma Abdomen UMS 2026. Tonton setelah baca materi untuk pemahaman klinis yang lebih dalam.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--red-pale)">▶️</span> Trauma Abdomen — dr. Linda Jana, SpB, FINACS, FICS</div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/xWkIC4a8NDE?si=zfDXl9zKeJT6nRvN" title="Trauma Abdomen dr Linda Jana" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div class="alert alert-orange"><span class="ai">📌</span><div>Fokus di video: 1) Penjelasan klinis kasusnya di IGD RSDM, 2) Cara ngitung estimasi perdarahan dari HDS, 3) Decision-making NOM vs laparotomi. Cocokkan dengan algoritma di section Diagnostik!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="cicon" style="background:var(--orange-pale)">📝</span> Poin Penting dari Rekaman Kuliah</div>
+    <ul class="sl">
+      <li>Perkiraan volume darah orang dewasa = 7% × BB. Pria 70 kg = ±5 L.</li>
+      <li>Anak-anak: 8–9% dari berat badan = 70–80 mL/kg.</li>
+      <li>Pasien post-resusitasi: evaluasi rapid/transient/no response → menentukan apakah perdarahan masih aktif.</li>
+      <li>Retroperitoneum = tamponade alami → ginjal cedera grade rendah, berusaha NOM dulu.</li>
+      <li>NGT (gastric catheter) = DEKOMPRESI, bukan nutrisi. Sambungkan ke spet untuk kosongkan lambung.</li>
+      <li>Pasang DC → buang urin pertama dulu, baru hitung balance berikutnya.</li>
+      <li>Benda tertancap → JANGAN cabut sebelum di OR!</li>
+      <li>Primary survey itu sequential — tidak boleh loncat! Selesaikan satu step sebelum lanjut.</li>
+      <li>xABCDE (ATLS 11th Ed) — X ditambahkan untuk kontrol perdarahan masif eksternal.</li>
+      <li>Pneumoperitoneum di foto abdomen → usia hitungan jam → segera laparotomi!</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="sec-quiz" class="section">
+  <h2 class="section-heading">🧠 Quiz — Uji Pemahamanmu!</h2>
+  <p class="section-desc">10 soal vignette berbasis materi kuliah + soal tahun lalu (Axon'20, Arthron'18, Aorta'19, Anthelix'22). Semangat!</p>
+
+  <div class="quiz-prog" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / KEHR SIGN</div>
+    <div class="q-vig">Wanita 30 tahun diantar polisi ke IGD setelah KLL motor. Pada survei primer, airway dan breathing clear. TD 110/70, HR 100x/mnt, RR 20x/mnt. Pasien mengeluh nyeri pada perut sisi kiri dan terasa sampai ke bahu kanan.</div>
+    <p class="q-question">Organ apakah yang paling mungkin mengalami cedera pada kasus ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Colon</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Hepar</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">C</span>Pancreas</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Gaster</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">E</span>Lien</button>
+    </div>
+    <div class="q-exp" id="exp-q1">✅ <strong>E. Lien</strong><br><br>Nyeri perut kiri + nyeri bahu kiri (atau kanan di soal ini) = <strong>Kehr's Sign (+)</strong> → rujukan nyeri dari iritasi subdiafragma akibat perdarahan lien. Darah di rongga subdiafragma mengiritasi diafragma → saraf frenikus C3-C5 → dirujuk ke bahu. Soal ini keluar di Axon'20 no. 54, Arthron'18 no. 29, Aorta'19 no. 4 dengan jawaban yang SAMA: E. Lien.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / KLASIFIKASI PERDARAHAN</div>
+    <div class="q-vig">Laki-laki 50 tahun, jatuh membentur trotoar akibat motor diserempet mobil. Tiba di UGD tampak cemas. TD 70/40 mmHg, HR 130x/mnt, RR 40x/mnt. Jejas luas di hipokondrium kiri. Estimasi berat badan 70 kg.</div>
+    <p class="q-question">Estimasi perdarahan yang paling tepat untuk pasien ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Perdarahan kelas IV &gt;2500 mL</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">B</span>Perdarahan kelas II 750–1500 mL</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">C</span>Perdarahan kelas III 1500–2000 mL</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>Perdarahan kelas I &lt;750 mL</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Perdarahan kelas IV &gt;40%</button>
+    </div>
+    <div class="q-exp" id="exp-q2">✅ <strong>C. Perdarahan Kelas III 1500–2000 mL</strong><br><br>TD 70/40 (turun) + HR 130 + RR 40 → kelas III (31–40% blood loss). Volume darah 70 kg = 5 L. 31–40% = 1550–2000 mL. Soal ini keluar berulang di Axon'20 no. 86, Arthron'18 no. 90. Catatan: beberapa jawaban soal lama menyebut "Kelas IV" karena TD sangat rendah, tapi secara strict ATLS ini kelas III. Penting: penanganannya tetap sama = guyur RL + darah!</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / PENANGANAN SYOK</div>
+    <div class="q-vig">Melanjutkan kasus soal 2: TD 70/40, HR 130, RR 40, jejas hipokondrium kiri. Dokter mendiagnosis syok hipovolemik kelas III.</div>
+    <p class="q-question">Tindakan pertama yang paling tepat untuk mengatasi syok pasien adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">A</span>Pasang IV line kanula terbesar + guyur cairan kristaloid dan koloid</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>Pasang IV line dan berikan obat vasopresor</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">C</span>Berikan obat penghenti perdarahan</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Hangatkan pasien</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">E</span>Bebaskan jalan nafas dan beri O₂</button>
+    </div>
+    <div class="q-exp" id="exp-q3">✅ <strong>A. Pasang IV line kanula terbesar + guyur RL + koloid</strong><br><br>Syok hipovolemik kelas III = kehilangan darah &gt;30% → RESUSITASI CAIRAN segera! IV akses 2 jalur dengan kanula terbesar → RL bolus 1–2L → evaluasi respons. Kenapa bukan E (airway)? Karena di soal disebutkan airway dan breathing clear. Kalau airway belum clear, itu yang harus pertama. Soal ini keluar di Axon'20 no. 3, 76; Arthron'18 no. 11.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / PRIMARY SURVEY</div>
+    <div class="q-vig">Laki-laki 25 tahun, pasca tawuran. Perut disodok tongkat di LUQ. Dokter mengangkat kaki pasien dalam posisi berbaring → pasien mengeluh nyeri akut pada bahu kiri.</div>
+    <p class="q-question">Nama perasat yang dilakukan dokter tersebut adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Murphy's sign</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Shoulder girdle sign</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">C</span>Obturator sign</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>Psoas sign</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">E</span>Kehr's sign</button>
+    </div>
+    <div class="q-exp" id="exp-q4">✅ <strong>E. Kehr's Sign</strong><br><br>Mengangkat kaki pasien dalam posisi supine → darah mengalir ke subdiafragma → iritasi diafragma → nyeri bahu kiri (referred pain via n. phrenicus). Kehr's sign (+) = 50% kasus ruptur lien! Kenapa dirujuk ke bahu <em>kiri</em>? Karena diafragma kiri yang teriritasi. Soal ini keluar di Arthron'18 no. 68, 88.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / DPL</div>
+    <div class="q-vig">Pasien trauma tumpul abdomen hemodinamik tidak stabil. USG FAST dilakukan menunjukkan free fluid. DPL dilakukan sebagai konfirmasi.</div>
+    <p class="q-question">Manakah yang menunjukkan interpretasi hasil DPL positif?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>RBC &gt;10.000/mm³, WBC &gt;500/mm³, Amilase &gt;100 IU/dL</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">B</span>RBC &gt;100.000/mm³ atau WBC &gt;500/mm³ atau Amilase &gt;175 IU/dL</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">C</span>RBC &gt;10.000/mm³, WBC &gt;500/mm³, atau enteric content</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Enteric content atau Amilase &gt;100 atau leukosit &gt;50/mm³</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>RBC &gt;100.000/mm³, WBC &gt;100/mm³, atau enteric content</button>
+    </div>
+    <div class="q-exp" id="exp-q5">✅ <strong>B. RBC &gt;100.000/mm³ atau WBC &gt;500/mm³ atau Amilase &gt;175 IU/dL</strong><br><br>Ini adalah kriteria DPL positif dari EAST Guideline. Ingat angkanya: RBC <span class="hr">100.000</span> (bukan 10.000), WBC <span class="hr">500</span>, Amilase <span class="hr">175</span>. Atau aspirasi darah gross langsung positif. Enteric content (empedu/feses) juga langsung positif → ada hollow viscus injury. Soal ini keluar di Arthron'18 no. 70.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / LUKA TUSUK</div>
+    <div class="q-vig">Pelajar SMA dengan luka iris 5 cm di regio iliaca sinistra akibat senjata tajam. TD 110/70, HR 100, suhu 36.5°C. Dokter melakukan eksplorasi lokal dengan anestesi lokal → ditemukan luka TIDAK menembus fascia.</div>
+    <p class="q-question">Apa tindakan yang tepat dilakukan dokter puskesmas?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Eksplorasi → fascia terbuka → jahit primer, tutup, beri antibiotik</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">B</span>Eksplorasi → fascia terbuka → jahit primer, rujuk ke RS</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">C</span>Eksplorasi → fascia tidak terbuka → tutup kassa steril, rujuk RS</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">D</span>Eksplorasi → fascia tidak terbuka → jahit primer</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Langsung tutup kassa steril dan rujuk ke RS</button>
+    </div>
+    <div class="q-exp" id="exp-q6">✅ <strong>D. Fascia tidak terbuka → jahit primer</strong><br><br>Algoritma stab wound asimtomatik: eksplorasi dulu → bila TIDAK menembus fascia = tidak ada risiko cedera intraperitoneal → jahit primer di puskesmas, tidak perlu rujuk. Bila fascia TERBUKA → DPL/rujuk ke RS. Soal ini keluar di Arthron'18 no. 8.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / TRIAS KEMATIAN</div>
+    <div class="q-vig">Tujuan utama resusitasi cairan pada pasien trauma dengan perdarahan masif adalah mencegah trias kematian yang menjadi penyebab mortalitas tertinggi.</div>
+    <p class="q-question">Apakah yang dimaksud "Trias of Death" pada trauma?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">A</span>Koagulopati, Hipotermia, Asidosis</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">B</span>Hipotermia, Hipovolemi, Asidosis</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">C</span>Koagulopati, Hipoalbuminemia, Alkalosis</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>Koagulopati, Hipertermia, Asidosis</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Hipoalbuminemia, Hipoksemia, Asidosis</button>
+    </div>
+    <div class="q-exp" id="exp-q7">✅ <strong>A. Koagulopati + Hipotermia + Asidosis</strong><br><br>Lethal Triad / Trias Kematian: ketiga komponen saling memperburuk satu sama lain (vicious cycle). Asidosis → gangguan fungsi koagulasi. Hipotermia → enzim koagulasi tidak bekerja optimal. Koagulopati → perdarahan tidak berhenti → makin asidosis, makin dingin. Siklus ini hanya bisa diputus dengan resusitasi agresif + kontrol perdarahan + cegah hipotermia. Soal ini keluar di Axon'20 no. 98 dan Aorta'19 no. 5.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / RESPON RESUSITASI</div>
+    <div class="q-vig">Laki-laki 37 tahun, pasca KLL. TD 100/70, HR 124, RR 36, jejas hipokondrium kiri. Pasien diresusitasi cairan kristaloid 1000 mL → tensi dan nadi menjadi normal. Namun beberapa saat kemudian tensi kembali turun dan nadi menjadi cepat.</div>
+    <p class="q-question">Apa nama respons terapi cairan yang dialami pasien ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>No Response</button>
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">B</span>Transient Response</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">C</span>Minimal Response</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>Late Response</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Rapid Response</button>
+    </div>
+    <div class="q-exp" id="exp-q8">✅ <strong>B. Transient Response</strong><br><br>Awalnya membaik → lalu memburuk lagi = Transient Response. Artinya: perdarahan masih AKTIF berlangsung. Darah yang masuk tidak cukup mengimbangi yang keluar. Butuh darah segera + kemungkinan besar perlu operasi (Likely). Beda dengan: Rapid Response = membaik dan TETAP baik (perdarahan minimal, tidak perlu operasi segera). No Response = tidak membaik sama sekali → butuh operasi SEGERA. Soal ini keluar di Anthelix'22 no. 67.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / INDIKASI LAPAROTOMI</div>
+    <div class="q-vig">Laki-laki 30 tahun, nyeri perut pasca KLL 2 jam lalu. Perut distended, jejas di RUQ, pekak beralih (+), peristaltik normal, nyeri tekan di sekitar jejas. Kondisi pasien stabil. Di RS tipe D.</div>
+    <p class="q-question">Pemeriksaan penunjang yang paling tepat untuk pasien ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Abdomen 3 posisi</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>MRI</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">C</span>BNO (foto polos)</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">D</span>USG</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">E</span>CT Scan abdomen</button>
+    </div>
+    <div class="q-exp" id="exp-q9">✅ <strong>E. CT Scan abdomen</strong><br><br>Pasien stabil dengan pekak beralih (+) = ada cairan bebas intraabdomen. Pasien stabil → bisa ke CT scan untuk grading injury dan menentukan NOM vs operasi. Kenapa bukan USG? USG (FAST) memang bisa, tapi CT scan lebih superior untuk evaluasi organ spesifik di pasien stabil. Kenapa bukan abdomen 3 posisi? Itu lebih untuk curiga hollow viscus injury (cari udara bebas). Soal ini keluar di Arthron'18 no. 75.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / PRIMARY SURVEY LENGKAP</div>
+    <div class="q-vig">Pasien 26 tahun, pasca KLL motor dalam kondisi hujan. Tampak mengantuk dan gelisah, ingin mencabut infus. Celana berlumuran darah. HR 123x/mnt, TD 70/50 mmHg, RR 30x/mnt, CRT &gt;2 detik, kulit pucat.</div>
+    <p class="q-question">Manakah penatalaksanaan primary survey yang PALING TEPAT dilakukan?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Patenkan airway → evaluasi nafas → hentikan perdarahan</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">B</span>Patenkan airway → evaluasi nafas → hentikan perdarahan → resusitasi → evaluasi neurologis → cegah hipotermia</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">C</span>Patenkan airway → evaluasi nafas → hentikan perdarahan → evaluasi neurologis</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">D</span>Patenkan airway → evaluasi nafas → hentikan perdarahan → resusitasi → evaluasi neurologis</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">E</span>Patenkan airway → evaluasi nafas → hentikan perdarahan → evaluasi neurologis → cegah hipotermia</button>
+    </div>
+    <div class="q-exp" id="exp-q10">✅ <strong>E. A → B → Hentikan perdarahan → D (neurologis) → E (cegah hipotermia)</strong><br><br>Ini adalah full xABCDE primary survey. Urutan: X (hentikan perdarahan masif eksternal jika ada) → A (airway) → B (breathing) → C (circulation: resusitasi cairan) → D (disability: GCS, neurologis) → E (exposure: buka baju + cegah hipotermia). Catatan: soal ini tidak menyertakan resusitasi cairan secara eksplisit di pilihan E, tapi ini yang paling lengkap. Soal ini keluar di Arthron'18 no. 97.</div>
+  </div>
+
+  <!-- Score -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:34px;margin-bottom:6px">🎉</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:17px;opacity:.8;margin-top:3px">/ 10</div>
+    <p style="font-size:15px;opacity:.85;margin-top:8px" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// NAV
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// COLLAPSE
+function toggle(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// QUIZ
+let answered={},score=0,total=10;
+function initDots(){
+  const p=document.getElementById('quizProg');p.innerHTML='';
+  for(let i=1;i<=total;i++){const d=document.createElement('div');d.className='pdot';d.id='dot'+i;p.appendChild(d);}
+}
+function ans(btn,qid,correct){
+  if(answered[qid])return;
+  answered[qid]=true;
+  const n=parseInt(qid.replace('q',''));
+  const card=document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b=>{b.disabled=true;});
+  if(correct){btn.classList.add('correct');score++;document.getElementById('dot'+n).classList.add('ok');}
+  else{btn.classList.add('wrong');document.getElementById('dot'+n).classList.add('no');
+    card.querySelectorAll('.q-opt').forEach(b=>{if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes(',true)'))b.classList.add('correct');});}
+  const exp=document.getElementById('exp-'+qid);if(exp)exp.classList.add('show');
+  if(Object.keys(answered).length===total)setTimeout(showScore,700);
+}
+function showScore(){
+  const sc=document.getElementById('scoreCard');sc.classList.add('show');
+  document.getElementById('scoreNum').textContent=score;
+  const msgs=['Ayo review lagi, semangat! 💪','Masih perlu banyak latihan soal! 📖','Lumayan! Tingkatkan terus! 🌟','Bagus banget! Hampir sempurna! 🔥','SEMPURNA! Siap ujian! 🎊'];
+  document.getElementById('scoreMsg').textContent=msgs[score<=3?0:score<=5?1:score<=7?2:score<=9?3:4];
+  sc.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(){
+  answered={};score=0;
+  document.querySelectorAll('.q-opt').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});
+  document.querySelectorAll('.q-exp').forEach(e=>e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();window.scrollTo({top:0,behavior:'smooth'});
+}
+initDots();
+</script>
+</body>
+</html>

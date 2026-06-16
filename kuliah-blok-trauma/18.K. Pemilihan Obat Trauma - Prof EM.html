@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💊 Pemilihan Obat pada Trauma — Prof. EM Sutrisna</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #F4A7C0;
+  --pink-light: #FDEEF5;
+  --pink-pale: #FFF5FA;
+  --pink-deep: #B5547A;
+  --green: #7EC8A4;
+  --green-light: #E8F7EF;
+  --green-pale: #F2FBF6;
+  --green-deep: #3A7D5C;
+  --cream: #FDFAF6;
+  --white: #FFFFFF;
+  --text: #2A2A2A;
+  --text-muted: #6B6B6B;
+  --border: #EEE6F0;
+  --amber: #F9C86A;
+  --amber-pale: #FFF8E8;
+  --amber-deep: #9A6E1A;
+  --blue-pale: #EAF4FF;
+  --blue: #6BAED6;
+  --blue-deep: #1A5080;
+  --red-pale: #FFEAEA;
+  --red: #E07070;
+  --red-deep: #8B2222;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ====== HERO ====== */
+.hero {
+  background: linear-gradient(135deg, #F472A8 0%, #E8A0C0 40%, #A8D8C0 100%);
+  padding: 56px 48px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 10%;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.hero h1 em { font-style: italic; color: rgba(255,255,255,0.85); }
+.hero-sub {
+  color: rgba(255,255,255,0.88);
+  font-size: 14px;
+  font-weight: 300;
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.pill {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.hero-yt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.22);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 9px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.hero-yt:hover { background: rgba(255,255,255,0.35); }
+.yt-icon { font-size: 18px; }
+
+/* ====== NAV ====== */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--pink-deep);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  box-shadow: 0 3px 16px rgba(181,84,122,0.3);
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(255,220,235,0.7);
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 13px 18px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-btn:hover, .nav-btn.active {
+  color: white;
+  border-bottom-color: var(--green);
+}
+
+/* ====== LAYOUT ====== */
+.container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+/* ====== SECTIONS ====== */
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--pink-deep);
+  margin-bottom: 4px;
+}
+.section-desc {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 28px;
+}
+
+/* ====== CARDS ====== */
+.card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(244,167,192,0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: 0 6px 22px rgba(244,167,192,0.15); transform: translateY(-1px); }
+.card-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--pink-deep);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-icon {
+  width: 30px; height: 30px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ====== ALERTS ====== */
+.alert {
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin: 12px 0;
+  font-size: 13.5px;
+  display: flex;
+  gap: 10px;
+  line-height: 1.65;
+}
+.alert-pink { background: var(--pink-light); border-left: 4px solid var(--pink); color: var(--pink-deep); }
+.alert-green { background: var(--green-light); border-left: 4px solid var(--green); color: var(--green-deep); }
+.alert-amber { background: var(--amber-pale); border-left: 4px solid var(--amber); color: var(--amber-deep); }
+.alert-blue { background: var(--blue-pale); border-left: 4px solid var(--blue); color: var(--blue-deep); }
+.alert-red { background: var(--red-pale); border-left: 4px solid var(--red); color: var(--red-deep); }
+.alert-icon { flex-shrink: 0; margin-top: 1px; }
+
+/* Prof note */
+.prof-note {
+  background: linear-gradient(135deg, #FFF0F6, #F2FBF6);
+  border: 1.5px solid var(--pink);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.prof-note::before {
+  content: '🎤 Prof. EM Sutrisna: ';
+  font-weight: 800;
+  color: var(--pink-deep);
+}
+
+/* ====== TABLES ====== */
+.table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--border); margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th {
+  background: linear-gradient(90deg, var(--pink-deep), #C06A90);
+  color: white;
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+th:first-child { border-radius: 13px 0 0 0; }
+th:last-child { border-radius: 0 13px 0 0; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 13.5px; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--pink-pale); }
+tr:hover td { background: var(--pink-light); transition: background 0.15s; }
+
+/* ====== GRIDS ====== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+@media(max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* ====== MINI CARDS ====== */
+.mini-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.mini-card h4 {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--pink-deep);
+  margin-bottom: 8px;
+}
+.mini-card p, .mini-card li { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+.mini-card ul { padding-left: 16px; }
+.mini-card li { margin-bottom: 3px; }
+
+/* ====== STYLED LIST ====== */
+.styled-list { list-style: none; padding: 0; }
+.styled-list li {
+  padding: 7px 0 7px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  position: relative;
+  line-height: 1.65;
+}
+.styled-list li::before {
+  content: '✿';
+  position: absolute; left: 0;
+  color: var(--pink);
+  font-size: 10px;
+  top: 11px;
+}
+.styled-list li:last-child { border-bottom: none; }
+
+/* ====== FLOW BOX ====== */
+.flow-box {
+  background: linear-gradient(135deg, var(--green-pale), var(--pink-pale));
+  border: 1.5px solid var(--green);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.flow-label { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-deep); margin-bottom: 10px; }
+.flow-steps { counter-reset: fl; list-style: none; padding: 0; }
+.flow-steps li {
+  counter-increment: fl;
+  padding: 7px 0 7px 32px;
+  position: relative;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(126,200,164,0.25);
+  line-height: 1.65;
+}
+.flow-steps li:last-child { border-bottom: none; }
+.flow-steps li::before {
+  content: counter(fl);
+  position: absolute; left: 0; top: 8px;
+  width: 20px; height: 20px;
+  background: var(--green-deep);
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+}
+
+/* ====== HIGHLIGHTS ====== */
+.hl-pink { background: var(--pink-light); color: var(--pink-deep); padding: 1px 7px; border-radius: 5px; font-weight: 700; font-size: 13px; }
+.hl-green { background: var(--green-light); color: var(--green-deep); padding: 1px 7px; border-radius: 5px; font-weight: 700; font-size: 13px; }
+.hl-amber { background: var(--amber-pale); color: var(--amber-deep); padding: 1px 7px; border-radius: 5px; font-weight: 700; font-size: 13px; }
+.hl-red { background: var(--red-pale); color: var(--red-deep); padding: 1px 7px; border-radius: 5px; font-weight: 700; font-size: 13px; }
+.hl-blue { background: var(--blue-pale); color: var(--blue-deep); padding: 1px 7px; border-radius: 5px; font-weight: 700; font-size: 13px; }
+
+/* ====== MNEMONIC ====== */
+.mnemonic {
+  background: linear-gradient(135deg, var(--pink-light), var(--green-light));
+  border: 2px solid var(--pink);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.mnemonic-label { font-size: 10px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pink-deep); margin-bottom: 5px; }
+.mnemonic-text { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--text); font-weight: 700; }
+.mnemonic-sub { font-size: 13px; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+
+/* ====== DIVIDER ====== */
+.divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+/* ====== DRUG BADGE ====== */
+.drug-badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  margin: 2px;
+}
+.db-pink { background: var(--pink-light); color: var(--pink-deep); }
+.db-green { background: var(--green-light); color: var(--green-deep); }
+.db-amber { background: var(--amber-pale); color: var(--amber-deep); }
+.db-blue { background: var(--blue-pale); color: var(--blue-deep); }
+
+/* ====== COMPARE ====== */
+.compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.compare-col { border-radius: 12px; padding: 16px 18px; border: 1.5px solid; }
+.compare-col.left { background: var(--green-pale); border-color: var(--green); }
+.compare-col.right { background: var(--pink-pale); border-color: var(--pink); }
+.compare-col h4 { font-size: 14px; font-weight: 800; margin-bottom: 10px; }
+.compare-col.left h4 { color: var(--green-deep); }
+.compare-col.right h4 { color: var(--pink-deep); }
+.compare-row { display: flex; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.05); gap: 8px; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row span:first-child { opacity: 0.6; width: 80px; flex-shrink: 0; font-size: 12px; }
+@media(max-width: 580px) { .compare-wrap { grid-template-columns: 1fr; } }
+
+/* ====== COLLAPSE ====== */
+.collapse-btn {
+  background: none; border: none;
+  width: 100%; text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0; font-family: inherit;
+}
+.collapse-btn .chev { transition: transform 0.25s; font-size: 11px; color: var(--text-muted); }
+.collapse-btn.open .chev { transform: rotate(180deg); }
+.collapse-body { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.collapse-body.open { display: block; animation: fadeUp 0.25s ease; }
+
+/* ====== QUIZ ====== */
+.quiz-q {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 22px;
+  position: relative;
+}
+.q-num {
+  position: absolute; top: -12px; left: 22px;
+  background: var(--pink-deep); color: white;
+  font-size: 11px; font-weight: 800; letter-spacing: 1px;
+  padding: 4px 14px; border-radius: 10px;
+}
+.q-vignette {
+  background: linear-gradient(135deg, var(--pink-light), var(--green-pale));
+  border-left: 4px solid var(--pink);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+  color: var(--pink-deep);
+}
+.q-question { font-weight: 800; font-size: 14px; margin-bottom: 14px; color: var(--text); }
+.q-opts { display: flex; flex-direction: column; gap: 8px; }
+.q-opt {
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: all 0.18s;
+  color: var(--text);
+}
+.q-opt:hover:not(:disabled) { border-color: var(--pink); background: var(--pink-pale); }
+.q-opt .ol { font-weight: 800; font-size: 11px; min-width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.q-opt.correct { background: var(--green-light) !important; border-color: var(--green-deep) !important; color: var(--green-deep); }
+.q-opt.correct .ol { background: var(--green-deep); color: white; }
+.q-opt.wrong { background: var(--red-pale) !important; border-color: var(--red) !important; color: var(--red-deep); }
+.q-opt.wrong .ol { background: var(--red); color: white; }
+.q-opt:disabled { cursor: default; }
+.q-exp {
+  display: none;
+  margin-top: 12px;
+  background: var(--green-pale);
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--green-deep);
+  border-left: 3px solid var(--green);
+}
+.q-exp.show { display: block; animation: fadeUp 0.3s ease; }
+.quiz-progress { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
+.pdot { width: 10px; height: 10px; border-radius: 50%; background: rgba(244,167,192,0.2); transition: background 0.3s; }
+.pdot.ok { background: var(--green-deep); }
+.pdot.no { background: var(--red); }
+.score-card {
+  background: linear-gradient(135deg, var(--pink-deep), #D0709A, var(--green-deep));
+  color: white; border-radius: 20px; padding: 40px;
+  text-align: center; display: none; margin-top: 28px;
+  animation: fadeUp 0.4s ease;
+}
+.score-card.show { display: block; }
+.score-big { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.9); line-height: 1; margin: 10px 0; }
+.score-msg { font-size: 15px; opacity: 0.85; margin-top: 8px; }
+.btn-restart { margin-top: 20px; background: white; color: var(--pink-deep); border: none; border-radius: 30px; padding: 11px 26px; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: transform 0.2s; }
+.btn-restart:hover { transform: translateY(-2px); }
+
+/* ====== BIOSYNTHESIS DIAGRAM ====== */
+.bio-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 10px 0;
+}
+.bio-node {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  min-width: 180px;
+}
+.bio-arrow { font-size: 20px; color: var(--text-muted); margin: 2px 0; line-height: 1; }
+.bio-branch {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bio-branch-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.bio-inhibit {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+@media(max-width: 600px) {
+  .hero { padding: 36px 20px 32px; }
+  .container { padding: 28px 16px; }
+  .card { padding: 16px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">💊 Blok Traumatologi · Prof. Dr. dr. EM Sutrisna, M.Kes</div>
+  <h1>Pemilihan <em>Obat</em><br>pada Trauma</h1>
+  <p class="hero-sub">Rangkuman lengkap dari PPT + rekaman kuliah. Mulai dari koagulan, analgetik-antiinflamasi, hingga antiinfeksi — semua terangkum di sini.</p>
+  <div class="hero-pills">
+    <span class="pill">🩸 Koagulan Lokal & Sistemik</span>
+    <span class="pill">💊 AINS & Analgesik</span>
+    <span class="pill">🧫 Antiinfeksi</span>
+    <span class="pill">🧠 Trauma Kepala</span>
+    <span class="pill">🧪 10 Soal Quiz</span>
+  </div>
+  <a href="https://youtu.be/51m28qBW6xY?si=GQKU5WjHCl2I72aY" target="_blank" class="hero-yt">
+    <span class="yt-icon">▶</span> Tonton Rekaman Kuliah
+  </a>
+</div>
+
+<!-- NAV -->
+<div class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('koagulan')">🩸 Koagulan</button>
+  <button class="nav-btn" onclick="show('ains')">💊 AINS</button>
+  <button class="nav-btn" onclick="show('analgesik')">🌡️ Analgesik</button>
+  <button class="nav-btn" onclick="show('kepala')">🧠 Trauma Kepala</button>
+  <button class="nav-btn" onclick="show('antiinfeksi')">🧫 Antiinfeksi</button>
+  <button class="nav-btn" onclick="show('quiz')">🎯 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- =============================== OVERVIEW =============================== -->
+<div id="sec-overview" class="section active">
+  <h2 class="section-heading">Peta Materi & Kerangka Berpikir</h2>
+  <p class="section-desc">Cara berpikir pemilihan obat pada trauma dimulai dari simptom → kelas terapi → obat spesifik.</p>
+
+  <div class="prof-note">Apapun kasusnya, kembalikan pada simptomnya. Trauma hematoraks misalnya: (1) koagulan untuk perdarahan, (2) NSAID untuk nyeri, (3) antibiotik untuk potensi infeksi. Trauma kepala beda lagi — yang utama itu TIK-nya, berikan manitol!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">🗺️</span> Kerangka Pemilihan Obat pada Trauma</div>
+    <div class="flow-box">
+      <div class="flow-label">🧠 Alur Berpikir Sistematis</div>
+      <ol class="flow-steps">
+        <li><strong>Identifikasi jenis trauma:</strong> fisika (mekanik, termal), kimia, atau kombinasi</li>
+        <li><strong>Kenali risiko utama:</strong> hematoma, perdarahan, inflamasi, dan infeksi</li>
+        <li><strong>Tentukan simptom yang perlu ditangani:</strong> perdarahan → koagulan; nyeri/inflamasi → AINS; infeksi → antibiotik; edema serebri → diuretik osmotik</li>
+        <li><strong>Pilih obat spesifik sesuai kelas terapi</strong> dan kondisi pasien</li>
+        <li><strong>Monitor respons dan efek samping</strong> — terutama iritasi lambung pada AINS</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-light)">📊</span> Risiko Umum Trauma & Obat yang Digunakan</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Risiko Trauma</th><th>Kelas Obat</th><th>Contoh Obat</th></tr>
+        <tr><td><strong>Hematoma / Perdarahan</strong></td><td>Koagulan (lokal & sistemik)</td><td>Ethamsylate, Asam Traneksamat, Aprotinin, Carbazochrome, Vit K</td></tr>
+        <tr><td><strong>Nyeri & Inflamasi</strong></td><td>AINS / Analgesik</td><td>Ibuprofen, Diklofenak, Parasetamol, Metampiron</td></tr>
+        <tr><td><strong>Infeksi</strong></td><td>Antibiotik</td><td>Sefalosporin, Penisilin, Aminoglikosida, Kuinolon</td></tr>
+        <tr><td><strong>Edema Serebri (Trauma Kepala)</strong></td><td>Diuretik Osmotik</td><td><span class="hl-pink">Manitol 20%</span>, Loop diuretik</td></tr>
+        <tr><td><strong>Hemofilia A</strong></td><td>Faktor Koagulasi</td><td>Faktor VIII (Antihemofilik)</td></tr>
+        <tr><td><strong>Hemofilia B</strong></td><td>Faktor Koagulasi</td><td><span class="hl-green">Kompleks Faktor IX</span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚠️</span> Konteks Klinis Penting dari Kuliah</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--pink);">
+        <h4>🩺 Trauma Abdomen Tumpul</h4>
+        <p>Jejas di perut → observasi 24 jam. Ukur lingkar perut — kalau bertambah = ada perdarahan intraabdominal. Microrupture organ bisa terjadi tanpa gejala awal!</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>✂️ Sebelum Sirkumsisi</h4>
+        <p>Wajib tanya riwayat perdarahan sulit membeku. Hemofilia → JANGAN sirkumsisi, rujuk! Jahitan tidak akan bisa menghentikan perdarahan.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =============================== KOAGULAN =============================== -->
+<div id="sec-koagulan" class="section">
+  <h2 class="section-heading">🩸 Obat Koagulan / Hemostatik</h2>
+  <p class="section-desc">Obat untuk menghentikan perdarahan — dibagi menjadi lokal dan sistemik. Ini yang PALING SERING KELUAR di soal!</p>
+
+  <div class="prof-note">Setiap memar terjadi karena pecahnya kapiler. Kalau traumanya lokal (memar tangan), berikan hemostatik lokal. Kalau abdomen, torak, ada risiko ruptur organ — berikan sistemik!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">🔬</span> Pembagian Koagulan & Mekanisme Kerjanya</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>📍 Koagulan LOKAL</h4>
+        <div class="compare-row"><span>Obat:</span><strong>Ethamsylate</strong></div>
+        <div class="compare-row"><span>Mekanisme:</span>Meningkatkan adesivitas platelet + mengubah resistensi kapiler</div>
+        <div class="compare-row"><span>Efek:</span>Mengurangi waktu perdarahan & kehilangan darah</div>
+        <div class="compare-row"><span>Indikasi:</span>Trauma lokal, hematom eksternal, operasi</div>
+        <div class="compare-row"><span>Catatan:</span>Bisa juga digunakan sistemik</div>
+      </div>
+      <div class="compare-col right">
+        <h4>💉 Koagulan SISTEMIK</h4>
+        <div class="compare-row"><span>Obat:</span>Aprotinin, Ethamsylate, Asam Traneksamat, Carbazochrome, Vit K</div>
+        <div class="compare-row"><span>Indikasi:</span>Trauma abdomen, torak, bedah buka jantung, perdarahan masif</div>
+        <div class="compare-row"><span>Catatan:</span>Aprotinin = indikasi bedah jantung risiko tinggi</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">💊</span> Detail Masing-Masing Koagulan — HIGH YIELD!</div>
+
+    <!-- Asam Traneksamat -->
+    <div style="background: var(--pink-pale); border-radius: 12px; padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--pink-deep);">
+      <p style="font-weight: 800; font-size: 14px; color: var(--pink-deep); margin-bottom: 8px;">🔴 Asam Traneksamat <span class="drug-badge db-pink">PALING SERING DI SOAL</span></p>
+      <div class="grid-2">
+        <ul class="styled-list">
+          <li><strong>Mekanisme:</strong> <span class="hl-pink">Inhibitor kompetitif dari aktivator plasminogen</span> + menghambat plasmin</li>
+          <li>Mengatasi perdarahan berat akibat fibrinolisis berlebihan</li>
+          <li>Kontraindikasi: <span class="hl-red">penyakit tromboemboli</span></li>
+        </ul>
+        <ul class="styled-list">
+          <li>Digunakan pada perdarahan intraabdominal, trauma, pasca bedah</li>
+          <li>Bukan antikoagulan — ini adalah PRO-koagulan (mempertahankan bekuan)</li>
+          <li>Sering digunakan pada DHF (off-label)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ethamsylate -->
+    <div style="background: var(--green-pale); border-radius: 12px; padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--green-deep);">
+      <p style="font-weight: 800; font-size: 14px; color: var(--green-deep); margin-bottom: 8px;">🟢 Ethamsylate</p>
+      <ul class="styled-list">
+        <li><strong>Mekanisme:</strong> Meningkatkan adesivitas platelet + menstabilkan membran kapiler + meningkatkan resistensi kapiler</li>
+        <li>Menghambat enzim prostaglandin spesifik dalam proses sintesanya</li>
+        <li>Digunakan pada operasi, hematom, luka eksternal</li>
+        <li>Bisa lokal maupun sistemik</li>
+      </ul>
+    </div>
+
+    <!-- Carbazochrome -->
+    <div style="background: var(--blue-pale); border-radius: 12px; padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--blue);">
+      <p style="font-weight: 800; font-size: 14px; color: var(--blue-deep); margin-bottom: 8px;">🔵 Carbazochrome</p>
+      <ul class="styled-list">
+        <li><strong>Indikasi:</strong> Perdarahan akibat penurunan resistensi kapiler dan meningkatnya permeabilitas kapiler</li>
+        <li>Perdarahan kulit, membran mukosa, internal</li>
+        <li>Perdarahan sekitar mata, perdarahan nefrotik, metroragia</li>
+        <li>Perdarahan abnormal selama/setelah pembedahan</li>
+      </ul>
+    </div>
+
+    <!-- Aprotinin -->
+    <div style="background: var(--amber-pale); border-radius: 12px; padding: 16px; margin-bottom: 12px; border-left: 4px solid var(--amber);">
+      <p style="font-weight: 800; font-size: 14px; color: var(--amber-deep); margin-bottom: 8px;">🟡 Aprotinin</p>
+      <ul class="styled-list">
+        <li><strong>Mekanisme:</strong> Dugaan menghambat tripsin (protease inhibitor)</li>
+        <li><strong>Indikasi:</strong> Bedah buka jantung dengan risiko kehilangan darah tinggi</li>
+        <li>Klasifikasi sistemik — bukan untuk trauma lokal sederhana</li>
+      </ul>
+    </div>
+
+    <!-- Vit K -->
+    <div style="background: #F0FFF4; border-radius: 12px; padding: 16px; border-left: 4px solid #5A9A5A;">
+      <p style="font-weight: 800; font-size: 14px; color: #3A6A3A; margin-bottom: 8px;">🌿 Vitamin K & Turunannya</p>
+      <div class="grid-2">
+        <ul class="styled-list">
+          <li>Vit K1: Pilloquinone</li>
+          <li>Vit K2: Menaquinone</li>
+          <li>Vit K3: Mendione (sintesis)</li>
+        </ul>
+        <ul class="styled-list">
+          <li>Memerlukan waktu untuk efek — harus merangsang pembentukan faktor pembekuan dulu</li>
+          <li>Sering digunakan bidan/paramedis pada perdarahan pasca persalinan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">🧬</span> Faktor Koagulasi untuk Hemofilia</div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div>Sebelum sirkumsisi, WAJIB tanya riwayat perdarahan. Hemofilia A (Faktor VIII) → berikan Faktor Antihemofilik VIII. Hemofilia B (Faktor IX) → berikan Kompleks Faktor IX. Jangan sekali-kali sirkumsisi pasien hemofilia tanpa persiapan!</div></div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--pink);">
+        <h4>Hemofilia A</h4>
+        <p><strong>Defisiensi:</strong> Faktor VIII</p>
+        <p><strong>Terapi:</strong> Faktor Antihemofilik (Faktor VIII) / Cryoprecipitate</p>
+        <p style="margin-top:6px;">Indikasi: mencegah/mengatasi perdarahan pada hemofilia A + pada darah yang mengandung inhibitor Faktor VIII</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>Hemofilia B</h4>
+        <p><strong>Defisiensi:</strong> Faktor IX</p>
+        <p><strong>Terapi:</strong> Kompleks Faktor IX (mengandung Faktor II, VII, IX, X)</p>
+        <p style="margin-top:6px;">Juga digunakan bila diperlukan faktor-faktor tersebut untuk mencegah perdarahan</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-light)">⚡</span> Tabel Ringkas Koagulan — Cocok untuk Review Cepat</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Obat</th><th>Jenis</th><th>Mekanisme Kunci</th><th>Indikasi Utama</th></tr>
+        <tr><td><strong>Asam Traneksamat</strong></td><td><span class="drug-badge db-pink">Sistemik</span></td><td>Inhibitor kompetitif aktivator plasminogen</td><td>Perdarahan masif, intraabdominal</td></tr>
+        <tr><td><strong>Ethamsylate</strong></td><td><span class="drug-badge db-green">Lokal/Sistemik</span></td><td>↑ Adesivitas platelet, ↑ resistensi kapiler</td><td>Trauma, operasi, hematom</td></tr>
+        <tr><td><strong>Carbazochrome</strong></td><td><span class="drug-badge db-blue">Sistemik</span></td><td>Mengurangi permeabilitas kapiler</td><td>Perdarahan akibat kapiler rapuh</td></tr>
+        <tr><td><strong>Aprotinin</strong></td><td><span class="drug-badge db-amber">Sistemik</span></td><td>Inhibitor protease (tripsin)</td><td>Bedah jantung risiko tinggi</td></tr>
+        <tr><td><strong>Vitamin K</strong></td><td><span class="drug-badge db-green">Sistemik</span></td><td>Merangsang sintesis faktor koagulasi</td><td>Defisiensi Vit K, perdarahan postpartum</td></tr>
+        <tr><td><strong>Faktor VIII</strong></td><td><span class="drug-badge db-pink">Sistemik</span></td><td>Menggantikan faktor koagulasi yang hilang</td><td>Hemofilia A</td></tr>
+        <tr><td><strong>Faktor IX</strong></td><td><span class="drug-badge db-pink">Sistemik</span></td><td>Menggantikan faktor koagulasi yang hilang</td><td>Hemofilia B</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- =============================== AINS =============================== -->
+<div id="sec-ains" class="section">
+  <h2 class="section-heading">💊 AINS — Anti Inflamasi Non Steroid</h2>
+  <p class="section-desc">Kelas obat dengan efek analgesik, antipiretik, dan antiinflamasi — bekerja melalui penghambatan prostaglandin.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">🔬</span> Biosintesis Prostaglandin & Titik Kerja AINS</div>
+    <!-- Visual diagram biosintesis PG -->
+    <div style="background: linear-gradient(135deg, var(--pink-pale), var(--green-pale)); border-radius: 14px; padding: 20px; margin-bottom: 14px;">
+      <div class="bio-flow">
+        <div class="bio-node" style="background: var(--pink-light); color: var(--pink-deep); border: 1.5px solid var(--pink);">Trauma / Luka → Gangguan Membran Sel</div>
+        <div class="bio-arrow">↓</div>
+        <div class="bio-node" style="background: white; color: var(--text-muted); border: 1px solid var(--border); font-size: 12px;">Fosfolipase A2</div>
+        <div class="bio-arrow">↓ <span style="font-size:11px; color:var(--green-deep);">[dihambat Kortikosteroid]</span></div>
+        <div class="bio-node" style="background: var(--amber-pale); color: var(--amber-deep); border: 1.5px solid var(--amber);">Asam Arakhidonat</div>
+        <div class="bio-arrow">↓</div>
+        <div class="bio-branch">
+          <div class="bio-branch-col">
+            <div class="bio-node" style="background: var(--blue-pale); color: var(--blue-deep); border: 1px solid var(--blue); font-size: 12px; min-width: 140px;">Lipooksigenase</div>
+            <div class="bio-arrow">↓</div>
+            <div class="bio-node" style="background: white; color: var(--text-muted); border: 1px solid var(--border); font-size: 11px; min-width: 130px;">Leukotrien</div>
+          </div>
+          <div style="font-size: 22px; color: var(--text-muted); padding: 0 10px; margin-top: 8px;">|</div>
+          <div class="bio-branch-col">
+            <div style="font-size: 10px; font-weight: 800; background: var(--red-pale); color: var(--red-deep); padding: 2px 8px; border-radius: 6px; margin-bottom: 4px;">⬅ Dihambat AINS</div>
+            <div class="bio-node" style="background: var(--green-light); color: var(--green-deep); border: 1.5px solid var(--green); font-size: 12px; min-width: 140px;">Siklooksigenase (COX)</div>
+            <div class="bio-arrow">↓</div>
+            <div class="bio-node" style="background: white; color: var(--text-muted); border: 1px solid var(--border); font-size: 11px; min-width: 130px;">Endoperoksid → PGG2/PGH2</div>
+            <div class="bio-arrow">↓</div>
+            <div style="display:flex; gap: 6px; flex-wrap: wrap; justify-content:center;">
+              <div class="bio-node" style="background: var(--pink-light); color: var(--pink-deep); border: 1px solid var(--pink); font-size: 11px; min-width: 100px; padding: 6px 10px;">PGE2, PGF2, PGD2</div>
+              <div class="bio-node" style="background: var(--amber-pale); color: var(--amber-deep); border: 1px solid var(--amber); font-size: 11px; min-width: 100px; padding: 6px 10px;">Tromboksan A2</div>
+              <div class="bio-node" style="background: var(--green-light); color: var(--green-deep); border: 1px solid var(--green); font-size: 11px; min-width: 80px; padding: 6px 10px;">Prostasiklin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-pink"><span class="alert-icon">💡</span><div>AINS bekerja dengan <strong>menghambat siklooksigenase (COX)</strong> → mengurangi produksi prostaglandin → efek analgesik, antipiretik, antiinflamasi. Kortikosteroid bekerja lebih hulu — menghambat fosfolipase A2.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-light)">🗂️</span> Klasifikasi AINS Berdasarkan COX Selektivitas</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>Inhibitor COX-I saja</h4>
+        <ul>
+          <li>Indomethacin</li>
+          <li>Sulindac</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--pink);">
+        <h4>Inhibitor COX-I + COX-II</h4>
+        <ul>
+          <li>Ibuprofen</li>
+          <li>Aspirin</li>
+          <li>Meclofenamate</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>Inhibitor COX-II saja</h4>
+        <ul>
+          <li>Celecoxib</li>
+          <li>Rofecoxib</li>
+        </ul>
+        <p style="margin-top:6px; font-size:12px; color:var(--green-deep);">Lebih aman untuk lambung!</p>
+      </div>
+    </div>
+    <div class="alert alert-green" style="margin-top:12px;"><span class="alert-icon">💡</span><div>COX-2 selektif (Celecoxib) memiliki efek samping gastrointestinal yang LEBIH KECIL karena tidak menghambat COX-1 yang protektif di mukosa lambung.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚠️</span> Efek Samping AINS yang Wajib Diingat</div>
+    <div class="grid-2">
+      <div>
+        <div class="alert alert-red"><span class="alert-icon">🚨</span><div><strong>Iritasi Lambung (Lokal):</strong> difusi asam lambung ke mukosa → kerusakan mukosa. Berikan dengan makan!</div></div>
+        <div class="alert alert-red"><span class="alert-icon">🚨</span><div><strong>Iritasi Sistemik:</strong> hambatan PGE2 & PGI2 di mukosa → turunnya proteksi mukosa → ulkus peptik</div></div>
+      </div>
+      <div>
+        <div class="alert alert-amber"><span class="alert-icon">⚠️</span><div><strong>Gangguan Trombosit:</strong> hambatan Tromboksan A2 → perpanjangan waktu perdarahan</div></div>
+        <div class="alert alert-amber"><span class="alert-icon">⚠️</span><div><strong>Alergi:</strong> terutama aspirin — asma aspirin-sensitive. Kontraindikasi absolut!</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">📋</span> Detail Beberapa AINS Penting</div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div class="collapse-btn" onclick="toggle(this)" style="background:var(--pink-pale); border-radius:10px; padding:12px 16px; border: 1px solid var(--pink); display:flex; justify-content:space-between; cursor:pointer;">
+        <span style="font-weight:800; color:var(--pink-deep);">🔴 Aspirin (Asam Salisilat)</span>
+        <span class="chev">▼</span>
+      </div>
+      <div class="collapse-body">
+        <div class="grid-2">
+          <ul class="styled-list">
+            <li>Penghambat nonselektif COX-I dan COX-II</li>
+            <li>Dosis kecil (80-325 mg): antiplatelet untuk kardioproteksi, cegah infark miokard</li>
+            <li>Dosis analgesik: 300-1000 mg</li>
+            <li>Penggunaan lain: antikoagulan, menurunkan insidensi kanker GIT</li>
+          </ul>
+          <ul class="styled-list">
+            <li>Efek di nafas: merangsang pernapasan, ↑ konsumsi O2</li>
+            <li>Efek urikosurik: dosis &lt;2g/hari hambat ekskresi asam urat</li>
+            <li><strong>Intoksikasi:</strong> Salisilismus — pusing, tinitus, gangguan pendengaran/penglihatan</li>
+            <li><strong>Kontraindikasi:</strong> alergi aspirin!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="collapse-btn" onclick="toggle(this)" style="background:var(--green-pale); border-radius:10px; padding:12px 16px; border: 1px solid var(--green); display:flex; justify-content:space-between; cursor:pointer;">
+        <span style="font-weight:800; color:var(--green-deep);">🟢 Ibuprofen</span>
+        <span class="chev">▼</span>
+      </div>
+      <div class="collapse-body">
+        <ul class="styled-list">
+          <li>Sebagai AINS standar (antiinflamasi, analgesik, antipiretik)</li>
+          <li>Antikoagulan</li>
+          <li>Menurunkan insidensi Alzheimer</li>
+          <li>Menghambat kerusakan paru pada bronkitis & bronkiektasis</li>
+          <li>Efek samping sama dengan AINS lain — iritasi lambung</li>
+        </ul>
+      </div>
+
+      <div class="collapse-btn" onclick="toggle(this)" style="background:var(--blue-pale); border-radius:10px; padding:12px 16px; border: 1px solid var(--blue); display:flex; justify-content:space-between; cursor:pointer;">
+        <span style="font-weight:800; color:var(--blue-deep);">🔵 Diklofenak</span>
+        <span class="chev">▼</span>
+      </div>
+      <div class="collapse-body">
+        <ul class="styled-list">
+          <li>Baik untuk rematik karena efek terapi di sendi jauh lebih panjang dari waktu paruh obat</li>
+          <li>Waktu paruh: 1,1 jam, tapi efek antiinflamasi di sendi bertahan lebih lama</li>
+          <li>Dosis: 50-75 mg 3-4x sehari</li>
+        </ul>
+      </div>
+
+      <div class="collapse-btn" onclick="toggle(this)" style="background:var(--amber-pale); border-radius:10px; padding:12px 16px; border: 1px solid var(--amber); display:flex; justify-content:space-between; cursor:pointer;">
+        <span style="font-weight:800; color:var(--amber-deep);">🟡 Piroksikam</span>
+        <span class="chev">▼</span>
+      </div>
+      <div class="collapse-body">
+        <ul class="styled-list">
+          <li><span class="hl-amber">Waktu paruh plasma &gt;45 jam</span> — cukup diberikan 1x sehari (qd)</li>
+          <li>Efek samping sama dengan AINS lain</li>
+          <li>Cocok untuk pasien yang sulit compliance dengan dosis sering</li>
+        </ul>
+      </div>
+
+      <div class="collapse-btn" onclick="toggle(this)" style="background:var(--pink-pale); border-radius:10px; padding:12px 16px; border: 1px solid var(--pink); display:flex; justify-content:space-between; cursor:pointer;">
+        <span style="font-weight:800; color:var(--pink-deep);">🔴 Indometasin</span>
+        <span class="chev">▼</span>
+      </div>
+      <div class="collapse-body">
+        <ul class="styled-list">
+          <li>Sebagai AINS kuat</li>
+          <li>Antipiretik pada Hodgkin's disease</li>
+          <li>Pengobatan Patent Ductus Arteriosus (PDA) pada neonatus</li>
+          <li>Penghambat COX-1 selektif — risiko GI tinggi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =============================== ANALGESIK =============================== -->
+<div id="sec-analgesik" class="section">
+  <h2 class="section-heading">🌡️ Analgesik Antipiretik Non-AINS</h2>
+  <p class="section-desc">Parasetamol dan Metampiron — analgesik tanpa efek antiinflamasi bermakna.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">💊</span> Parasetamol (Asetaminofen)</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:800; font-size:13px; color:var(--pink-deep); margin-bottom:8px;">Farmakodinamik</p>
+        <ul class="styled-list">
+          <li>Analgesik: menghambat biosintesis PG tapi <span class="hl-amber">lemah</span></li>
+          <li>Antipiretik: efek sentral, serupa salisilat</li>
+          <li><span class="hl-red">Antiinflamasi: SANGAT LEMAH / tidak ada</span></li>
+          <li>Tidak menyebabkan iritasi lambung!</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:800; font-size:13px; color:var(--pink-deep); margin-bottom:8px;">Farmakokinetik & Dosis</p>
+        <ul class="styled-list">
+          <li>Absorpsi cepat dan sempurna melalui GI</li>
+          <li>Sediaan: tablet 500 mg</li>
+          <li>Dosis dewasa: 300 mg – 1 g / kali</li>
+          <li>Dosis anak: 10–15 mg/kgBB / kali</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Toksisitas Akut!</strong> Dosis tunggal 10–15 gram (200–250 mg/kgBB) menyebabkan <span class="hl-red">nekrosis hati</span> yang fatal. Juga bisa nekrosis tubuli renalis dan koma hipoglikemik. Gunakan sesuai dosis!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-light)">⚗️</span> Metampiron / Dipiron (Antalgin)</div>
+    <div class="grid-2">
+      <div>
+        <ul class="styled-list">
+          <li>Derivat Pirazolon yang masih digunakan</li>
+          <li>Analgesik + Antipiretik</li>
+          <li>Antiinflamasi: lemah</li>
+          <li>Tersedia: tablet/kaplet ATAU parenteral (injeksi)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Efek Samping Serius:</strong> Agranulositosis, anemia aplastik, trombositopenia, hemolisis, edema, tremor, perdarahan lambung</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📊</span> Perbandingan Analgesik Antipiretik</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Obat</th><th>Analgesik</th><th>Antipiretik</th><th>Antiinflamasi</th><th>Iritasi Lambung</th></tr>
+        <tr><td><strong>Aspirin</strong></td><td>✅ Kuat</td><td>✅ Kuat</td><td>✅ Kuat</td><td>⚠️ Tinggi</td></tr>
+        <tr><td><strong>Ibuprofen</strong></td><td>✅ Baik</td><td>✅ Baik</td><td>✅ Baik</td><td>⚠️ Sedang</td></tr>
+        <tr><td><strong>Diklofenak</strong></td><td>✅ Baik</td><td>✅</td><td>✅ Baik</td><td>⚠️ Sedang</td></tr>
+        <tr><td><strong>Parasetamol</strong></td><td>✅ Baik</td><td>✅ Baik</td><td>❌ Sangat lemah</td><td>✅ Minimal</td></tr>
+        <tr><td><strong>Metampiron</strong></td><td>✅ Baik</td><td>✅ Baik</td><td>⚠️ Lemah</td><td>⚠️ Ada</td></tr>
+        <tr><td><strong>Asam Mefenamat</strong></td><td>✅ Kuat</td><td>✅</td><td>⚠️ Kurang vs aspirin</td><td>⚠️ Ada</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- =============================== TRAUMA KEPALA =============================== -->
+<div id="sec-kepala" class="section">
+  <h2 class="section-heading">🧠 Obat pada Trauma Kepala</h2>
+  <p class="section-desc">Masalah utama trauma kepala adalah peningkatan Tekanan Intrakranial (TIK) akibat edema serebri.</p>
+
+  <div class="prof-note">Trauma kepala problemnya adalah peningkatan TIK! Otak yang memar akan edema, volumenya membesar tapi terkungkung tulang kranium — kepalanya seperti mau pecah. Berikan diuretik osmotik: Manitol 20%!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">🧪</span> Patofisiologi Peningkatan TIK & Tatalaksana</div>
+    <div class="flow-box">
+      <div class="flow-label">🧠 Alur Patofisiologi</div>
+      <ol class="flow-steps">
+        <li>Otak terbentur tulang kranium calvaria → memar jaringan otak</li>
+        <li>Inflamasi → edema serebri → volume otak bertambah</li>
+        <li>Calvaria tidak bisa meluas → tekanan intrakranial meningkat</li>
+        <li>Perfusi otak terganggu → hipoksia → cedera sekunder</li>
+        <li><strong>Terapi:</strong> berikan Manitol 20% untuk menurunkan TIK dengan menarik air keluar dari jaringan otak via efek osmotik</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-light)">💊</span> Obat Penurun TIK</div>
+    <div class="grid-2">
+      <div style="background: linear-gradient(135deg, var(--pink-pale), var(--green-pale)); border-radius: 14px; padding: 18px; border: 2px solid var(--pink);">
+        <p style="font-weight: 800; font-size: 15px; color: var(--pink-deep); margin-bottom: 10px;">🥇 Manitol 20% <span class="drug-badge db-pink">LINI PERTAMA</span></p>
+        <ul class="styled-list">
+          <li><strong>Dosis:</strong> 0,5 – 1 mg/kgBB selama 30 menit</li>
+          <li>Diulang setelah 6 jam dengan dosis separuhnya selama 30 menit</li>
+          <li><strong>Batasan:</strong> Osmolalitas tidak boleh &gt;310 mOsm</li>
+          <li>Mekanisme: diuretik osmotik → menarik air dari jaringan otak</li>
+        </ul>
+      </div>
+      <div style="background: var(--blue-pale); border-radius: 14px; padding: 18px; border: 1.5px solid var(--blue);">
+        <p style="font-weight: 800; font-size: 15px; color: var(--blue-deep); margin-bottom: 10px;">🥈 Loop Diuretik (Furosemid)</p>
+        <ul class="styled-list">
+          <li><strong>Dosis:</strong> 40 mg/hari IV</li>
+          <li>Digunakan bila manitol tidak cukup atau tersedia</li>
+          <li>Bukan lini pertama untuk TIK</li>
+          <li>Perhatikan keseimbangan elektrolit!</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">💡</span><div><strong>Ingat:</strong> Manitol BUKAN furosemid untuk trauma kepala. Manitol bekerja secara osmotik menarik air dari parenkim otak. Furosemid bisa diberikan sebagai tambahan tapi bukan pilihan utama.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📋</span> Obat Lain Sesuai Simptom Trauma Kepala</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Simptom</th><th>Kelas Obat</th><th>Contoh</th></tr>
+        <tr><td>Peningkatan TIK / Edema</td><td>Diuretik Osmotik</td><td><span class="hl-pink">Manitol 20%</span></td></tr>
+        <tr><td>Nyeri kepala</td><td>Analgesik AINS</td><td>Ibuprofen, Parasetamol</td></tr>
+        <tr><td>Infeksi sekunder (meningitis)</td><td>Antibiotik</td><td>Sefalosporin generasi 3</td></tr>
+        <tr><td>Kejang</td><td>Antikonvulsan</td><td>Fenitoin, Levetiracetam</td></tr>
+        <tr><td>Luka kepala / hematom</td><td>Koagulan lokal</td><td>Ethamsylate</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- =============================== ANTIINFEKSI =============================== -->
+<div id="sec-antiinfeksi" class="section">
+  <h2 class="section-heading">🧫 Antiinfeksi pada Trauma</h2>
+  <p class="section-desc">Setiap trauma berpotensi infeksi — kenali mekanisme kerja antibiotik berdasarkan titik kerjanya.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-light)">🗂️</span> Klasifikasi Antibiotik Berdasarkan Mekanisme Kerja</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--pink);">
+        <h4>🧱 Hambat Sintesis Dinding Sel</h4>
+        <ul>
+          <li>Penisilin</li>
+          <li>Sefalosporin</li>
+          <li>Basitrasin</li>
+          <li>Vankomisin</li>
+          <li>Sikloserin</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>🧬 Hambat Sintesis Protein</h4>
+        <ul>
+          <li>Aminoglikosida</li>
+          <li>Makrolid</li>
+          <li>Linkomisin</li>
+          <li>Tetrasiklin</li>
+          <li>Kloramfenikol</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>🧪 Hambat Metabolisme Sel</h4>
+        <ul>
+          <li>Sulfonamid</li>
+          <li>Trimetoprim</li>
+          <li>PAS (anti-TB)</li>
+        </ul>
+        <p style="margin-top:5px; font-size:12px;">Bersaing dengan PABA → asam folat non fungsional → bakteri mati. Bersifat bakteriostatik.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>🔬 Hambat Sintesis Asam Nukleat</h4>
+        <ul>
+          <li>Rifampisin</li>
+          <li>Kuinolon</li>
+        </ul>
+        <div style="margin-top:5px;"></div>
+        <h4 style="margin-top:8px;">💧 Ganggu Membran Sel</h4>
+        <ul>
+          <li>Polimiksin</li>
+          <li>Golongan polien</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--pink-light)">📊</span> Spektrum Aktivitas Antibiotik</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>🔫 Bakterisid</h4>
+        <div class="compare-row"><span>Efek:</span>Membunuh bakteri secara langsung</div>
+        <div class="compare-row"><span>Contoh:</span>Penisilin, Sefalosporin, Aminoglikosida, Kuinolon</div>
+        <div class="compare-row"><span>Pilih saat:</span>Infeksi berat, imunokompromais</div>
+      </div>
+      <div class="compare-col right">
+        <h4>⏸️ Bakteriostatik</h4>
+        <div class="compare-row"><span>Efek:</span>Menghambat pertumbuhan bakteri (tidak membunuh)</div>
+        <div class="compare-row"><span>Contoh:</span>Tetrasiklin, Kloramfenikol, Sulfonamid, Makrolid</div>
+        <div class="compare-row"><span>Pilih saat:</span>Infeksi ringan-sedang, imun pasien cukup</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🎯</span> Antiinfeksi Berdasarkan Jenis Trauma</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jenis Trauma</th><th>Risiko Infeksi</th><th>Antibiotik Pilihan</th></tr>
+        <tr><td>Luka laserasi terbuka</td><td>Kontaminasi tanah, gram +</td><td>Penisilin / Amoksisilin ± Metronidazol</td></tr>
+        <tr><td>Trauma torak (hemotoraks)</td><td>Pneumonia, empyema</td><td>Sefalosporin generasi 1-2</td></tr>
+        <tr><td>Trauma abdomen / laparotomi</td><td>Gram negatif, anaerob</td><td>Ampisilin + Gentamisin + Metronidazol</td></tr>
+        <tr><td>Luka bakar</td><td>Pseudomonas, gram negatif</td><td>Meropenem / Gentamisin (topikal: Silver sulfadiazin)</td></tr>
+        <tr><td>Trauma kepala terbuka</td><td>Meningitis</td><td>Sefalosporin generasi 3 (Ceftriaxon)</td></tr>
+        <tr><td>Luka tusuk / tembak</td><td>Anaerob, tetanus</td><td>Penisilin G + Metronidazol + Vaksin Tetanus</td></tr>
+      </table>
+    </div>
+    <div class="prof-note">Farmakologi trauma itu kembali ke simptomnya. Kalau ada potensi infeksi → berikan antibiotik. Kalau ada perdarahan → koagulan. Kalau nyeri → AINS. Semua diberikan bersamaan sesuai indikasi!</div>
+  </div>
+</div>
+
+<!-- =============================== QUIZ =============================== -->
+<div id="sec-quiz" class="section">
+  <h2 class="section-heading">🎯 Quiz — Uji Pemahamanmu!</h2>
+  <p class="section-desc">10 soal berbasis materi Prof. EM Sutrisna. Semangat! ✨</p>
+  <div class="quiz-progress" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / KOAGULAN</div>
+    <div class="q-vignette">Seorang laki-laki 30 tahun dibawa ke IGD setelah kecelakaan motor, perut membentur stang motor. Terdapat jejas di epigastrium. Dokter menduga ada intraabdominal bleeding dan memberikan obat koagulan.</div>
+    <p class="q-question">Obat yang diberikan adalah asam traneksamat. Apakah mekanisme kerjanya?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Merangsang adesivitas trombosit dan meningkatkan resistensi kapiler</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Merangsang pembentukan faktor pembekuan darah II dan VII</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">C</span>Inhibitor kompetitif dari aktivator plasminogen dan menghambat plasmin</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Menghambat enzim siklooksigenase untuk menurunkan prostaglandin</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Menghambat fibrinolisis dengan cara mengikat faktor XII</button>
+    </div>
+    <div class="q-exp" id="exp-q1">✅ <strong>C. Inhibitor kompetitif dari aktivator plasminogen dan menghambat plasmin</strong><br><br>Asam traneksamat bekerja sebagai inhibitor kompetitif aktivator plasminogen. Ini mencegah pembentukan plasmin dari plasminogen, sehingga plasmin tidak bisa memecah fibrin yang sudah terbentuk (fibrinolisis terhambat). Hasilnya: bekuan darah dipertahankan lebih lama, perdarahan berhenti. Mekanisme ini sangat relevan untuk mengatasi perdarahan berat akibat fibrinolisis berlebihan.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / KOAGULAN LOKAL</div>
+    <div class="q-vignette">Seorang wanita 25 tahun terpeleset di sungai dan mengalami memar (hematom) pada lutut. Dokter puskesmas memberikan obat hemostatik lokal. Tanda vital normal, tidak ada tanda fraktur/dislokasi.</div>
+    <p class="q-question">Obat hemostatik lokal manakah yang paling tepat diberikan pada kasus ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Asam traneksamat</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">B</span>Aprotinin</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">C</span>Ethamsylate</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>Vitamin K</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Carbazochrome</button>
+    </div>
+    <div class="q-exp" id="exp-q2">✅ <strong>C. Ethamsylate</strong><br><br>Ethamsylate adalah obat hemostatik yang beraksi di dinding kapiler. Mekanismenya: meningkatkan adesivitas platelet + mengubah resistensi kapiler → mengurangi waktu perdarahan. Ethamsylate bisa digunakan lokal maupun sistemik. Untuk hematom lokal (memar lutut), ini adalah pilihan yang tepat. Asam traneksamat dan Aprotinin lebih untuk indikasi sistemik/berat. Carbazochrome untuk perdarahan akibat kapiler rapuh. Vitamin K butuh waktu lama untuk efek.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / HEMOFILIA</div>
+    <div class="q-vignette">Seorang anak laki-laki 7 tahun terkena pisau dapur. Dijahit dokter, tetapi perdarahan tetap rembes. Setelah serangkaian tes, dinyatakan menderita Hemofilia B.</div>
+    <p class="q-question">Jenis koagulan spesifik manakah yang diberikan pada kasus ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Faktor Antihemofilik (Faktor VIII)</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>Asam Traneksamat</button>
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">C</span>Kompleks Faktor IX</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Carbazochrome</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">E</span>Vitamin K</button>
+    </div>
+    <div class="q-exp" id="exp-q3">✅ <strong>C. Kompleks Faktor IX</strong><br><br>Hemofilia B adalah defisiensi Faktor IX. Kompleks Faktor IX mengandung Faktor II, VII, IX, dan X — digunakan untuk pengobatan Hemofilia B atau bila diperlukan faktor-faktor tersebut untuk mencegah perdarahan. Faktor VIII (Antihemofilik) adalah untuk Hemofilia A (defisiensi Faktor VIII). Penting: sebelum tindakan sirkumsisi, wajib tanya riwayat perdarahan sulit berhenti untuk mendeteksi hemofilia!</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / BIOSINTESIS PG</div>
+    <div class="q-vignette">Soal tentang biosintesis prostaglandin.</div>
+    <p class="q-question">AINS (Anti Inflamasi Non Steroid) bekerja dengan menghambat enzim apa dalam jalur biosintesis prostaglandin?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Fosfolipase A2</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Lipooksigenase</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">C</span>Siklooksigenase (COX)</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>Tromboxan sintetase</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>Prostasiklin sintetase</button>
+    </div>
+    <div class="q-exp" id="exp-q4">✅ <strong>C. Siklooksigenase (COX)</strong><br><br>Alur: Trauma → gangguan membran → Fosfolipase A2 (dihambat kortikosteroid) → Asam Arakhidonat → COX (dihambat AINS) → PGG2/PGH2 → PGE2, PGF2, Tromboksan A2, Prostasiklin. AINS menghambat COX → produksi prostaglandin berkurang → efek analgesik, antipiretik, antiinflamasi. Kortikosteroid bekerja lebih hulu (hambat fosfolipase A2).</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / TRAUMA KEPALA</div>
+    <div class="q-vignette">Seorang pria 35 tahun, kecelakaan lalu lintas, kepala membentur aspal. CT scan menunjukkan edema serebri dengan peningkatan tekanan intrakranial (TIK).</div>
+    <p class="q-question">Obat pilihan utama untuk menurunkan TIK pada pasien ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>Furosemid 40 mg IV</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">B</span>Manitol 20% 0,5–1 mg/kgBB selama 30 menit</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">C</span>Deksametason 10 mg IV</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Spironolakton 100 mg oral</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>Asam traneksamat 1 gram IV</button>
+    </div>
+    <div class="q-exp" id="exp-q5">✅ <strong>B. Manitol 20% 0,5–1 mg/kgBB selama 30 menit</strong><br><br>Manitol 20% adalah diuretik osmotik pilihan utama untuk menurunkan TIK pada trauma kepala. Bekerja dengan menarik air dari jaringan otak ke dalam pembuluh darah via efek osmotik → edema serebri berkurang → TIK turun. Dosis: 0,5–1 mg/kgBB selama 30 menit, diulang 6 jam kemudian dengan dosis separuhnya. Osmolalitas tidak boleh >310 mOsm. Furosemid (loop diuretik) bisa sebagai tambahan tapi bukan lini pertama untuk TIK.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / AINS</div>
+    <div class="q-vignette">Pasien dengan riwayat asma dan alergi aspirin datang dengan nyeri sendi. Dokter ingin memberikan AINS dengan risiko gastrointestinal paling rendah.</div>
+    <p class="q-question">AINS manakah yang paling tepat diberikan?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Ibuprofen</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">B</span>Aspirin</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">C</span>Celecoxib</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>Indomethacin</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Naproxen</button>
+    </div>
+    <div class="q-exp" id="exp-q6">✅ <strong>C. Celecoxib</strong><br><br>Celecoxib adalah inhibitor COX-2 selektif. COX-1 berperan dalam proteksi mukosa lambung (produksi PGE2 dan PGI2 yang menghambat sekresi asam dan merangsang mukus). Dengan hanya menghambat COX-2 (yang terlibat dalam inflamasi), celecoxib memiliki risiko iritasi GI yang jauh lebih rendah. Aspirin kontraindikasi pada pasien alergi aspirin. Indomethacin adalah inhibitor COX-1 selektif — risiko GI tinggi.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / CARBAZOCHROME</div>
+    <div class="q-vignette">Seorang pasien mengalami perdarahan akibat menurunnya resistensi kapiler dan meningkatnya permeabilitas kapiler pasca trauma.</div>
+    <p class="q-question">Obat koagulan manakah yang paling spesifik untuk indikasi ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>Asam Traneksamat</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">B</span>Aprotinin</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">C</span>Vitamin K</button>
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">D</span>Carbazochrome</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Kompleks Faktor IX</button>
+    </div>
+    <div class="q-exp" id="exp-q7">✅ <strong>D. Carbazochrome</strong><br><br>Indikasi Carbazochrome: perdarahan karena penurunan resistensi kapiler dan meningkatnya permeabilitas kapiler. Ini termasuk perdarahan dari kulit, membran mukosa, internal, sekitar mata, perdarahan nefrotik, metroragia, dan perdarahan abnormal selama/setelah pembedahan. Carbazochrome bekerja dengan menstabilkan dinding kapiler dan mengurangi permeabilitasnya.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / PARASETAMOL</div>
+    <div class="q-vignette">Seorang pasien dengan riwayat ulkus peptik aktif datang dengan demam dan nyeri kepala pasca trauma ringan.</div>
+    <p class="q-question">Analgesik-antipiretik manakah yang paling aman untuk pasien ini?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">A</span>Parasetamol (Asetaminofen)</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">B</span>Aspirin</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">C</span>Ibuprofen</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>Metampiron</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Indometasin</button>
+    </div>
+    <div class="q-exp" id="exp-q8">✅ <strong>A. Parasetamol (Asetaminofen)</strong><br><br>Parasetamol adalah analgesik-antipiretik yang tidak menyebabkan iritasi lambung karena tidak menghambat COX di perifer secara signifikan. Absorbsi cepat dan sempurna. Berbeda dengan AINS lainnya (aspirin, ibuprofen, indomethacin) yang menghambat COX → mengurangi PGE2 dan PGI2 pelindung mukosa → risiko ulkus. PENTING: dosis berlebih parasetamol (>10g) menyebabkan nekrosis hati yang fatal!</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / ANTIBIOTIK MEKANISME</div>
+    <div class="q-vignette">Pertanyaan tentang mekanisme antibiotik.</div>
+    <p class="q-question">Sulfonamid dan Trimetoprim menghambat pertumbuhan bakteri melalui mekanisme apa?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Menghambat sintesis dinding sel bakteri</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>Mengganggu keutuhan membran sel bakteri</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">C</span>Menghambat metabolisme sel bakteri dengan bersaing dengan PABA membentuk asam folat non-fungsional</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">D</span>Menghambat sintesis protein di ribosom bakteri</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Menghambat sintesis asam nukleat bakteri</button>
+    </div>
+    <div class="q-exp" id="exp-q9">✅ <strong>C. Bersaing dengan PABA → asam folat non-fungsional</strong><br><br>Sulfonamid dan Trimetoprim bekerja dengan menghambat metabolisme sel bakteri. Bakteri membutuhkan asam folat untuk pertumbuhan. Sulfonamid bersaing dengan PABA (Para-Aminobenzoic Acid) → terbentuk asam folat non-fungsional → bakteri tidak bisa tumbuh → mati (bersifat BAKTERIOSTATIK). PAS (Asam para-aminosalisilat) adalah analog PABA yang menghambat sintesis asam folat pada Mycobacterium tuberculosis.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / INTEGRASI KLINIS</div>
+    <div class="q-vignette">Pasien laki-laki 45 tahun terkena trauma hematoraks, dirawat di IGD. Dokter merencanakan pemberian farmakologi yang komprehensif.</div>
+    <p class="q-question">Manakah kombinasi farmakologi yang PALING TEPAT untuk kasus hematoraks traumatik?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Manitol + Aspirin + Penisilin</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">B</span>Furosemid + Parasetamol + Metronidazol</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">C</span>Asam Traneksamat (koagulan) + AINS (analgesik) + Antibiotik (antiinfeksi)</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">D</span>Faktor VIII + Ibuprofen + Vankomisin</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Vitamin K + Deksametason + Kuinolon</button>
+    </div>
+    <div class="q-exp" id="exp-q10">✅ <strong>C. Koagulan + AINS + Antibiotik</strong><br><br>Prof. EM Sutrisna menekankan: apapun kasus trauma, kembalikan ke simptomnya. Hematoraks (darah di rongga pleura) memerlukan: (1) Koagulan seperti Asam Traneksamat untuk menghentikan perdarahan, (2) AINS/Analgesik untuk mengatasi nyeri, (3) Antibiotik karena ada risiko infeksi. Manitol hanya untuk trauma kepala dengan peningkatan TIK. Faktor VIII hanya untuk hemofilia A. Kombinasi C mencakup ketiga aspek simptom utama hematoraks traumatik secara sistematis.</div>
+  </div>
+
+  <!-- Score card -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:40px; margin-bottom:8px;">🌸</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:18px; opacity:0.8; margin-top:4px;">/ 10</div>
+    <p class="score-msg" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+</div><!-- /quiz -->
+
+</div><!-- /container -->
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+let answered = {}, score = 0, total = 10;
+
+function initDots() {
+  const p = document.getElementById('quizProg');
+  p.innerHTML = '';
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot';
+    d.id = 'dot' + i;
+    p.appendChild(d);
+  }
+}
+
+function ans(btn, qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const qNum = parseInt(qid.replace('q', ''));
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+  if (correct) {
+    btn.classList.add('correct');
+    score++;
+    document.getElementById('dot' + qNum).classList.add('ok');
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('dot' + qNum).classList.add('no');
+    card.querySelectorAll('.q-opt').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) b.classList.add('correct');
+    });
+  }
+  const exp = document.getElementById('exp-' + qid);
+  if (exp) exp.classList.add('show');
+  if (Object.keys(answered).length === total) setTimeout(showScore, 700);
+}
+
+function showScore() {
+  const sc = document.getElementById('scoreCard');
+  sc.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const msgs = ['Ayo semangat belajar lagi! 💪', 'Masih perlu review nih! 📖', 'Lumayan, hampir setengah! 🌱', 'Bagus banget, terus pertahankan! 🌸', 'Sempurna! Siap jadi dokter! 🌟'];
+  const idx = score <= 3 ? 0 : score <= 5 ? 1 : score <= 7 ? 2 : score <= 9 ? 3 : 4;
+  document.getElementById('scoreMsg').textContent = msgs[idx];
+  sc.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function resetQuiz() {
+  answered = {}; score = 0;
+  document.querySelectorAll('.q-opt').forEach(b => { b.disabled = false; b.classList.remove('correct', 'wrong'); });
+  document.querySelectorAll('.q-exp').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+initDots();
+</script>
+</body>
+</html>
