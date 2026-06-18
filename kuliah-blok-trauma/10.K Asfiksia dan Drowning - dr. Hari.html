@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🫁 Asfiksia & Drowning — Rangkuman Forensik</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --tosca: #0E7C7B;
+  --tosca-light: #2BA6A4;
+  --tosca-pale: #DCF1EF;
+  --tosca-deep: #0A5957;
+  --slate: #3A4750;
+  --slate-light: #6B7785;
+  --ink: #1C2B2B;
+  --ink-muted: #50625F;
+  --border: #CBE6E3;
+  --cream: #F6FBFA;
+  --white: #ffffff;
+  --red: #B23A3A;
+  --red-pale: #FBEAEA;
+  --amber: #B8862E;
+  --amber-pale: #FBF1DD;
+  --green: #2E7D5B;
+  --green-pale: #E6F4ED;
+  --purple: #6A5A9C;
+  --purple-pale: #EFEBF7;
+  --blue: #3A6EA5;
+  --blue-pale: #E8F0F9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ====== HERO ====== */
+.hero {
+  background: linear-gradient(135deg, var(--tosca-deep) 0%, var(--tosca) 55%, #1a9a93 100%);
+  padding: 60px 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(220,241,239,0.12);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 12%;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(220,241,239,0.2);
+  border: 1px solid rgba(220,241,239,0.4);
+  color: var(--tosca-pale);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--tosca-pale);
+}
+.hero-sub {
+  color: rgba(255,255,255,0.82);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.7;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+.pill {
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  background: rgba(255,255,255,0.95);
+  color: var(--tosca-deep);
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.hero-link:hover { background: var(--white); }
+
+/* ====== NAV ====== */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--tosca-deep);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  box-shadow: 0 3px 16px rgba(10,89,87,0.35);
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(220,241,239,0.65);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  padding: 13px 18px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-btn:hover, .nav-btn.active {
+  color: var(--white);
+  border-bottom-color: #F2C572;
+}
+
+/* ====== LAYOUT ====== */
+.container { max-width: 940px; margin: 0 auto; padding: 44px 24px; }
+
+/* ====== SECTIONS ====== */
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--tosca-deep);
+  margin-bottom: 6px;
+}
+.section-desc {
+  color: var(--ink-muted);
+  font-size: 13.5px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 30px;
+}
+
+/* ====== CARDS ====== */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(14,124,123,0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: 0 6px 24px rgba(14,124,123,0.13); transform: translateY(-1px); }
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--tosca-deep);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ====== ALERTS ====== */
+.alert {
+  padding: 13px 17px;
+  border-radius: 10px;
+  margin: 13px 0;
+  font-size: 13.5px;
+  display: flex;
+  gap: 10px;
+  line-height: 1.65;
+}
+.alert-tosca { background: var(--tosca-pale); border-left: 4px solid var(--tosca); color: var(--tosca-deep); }
+.alert-blue { background: var(--blue-pale); border-left: 4px solid var(--blue); color: #234a73; }
+.alert-red { background: var(--red-pale); border-left: 4px solid var(--red); color: #7a2424; }
+.alert-green { background: var(--green-pale); border-left: 4px solid var(--green); color: #1a4a30; }
+.alert-amber { background: var(--amber-pale); border-left: 4px solid var(--amber); color: #7a5a18; }
+.alert-purple { background: var(--purple-pale); border-left: 4px solid var(--purple); color: #423a64; }
+.alert-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+/* Dokter / sumber note marker */
+.dr-note {
+  background: linear-gradient(135deg, #e3f5f3, #d7efed);
+  border: 1.5px solid var(--tosca-light);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.dr-note::before {
+  content: '🎤 dr. Hari Wujoso menekankan: ';
+  font-weight: 700;
+  color: var(--tosca-deep);
+}
+.dr-note.busyra::before {
+  content: '🔗 Sambungan dari kuliah dr. Busyra (Trauma Mekanik): ';
+  color: var(--purple);
+}
+.dr-note.diskusi::before {
+  content: '💬 Dari diskusi termin kuliah pakar: ';
+  color: var(--blue);
+}
+
+/* ====== TABLES ====== */
+.table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th {
+  background: var(--tosca-deep);
+  color: white;
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+th:first-child { border-radius: 11px 0 0 0; }
+th:last-child { border-radius: 0 11px 0 0; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 13.5px; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #f1faf9; }
+tr:hover td { background: var(--tosca-pale); transition: background 0.15s; }
+
+/* ====== GRIDS ====== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media(max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* ====== MINI CARDS ====== */
+.mini-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.mini-card h4 {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  color: var(--tosca-deep);
+  margin-bottom: 8px;
+}
+.mini-card p, .mini-card li { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+.mini-card ul { padding-left: 16px; }
+.mini-card li { margin-bottom: 3px; }
+
+/* ====== STYLED LIST ====== */
+.styled-list { list-style: none; padding: 0; }
+.styled-list li {
+  padding: 7px 0 7px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  position: relative;
+  line-height: 1.65;
+}
+.styled-list li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--tosca);
+  font-size: 11px;
+  top: 10px;
+}
+.styled-list li:last-child { border-bottom: none; }
+
+/* ====== CLINICAL REASONING ====== */
+.cr-box {
+  background: linear-gradient(135deg, #e8f4fb, #eef5f4);
+  border: 1.5px solid var(--blue);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.cr-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #234a73;
+  margin-bottom: 10px;
+}
+.cr-steps { counter-reset: cr; list-style: none; padding: 0; }
+.cr-steps li {
+  counter-increment: cr;
+  padding: 7px 0 7px 34px;
+  position: relative;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(58,110,165,0.18);
+  line-height: 1.65;
+}
+.cr-steps li:last-child { border-bottom: none; }
+.cr-steps li::before {
+  content: counter(cr);
+  position: absolute; left: 0; top: 8px;
+  width: 22px; height: 22px;
+  background: var(--blue);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+
+/* ====== TIMELINE (fase asfiksia/drowning) ====== */
+.timeline { position: relative; margin: 18px 0; padding-left: 2px; }
+.t-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 22px;
+}
+.t-item:last-child { padding-bottom: 0; }
+.t-item::before {
+  content: '';
+  position: absolute;
+  left: 21px; top: 38px; bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.t-item:last-child::before { display: none; }
+.t-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: white;
+  z-index: 1;
+}
+.t-content { flex: 1; padding-top: 3px; }
+.t-content h4 { font-family: 'Lora', serif; font-size: 14.5px; color: var(--ink); margin-bottom: 4px; }
+.t-content .t-time { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.t-content p { font-size: 13px; color: var(--ink-muted); margin-top: 4px; line-height: 1.65; }
+
+/* ====== SEROLOGI / BADGE ====== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  margin: 2px;
+}
+.tag-pos { background: var(--green-pale); color: var(--green); }
+.tag-neg { background: #f3f3f3; color: #777; }
+.tag-warn { background: var(--amber-pale); color: var(--amber); }
+
+/* ====== SKDI BADGE ====== */
+.skdi { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-left: 6px; vertical-align: middle; }
+.skdi-4a { background: var(--green-pale); color: var(--green); }
+.skdi-3a { background: var(--blue-pale); color: var(--blue); }
+.skdi-3b { background: var(--amber-pale); color: var(--amber); }
+.skdi-2 { background: #f0f0f0; color: #555; }
+
+/* ====== HIGHLIGHT ====== */
+.hl-tosca { background: var(--tosca-pale); color: var(--tosca-deep); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-blue { background: var(--blue-pale); color: var(--blue); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-red { background: var(--red-pale); color: var(--red); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-green { background: var(--green-pale); color: var(--green); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-amber { background: var(--amber-pale); color: var(--amber); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+
+/* ====== COLLAPSIBLE ====== */
+.collapse-btn {
+  background: none; border: none;
+  width: 100%; text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0; font-family: inherit;
+}
+.collapse-btn .chev { transition: transform 0.25s; font-size: 11px; color: var(--ink-muted); }
+.collapse-btn.open .chev { transform: rotate(180deg); }
+.collapse-body { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.collapse-body.open { display: block; animation: fadeUp 0.25s ease; }
+
+/* ====== MNEMONIC ====== */
+.mnemonic {
+  background: linear-gradient(135deg, var(--tosca-pale), #fff);
+  border: 2px solid var(--tosca-light);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.mnemonic-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--tosca-deep); margin-bottom: 6px; }
+.mnemonic-text { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--ink); font-weight: 700; }
+.mnemonic-sub { font-size: 13px; color: var(--ink-muted); margin-top: 6px; line-height: 1.6; }
+
+/* ====== DIVIDER ====== */
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+/* ====== VIDEO EMBED ====== */
+.video-card {
+  background: linear-gradient(135deg, var(--tosca-deep), var(--tosca));
+  border-radius: 16px;
+  padding: 22px 26px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.video-card .vplay {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.video-card a { color: white; text-decoration: none; }
+.video-card h4 { font-family: 'Lora', serif; font-size: 15px; margin-bottom: 3px; }
+.video-card p { font-size: 12.5px; opacity: 0.85; }
+
+/* ====== QUIZ ====== */
+.quiz-q {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.q-num {
+  position: absolute; top: -12px; left: 22px;
+  background: var(--tosca-deep); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  padding: 4px 14px; border-radius: 10px;
+}
+.q-vignette {
+  background: var(--tosca-pale);
+  border-left: 4px solid var(--tosca);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 17px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: var(--tosca-deep);
+}
+.q-question { font-weight: 600; font-size: 14px; margin-bottom: 14px; color: var(--ink); }
+.q-opts { display: flex; flex-direction: column; gap: 8px; }
+.q-opt {
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 15px;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: all 0.18s;
+  color: var(--ink);
+}
+.q-opt:hover:not(:disabled) { border-color: var(--tosca); background: var(--tosca-pale); }
+.q-opt .ol { font-weight: 700; font-size: 12px; min-width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.q-opt.correct { background: var(--green-pale) !important; border-color: var(--green) !important; color: var(--green); }
+.q-opt.correct .ol { background: var(--green); color: white; }
+.q-opt.wrong { background: var(--red-pale) !important; border-color: var(--red) !important; color: var(--red); }
+.q-opt.wrong .ol { background: var(--red); color: white; }
+.q-opt:disabled { cursor: default; }
+.q-exp {
+  display: none;
+  margin-top: 14px;
+  background: var(--green-pale);
+  border-radius: 10px;
+  padding: 14px 17px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #1a4a30;
+  border-left: 3px solid var(--green);
+}
+.q-exp.show { display: block; animation: fadeUp 0.3s ease; }
+.quiz-progress { display: flex; gap: 6px; margin-bottom: 26px; flex-wrap: wrap; }
+.pdot { width: 10px; height: 10px; border-radius: 50%; background: rgba(14,124,123,0.15); transition: background 0.3s; }
+.pdot.ok { background: var(--green); }
+.pdot.no { background: var(--red); }
+.score-card {
+  background: linear-gradient(135deg, var(--tosca-deep), var(--tosca));
+  color: white; border-radius: 20px; padding: 40px;
+  text-align: center; display: none; margin-top: 28px;
+  animation: fadeUp 0.4s ease;
+}
+.score-card.show { display: block; }
+.score-big { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: #F2C572; line-height: 1; margin: 10px 0; }
+.score-msg { font-size: 15px; opacity: 0.85; margin-top: 8px; }
+.btn-restart { margin-top: 22px; background: white; color: var(--tosca-deep); border: none; border-radius: 30px; padding: 12px 28px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+.btn-restart:hover { transform: translateY(-2px); }
+
+/* ====== COMPARE ====== */
+.compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.compare-col { border-radius: 12px; padding: 18px; border: 2px solid; }
+.compare-col.left { background: var(--blue-pale); border-color: var(--blue); }
+.compare-col.right { background: var(--tosca-pale); border-color: var(--tosca); }
+.compare-col h4 { font-family: 'Lora', serif; font-size: 15px; margin-bottom: 10px; }
+.compare-col.left h4 { color: var(--blue); }
+.compare-col.right h4 { color: var(--tosca-deep); }
+.compare-row { display: flex; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 8px; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row span:first-child { opacity: 0.6; width: 95px; flex-shrink: 0; font-size: 12px; }
+@media(max-width: 600px) { .compare-wrap { grid-template-columns: 1fr; } }
+
+/* ====== RESPONSIVE ====== */
+@media(max-width: 600px) {
+  .hero { padding: 36px 20px 32px; }
+  .container { padding: 28px 16px; }
+  .card { padding: 18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">📚 Blok Traumatologi · Forensik & Medikolegal · DR dr Hari Wujoso, Sp.FM</div>
+  <h1>Asfiksia & <em>Drowning</em><br>— Rangkuman Forensik Lengkap</h1>
+  <p class="hero-sub">Disusun dari naskah Bab 1–4 (Asfiksia & Drowning), slide kuliah, rekaman kuliah dr. Hari Wujoso, kuliah pakar skenario blunt chest trauma, serta soal-soal ujian. Tandai 🎤 = penekanan langsung dari rekaman kuliah.</p>
+  <div class="hero-pills">
+    <span class="pill">🫁 Definisi & Terminologi</span>
+    <span class="pill">⚙️ Fisiologi Oksigenasi</span>
+    <span class="pill">📉 Patofisiologi 3 Fase</span>
+    <span class="pill">🌊 Drowning</span>
+    <span class="pill">🔬 Diagnosis Forensik</span>
+    <span class="pill">🧠 20 Soal Quiz</span>
+  </div>
+  <a class="hero-link" href="https://youtu.be/lzoWeEjwoTM?si=mWQC4VixHnhtSBS0" target="_blank">▶ Rekaman Kuliah: Asfiksia & Drowning — dr. Hari Wujoso, Sp.FM</a>
+</div>
+
+<!-- NAV -->
+<div class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('definisi')">📖 Definisi</button>
+  <button class="nav-btn" onclick="show('fisiologi')">⚙️ Fisiologi O₂</button>
+  <button class="nav-btn" onclick="show('patofisiologi')">📉 Patofisiologi</button>
+  <button class="nav-btn" onclick="show('forensik')">🔬 Diagnosis Forensik</button>
+  <button class="nav-btn" onclick="show('drowning')">🌊 Drowning</button>
+  <button class="nav-btn" onclick="show('medikolegal')">⚖️ Medikolegal</button>
+  <button class="nav-btn" onclick="show('kasus')">🩺 Kasus Klinis (Kuliah Pakar)</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- ======================================= OVERVIEW ======================================= -->
+<div id="sec-overview" class="section active">
+  <h2 class="section-heading">Peta Materi & Mengapa Topik Ini Penting</h2>
+  <p class="section-desc">Asfiksia adalah salah satu penyebab kematian forensik paling sering ditemukan, namun juga paling sering disalahartikan. SKDI 4A — wajib bisa pemeriksaan luar dan menentukan penyebab kematian et causa asfiksia, terutama di daerah tanpa dokter forensik.</p>
+
+  <div class="dr-note">Asfiksia itu dari kata a (tanpa) + sphyxis (denyut). Latar belakangnya bisa macam-macam: kecelakaan, bunuh diri, atau pembunuhan. Kalau alamiah bisa karena penyakit. Yang primer itu jelas oksigen tidak bisa masuk ke saluran napas, tapi yang sekunder itu oksigen tidak bisa dipakai karena selnya rusak atau keracunan.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🗺️</span> Alur Besar Topik Asfiksia & Drowning</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Kerangka Berpikir Satu Bab Penuh</div>
+      <ol class="cr-steps">
+        <li><strong>Definisi & Terminologi:</strong> bedakan asfiksia, hipoksia, hipoksemia, anoksia, iskemia — jangan disamakan!</li>
+        <li><strong>Fisiologi normal dulu:</strong> ventilasi → difusi → transportasi → utilisasi. Harus paham yang "berhasil" sebelum paham yang "gagal".</li>
+        <li><strong>Patofisiologi asfiksia:</strong> 3 fase (awal-kompensasi, progresif-dekompensasi, terminal) dengan variabel waktu, gas darah, dan respons tubuh yang berubah drastis.</li>
+        <li><strong>Klasifikasi asfiksia mekanik:</strong> eksternal (gantung/jerat/cekik), internal (benda asing), tenggelam (drowning), traumatik (tertimpa massa).</li>
+        <li><strong>Diagnosis forensik:</strong> tidak ada tanda tunggal yang patognomonik — harus integratif (TKP + otopsi luar-dalam + histopatologi + toksikologi + biokimia).</li>
+        <li><strong>Drowning sebagai kasus khusus:</strong> punya bab tersendiri karena kompleksitas mekanisme, jenis cairan, dan tantangan medikolegalnya.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚠️</span> Kesalahan Konseptual yang Paling Sering Terjadi</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>❌ Miskonsepsi Umum</h4>
+        <ul>
+          <li>Menyamakan hipoksia dengan asfiksia</li>
+          <li>Menganggap petekie = bukti pasti asfiksia</li>
+          <li>Menganggap sianosis = bukti pasti asfiksia</li>
+          <li>Mengira asfiksia harus selalu ada sumbatan jalan napas fisik</li>
+          <li>Menyamakan edema paru dengan diagnosis tenggelam pasti</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>✅ Pendekatan yang Benar</h4>
+        <ul>
+          <li>Asfiksia = gangguan SELURUH pertukaran gas (O₂ & CO₂); hipoksia = berkurangnya O₂ di jaringan saja</li>
+          <li>Petekie = petunjuk, bukan vonis. PPV-nya rendah (~22%)</li>
+          <li>Sianosis tergantung kadar Hb, suhu, waktu mati — tidak spesifik</li>
+          <li>Keracunan CO = asfiksia juga, meski jalan napas paten!</li>
+          <li>Semua temuan harus diintegrasikan dengan TKP & penunjang</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">📋</span> Posisi Topik dalam SKDI</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Topik</th><th>Level SKDI</th><th>Artinya</th></tr>
+        <tr><td>Asfiksia (pemeriksaan luar, penentuan sebab kematian)</td><td><span class="skdi skdi-4a">4A</span></td><td>Dokter umum wajib bisa diagnosis & tatalaksana/pemeriksaan tuntas tanpa rujukan</td></tr>
+        <tr><td>Drowning (penilaian awal, primary survey)</td><td><span class="skdi skdi-3b">3B</span></td><td>Diagnosis + tatalaksana awal kegawatan + rujuk emergensi</td></tr>
+        <tr><td>Traumatic asphyxia (blunt chest trauma)</td><td><span class="skdi skdi-3b">3B</span></td><td>Kompetensi dokter umum: stabilisasi awal di IGD, alih rawat ke Sp. Paru/Bedah Toraks bila perlu — bukan rujuk pindah RS</td></tr>
+      </table>
+    </div>
+    <div class="dr-note diskusi">Penatalaksanaan kompetensi dokter umum bisa sampai tuntas atau dirujuk dengan konteks tidak pindah RS, tapi alih rawat. Biasanya dokter umum di IGD alih rawat ke dr. Sp. Paru / Bedah Toraks / Bedah Umum.</div>
+  </div>
+</div>
+
+<!-- ======================================= DEFINISI ======================================= -->
+<div id="sec-definisi" class="section">
+  <h2 class="section-heading">📖 Definisi & Terminologi Asfiksia</h2>
+  <p class="section-desc">Fondasi mutlak: kesalahan terminologi forensik dapat berakibat fatal dalam proses peradilan. Bab ini paling sering jadi sumber soal "jebakan" karena istilah-istilah ini terdengar mirip tapi maknanya beda.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🏛️</span> Tiga Lapis Definisi Asfiksia</div>
+    <div class="grid-2">
+      <div>
+        <div class="alert alert-tosca"><span class="alert-icon">📜</span><div><strong>Etimologi</strong><br>Yunani: <em>a</em> (tanpa) + <em>sphyxis</em> (denyut). Awalnya dipakai untuk kondisi henti denyut nadi/sirkulasi.</div></div>
+        <div class="alert alert-blue"><span class="alert-icon">🫁</span><div><strong>Definisi Fisiologis</strong><br>Keadaan terganggunya pertukaran O₂ dan CO₂ antara organisme dengan lingkungan, memicu hipoksia dan hiperkapnia menuju kematian.</div></div>
+      </div>
+      <div>
+        <div class="alert alert-green"><span class="alert-icon">⚖️</span><div><strong>Definisi Forensik (paling penting untuk laporan!)</strong><br>Kegagalan pengambilan, pengangkutan, atau pemanfaatan oksigen oleh sel tubuh akibat mekanisme internal maupun eksternal yang terbukti secara postmortem.</div></div>
+      </div>
+    </div>
+    <div class="dr-note">Divisi forensiknya: kegagalan pengambilan, pengangkutan, atau pemanfaatan oksigen oleh sel tubuh akibat mekanisme internal maupun eksternal yang terbukti secara postmortem. Saya hanya bisa melihat itu setelah orang itu mati — kalau orangnya masih hidup, itu kerjaan dokter klinisi.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🔑</span> Asfiksia vs Hipoksia — Jangan Disamakan!</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>🫁 Asfiksia</h4>
+        <div class="compare-row"><span>Lingkup:</span>Gangguan SELURUH pertukaran gas (O₂ DAN CO₂)</div>
+        <div class="compare-row"><span>Sifat:</span>Konsep forensik-klinis menyeluruh</div>
+        <div class="compare-row"><span>Contoh:</span>Gantung, jerat, tenggelam, keracunan CO</div>
+      </div>
+      <div class="compare-col right">
+        <h4>🩸 Hipoksia</h4>
+        <div class="compare-row"><span>Lingkup:</span>Hanya kondisi berkurangnya O₂ di tingkat jaringan</div>
+        <div class="compare-row"><span>Sifat:</span>Bagian/akibat dari asfiksia, bukan sinonim</div>
+        <div class="compare-row"><span>Contoh:</span>Bisa dari banyak sebab non-asfiksia (anemia, syok)</div>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">🎯</span><div><strong>Poin Ujian:</strong> Tidak semua hipoksia adalah asfiksia, dan asfiksia selalu menghasilkan hipoksia. Hipoksia adalah bagian dari mekanisme, asfiksia adalah konsep keseluruhan kegagalan oksigenasi yang dibuktikan postmortem.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🧬</span> Klasifikasi Hipoksia menurut Barcroft</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe</th><th>Mekanisme</th><th>Contoh Klinis</th></tr>
+        <tr><td><strong>Hipoksik</strong></td><td>Tekanan parsial O₂ inspirasi rendah atau gangguan difusi alveolar</td><td>Dataran tinggi, sumbatan jalan napas</td></tr>
+        <tr><td><strong>Anemik</strong></td><td>Kapasitas angkut O₂ darah menurun karena Hb rendah</td><td>Anemia berat, perdarahan akut</td></tr>
+        <tr><td><strong>Stagnan</strong></td><td>Aliran darah ke jaringan berkurang drastis akibat kegagalan jantung/syok</td><td>Syok kardiogenik, gagal jantung</td></tr>
+        <tr><td><strong>Histotoksik</strong></td><td>Gangguan penggunaan O₂ oleh mitokondria karena agen kimia</td><td>Keracunan sianida</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat: Analogi Sistem Pasokan Air</div>
+      <div class="mnemonic-text">Pipa putus → Pompa rusak → Tangki kosong → Kran rusak</div>
+      <div class="mnemonic-sub">Tubuh = kota, oksigen = air. (1) Pipa putus = sumbatan jalan napas (hipoksik). (2) Pompa rusak = gagal jantung (stagnan). (3) Tangki kosong = anemia/CO (anemik). (4) Kran rusak meski air datang = keracunan sianida (histotoksik). Analogi ini dipakai untuk menjelaskan ke penyidik nonmedis yang tidak punya latar belakang fisiologi.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">📊</span> Hipoksemia, Hiperkapnia, Anoksia, Iskemia</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>Hipoksemia</h4>
+        <p>Penurunan PaO₂ darah arteri <strong>&lt; 60 mmHg</strong>. Diukur lewat gas darah arteri. Penyebab: hipoventilasi, gangguan difusi, V/Q mismatch.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Hiperkapnia</h4>
+        <p>Peningkatan PaCO₂ <strong>&gt; 45 mmHg</strong>. Penanda gangguan ventilasi → asidosis respiratorik. Gejala awal: sesak, gelisah, takikardia.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>Anoksia</h4>
+        <p>Tidak ada O₂ sama sekali di jaringan. PaO₂ mendekati 0 mmHg, terjadi 30-60 detik setelah oklusi total. Kondisi paling ekstrem, jarang tercapai kecuali henti sirkulasi total.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--purple);">
+        <h4>Iskemia</h4>
+        <p>Penurunan aliran darah sehingga O₂ <em>dan</em> substrat metabolik tidak adekuat. Asfiksia mekanik (gantung/jerat) sering sebabkan iskemia serebral karena kompresi arteri karotis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🚩</span> Terminologi yang Sering Disalahgunakan</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>Petekie (Tardieu spots)</h4>
+        <p>Bintik perdarahan akibat ruptur kapiler karena ↑ tekanan vena. <strong>Bukan patognomonik</strong> — juga muncul pada batuk rejan, partus, trombositopenia.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>Sianosis</h4>
+        <p>Perubahan warna kebiruan akibat Hb tereduksi tinggi. Sering disalahartikan sebagai tanda pasti asfiksia — padahal bisa terjadi pada GJK, hipotermia, atau postmortem.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Ekspresi Wajah (kongesti/edema)</h4>
+        <p>Sering mencerminkan posisi tubuh postmortem (livor mortis), bukan mekanisme spesifik asfiksia.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🧩</span> Klasifikasi Asfiksia Mekanik — Eksternal vs Internal</div>
+    <div class="dr-note">Asfiksia mekanik yang paling sering terjadi: bisa intraluminer, bisa ekstraluminer. Disebut ekstra karena peristiwanya di luar (cekik, jerat, gantung, dada ditekan = traumatik asfiksia). Kalau intraluminer berarti sudah masuk ke saluran napas — saluran napas itu setelah lubang hidung dan setelah mulut.</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Subtipe</th><th>Contoh</th><th>Variabel Dominan</th></tr>
+        <tr><td><strong>Sumbatan eksternal</strong></td><td>Gantung, jerat, cekik</td><td>Oklusi jalan napas + iskemia serebral</td></tr>
+        <tr><td><strong>Sumbatan internal</strong></td><td>Benda asing (makanan), tumor</td><td>Ventilasi terganggu</td></tr>
+        <tr><td><strong>Asfiksia posisional</strong></td><td>Leher/toraks terlipat</td><td>Restriksi mekanik</td></tr>
+        <tr><td><strong>Tenggelam (drowning)</strong></td><td>Air masuk saluran napas</td><td>Gangguan difusi + laringospasme</td></tr>
+        <tr><td><strong>Traumatic asphyxia</strong></td><td>Tertimpa massa berat</td><td>Restriksi dinding dada + ↑ tekanan vena</td></tr>
+      </table>
+    </div>
+    <div class="dr-note">Kalau hidung ditutup, masih bisa bernafas lewat mulut. Kalau mulut ditutup, masih bisa lewat hidung. Tapi kalau hidung DAN mulut ditutup, tidak bisa bernapas — tapi ini tetap masuk kategori ekstraluminer. Untuk menyumbat yang intraluminer, sumbatannya harus minimal di orofaring (di bawah belakang mulut), karena kalau orofaring ditutup, udara dari hidung (lewat nasofaring) maupun dari mulut sama-sama tidak bisa sampai ke laring.</div>
+    <div class="alert alert-amber"><span class="alert-icon">⚠️</span><div><strong>Peringatan forensik:</strong> Kematian akibat keracunan opiat sering dilaporkan sebagai "asfiksia" padahal mekanisme sebenarnya adalah depresi pusat napas (hipoventilasi) — ini tetap asfiksia, tapi harus dijelaskan sebab dasarnya secara spesifik, jangan generik.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🌬️</span> Rantai Pengiriman Oksigen — 5 Titik Potensi Gangguan</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Setiap Tahap = Titik Kegagalan Berbeda</div>
+      <ol class="cr-steps">
+        <li><strong>Ventilasi:</strong> sumbatan jalan napas, gangguan pusat napas (trauma batang otak, obat), gangguan mekanik dinding dada (flail chest, pneumotoraks)</li>
+        <li><strong>Difusi alveolar-kapiler:</strong> edema paru, fibrosis paru, efusi pleura masif</li>
+        <li><strong>Transportasi oleh darah:</strong> keracunan CO (geser kurva disosiasi), emboli gas/lemak, gagal jantung akut</li>
+        <li><strong>Perfusi jaringan:</strong> hipotensi, sludging darah karena asidosis, iskemia regional</li>
+        <li><strong>Utilisasi mitokondria:</strong> asidosis berat (pH &lt;6,8), keracunan sianida (blokade sitokrom a,a₃ — mirip asfiksia tapi mekanisme beda)</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= FISIOLOGI ======================================= -->
+<div id="sec-fisiologi" class="section">
+  <h2 class="section-heading">⚙️ Fisiologi Oksigenasi Normal</h2>
+  <p class="section-desc">Sebelum memahami kegagalan (asfiksia), harus kuasai dulu fisiologi keberhasilan. Empat tahap ini adalah kerangka untuk menentukan "di titik mana" suatu kasus mengalami gangguan.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🔄</span> Empat Tahap Utama Oksigenasi</div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--blue);">1</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--blue);">VENTILASI</span>
+          <h4>Membawa udara ke alveolus</h4>
+          <p>Proses mekanis kontinu: hidung/faring/laring (penghangatan, pelembapan, filtrasi) → trakea/bronkus/bronkiolus (distribusi + refleks batuk) → bronkiolus respiratorius/duktus alveolaris/alveolus (pertukaran gas). Volume tidal 500 mL, RR 12-20×/menit, ventilasi semenit 6-8 L/menit, ruang rugi anatomis ~150 mL.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--tosca);">2</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--tosca-deep);">DIFUSI</span>
+          <h4>Pertukaran gas di membran alveolokapiler</h4>
+          <p>Gradien tekanan ~60 mmHg memungkinkan O₂ berpindah cepat dari alveolus ke darah vena. Hukum Fick: luas permukaan 70-100 m², ketebalan membran normal 0,3-0,6 mikron (↑ patologis pada edema/fibrosis). CO₂ 20× lebih mudah larut dibanding O₂.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--amber);">3</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--amber);">TRANSPORTASI</span>
+          <h4>Pengangkutan O₂ dalam darah</h4>
+          <p>Hanya 1,5% O₂ terlarut dalam plasma; 98,5% diangkut terikat hemoglobin (4 gugus heme). 1 gram Hb mengikat 1,34 mL O₂. DO₂ (delivery) = CaO₂ × curah jantung, normal ~1000 mL/menit saat istirahat.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--purple);">4</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--purple);">UTILISASI</span>
+          <h4>Mitokondria sebagai generator energi</h4>
+          <p>Rantai respirasi di membran dalam mitokondria (5 kompleks protein). O₂ = akseptor elektron terakhir di kompleks IV → air. Tanpa O₂: gradien proton hilang, ATP berhenti, metabolisme beralih anaerob.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🧠</span> Kontrol Neurologis Ventilasi</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>Medula Oblongata</h4>
+        <ul>
+          <li>Kelompok respirasi dorsal → inspirasi</li>
+          <li>Kelompok respirasi ventral → ekspirasi paksa</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--tosca);">
+        <h4>Pons</h4>
+        <ul>
+          <li>Pusat apneustik → memperpanjang inspirasi</li>
+          <li>Pusat pneumotaksik → mengakhiri fase inspirasi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-blue"><span class="alert-icon">📡</span><div><strong>Sensor kemoreseptor:</strong> sentral di medula merespons pH cairan serebrospinal (CO₂); perifer di karotis & aorta merespons PaO₂ rendah (&lt;60 mmHg).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">📈</span> Kurva Disosiasi Oksihemoglobin</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:12px;">Kurva sigmoid: zona datar pada PaO₂ 60-100 mmHg memberi cadangan O₂ aman. Zona curam di bawah 60 mmHg → penurunan saturasi drastis → jaringan sangat rentan hipoksia cepat.</p>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>Pergeseran ke Kanan</h4>
+        <p>Dipicu: ↑suhu, ↑2,3-DPG, ↑PCO₂, ↓pH → melepas O₂ lebih mudah ke jaringan</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>Pergeseran ke Kiri</h4>
+        <p>Dipicu: ↓suhu, ↓PCO₂, ↑pH → memperkuat ikatan O₂ (sulit dilepas)</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Keracunan CO</h4>
+        <p>CO berikatan 240× lebih kuat dari O₂ → SaO₂ pulse-ox palsu normal + pergeseran ke kiri</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--purple);">
+        <h4>Methemoglobinemia</h4>
+        <p>Oksidasi Fe²⁺ → Fe³⁺ → Hb tidak dapat mengikat O₂ secara efisien</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⏱️</span> Sensitivitas Organ terhadap Hipoksia — Urutan Toleransi</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Organ</th><th>Waktu Toleransi</th><th>Catatan</th></tr>
+        <tr><td>🧠 Otak</td><td><strong>4-6 menit</strong></td><td>Konsumsi O₂ tinggi (20% dari total tubuh), cadangan glikogen sangat rendah</td></tr>
+        <tr><td>❤️ Jantung</td><td><strong>4-8 menit</strong></td><td>Infark dapat terjadi bila hipoksia &gt;20 menit pada otot jantung</td></tr>
+        <tr><td>🟤 Ginjal</td><td><strong>30-60 menit</strong></td><td>Mampu glikolisis anaerob untuk bertahan sementara</td></tr>
+        <tr><td>🫘 Hati</td><td><strong>60-90 menit</strong></td><td>Fungsi sintesis cepat terganggu meski organ bertahan lebih lama</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Analogi Rumah Sakit</div>
+      <div class="mnemonic-text">Paru = gerbang penerimaan, darah = armada truk, Hb = kurir tabung</div>
+      <div class="mnemonic-sub">Jantung = pusat distribusi pompa, mitokondria = generator listrik seluler. Otak = ruang ICU dengan cadangan baterai sangat minim. Kegagalan satu tahap (kurir menahan tabung) akan menghentikan fungsi generator sel — inilah mengapa setiap tahap harus dimonitor.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= PATOFISIOLOGI ======================================= -->
+<div id="sec-patofisiologi" class="section">
+  <h2 class="section-heading">📉 Patofisiologi Asfiksia — 3 Fase</h2>
+  <p class="section-desc">Inti dari menentukan durasi survival dan menginterpretasi temuan biokimia/histologi postmortem. Hafalkan rentang waktu dan parameter gas darah di tiap fase — ini sering jadi soal C3-C4.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">⏳</span> Timeline 3 Fase Asfiksia (Sumbatan Total Jalan Napas)</div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--green);">I</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--green);">FASE AWAL — KOMPENSASI (0-2 menit)</span>
+          <h4>Aktivasi mekanisme kompensasi tubuh</h4>
+          <p>PaO₂ turun dari 100→70-80 mmHg (30 detik) lalu 55-65 mmHg (60 detik) hingga 40-50 mmHg (120 detik). pH turun ke ~7,20. Respons: takikardia hingga 150-180×/menit, vasokonstriksi perifer (kulit pucat-dingin, akral sianosis), dispnea hebat, "air hunger". <strong>Kesadaran masih penuh.</strong></p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--amber);">II</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--amber);">FASE PROGRESIF — DEKOMPENSASI (2-5 menit)</span>
+          <h4>Transisi reversibel → ireversibel</h4>
+          <p>Asidosis campuran (respiratorik + metabolik laktat), pH &lt;7,2 lalu &lt;6,8. Glikolisis anaerob: ATP turun dari 36→2/glukosa (defisit 94%). Kegagalan Na⁺/K⁺ ATPase → edema sitotoksik, hiperkalemia. Kalsium overload mengaktifkan enzim proteolitik. Jantung: takikardia→bradikardia→aritmia ventrikel. Neurologis: kejang tonik-klonik, lalu koma.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--red);">III</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--red);">FASE TERMINAL (5-10 menit)</span>
+          <h4>Kegagalan multiorgan ireversibel</h4>
+          <p>PaO₂ mendekati 0, pH &lt;6,9 → denaturasi protein. Apnea terminal (henti napas primer mendahului henti jantung pada asfiksia — beda dari infark miokard yang henti jantung dulu). Asistol/fibrilasi ventrikel. Resusitasi setelah 6 menit prognosis neurologis sangat buruk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🩸</span> Dinamika Gas Darah — Data Kuantitatif untuk Diingat</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Waktu</th><th>PaO₂</th><th>PaCO₂</th><th>pH</th><th>Kesadaran</th></tr>
+        <tr><td>0-30 detik</td><td>70-80 mmHg</td><td>~45 mmHg</td><td>~7,35</td><td>Sadar penuh</td></tr>
+        <tr><td>30-60 detik</td><td>55-65 mmHg</td><td>55-65 mmHg</td><td>7,30</td><td>Mulai kabur</td></tr>
+        <tr><td>60-120 detik</td><td>40-50 mmHg</td><td>70-85 mmHg</td><td>7,20</td><td>Hilang (60-120 dtk)</td></tr>
+        <tr><td>2-4 menit</td><td>&lt;40 mmHg</td><td>&gt;90 mmHg</td><td>&lt;7,2</td><td>Koma, kejang</td></tr>
+        <tr><td>4-6 menit</td><td>&lt;20 mmHg</td><td>sangat tinggi</td><td>&lt;6,9</td><td>Kerusakan neuron ireversibel mulai</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-tosca"><span class="alert-icon">💡</span><div>Setiap peningkatan laktat <strong>1 mmol/L</strong> menurunkan bikarbonat sekitar <strong>1 mEq/L</strong>. Laktat darah postmortem &gt;15 mmol/L sangat sugestif hipoksia berat antemortem (dengan syarat tidak ada resusitasi lama).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🧬</span> Urutan Hilangnya Fungsi Neurologis (Sesuai Kerentanan)</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Urutan dari Pertama Hilang → Paling Tahan</div>
+      <ol class="cr-steps">
+        <li><strong>Fungsi kognitif luhur</strong> (kesadaran, orientasi) — hilang pada 60-90 detik</li>
+        <li><strong>Fungsi motorik halus</strong> — hilang pada 90-120 detik (tidak mampu lagi gerakan terkoordinasi, misalnya berenang ke permukaan)</li>
+        <li><strong>Refleks batang otak</strong> (pupil, kornea, muntah) — masih ada hingga 3-4 menit</li>
+        <li><strong>Fungsi vital</strong> (napas, jantung) — hilang TERAKHIR karena batang otak paling tahan hipoksia</li>
+      </ol>
+    </div>
+    <div class="dr-note">Pada traumatik asfiksia, ada peningkatan TIT (tekanan intratoraks) yang menyebabkan hambatan aliran balik vena ke kepala. Asfiksia terjadi hipoksia jaringan → defisit neurologis. Contoh: orang dibekap → hipoksia (10 detik tidak berpengaruh, 1-2 menit penurunan kesadaran, 10-30 menit meninggal) — tergantung durasi waktunya, semakin lama hipoksia semakin besar kematian sel. Jika hanya hipoksia sementara, manifestasi klinisnya berbeda dan bisa membaik sendiri.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🔬</span> Nekrosis vs Apoptosis — Jenis Kematian Sel pada Asfiksia</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>💥 Nekrosis (pada asfiksia)</h4>
+        <div class="compare-row"><span>Penyebab:</span>Insult fisik/kimia berat (hipoksia, trauma)</div>
+        <div class="compare-row"><span>ATP:</span>Tidak diperlukan (rendah/tidak ada)</div>
+        <div class="compare-row"><span>Morfologi:</span>Sel membengkak, membran ruptur, inflamasi</div>
+        <div class="compare-row"><span>DNA:</span>Fragmentasi acak (smear)</div>
+        <div class="compare-row"><span>Waktu:</span>Menit-jam</div>
+      </div>
+      <div class="compare-col right">
+        <h4>🍂 Apoptosis (BUKAN pada asfiksia akut)</h4>
+        <div class="compare-row"><span>Penyebab:</span>Stimulus fisiologis (terprogram)</div>
+        <div class="compare-row"><span>ATP:</span>Diperlukan (cukup)</div>
+        <div class="compare-row"><span>Morfologi:</span>Sel mengkerut, badan apoptotik, tanpa inflamasi</div>
+        <div class="compare-row"><span>DNA:</span>Fragmentasi teratur (ladder)</div>
+        <div class="compare-row"><span>Waktu:</span>Jam-hari</div>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">🎯</span><div><strong>Poin ujian kunci:</strong> Pada hipoksia berat akut (asfiksia), kematian sel terjadi melalui <strong>nekrosis</strong>, BUKAN apoptosis, karena deplesi energi ATP sangat ekstrem (apoptosis butuh ATP untuk berjalan).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">👤</span> Variabel Host & Mekanisme yang Mengubah Durasi</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--tosca-deep); margin-bottom:8px;">Variabel Host</p>
+        <ul class="styled-list">
+          <li><strong>Neonatus:</strong> toleransi 6-8 menit (refleks menyelam, cadangan glikogen hati besar)</li>
+          <li><strong>Lansia:</strong> toleransi 2-4 menit (cadangan kardiovaskular ↓)</li>
+          <li><strong>Anemia:</strong> toleransi ↓ (kapasitas angkut O₂ rendah)</li>
+          <li><strong>Hipotermia:</strong> memperpanjang toleransi (↓ metabolisme via efek Q10)</li>
+          <li><strong>Hipertermia:</strong> toleransi turun drastis (&lt;2 menit)</li>
+          <li><strong>Latihan fisik berat sebelumnya:</strong> toleransi ↓ (beban asidosis laktat pre-existing)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--tosca-deep); margin-bottom:8px;">Variabel Mekanisme</p>
+        <ul class="styled-list">
+          <li><strong>Gantung (sumbatan total):</strong> kematian sangat cepat, 2-3 menit (hipoksia + iskemia serebral)</li>
+          <li><strong>Tenggelam:</strong> 3-5 menit (hipoksia + aspirasi air)</li>
+          <li><strong>Asfiksia posisional:</strong> lebih lambat, 5-10 menit (restriksi mekanik progresif)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= FORENSIK ======================================= -->
+<div id="sec-forensik" class="section">
+  <h2 class="section-heading">🔬 Diagnosis Forensik Asfiksia</h2>
+  <p class="section-desc">Inti pesan seluruh bab ini: <strong>tidak ada satu tanda postmortem yang patognomonik untuk asfiksia.</strong> Setiap temuan harus dikorelasikan dan diintegrasikan — ini adalah pola jawaban paling sering benar di soal C4.</p>
+
+  <div class="dr-note">Banyak ahli forensik modern sepakat istilah "tanda klasik asfiksia" sebaiknya ditinggalkan karena tidak punya spesifisitas diagnostik yang kuat. Analogi payung dan hujan: melihat payung tidak berarti sedang hujan. Begitu pula petekie — itu hanya petunjuk kecurigaan, bukan vonis mutlak asfiksia.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🩹</span> Petekie — Mengapa Tidak Boleh Jadi Dasar Tunggal</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:10px;">Patogenesis: peningkatan tekanan vena di kepala/leher akibat kompresi vena jugularis + hipoksia endotel + usaha napas melawan obstruksi (efek Müller).</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Skenario</th><th>Prevalensi Petekie</th></tr>
+        <tr><td>Asfiksia mekanik terkonfirmasi</td><td>71% (sensitivitas)</td></tr>
+        <tr><td>Kematian kardiovaskular non-asfiksia</td><td>28%</td></tr>
+        <tr><td>Kematian akibat intoksikasi obat</td><td>~15%</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">📐</span><div><strong>Hitungan PPV:</strong> Jika prevalensi asfiksia di populasi otopsi 10%, PPV petekie = (0,71×0,1)/(0,71×0,1 + 0,28×0,9) ≈ <strong>22%</strong>. Artinya hanya 1 dari 5 kasus dengan petekie yang benar-benar asfiksia!</div></div>
+    <div class="grid-2" style="margin-top:14px;">
+      <div class="mini-card" style="border-top:3px solid var(--amber);">
+        <h4>Penyebab petekie non-asfiksia</h4>
+        <ul>
+          <li>Batuk rejan (pertusis), muntah berulang, partus</li>
+          <li>Trombositopenia, leukemia, DIC, skorbut</li>
+          <li>Vaskulitis (Henoch-Schönlein)</li>
+          <li>Shaken baby syndrome (gaya geser)</li>
+          <li>Hipostasis postmortem (kontroversial)</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--green);">
+        <h4>Pendekatan yang benar</h4>
+        <ul>
+          <li>Investigasi TKP (alat jerat, posisi tubuh)</li>
+          <li>Pola petekie: bilateral, konfluen, di atas area obstruksi</li>
+          <li>Temuan pendukung lain (fraktur hyoid, edema paru)</li>
+          <li>Toksikologi negatif untuk penyebab lain</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🔵</span> Sianosis — Tidak Spesifik & Bisa Tidak Muncul Sama Sekali</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kategori</th><th>Contoh</th><th>Termasuk Asfiksia?</th></tr>
+        <tr><td>Sianosis sentral</td><td>Pneumonia berat, edema paru, PPOK</td><td>Ya — gangguan ventilasi/difusi</td></tr>
+        <tr><td>Sianosis perifer (akrosianosis)</td><td>Vasokonstriksi dingin, gagal jantung kanan</td><td>Tidak (jika tanpa hipoksemia)</td></tr>
+        <tr><td>Sianosis akibat kelainan Hb</td><td>Methemoglobinemia, sulfHb</td><td>Tergantung: metHb bisa sebabkan hipoksia jaringan; COHb justru TIDAK menyebabkan sianosis (warna merah cerah)</td></tr>
+        <tr><td>Sianosis postmortem</td><td>Livor mortis di daerah dependen</td><td>Tidak — terjadi setelah mati</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">⚠️</span><div>Asfiksia berat sekalipun (misalnya keracunan CO) sering <strong>tidak disertai sianosis</strong> — bahkan darahnya merah cerah karena COHb. Pasien anemia berat juga mungkin tidak tampak sianosis meski mengalami hipoksia yang sangat mengancam nyawa.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🩻</span> Pemeriksaan Postmortem — Eksternal, Dalam, Penunjang</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>Eksternal</h4>
+        <ul>
+          <li>Petekie konjungtiva, wajah, pleura</li>
+          <li>Sianosis (cek dengan hati-hati, tidak spesifik)</li>
+          <li>Edema wajah & lidah</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--blue);">
+        <h4>Pemeriksaan Dalam</h4>
+        <ul>
+          <li>Paru: emfisema akut, perdarahan subpleural</li>
+          <li>Jantung: darah cair (aktivasi plasminogen activator)</li>
+          <li>Otak: edema serebral, kongesti vena (butuh waktu jam)</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--purple);">
+        <h4>Penunjang</h4>
+        <ul>
+          <li>Vitreous humor: hipoksantin &gt;50 µmol/L</li>
+          <li>Laktat darah &gt;15 mmol/L (tanpa resusitasi)</li>
+          <li>Histopatologi: kongesti alveolar, neuron eosinofilik (butuh &gt;4 jam survival)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dr-note">Jika asfiksia sampai meninggal, kalau diautopsi terlihat kongesti di semua organ hingga ren, liver, dsb. Diantara cairan selnya keluar ke interstitial, jika di paru maka ada infiltrat. Tanda lain: adanya darah lebih encer — ini berhubungan dengan kenapa ada kongesti di organ, terkait pompa untuk pertukaran dari sel darah menuju sel target.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🆚</span> Diagnosis Banding: Asfiksia Mekanik vs Keracunan CO</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>🪢 Asfiksia Mekanik (gantung)</h4>
+        <div class="compare-row"><span>Jalan napas:</span>Tersumbat</div>
+        <div class="compare-row"><span>PaO₂:</span>Menurun drastis</div>
+        <div class="compare-row"><span>SaO₂ pulse-ox:</span>Rendah (akurat)</div>
+        <div class="compare-row"><span>Warna darah:</span>Merah gelap</div>
+        <div class="compare-row"><span>Hiperkapnia:</span>Sangat nyata</div>
+        <div class="compare-row"><span>Petekie:</span>Sering</div>
+      </div>
+      <div class="compare-col right">
+        <h4>☠️ Keracunan CO</h4>
+        <div class="compare-row"><span>Jalan napas:</span>Paten (tidak tersumbat)</div>
+        <div class="compare-row"><span>PaO₂:</span>Normal-sedikit turun</div>
+        <div class="compare-row"><span>SaO₂ pulse-ox:</span>Palsu normal (COHb terbaca HbO₂)</div>
+        <div class="compare-row"><span>Warna darah:</span>Merah cerah (COHb)</div>
+        <div class="compare-row"><span>Hiperkapnia:</span>Minimal</div>
+        <div class="compare-row"><span>Petekie:</span>Jarang</div>
+      </div>
+    </div>
+    <div class="dr-note">CO punya afinitas terhadap hemoglobin 240× lebih besar dari oksigen, membentuk COHb. Setiap peningkatan 1% COHb mengurangi kapasitas angkut O₂ secara proporsional. Kurva disosiasi oksihemoglobin bergeser ke kiri — oksigen yang tersisa sulit dilepaskan ke jaringan. Pada kadar tinggi, CO juga berikatan dengan sitokrom c oksidase (efek histotoksik langsung pada mitokondria). Klasifikasinya: asfiksia kimiawi/anemik — mekanismenya menyerupai anemia berat (gangguan transportasi) ditambah efek histotoksik ringan. Laporan forensik sebaiknya: "Kematian akibat hipoksia anemik sekunder keracunan karbon monoksida".</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🤔</span> Diagnosis Banding Lain yang Menyerupai Asfiksia</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kondisi</th><th>Gambaran Mirip Asfiksia</th><th>Pembeda</th></tr>
+        <tr><td>Kematian akibat opiat</td><td>Edema paru, sianosis</td><td>Jarum bekas suntik, kadar morfin (+)</td></tr>
+        <tr><td>Status epileptikus</td><td>Sianosis, petekie wajah</td><td>Riwayat epilepsi, kadar obat AED</td></tr>
+        <tr><td>Kematian posisi (restraint asphyxia)</td><td>Edema wajah, petekie</td><td>Mekanisme kombinasi, perlu rekonstruksi TKP</td></tr>
+        <tr><td>Postmortem lividity</td><td>Pola lividitas tidak sesuai asfiksia posisi</td><td>Rotasi tubuh setelah mati</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">✅</span> Kriteria Diagnosis Integratif — Sintesis Akhir</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Diagnosis Asfiksia Ditegakkan Jika Memenuhi 4 Kriteria</div>
+      <ol class="cr-steps">
+        <li>Terdapat bukti objektif mekanisme asfiksia (tanda jerat, benda asing, air di paru)</li>
+        <li>Tidak ditemukan penyakit alami penyebab kematian (infark miokard masif, SAH)</li>
+        <li>Toksikologi negatif untuk racun mematikan</li>
+        <li>Histopatologi menunjukkan perubahan konsisten dengan hipoksia/iskemia</li>
+      </ol>
+    </div>
+    <div class="alert alert-green"><span class="alert-icon">📝</span><div><strong>Contoh kalimat laporan forensik yang benar:</strong><br>"Temuan otopsi menunjukkan gambaran yang konsisten dengan asfiksia mekanik, didukung oleh investigasi TKP yang menemukan jerat di leher korban, tanpa bukti penyakit alami atau toksikologi yang dapat menjelaskan kematian. Penyebab kematian primer adalah henti napas akibat sumbatan jalan napas eksternal."</div></div>
+  </div>
+</div>
+
+<!-- ======================================= DROWNING ======================================= -->
+<div id="sec-drowning" class="section">
+  <h2 class="section-heading">🌊 Drowning (Tenggelam)</h2>
+  <p class="section-desc">Drowning adalah salah satu subtipe asfiksia mekanik dengan kompleksitas tersendiri — punya buku rujukan khusus karena epidemiologinya besar di Indonesia (negara kepulauan) dan tantangan diagnostiknya unik.</p>
+
+  <div class="video-card">
+    <div class="vplay">▶</div>
+    <div>
+      <a href="https://youtu.be/lzoWeEjwoTM?si=mWQC4VixHnhtSBS0" target="_blank">
+        <h4>Asfiksia dan Drowning — dr. Hari Wujoso, Sp.FM</h4>
+        <p>Rekaman kuliah lengkap — klik untuk menonton di YouTube</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🌐</span> Definisi WHO & Mengapa "Near-Drowning" Ditinggalkan</div>
+    <div class="alert alert-tosca"><span class="alert-icon">📜</span><div><strong>Definisi WHO (Konsensus Amsterdam 2002):</strong> Drowning adalah proses yang mengakibatkan gangguan pernapasan primer akibat submersi atau imersi dalam medium cair. Drowning dipandang sebagai <strong>proses kontinu</strong>, bukan kondisi dikotomis hidup-mati. Outcome dibagi 3: <em>death, morbidity, no morbidity</em>.</div></div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--blue);">
+        <h4>Imersi (Immersion)</h4>
+        <p>Tubuh terendam tapi saluran napas masih di atas permukaan. Belum ada hambatan langsung masuknya udara. Namun cipratan air tetap bisa memicu laringospasme refleks.</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>Submersi (Submersion)</h4>
+        <p>Seluruh tubuh termasuk wajah & saluran napas di bawah permukaan cairan. Mekanisme paling sering menyebabkan gangguan pernapasan berat dan kematian.</p>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">🚫</span><div><strong>Istilah yang HARUS ditinggalkan</strong> (konsensus WHO & BMJ Best Practice): "near-drowning", "wet/dry drowning", "active/passive drowning", "secondary drowning", "delayed onset of respiratory distress". Semua dianggap ambigu dan tidak mencerminkan pemahaman patofisiologi kontemporer — meski masih berguna untuk tujuan edukasi memahami mekanisme.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🌍</span> Epidemiologi — Mengapa Topik Ini Relevan untuk Indonesia</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top:3px solid var(--red);">
+        <h4>Global</h4>
+        <p>&gt;300.000 kematian/tahun (2021). Setara 1 kematian setiap 2 menit. &gt;90% terjadi di negara berpenghasilan rendah-menengah.</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--amber);">
+        <h4>Asia Tenggara (SEARO)</h4>
+        <p>~83.000 kematian (2021), hampir sepertiga beban global. WHO menyebutnya "epidemi senyap yang menghancurkan".</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>Kelompok Risiko</h4>
+        <p>Usia 0-29 tahun = 57% kematian. Anak 1-4 tahun risiko tertinggi. Pria 2× lebih tinggi dari wanita (paparan kerja, alkohol, berenang sendiri).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🕐</span> 6 Fase Kronologis Proses Drowning</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:14px;">Berbeda dari literatur klasik yang membahas air tawar/laut secara terpisah, pendekatan modern menekankan <strong>hipoksia sebagai mekanisme universal</strong> — perubahan elektrolit hanya peran sekunder.</p>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--blue);">0</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--blue);">PRE-SUBMERSI</span>
+          <h4>Kontak awal dengan air</h4>
+          <p>Startle response: katekolamin↑ → takikardia, hipertensi, hiperventilasi. Pada bunuh diri, korban kadang hiperventilasi sadar untuk "mengisi paru O₂" — justru kontraproduktif karena mengurangi ambang apnea.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--tosca);">1</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--tosca-deep);">APNEA VOLUNTER</span>
+          <h4>Menahan napas sadar</h4>
+          <p>Durasi tergantung kapasitas paru, laju metabolisme, PaCO₂ awal. Tidak terlatih: 30-60 detik. Penyelam profesional: 3-5 menit. Berakhir saat PaCO₂ ~55-60 mmHg & O₂ &lt;60 mmHg — pusat napas memaksa bernapas di luar kendali sadar.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--amber);">2</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--amber);">INSPIRASI AWAL & LARINGOSPASME</span>
+          <h4>Titik kritis — menentukan dry vs wet mechanism</h4>
+          <p><strong>10-15% kasus:</strong> laringospasme kuat menutup glotis (dry mechanism) → tekanan negatif intratoraks ekstrem (-50 s/d -80 cmH₂O) → edema paru non-kardiogenik tanpa aspirasi, fatigue otot laring 30-60 detik lalu air masuk juga. <strong>85-90% kasus:</strong> tidak ada laringospasme bermakna → air langsung masuk trakea-bronkus-alveoli (wet mechanism), cukup 2-4× inspirasi untuk aspirasi 150-300 mL.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--purple);">3</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--purple);">ASPIRASI & GANGGUAN PERTUKARAN GAS</span>
+          <h4>Volume khas 4-22 mL/kg (rata-rata 11 mL/kg)</h4>
+          <p>Dua jalur: (1) obstruksi mekanik alveoli → shunt intrapulmonal, V/Q mendekati nol. (2) Inaktivasi surfaktan — air tawar mengencerkan & membilas (&lt;30% efektif dalam 2-3 menit), air laut mengendapkan surfaktan via Ca²⁺/Mg²⁺. Tegangan permukaan naik &gt;25 dyne/cm → atelektasis.</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:var(--red);">4</div>
+        <div class="t-content">
+          <span class="t-time" style="color:var(--red);">HIPOKSEMIA SISTEMIK & ASIDOSIS</span>
+          <h4>30-60 detik setelah aspirasi</h4>
+          <p>PaO₂ &lt;30 mmHg dalam 15-30 detik. SaO₂ &lt;50% → sianosis sentral. Laktat &gt;10-15 mmol/L dalam 2-3 menit. pH turun tajam (0,5 menit: 7,15-7,20 → 3 menit: &lt;6,70).</p>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-dot" style="background:#7a1a1a;">5-6</div>
+        <div class="t-content">
+          <span class="t-time" style="color:#7a1a1a;">HIPOKSIA SEREBRAL → HENTI NAPAS & JANTUNG</span>
+          <h4>Kehilangan kesadaran hingga kematian</h4>
+          <p>15-30 detik: konfusi, tidak mampu berenang ke permukaan. 30-60 detik: hilang kesadaran. 60-90 detik: EEG isoelektrik (setara kematian otak klinis). 2-4 menit: kerusakan neuron ireversibel (hipokampus CA1, korteks lapis III, Purkinje).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🤿</span> Diving Response (Refleks Menyelam)</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:10px;">Diaktifkan via N. trigeminus saat wajah kontak air dingin (&lt;20°C). Tiga komponen:</p>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>1. Apnea Refleks</h4>
+        <p>Inhibisi generator pola napas → penutupan pita suara, apnea 15-30 detik (dewasa normal).</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--blue);">
+        <h4>2. Bradikardia Refleks</h4>
+        <p>↑Tonus vagal → HR turun 30-50% dalam 2-5 detik. Pada bayi bisa turun 60-80%!</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--purple);">
+        <h4>3. Vasokonstriksi Perifer</h4>
+        <p>Mempertahankan aliran ke otak & jantung, ↓konsumsi O₂ 20-30% pada individu terlatih/anak.</p>
+      </div>
+    </div>
+    <div class="alert alert-tosca"><span class="alert-icon">👶</span><div><strong>Bayi &lt;6 bulan</strong> punya diving response jauh lebih kuat (warisan evolusioner) — inilah mengapa bayi yang submersi lama (20-30 menit) di air dingin kadang masih punya hasil neurologis baik, fenomena sangat jarang pada dewasa. Sebaliknya, <strong>lansia/penyakit kardiovaskular</strong> justru lebih rentan aritmia fatal (immersion syndrome) karena diving response tumpul.</div></div>
+    <div class="alert alert-amber"><span class="alert-icon">🍺</span><div><strong>Alkohol 0,08%</strong> mengurangi durasi apnea refleks hingga 50% dan menghilangkan komponen vasokonstriksi — salah satu mekanisme mengapa alkohol jadi faktor risiko utama drowning.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">💧</span> Air Tawar vs Air Laut — Implikasi Forensik</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>🏞️ Air Tawar (Hipotonik)</h4>
+        <div class="compare-row"><span>Mekanisme:</span>Air masuk ke sirkulasi (gradien osmotik)</div>
+        <div class="compare-row"><span>Volume:</span>Hipervolemia, hemodilusi</div>
+        <div class="compare-row"><span>Elektrolit:</span>↓Na⁺, ↓Cl⁻ (hiponatremia)</div>
+        <div class="compare-row"><span>Sel darah:</span>Hemolisis → hiperkalemia (risiko VF)</div>
+        <div class="compare-row"><span>Surfaktan:</span>Diencerkan & dibilas</div>
+      </div>
+      <div class="compare-col right">
+        <h4>🌊 Air Laut (Hipertonik)</h4>
+        <div class="compare-row"><span>Mekanisme:</span>Cairan tertarik ke alveoli</div>
+        <div class="compare-row"><span>Volume:</span>Hipovolemia, hemokonsentrasi</div>
+        <div class="compare-row"><span>Elektrolit:</span>↑Na⁺, ↑Cl⁻, ↑Mg²⁺, ↑Ca²⁺</div>
+        <div class="compare-row"><span>Sel darah:</span>Hemolisis minimal</div>
+        <div class="compare-row"><span>Surfaktan:</span>Diendapkan oleh garam (efek deterjen)</div>
+      </div>
+    </div>
+    <div class="alert alert-blue"><span class="alert-icon">🔬</span><div><strong>Catatan forensik penting:</strong> kadar elektrolit ventrikel kiri vs kanan bisa berbeda &gt;10 mmol/L (Na⁺) sesuai jenis air — tapi perbedaan ini cepat hilang postmortem dan terganggu jika korban sempat resusitasi cairan infus.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚡</span> Immersion Syndrome (Hydrocution)</div>
+    <p style="font-size:13.5px; color:var(--ink-muted);">Kontak mendadak tubuh dengan air sangat dingin (&lt;20°C) → respons kardiovaskular ekstrem via aktivasi simpatis: (1) aritmia fatal (fibrilasi ventrikel), (2) henti napas refleks, (3) hipotensi berat. Kematian terjadi <strong>dalam hitungan detik-menit</strong>, bahkan sebelum proses aspirasi terjadi.</p>
+    <div class="alert alert-red"><span class="alert-icon">🔑</span><div>Temuan otopsi <strong>minimal</strong> karena kematian terjadi sebelum proses asfiksia drowning berlangsung. Secara medikolegal penyebab kematian tetap "drowning" (karena terjadi di air), tapi mekanismenya kardiovaskular, bukan aspirasi.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🔍</span> Tanda Vital Drowning pada Pemeriksaan Luar</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>🫧 Mushroom-like Foam</h4>
+        <p>Tanda paling khas drowning hidup. Busa halus, mikrogelembung, putih/kemerahan/kuning kecoklatan (lumpur). Bisa hilang jika dipindah kasar atau CPR. DD: busa kardiogenik lebih encer & disertai tanda penyakit jantung kronis.</p>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--blue);">
+        <h4>🧊 Cutis Anserina</h4>
+        <p>"Kulit merinding" akibat kontraksi otot erektor pili oleh dingin/takut. Menunjukkan korban masih hidup saat kontak air dingin — tapi tidak spesifik (juga pada hipotermia darat).</p>
+      </div>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">🧤</span><div><strong>Washerwoman's skin (maserasi):</strong> terjadi baik pada korban hidup maupun mayat yang direndam — jadi TIDAK membedakan hidup/mati saat masuk air, tapi memberi info durasi perendaman. 1-3 jam: kerutan ujung jari. 6-12 jam: "sarung tangan" mulai terlepas. &gt;48 jam: degloving (epidermis lepas total).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">🫁</span> Temuan Pemeriksaan Dalam — Paru sebagai Organ Kunci</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Temuan</th><th>Wet Drowning</th><th>Dry Drowning</th><th>Immersion Syndrome</th></tr>
+        <tr><td>Berat paru</td><td>600-1.000 g/paru (↑↑)</td><td>400-600 g total (normal-sedikit↑)</td><td>Normal</td></tr>
+        <tr><td>Emfisema akuosum</td><td>Ada, marbling khas</td><td>Tidak ada</td><td>Tidak ada</td></tr>
+        <tr><td>Cairan berbusa saat insisi</td><td>Banyak</td><td>Tidak ada</td><td>Tidak ada</td></tr>
+        <tr><td>Paltauf's spots</td><td>Besar & banyak</td><td>Mungkin ada/tidak</td><td>Tidak ada</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-tosca"><span class="alert-icon">💡</span><div><strong>Paltauf's spots:</strong> perdarahan subpleural merah gelap 0,5-2 cm, akibat pecahnya kapiler subpleural karena tekanan negatif intratoraks. Tidak patognomonik (bisa juga pada asfiksia lain), tapi pada drowning cenderung lebih besar dan lebih banyak.</div></div>
+    <div class="dr-note">Pemeriksaan kongesti dan edema paru pada hubungannya dengan asfiksia: hambatan aliran balik sehingga terjadi edema. Edema tidak hanya terjadi pada organ di dada saja, organ dalam lain juga bisa terjadi edema. Jika diautopsi terlihat kondesti di semua organ hingga ren, liver, dsb.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">🦠</span> Uji Diatom — Pemeriksaan Paling Spesifik (Tapi Kontroversial)</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:10px;">Prinsip: jika korban hidup saat tenggelam, diatom (alga bersilika, tahan dekomposisi) teraspirasi → masuk sirkulasi pulmonal → lewat jantung kiri → terdeposit di organ sistemik (hati, ginjal, sumsum tulang).</p>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Kriteria Positif (Peabody dkk.)</div>
+      <ol class="cr-steps">
+        <li>Diatom ditemukan pada ≥2 organ berbeda (misal paru & hati)</li>
+        <li>Jumlah &gt;20 per 100 gram jaringan (atau &gt;5 per slide preparat)</li>
+        <li>Jenis diatom sesuai dengan diatom di air lokasi kejadian (uji kesesuaian taksonomi)</li>
+      </ol>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">⚠️</span><div><strong>Keterbatasan besar:</strong> 40-60% kasus drowning sungguhan justru menunjukkan hasil NEGATIF (air miskin diatom, kematian cepat/dry drowning, teknik kurang sensitif). Diatom di sumsum tulang paling terlindung dari kontaminasi postmortem — jadi paling berarti jika ditemukan di sana.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">✅</span> Kriteria Diagnostik Drowning (Konsensus Internasional)</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top:3px solid var(--green);">
+        <h4>Kriteria Mayor</h4>
+        <ul>
+          <li>Busa di saluran napas</li>
+          <li>Uji diatom positif sesuai air lokasi + ditemukan di organ dalam</li>
+          <li>Selisih elektrolit kiri-kanan &gt;10 mmol/L (Na⁺)</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--amber);">
+        <h4>Kriteria Minor</h4>
+        <ul>
+          <li>Emfisema akuosum (paru &gt;1.000 g)</li>
+          <li>Paltauf's spots</li>
+          <li>Cairan/pasir/ganggang di lambung</li>
+          <li>Washerwoman's skin, cutis anserina</li>
+          <li>Riwayat kejadian konsisten</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--red);">
+        <h4>Kriteria Eksklusi</h4>
+        <ul>
+          <li>Ditemukan penyebab kematian alternatif jelas (luka tembak, trauma kepala berat, intoksikasi fatal, penyakit jantung terminal)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🏊</span> Klasifikasi Manner of Death pada Drowning</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe</th><th>Ciri Khas Forensik</th></tr>
+        <tr><td><strong>Aksidental</strong></td><td>Tersering. Tidak ada bukti niat, ada faktor risiko/lingkungan jelas, tidak ada cedera mengarah kekerasan</td></tr>
+        <tr><td><strong>Suisidal</strong></td><td>Riwayat percobaan bunuh diri/gangguan jiwa, surat wasiat, bisa ada cedera benturan air jika melompat dari ketinggian</td></tr>
+        <tr><td><strong>Homisidal</strong></td><td>Jarang. Cedera pertahanan (defense wound), cedera tak sesuai mekanisme jatuh, inkonsistensi keterangan saksi</td></tr>
+        <tr><td><strong>Kematian alamiah di air</strong></td><td>Serangan jantung/stroke/epilepsi → jatuh ke air → tenggelam sebagai mekanisme terminal, bukan penyebab primer</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🧩</span> Faktor Pemodifikasi & Tantangan Diagnostik Khusus</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--tosca-deep); margin-bottom:8px;">Faktor yang Memodifikasi</p>
+        <ul class="styled-list">
+          <li>Suhu air dingin → diving response kuat, tapi juga risiko immersion syndrome pada lansia</li>
+          <li>Alkohol & zat psikoaktif → menumpulkan refleks protektif</li>
+          <li>Kondisi medis predisposisi (epilepsi, aritmia)</li>
+          <li>Perilaku korban (panik vs upaya bertahan terlatih)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--tosca-deep); margin-bottom:8px;">Tantangan Diagnostik</p>
+        <ul class="styled-list">
+          <li>Mayat membusuk → temuan klasik rusak, tapi diatom tetap bisa berguna</li>
+          <li>Korban sempat dirawat (delayed death) → diatom tetap ditemukan di paru karena tidak dieliminasi clearance mukosiliar</li>
+          <li>Kematian sangat cepat (immersion syndrome) → temuan minimal/tidak khas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= MEDIKOLEGAL ======================================= -->
+<div id="sec-medikolegal" class="section">
+  <h2 class="section-heading">⚖️ Aspek Medikolegal & Komunikasi Forensik</h2>
+  <p class="section-desc">Bagian yang menjembatani teori dengan praktik nyata: bagaimana dokter forensik berpikir, menjawab pertanyaan kritis, dan berkomunikasi dengan penyidik nonmedis.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">❓</span> 5 Pertanyaan Medikolegal Fundamental (Kasus Drowning)</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Yang Wajib Dijawab Ahli Forensik</div>
+      <ol class="cr-steps">
+        <li><strong>Apa penyebab kematian?</strong> Drowning primer atau sekunder dari kondisi lain (epilepsi di air, cedera kepala)?</li>
+        <li><strong>Bagaimana cara kematian (manner of death)?</strong> Aksidental, suisidal, homisidal, atau undetermined?</li>
+        <li><strong>Kapan waktu kematian & berapa lama di air?</strong> Pakai maserasi kulit, suhu air, fauna akuatik sebagai petunjuk.</li>
+        <li><strong>Faktor apa yang berkontribusi?</strong> Alkohol, obat, kondisi medis, faktor lingkungan?</li>
+        <li><strong>Apakah ada bukti tindak pidana?</strong> Cedera, tanda perlawanan, inkonsistensi cerita?</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">💬</span> Komunikasi dengan Penyidik Nonmedis</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:10px;">Penyidik (polisi, jaksa) tidak punya latar belakang fisiologi dan sering beranggapan asfiksia = cekik/gantung/tenggelam saja. Dokter forensik harus menjelaskan dengan analogi sederhana tanpa mengorbankan akurasi ilmiah.</p>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Analogi Sistem Pasokan Air Minum Kota</div>
+      <div class="mnemonic-text">"Asfiksia bukan hanya tentang cekik leher"</div>
+      <div class="mnemonic-sub">Tubuh = kota, oksigen = air. Asfiksia = air tidak sampai ke keran rumah warga. 4 kemungkinan: (1) pipa utama putus = sumbatan jalan napas, (2) pompa rusak = gagal jantung, (3) tangki kosong = anemia/keracunan CO, (4) kran rusak meski air datang = keracunan sianida. Jadi asfiksia adalah semua yang membuat sel kekurangan oksigen, bukan cuma "cekik leher".</div>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">📌</span><div><strong>Poin kritis yang harus disampaikan ke penyidik:</strong> petekie bukan bukti mutlak (bisa karena batuk keras); sianosis sering terjadi setelah mati karena posisi tubuh; bukti TERKUAT adalah alat/benda yang membatasi leher/dada di TKP — bukan hanya temuan otopsi.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">📑</span> Temuan untuk Memperkuat Diagnosis pada Autopsi</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>Pemeriksaan Luar</h4>
+        <ul>
+          <li>Tanda jerat — foto makro/mikro, ukur lebar & posisi vs kartilago tiroid</li>
+          <li>Petekie konjungtiva & wajah — hitung jumlah per mata</li>
+          <li>Edema wajah & lidah — ukur lingkar leher</li>
+          <li>Livor mortis — catat warna, distribusi</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--blue);">
+        <h4>Pemeriksaan Dalam</h4>
+        <ul>
+          <li>Fraktur hyoid/kartilago laring — eksisi blok leher, radiologi sebelum diseksi</li>
+          <li>Kongesti & edema paru (&gt;600 g/paru)</li>
+          <li>Darah cair — sampel ventrikel & vena femoralis</li>
+          <li>Edema serebral (&gt;1400 g, gyrus flattening)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🧪</span> Pemeriksaan Penunjang & Nilai Diagnostiknya</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Pemeriksaan</th><th>Spesimen</th><th>Nilai Diagnostik</th></tr>
+        <tr><td>Histopatologi</td><td>Paru, otak, jantung, ginjal, hati</td><td>Neuron eosinofilik, edema alveolar, nekrosis tubular (konfirmasi survival)</td></tr>
+        <tr><td>Toksikologi</td><td>Darah jantung & perifer, urin, vitreous</td><td>COHb (cutoff &gt;50% fatal), alkohol, obat sedatif, sianida</td></tr>
+        <tr><td>Biokimia postmortem</td><td>Vitreous humor</td><td>Laktat &gt;15 mmol/L, hipoksantin &gt;50 µmol/L, kalium &gt;20 mEq/L (kematian cepat)</td></tr>
+        <tr><td>Radiologi</td><td>CT scan leher</td><td>Fraktur hyoid, udara di jaringan leher</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🎯</span> 5 Pesan Kunci Bab 4 — Refleksi Kritis Forensik</div>
+    <ul class="styled-list">
+      <li><strong>Asfiksia tidak identik dengan sumbatan jalan napas</strong> — keracunan CO, tenggelam, dan anemia berat juga termasuk asfiksia jika menyebabkan hipoksia jaringan</li>
+      <li><strong>Hipoksemia ≠ hipoksia</strong> — seseorang dapat mati karena hipoksia tanpa pernah mengalami hipoksemia (contoh: keracunan sianida, di mana PaO₂ normal tapi sel tidak bisa pakai O₂)</li>
+      <li><strong>Petekie adalah petunjuk, bukan bukti</strong> — pendekatan diagnosis harus integratif dan probabilistik</li>
+      <li><strong>Asidosis metabolik pada asfiksia</strong> adalah akibat langsung metabolisme anaerob dan dapat diukur postmortem</li>
+      <li><strong>Otak paling rentan</strong> karena kebutuhan O₂ tinggi, cadangan energi minimal, dan kerentanan regional (hipokampus, korteks lapis III-V, Purkinje)</li>
+    </ul>
+    <div class="dr-note">Seorang dokter forensik yang baik tidak akan pernah berkata "kematian akibat asfiksia" hanya karena melihat petekie. Disiplin mengikuti protokol otopsi lengkap (luar, dalam, histologi, toksikologi, biokimia) adalah satu-satunya jalan menuju diagnosis yang dapat dipertanggungjawabkan di pengadilan.</div>
+  </div>
+</div>
+
+<!-- ======================================= KASUS KLINIS ======================================= -->
+<div id="sec-kasus" class="section">
+  <h2 class="section-heading">🩺 Kasus Klinis: Traumatic Asphyxia (Kuliah Pakar)</h2>
+  <p class="section-desc">Skenario "Blunt Chest Trauma" menghubungkan asfiksia traumatik (klinis-hidup) dengan asfiksia forensik (postmortem) — keduanya berbagi mekanisme dasar yang sama: gangguan pertukaran gas akibat restriksi mekanik dada/hambatan aliran balik vena.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">📋</span> Skenario: Pria 25 Tahun, Kecelakaan Motor</div>
+    <div class="alert alert-tosca"><span class="alert-icon">🏍️</span><div><strong>Mekanisme:</strong> Mengendarai motor → bertabrakan dengan mobil → terlempar ke depan, dada membentur setang (handlebar) → terjatuh ke tanah. Sadar penuh sepanjang kejadian.</div></div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--blue);">
+        <h4>Keluhan & Gejala</h4>
+        <ul>
+          <li>Sesak napas persisten, dada terasa berat/tertekan</li>
+          <li>Sensasi tekanan di tubuh bagian atas</li>
+          <li>Tidak ada muntah, kejang, atau kelemahan anggota gerak</li>
+          <li>Tidak ada riwayat penyakit kronis</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--amber);">
+        <h4>Tanda Vital (Saat Tiba)</h4>
+        <ul>
+          <li>TD 120/80 mmHg</li>
+          <li>Nadi 106×/menit</li>
+          <li>RR 24×/menit</li>
+          <li>Suhu 36,8°C</li>
+          <li><strong>SpO₂ 92%</strong> udara ruangan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🔎</span> Temuan Khas Traumatic Asphyxia pada Pemeriksaan</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Temuan</th><th>Mekanisme</th></tr>
+        <tr><td>Discoloration wajah & dada atas (merah-keunguan)</td><td>↑ Tekanan intratoraks mendadak → aliran balik vena terdorong retrograd ke vena kava superior → kongesti kapiler kepala-leher</td></tr>
+        <tr><td>Petekie tersebar di wajah & konjungtiva</td><td>Ruptur kapiler akibat lonjakan tekanan vena akut (mirip efek Valsava ekstrem)</td></tr>
+        <tr><td>Edema wajah ringan</td><td>Ekstravasasi cairan ke interstitial akibat kongesti vena</td></tr>
+        <tr><td>Suara napas menurun bilateral</td><td>Bisa kontusio paru, hemato/pneumotoraks, atau nyeri yang membatasi ekspansi dada</td></tr>
+        <tr><td>SpO₂ 92%</td><td>Tanda objektif gangguan oksigenasi — sudah masuk kategori "problem", bukan sekadar observasi</td></tr>
+      </table>
+    </div>
+    <div class="dr-note diskusi">Pasien memenuhi trias asfiksia (edema, sianosis, petekie), tetapi di rontgen toraks ada infiltrat bilateral. Apakah ini bisa langsung didiagnosis kontusio paru? Jawabannya: hubungannya dengan hambatan aliran balik sehingga edema. Edema tidak hanya terjadi pada organ di dada — organ dalam lain juga bisa edema. Kalau kontusio (memar), pada radiologi polos tidak terlihat gambaran cairan; gambaran infiltrat pada foto polos lebih konsisten dengan edema/kongesti daripada memar murni.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🅰️🅱️🅲️</span> Pendekatan ABCDE pada Traumatic Asphyxia</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Letak Masalah: Breathing, BUKAN Airway</div>
+      <ol class="cr-steps">
+        <li><strong>Airway:</strong> Biasanya paten — pasien bisa bicara kalimat pendek. Traumatic asphyxia TIDAK menyumbat jalan napas secara fisik.</li>
+        <li><strong>Breathing:</strong> Inilah inti masalah. Restriksi mekanik dinding dada + nyeri + kemungkinan kontusio paru/hematotoraks → ventilasi & oksigenasi terganggu, SpO₂ 92%.</li>
+        <li><strong>Circulation:</strong> TD masih normal, tapi waspadai aliran balik vena yang terhambat — potensi memburuk jika ada tamponade atau tension pneumotoraks tersembunyi.</li>
+        <li><strong>Disability:</strong> GCS penuh, tidak ada defisit fokal — tapi tetap monitor karena hipoksia berkepanjangan dapat memberi cedera neurologis sekunder meski awalnya sadar.</li>
+        <li><strong>Exposure:</strong> Cari luka/jejas lain untuk membedakan manifestasi trauma langsung vs manifestasi sekunder dari asfiksia (misal wajah bengkak — apakah karena asfiksia atau karena benturan langsung?).</li>
+      </ol>
+    </div>
+    <div class="dr-note diskusi">Apakah asfiksia bisa jadi problem di Airway sama seperti di Breathing? Bisa. Tapi pada asfiksia traumatik, yang terganggu adalah breathing — bukan karena sumbatan di airway. Manifestasinya berbeda, sehingga yang diperiksa dan dimonitor juga berbeda. Yang perlu dieksplorasi adalah apakah kelainan yang ditemukan murni dari traumanya (luka langsung) atau dari mekanisme asfiksianya.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🧠</span> Mengapa Pasien Sadar Tapi Tetap Berisiko Cedera Neurologis Sekunder?</div>
+    <p style="font-size:13.5px; color:var(--ink-muted); margin-bottom:10px;">Pertanyaan diskusi: pada traumatik asfiksia terjadi peningkatan tekanan intratoraks (TIT) yang menyebabkan darah vena terdorong balik ke area kepala. Apakah ini dapat menimbulkan gangguan perfusi dan cedera neurologis sekunder meski pasien tampak sadar?</p>
+    <div class="alert alert-tosca"><span class="alert-icon">💡</span><div><strong>Jawaban diskusi:</strong> Asfiksia menyebabkan hipoksia jaringan → berpotensi defisit neurologis. Analogi: orang dibekap — hipoksia 10 detik tidak berpengaruh, 1-2 menit menyebabkan penurunan kesadaran, 10-30 menit dapat menyebabkan kematian, tergantung durasi. Semakin lama hipoksia berlangsung, semakin besar kemungkinan kematian sel — bila hanya hipoksia sementara, manifestasi klinisnya bisa jauh lebih ringan dan reversibel (sesuai konsep <a href="#" onclick="show('patofisiologi'); return false;" style="color:var(--tosca-deep); font-weight:600;">3 fase patofisiologi asfiksia</a>).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">😣</span> Mengapa Manajemen Nyeri Penting pada Trauma Dada?</div>
+    <div class="alert alert-green"><span class="alert-icon">🔗</span><div>Nyeri saat inspirasi → otot dada terhambat bergerak → pasien "membatasi diri" bernapas dalam (splinting) → ventilasi makin dangkal → memperberat hipoksia. Tanda fungtiolesa (functio laesa) akibat proses inflamasi & nyeri membuat pasien menahan gerak napas, yang justru memperburuk oksigenasi. Inilah mengapa analgesia adekuat bukan sekadar kenyamanan, tapi bagian dari tatalaksana respirasi.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🩸</span> Kontusio Paru vs Edema akibat Asfiksia — Beda Radiologi</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>🫁 Kontusio Pulmonum</h4>
+        <div class="compare-row"><span>Patologi:</span>Perdarahan interstitial/alveolar (memar)</div>
+        <div class="compare-row"><span>Onset:</span>Bisa langsung atau berkembang 24-48 jam</div>
+        <div class="compare-row"><span>Distribusi:</span>Tidak simetris, sesuai lokasi benturan</div>
+        <div class="compare-row"><span>Foto polos:</span>Infiltrat patchy non-segmental</div>
+      </div>
+      <div class="compare-col right">
+        <h4>💧 Edema (akibat asfiksia/kongesti vena)</h4>
+        <div class="compare-row"><span>Patologi:</span>Ekstravasasi cairan interstitial (bukan darah)</div>
+        <div class="compare-row"><span>Onset:</span>Cepat, mengikuti lonjakan tekanan vena akut</div>
+        <div class="compare-row"><span>Distribusi:</span>Bisa bilateral & simetris, mengikuti gravitasi</div>
+        <div class="compare-row"><span>Foto polos:</span>Infiltrat bilateral difus, sering disertai tanda kongesti organ lain</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">🚨</span> Kapan Kondisi Ini Disebut Gawat Darurat?</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Tanda Bahaya yang Harus Dikenali</div>
+      <ol class="cr-steps">
+        <li>SpO₂ &lt;94% di udara ruangan — sudah merupakan sinyal "problem", meski pasien tampak tenang</li>
+        <li>RR &gt;24×/menit menetap atau meningkat saat observasi</li>
+        <li>Tidak ada perbaikan SpO₂ setelah suplementasi O₂ singkat, atau saturasi turun lagi begitu O₂ dilepas → tanda masalah BELUM teratasi</li>
+        <li>Penurunan kesadaran progresif, pH darah memburuk, asidosis respiratorik berkembang</li>
+        <li>Tanda peningkatan tekanan rongga toraks (deviasi trakea, distensi vena leher, hipotensi) → curigai tension pneumotoraks/hematotoraks sebagai komplikasi yang menyertai</li>
+      </ol>
+    </div>
+    <div class="dr-note diskusi">Dari hubungan mekanisme dan mengenali kegawatan, bisa ditinjau dari saturasi 92% dan RR 24× → ini sign adanya problem, lalu ditelusuri mekanismenya untuk sampai ke diagnosis. Pasien BPJS tanpa indikasi rawat inap yang jelas tetap perlu observasi ketat — kapan akan membaik dan kapan akan memburuk punya sign & symptom tersendiri yang harus dikenali, bukan diasumsikan akan sembuh sendiri.</div>
+    <div class="alert alert-amber"><span class="alert-icon">💨</span><div><strong>Contoh pembanding:</strong> Pada asma akut, sesak napas karena inflamasi akut — begitu teratasi, biasanya membaik dan bisa rawat jalan tanpa oksigen tambahan. Berbeda dengan traumatic asphyxia, di mana jika SpO₂ membaik hanya saat diberi oksigen lalu turun kembali ketika dilepas, ini menandakan masalah ventilasi/restriksi mekanik BELUM teratasi — bukan sekadar respons inflamasi sementara.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--tosca-pale)">⚰️</span> Skenario Fatal: Traumatic Asphyxia sampai Meninggal</div>
+    <p style="font-size:13.5px; color:var(--ink-muted);">Pada kasus yang sampai meninggal: korban terhimpit di dalam mobil (tekanan setir/airbag), atau terguling dan tertahan dalam posisi terbalik dengan kepala di bawah. Pada posisi ini, tekanan hidrostatik kepala-dada lebih tinggi DAN gerakan napas juga terhambat secara mekanik — kombinasi inilah yang membuat traumatic asphyxia berakhir fatal, menyatukan mekanisme forensik (kongesti, petekie, edema multiorgan) yang sama dengan yang dibahas di bab diagnosis forensik.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🔗</span> Menghubungkan dengan Kuliah dr. Busyra — Trauma Mekanik & Fisika</div>
+    <div class="dr-note busyra">Traumatic asphyxia adalah salah satu bentuk asfiksia mekanik yang dibahas dr. Busyra dalam konteks trauma fisika/mekanik forensik, sejajar dengan trauma listrik dan trauma akibat tekanan benda tumpul pada dada. Sama seperti trauma listrik yang punya entry-exit sites khas, traumatic asphyxia juga punya pola temuan khas (discoloration wajah-dada atas, petekie, edema) yang membantu rekonstruksi mekanisme kejadian.</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top:3px solid var(--purple);">
+        <h4>Kesamaan Konsep dengan Trauma Mekanik (dr. Busyra)</h4>
+        <ul>
+          <li>Keduanya butuh korelasi TKP + temuan klinis/postmortem untuk rekonstruksi mekanisme</li>
+          <li>Keduanya punya "tanda khas" yang sering disalahartikan sebagai bukti tunggal (mis. petekie vs luka listrik)</li>
+          <li>Dokumentasi visum/medikolegal harus deskriptif objektif, bukan menyimpulkan sebelum data lengkap</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top:3px solid var(--tosca);">
+        <h4>Beda Konteks: Klinis-Hidup vs Forensik-Mati</h4>
+        <ul>
+          <li>Pada pasien hidup (skenario IGD): fokus pada ABCDE & tatalaksana suportif segera</li>
+          <li>Pada kasus forensik (postmortem): fokus pada pembuktian mekanisme & manner of death</li>
+          <li>Mekanisme dasar (gangguan aliran balik vena, restriksi mekanik) tetap identik di kedua konteks</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🏥</span> Kompetensi & Alih Rawat</div>
+    <p style="font-size:13.5px; color:var(--ink-muted);">Traumatic asphyxia dengan SpO₂ rendah dan kemungkinan kontusio paru/hematotoraks berada di level kompetensi <span class="skdi skdi-3b">3B</span> untuk dokter umum: diagnosis ditegakkan, tatalaksana awal (oksigenasi, analgesia, stabilisasi) dilakukan segera di IGD, lalu <strong>alih rawat</strong> (bukan rujuk pindah rumah sakit) ke dokter spesialis paru, bedah toraks, atau bedah umum sesuai fasilitas yang tersedia.</p>
+  </div>
+</div>
+
+<!-- ======================================= QUIZ ======================================= -->
+<div id="sec-quiz" class="section">
+  <h2 class="section-heading">🧠 Quiz — Uji Pemahamanmu!</h2>
+  <p class="section-desc">20 soal vignette dari bank soal ujian topik Asfiksia & Drowning, dipadukan dengan kasus kuliah pakar blunt chest trauma. Posisi opsi sudah diacak ulang. Semangat, Rona!</p>
+
+  <div class="quiz-progress" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / DEFINISI & MEKANISME</div>
+    <div class="q-vignette">Seorang pria 35 tahun ditemukan meninggal tergantung di kamar. Pada autopsi ditemukan kongesti wajah, petekie konjungtiva, dan jejas jerat pada leher.</div>
+    <p class="q-question">Mekanisme utama yang menyebabkan kematian pada kasus tersebut adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Infark miokard akut</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Emboli lemak akut</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">C</span>Gangguan ventilasi dan iskemia serebral akibat kompresi struktur leher</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Ruptur aorta torakalis</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Syok septik</button>
+    </div>
+    <div class="q-exp" id="exp-q1">
+      ✅ <strong>C. Gangguan ventilasi dan iskemia serebral akibat kompresi struktur leher</strong><br><br>
+      Gantung diri menyebabkan dua mekanisme bersamaan: (1) oklusi jalan napas → gangguan ventilasi, dan (2) kompresi vaskular leher (terutama arteri karotis & vena jugularis) → iskemia serebral. Kongesti wajah dan petekie konjungtiva adalah konsekuensi peningkatan tekanan vena di kepala akibat hambatan aliran balik, bukan diagnosis tunggal — tetap harus dikorelasikan dengan jejas jerat dan temuan TKP.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / KLASIFIKASI MEKANIK</div>
+    <div class="q-vignette">Seorang anak tersedak permen hingga mengalami sumbatan total jalan napas dan meninggal.</div>
+    <p class="q-question">Kasus tersebut termasuk klasifikasi asfiksia apa?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Hipoksia histotoksik</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">B</span>Syok neurogenik</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">C</span>Asfiksia kimiawi</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">D</span>Asfiksia mekanik akibat sumbatan internal jalan napas</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Hipoksia stagnan</button>
+    </div>
+    <div class="q-exp" id="exp-q2">
+      ✅ <strong>D. Asfiksia mekanik akibat sumbatan internal jalan napas</strong><br><br>
+      Benda asing (permen) masuk ke dalam saluran napas (intraluminer) — sesuai definisi: sumbatan minimal terjadi di orofaring agar menutup total jalur napas dari hidung maupun mulut menuju laring. Ini adalah asfiksia mekanik subtipe sumbatan internal, berbeda dari sumbatan eksternal (jerat/cekik/gantung) yang terjadi di luar saluran napas.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / KERACUNAN CO</div>
+    <div class="q-vignette">Seorang pria ditemukan meninggal dalam ruangan tertutup dengan generator menyala. Kulit dan livor tampak merah cerah. Pemeriksaan toksikologi menunjukkan kadar karboksihemoglobin tinggi.</div>
+    <p class="q-question">Mekanisme yang paling tepat untuk kasus ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Restriksi dinding dada</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>Iskemia serebral primer</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">C</span>Oklusi mekanik jalan napas</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Edema paru neurogenik</button>
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">E</span>Hipoksia akibat gangguan transport oksigen oleh hemoglobin</button>
+    </div>
+    <div class="q-exp" id="exp-q3">
+      ✅ <strong>E. Hipoksia akibat gangguan transport oksigen oleh hemoglobin</strong><br><br>
+      CO berikatan dengan Hb 240× lebih kuat daripada O₂, membentuk karboksihemoglobin (COHb) yang tidak dapat mengangkut O₂ secara efektif. Ini termasuk hipoksia tipe anemik (gangguan kapasitas angkut darah) menurut klasifikasi Barcroft, meski jalan napas sepenuhnya paten — bukti bahwa asfiksia tidak selalu memerlukan sumbatan fisik. Warna merah cerah pada kulit/livor adalah ciri khas COHb, BUKAN sianosis.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / TRAUMATIC ASPHYXIA</div>
+    <div class="q-vignette">Korban ditemukan meninggal setelah tertimpa reruntuhan bangunan yang menekan dada selama beberapa menit. Wajah tampak sianosis dan penuh petekie.</div>
+    <p class="q-question">Mekanisme asfiksia yang paling sesuai adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Emboli udara</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Hipotermia</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">C</span>Traumatic asphyxia akibat restriksi ekspansi dinding dada</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>Syok hemoragik</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>Keracunan sianida</button>
+    </div>
+    <div class="q-exp" id="exp-q4">
+      ✅ <strong>C. Traumatic asphyxia akibat restriksi ekspansi dinding dada</strong><br><br>
+      Tertimpa beban berat di dada selama beberapa menit secara mekanis membatasi ekspansi toraks → ventilasi terganggu, sekaligus meningkatkan tekanan intratoraks yang mendorong darah vena retrograd ke kepala-leher → kongesti, sianosis wajah, dan petekie. Mekanisme ini sama dengan yang terjadi pada skenario kecelakaan motor dengan dada membentur setang — restriksi mekanik dinding dada, bukan sumbatan jalan napas langsung.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / DIAGNOSIS FORENSIK</div>
+    <div class="q-vignette">Pada autopsi ditemukan petekie konjungtiva bilateral dalam jumlah banyak. Tidak ditemukan tanda kekerasan lain.</div>
+    <p class="q-question">Kesimpulan yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>Kematian pasti akibat tenggelam</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">B</span>Diagnosis asfiksia pasti dapat ditegakkan</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">C</span>Petekie merupakan petunjuk penting tetapi tidak cukup untuk menegakkan diagnosis asfiksia</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Kematian pasti akibat cekikan</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>Kematian pasti akibat gantung</button>
+    </div>
+    <div class="q-exp" id="exp-q5">
+      ✅ <strong>C. Petekie merupakan petunjuk penting tetapi tidak cukup untuk menegakkan diagnosis asfiksia</strong><br><br>
+      Petekie tidak bersifat patognomonik — PPV-nya hanya sekitar 22% pada populasi otopsi umum. Petekie juga dapat muncul pada batuk rejan, partus, trombositopenia, leukemia, dan DIC. Diagnosis asfiksia memerlukan integrasi temuan TKP, otopsi luar-dalam, histopatologi, dan toksikologi — bukan satu tanda tunggal.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / TANDA TIDAK SPESIFIK</div>
+    <div class="q-vignette">Seorang wanita ditemukan meninggal di kamar mandi. Ditemukan edema paru masif pada autopsi.</div>
+    <p class="q-question">Interpretasi forensik yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Edema paru memastikan kematian akibat keracunan</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">B</span>Edema paru memastikan kematian akibat gantung</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">C</span>Edema paru merupakan temuan tidak spesifik yang harus dikorelasikan dengan data lain</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>Edema paru memastikan kematian akibat tenggelam</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Edema paru memastikan kematian akibat asfiksia</button>
+    </div>
+    <div class="q-exp" id="exp-q6">
+      ✅ <strong>C. Edema paru merupakan temuan tidak spesifik yang harus dikorelasikan dengan data lain</strong><br><br>
+      Edema paru dapat muncul pada banyak kondisi: gagal jantung kiri, keracunan, asfiksia mekanik, tenggelam, bahkan reaksi terminal pada banyak penyebab kematian lain. Tanpa korelasi dengan TKP, riwayat penyakit, dan pemeriksaan penunjang lain, edema paru saja tidak dapat dipakai untuk memastikan mekanisme kematian spesifik apa pun.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / FASE PATOFISIOLOGI</div>
+    <div class="q-vignette">Dalam fase awal asfiksia akut akibat sumbatan jalan napas (0-2 menit pertama).</div>
+    <p class="q-question">Respons tubuh yang paling mungkin terjadi pada fase ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>Koma permanen</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">B</span>Henti napas primer</button>
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">C</span>Takikardia dan peningkatan aktivitas simpatis</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>Asistol segera</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Hipotermia mendadak</button>
+    </div>
+    <div class="q-exp" id="exp-q7">
+      ✅ <strong>C. Takikardia dan peningkatan aktivitas simpatis</strong><br><br>
+      Pada fase awal/kompensasi (0-2 menit), tubuh mengaktifkan respons simpatis sebagai mekanisme bertahan: takikardia hingga 150-180×/menit, vasokonstriksi perifer, dan dispnea hebat ("air hunger"). Kesadaran masih penuh di fase ini. Asistol, henti napas primer, dan koma baru terjadi pada fase progresif-dekompensasi dan terminal (setelah 2-5 menit ke atas).
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / FASE TERMINAL</div>
+    <div class="q-vignette">Seorang pria mengalami sumbatan total jalan napas selama 5 menit.</div>
+    <p class="q-question">Pada fase terminal asfiksia, gambaran yang paling mungkin ditemukan adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>Hiperoksia</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">B</span>Alkalosis respiratorik</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">C</span>Hipertensi berat</button>
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">D</span>Apnea terminal dan asistol</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Takikardia berat</button>
+    </div>
+    <div class="q-exp" id="exp-q8">
+      ✅ <strong>D. Apnea terminal dan asistol</strong><br><br>
+      Pada fase terminal (5-10 menit), PaO₂ mendekati 0, pH &lt;6,9, terjadi apnea terminal (henti napas primer mendahului henti jantung pada asfiksia — berbeda dari infark miokard yang henti jantung lebih dulu) diikuti asistol atau fibrilasi ventrikel. Ini adalah titik kegagalan multiorgan yang ireversibel.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / PETEKIE NEGATIF</div>
+    <div class="q-vignette">Korban ditemukan tergantung. Pada pemeriksaan luar terdapat jejas jerat khas, tetapi tidak ditemukan petekie konjungtiva.</div>
+    <p class="q-question">Interpretasi terbaik untuk temuan ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Kasus pasti bukan gantung</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>Petekie wajib ada pada semua kasus gantung</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">C</span>Korban pasti meninggal akibat penyakit jantung</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">D</span>Diagnosis asfiksia tetap mungkin karena petekie tidak selalu ditemukan</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Diagnosis asfiksia harus ditolak</button>
+    </div>
+    <div class="q-exp" id="exp-q9">
+      ✅ <strong>D. Diagnosis asfiksia tetap mungkin karena petekie tidak selalu ditemukan</strong><br><br>
+      Sensitivitas petekie pada asfiksia mekanik terkonfirmasi hanya sekitar 71% — artinya hampir 30% kasus asfiksia mekanik sejati TIDAK menunjukkan petekie. Faktor yang memengaruhi: kecepatan kematian (gantung total yang sangat cepat mungkin tidak cukup waktu membentuk petekie), tinggi gantung, derajat kompresi vaskular. Tanda jerat khas tetap menjadi bukti kuat mekanisme, terlepas dari ada/tidaknya petekie.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / OVERDOSIS OPIOID</div>
+    <div class="q-vignette">Seorang pasien overdosis opioid mengalami depresi pusat napas dan kemudian meninggal.</div>
+    <p class="q-question">Mekanisme kematian yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Emboli lemak</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">B</span>Oklusi arteri karotis</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">C</span>Fraktur servikal</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">D</span>Hipoventilasi yang menimbulkan asfiksia</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Syok anafilaktik</button>
+    </div>
+    <div class="q-exp" id="exp-q10">
+      ✅ <strong>D. Hipoventilasi yang menimbulkan asfiksia</strong><br><br>
+      Opioid menekan pusat napas di medula oblongata → hipoventilasi progresif → hipoksemia dan hiperkapnia → asfiksia. Ini adalah contoh asfiksia tanpa sumbatan jalan napas fisik sama sekali — murni gangguan kontrol neurologis ventilasi. Laporan forensik sebaiknya spesifik: "asfiksia akibat depresi pusat napas sekunder intoksikasi opioid", bukan sekadar "asfiksia" generik.
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="quiz-q" id="q11">
+    <div class="q-num">SOAL 11 / LAKTAT POSTMORTEM</div>
+    <div class="q-vignette">Pada pemeriksaan laboratorium postmortem ditemukan kadar laktat sangat tinggi (&gt;15 mmol/L) tanpa riwayat resusitasi panjang.</div>
+    <p class="q-question">Temuan tersebut paling mendukung adanya?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q11',false)"><span class="ol">A</span>Hiperkolesterolemia</button>
+      <button class="q-opt" onclick="ans(this,'q11',false)"><span class="ol">B</span>Hipertiroidisme</button>
+      <button class="q-opt" onclick="ans(this,'q11',true)"><span class="ol">C</span>Hipoksia jaringan dan metabolisme anaerob sebelum kematian</button>
+      <button class="q-opt" onclick="ans(this,'q11',false)"><span class="ol">D</span>Gagal ginjal kronik</button>
+      <button class="q-opt" onclick="ans(this,'q11',false)"><span class="ol">E</span>Hiperglikemia kronik</button>
+    </div>
+    <div class="q-exp" id="exp-q11">
+      ✅ <strong>C. Hipoksia jaringan dan metabolisme anaerob sebelum kematian</strong><br><br>
+      Saat O₂ tidak cukup, sel beralih dari glikolisis aerob (36 ATP/glukosa) ke anaerob (hanya 2 ATP/glukosa) yang menghasilkan asam laktat sebagai produk sampingan. Setiap kenaikan laktat 1 mmol/L menurunkan bikarbonat sekitar 1 mEq/L. Kadar laktat tinggi pada vitreous humor/darah postmortem (tanpa resusitasi lama) menjadi penanda biokimia kuat untuk hipoksia berat antemortem.
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="quiz-q" id="q12">
+    <div class="q-num">SOAL 12 / SENSITIVITAS ORGAN</div>
+    <div class="q-vignette">Pertanyaan konsep dasar mengenai kerentanan organ terhadap kekurangan oksigen pada asfiksia.</div>
+    <p class="q-question">Organ yang paling cepat mengalami kerusakan ireversibel akibat hipoksia adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q12',false)"><span class="ol">A</span>Tulang</button>
+      <button class="q-opt" onclick="ans(this,'q12',false)"><span class="ol">B</span>Kulit</button>
+      <button class="q-opt" onclick="ans(this,'q12',false)"><span class="ol">C</span>Otot rangka</button>
+      <button class="q-opt" onclick="ans(this,'q12',false)"><span class="ol">D</span>Hati</button>
+      <button class="q-opt" onclick="ans(this,'q12',true)"><span class="ol">E</span>Otak</button>
+    </div>
+    <div class="q-exp" id="exp-q12">
+      ✅ <strong>E. Otak</strong><br><br>
+      Otak hanya toleran 4-6 menit terhadap hipoksia total karena konsumsi O₂ sangat tinggi (20% dari total tubuh) dengan cadangan glikogen sangat rendah. Bandingkan dengan jantung (4-8 menit), ginjal (30-60 menit, mampu glikolisis anaerob sementara), dan hati (60-90 menit). Inilah dasar mengapa resusitasi setelah 6 menit henti napas/jantung memiliki prognosis neurologis sangat buruk.
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="quiz-q" id="q13">
+    <div class="q-num">SOAL 13 / PENDEKATAN DIAGNOSIS INTEGRATIF</div>
+    <div class="q-vignette">Seorang PPDS forensik diminta menyimpulkan penyebab kematian pada korban yang dicurigai mengalami asfiksia.</div>
+    <p class="q-question">Pendekatan yang paling benar adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q13',false)"><span class="ol">A</span>Mengandalkan sianosis saja</button>
+      <button class="q-opt" onclick="ans(this,'q13',false)"><span class="ol">B</span>Mengandalkan petekie konjungtiva saja</button>
+      <button class="q-opt" onclick="ans(this,'q13',false)"><span class="ol">C</span>Mengandalkan warna livor saja</button>
+      <button class="q-opt" onclick="ans(this,'q13',true)"><span class="ol">D</span>Mengintegrasikan hasil TKP, autopsi luar-dalam, histopatologi, dan toksikologi</button>
+      <button class="q-opt" onclick="ans(this,'q13',false)"><span class="ol">E</span>Mengandalkan edema paru saja</button>
+    </div>
+    <div class="q-exp" id="exp-q13">
+      ✅ <strong>D. Mengintegrasikan hasil TKP, autopsi luar-dalam, histopatologi, dan toksikologi</strong><br><br>
+      Ini adalah prinsip emas diagnosis forensik asfiksia: TIDAK ada satu tanda postmortem yang patognomonik. Diagnosis ditegakkan melalui sintesis 4 kriteria — bukti objektif mekanisme, tidak ada penyakit alami yang menjelaskan kematian, toksikologi negatif untuk racun mematikan, dan histopatologi konsisten dengan hipoksia/iskemia.
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="quiz-q" id="q14">
+    <div class="q-num">SOAL 14 / DEFINISI WHO DROWNING</div>
+    <div class="q-vignette">Seorang anak 4 tahun jatuh ke kolam dan wajahnya berada di bawah permukaan air selama beberapa menit.</div>
+    <p class="q-question">Menurut definisi WHO (Konsensus Amsterdam 2002), kondisi tersebut termasuk?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q14',false)"><span class="ol">A</span>Cedera listrik</button>
+      <button class="q-opt" onclick="ans(this,'q14',false)"><span class="ol">B</span>Hipotermia primer</button>
+      <button class="q-opt" onclick="ans(this,'q14',false)"><span class="ol">C</span>Trauma tumpul kepala</button>
+      <button class="q-opt" onclick="ans(this,'q14',true)"><span class="ol">D</span>Proses gangguan pernapasan akibat submersi atau imersi dalam cairan</button>
+      <button class="q-opt" onclick="ans(this,'q14',false)"><span class="ol">E</span>Kematian mendadak alami</button>
+    </div>
+    <div class="q-exp" id="exp-q14">
+      ✅ <strong>D. Proses gangguan pernapasan akibat submersi atau imersi dalam cairan</strong><br><br>
+      WHO mendefinisikan drowning sebagai proses kontinu (bukan kondisi dikotomis hidup-mati) dengan 3 kemungkinan outcome: death, morbidity, no morbidity. Anak dengan wajah terendam = submersi (seluruh saluran napas di bawah air), berbeda dari imersi (tubuh terendam tapi saluran napas masih di atas air). Istilah "near-drowning" sudah ditinggalkan dalam konsensus modern.
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="quiz-q" id="q15">
+    <div class="q-num">SOAL 15 / BUSA & EDEMA PARU</div>
+    <div class="q-vignette">Seorang korban tenggelam di sungai. Pada autopsi ditemukan busa halus putih pada hidung dan mulut serta edema paru.</div>
+    <p class="q-question">Interpretasi yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q15',false)"><span class="ol">A</span>Temuan tersebut memastikan bunuh diri</button>
+      <button class="q-opt" onclick="ans(this,'q15',false)"><span class="ol">B</span>Temuan tersebut menyingkirkan drowning</button>
+      <button class="q-opt" onclick="ans(this,'q15',true)"><span class="ol">C</span>Temuan tersebut mendukung kemungkinan drowning tetapi harus dikorelasikan dengan temuan lain</button>
+      <button class="q-opt" onclick="ans(this,'q15',false)"><span class="ol">D</span>Temuan tersebut memastikan pembunuhan</button>
+      <button class="q-opt" onclick="ans(this,'q15',false)"><span class="ol">E</span>Temuan tersebut memastikan kematian alamiah</button>
+    </div>
+    <div class="q-exp" id="exp-q15">
+      ✅ <strong>C. Temuan tersebut mendukung kemungkinan drowning tetapi harus dikorelasikan dengan temuan lain</strong><br><br>
+      Mushroom-like foam adalah tanda paling khas drowning hidup, namun tetap bukan patognomonik mutlak — DD edema paru kardiogenik (lebih encer, disertai tanda penyakit jantung kronis). Diagnosis drowning final harus didukung kriteria mayor/minor lain: uji diatom, emfisema akuosum, Paltauf's spots, hasil TKP, dan eksklusi penyebab kematian alternatif.
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="quiz-q" id="q16">
+    <div class="q-num">SOAL 16 / FISIOLOGI AIR LAUT</div>
+    <div class="q-vignette">Seorang pria ditemukan meninggal setelah terjatuh dari perahu ke laut.</div>
+    <p class="q-question">Aspirasi air laut (hipertonik) menyebabkan perubahan fisiologis utama berupa?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q16',false)"><span class="ol">A</span>Hiponatremia berat</button>
+      <button class="q-opt" onclick="ans(this,'q16',false)"><span class="ol">B</span>Penurunan hematokrit drastis</button>
+      <button class="q-opt" onclick="ans(this,'q16',false)"><span class="ol">C</span>Hemolisis masif sebagai mekanisme utama</button>
+      <button class="q-opt" onclick="ans(this,'q16',true)"><span class="ol">D</span>Perpindahan cairan dari pembuluh darah ke alveoli sehingga terjadi edema paru</button>
+      <button class="q-opt" onclick="ans(this,'q16',false)"><span class="ol">E</span>Hemodilusi berat akibat masuknya air ke sirkulasi</button>
+    </div>
+    <div class="q-exp" id="exp-q16">
+      ✅ <strong>D. Perpindahan cairan dari pembuluh darah ke alveoli sehingga terjadi edema paru</strong><br><br>
+      Air laut hipertonik (kaya Na⁺, Cl⁻, Mg²⁺, Ca²⁺) menarik cairan dari sirkulasi ke alveoli melalui gradien osmotik — berlawanan dengan air tawar yang hipotonik (justru ditarik ke sirkulasi, hemodilusi). Pada air laut: hemokonsentrasi & hipovolemia relatif, surfaktan diendapkan oleh garam (efek deterjen), bukan dibilas seperti air tawar. Hemolisis pada air laut jauh lebih minimal dibanding air tawar.
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="quiz-q" id="q17">
+    <div class="q-num">SOAL 17 / DIVING RESPONSE & HIPOTERMIA</div>
+    <div class="q-vignette">Seorang korban tenggelam di air dingin bersuhu 5°C.</div>
+    <p class="q-question">Dibandingkan orang dewasa normal di air hangat, mengapa peluang bertahan hidup secara teoretis bisa lebih besar pada air sangat dingin (khususnya pada anak/bayi)?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q17',false)"><span class="ol">A</span>Hipotermia menghilangkan diving response</button>
+      <button class="q-opt" onclick="ans(this,'q17',false)"><span class="ol">B</span>Hipotermia menyebabkan hipertermia</button>
+      <button class="q-opt" onclick="ans(this,'q17',false)"><span class="ol">C</span>Hipotermia meningkatkan kebutuhan oksigen</button>
+      <button class="q-opt" onclick="ans(this,'q17',true)"><span class="ol">D</span>Hipotermia dapat memperlambat metabolisme dan melindungi jaringan otak</button>
+      <button class="q-opt" onclick="ans(this,'q17',false)"><span class="ol">E</span>Hipotermia mempercepat kerusakan neuron</button>
+    </div>
+    <div class="q-exp" id="exp-q17">
+      ✅ <strong>D. Hipotermia dapat memperlambat metabolisme dan melindungi jaringan otak</strong><br><br>
+      Efek Q10: penurunan suhu memperlambat laju reaksi metabolik, menurunkan konsumsi O₂ jaringan termasuk otak. Dikombinasikan dengan diving response yang teraktivasi via N. trigeminus saat wajah kontak air dingin (apnea refleks, bradikardia, vasokonstriksi perifer) — terutama sangat kuat pada bayi — fenomena ini menjelaskan kasus jarang bayi/anak selamat dengan hasil neurologis baik meski submersi lama di air dingin.
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="quiz-q" id="q18">
+    <div class="q-num">SOAL 18 / FASE APNEA VOLUNTER</div>
+    <div class="q-vignette">Pada proses drowning, korban awalnya berusaha menahan napas sebelum akhirnya menghirup air.</div>
+    <p class="q-question">Fase tersebut disebut?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q18',false)"><span class="ol">A</span>Putrefaksi</button>
+      <button class="q-opt" onclick="ans(this,'q18',false)"><span class="ol">B</span>Livor mortis</button>
+      <button class="q-opt" onclick="ans(this,'q18',true)"><span class="ol">C</span>Apnea volunter</button>
+      <button class="q-opt" onclick="ans(this,'q18',false)"><span class="ol">D</span>Asistol terminal</button>
+      <button class="q-opt" onclick="ans(this,'q18',false)"><span class="ol">E</span>Hemokonsentrasi</button>
+    </div>
+    <div class="q-exp" id="exp-q18">
+      ✅ <strong>C. Apnea volunter</strong><br><br>
+      Fase ke-1 dari 6 fase drowning: menahan napas secara sadar, durasi tergantung kapasitas paru dan PaCO₂ awal (tidak terlatih: 30-60 detik; penyelam profesional: 3-5 menit). Berakhir ketika PaCO₂ mencapai ~55-60 mmHg dan PaO₂ &lt;60 mmHg — di titik ini pusat napas memaksa bernapas di luar kendali sadar, memicu fase berikutnya (inspirasi awal & laringospasme).
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="quiz-q" id="q19">
+    <div class="q-num">SOAL 19 / FAKTOR RISIKO ALKOHOL</div>
+    <div class="q-vignette">Korban ditemukan meninggal di kolam renang umum tanpa saksi. Pemeriksaan menunjukkan kadar alkohol darah tinggi.</div>
+    <p class="q-question">Kesimpulan yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q19',false)"><span class="ol">A</span>Alkohol tidak memiliki hubungan dengan drowning</button>
+      <button class="q-opt" onclick="ans(this,'q19',false)"><span class="ol">B</span>Alkohol membuktikan pembunuhan</button>
+      <button class="q-opt" onclick="ans(this,'q19',true)"><span class="ol">C</span>Alkohol merupakan faktor risiko yang dapat berkontribusi terhadap terjadinya drowning</button>
+      <button class="q-opt" onclick="ans(this,'q19',false)"><span class="ol">D</span>Alkohol membuktikan bunuh diri</button>
+      <button class="q-opt" onclick="ans(this,'q19',false)"><span class="ol">E</span>Alkohol menyingkirkan diagnosis drowning</button>
+    </div>
+    <div class="q-exp" id="exp-q19">
+      ✅ <strong>C. Alkohol merupakan faktor risiko yang dapat berkontribusi terhadap terjadinya drowning</strong><br><br>
+      Alkohol pada kadar 0,08% telah dibuktikan mengurangi durasi apnea refleks hingga 50% dan menghilangkan komponen vasokonstriksi dari diving response. Ini salah satu mekanisme fisiologis mengapa alkohol menjadi faktor risiko utama kasus drowning aksidental, terutama pada dewasa muda laki-laki yang berenang sendirian.
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="quiz-q" id="q20">
+    <div class="q-num">SOAL 20 / KASUS KLINIS BLUNT CHEST TRAUMA</div>
+    <div class="q-vignette">Pria 25 tahun, kecelakaan motor dengan dada membentur setang. Tiba di IGD sadar penuh, sesak napas persisten. TD 120/80, nadi 106×/menit, RR 24×/menit, SpO₂ 92% udara ruangan. Tampak discoloration wajah-dada atas, petekie wajah & konjungtiva, edema wajah ringan. Suara napas menurun bilateral tanpa deformitas dinding dada.</div>
+    <p class="q-question">Letak masalah utama pada pendekatan ABCDE pasien ini, dan apa rasionalnya?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q20',false)"><span class="ol">A</span>Airway — karena suara napas menurun pasti berarti jalan napas tersumbat</button>
+      <button class="q-opt" onclick="ans(this,'q20',true)"><span class="ol">B</span>Breathing — restriksi mekanik dinding dada & nyeri mengganggu ventilasi, bukan sumbatan jalan napas</button>
+      <button class="q-opt" onclick="ans(this,'q20',false)"><span class="ol">C</span>Circulation — TD 120/80 menunjukkan syok hipovolemik yang harus diresusitasi cairan agresif</button>
+      <button class="q-opt" onclick="ans(this,'q20',false)"><span class="ol">D</span>Disability — petekie wajah adalah tanda pasti cedera neurologis primer</button>
+      <button class="q-opt" onclick="ans(this,'q20',false)"><span class="ol">E</span>Exposure — discoloration wajah pasti murni akibat benturan langsung, bukan mekanisme asfiksia</button>
+    </div>
+    <div class="q-exp" id="exp-q20">
+      ✅ <strong>B. Breathing — restriksi mekanik dinding dada & nyeri mengganggu ventilasi, bukan sumbatan jalan napas</strong><br><br>
+      Pasien bisa bicara kalimat pendek (airway paten). Masalah utamanya adalah traumatic asphyxia: dada membentur setang → restriksi ekspansi dinding dada + nyeri → ventilasi terganggu → SpO₂ 92%. Discoloration, petekie, dan edema wajah adalah konsekuensi peningkatan tekanan intratoraks yang mendorong darah vena retrograd ke kepala-leher (bukan murni cedera neurologis atau benturan langsung). TD masih normal, jadi circulation belum jadi prioritas resusitasi cairan agresif — yang lebih penting justru waspada potensi tension pneumotoraks/hematotoraks tersembunyi yang dapat mengganggu sirkulasi sekunder.
+    </div>
+  </div>
+
+  <!-- Score card -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:36px; margin-bottom:8px;">🎉</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:18px; opacity:0.8; margin-top:4px;">/ 20</div>
+    <p class="score-msg" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+
+</div><!-- /quiz -->
+</div><!-- /container -->
+
+<script>
+// ====== NAV ======
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  let matched = false;
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.getAttribute('onclick') === "show('" + id + "')") {
+      b.classList.add('active');
+      matched = true;
+    }
+  });
+  if (!matched && typeof event !== 'undefined' && event.target && event.target.classList && event.target.classList.contains('nav-btn')) {
+    event.target.classList.add('active');
+  }
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ====== COLLAPSE ======
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// ====== QUIZ ======
+let answered = {}, score = 0, total = 20;
+
+function initDots() {
+  const p = document.getElementById('quizProg');
+  p.innerHTML = '';
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot';
+    d.id = 'dot' + i;
+    p.appendChild(d);
+  }
+}
+
+function ans(btn, qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const qNum = parseInt(qid.replace('q', ''));
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+  if (correct) {
+    btn.classList.add('correct');
+    score++;
+    document.getElementById('dot' + qNum).classList.add('ok');
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('dot' + qNum).classList.add('no');
+    card.querySelectorAll('.q-opt').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) b.classList.add('correct');
+    });
+  }
+  const exp = document.getElementById('exp-' + qid);
+  if (exp) exp.classList.add('show');
+  if (Object.keys(answered).length === total) setTimeout(showScore, 700);
+}
+
+function showScore() {
+  const sc = document.getElementById('scoreCard');
+  sc.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const msgs = ['Ayo belajar lagi, semangat! 💪', 'Masih perlu review nih! 📖', 'Lumayan! Sedikit lagi! 🌟', 'Bagus banget! Hampir sempurna! 🔥', 'SEMPURNA! Dokter siap! 🎊'];
+  const idx = score <= 8 ? 0 : score <= 12 ? 1 : score <= 16 ? 2 : score <= 19 ? 3 : 4;
+  document.getElementById('scoreMsg').textContent = msgs[idx];
+  sc.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function resetQuiz() {
+  answered = {}; score = 0;
+  document.querySelectorAll('.q-opt').forEach(b => { b.disabled = false; b.classList.remove('correct', 'wrong'); });
+  document.querySelectorAll('.q-exp').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+initDots();
+</script>
+</body>
+</html>

@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 Penanganan Efek Psikis Trauma — Study Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #9b8ac4;
+  --purple-light: #b3a3d4;
+  --purple-pale: #f1edf9;
+  --purple-deep: #5d4d8a;
+  --green: #8fc9a8;
+  --green-light: #a8d6bc;
+  --green-pale: #eaf7f0;
+  --green-deep: #3e7d5a;
+  --cream: #fbf9fd;
+  --white: #ffffff;
+  --text: #2e2640;
+  --text-muted: #7a6f93;
+  --border: #e3dcf2;
+  --red: #c0392b;
+  --red-pale: #fdf2f0;
+  --amber: #d4a45c;
+  --amber-pale: #fbf2e2;
+  --blue: #6f9bc4;
+  --blue-pale: #eaf2f9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ====== HERO ====== */
+.hero {
+  background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 45%, var(--green) 100%);
+  padding: 60px 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 15%;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: rgba(143,201,168,0.18);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.38);
+  color: var(--purple-pale);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 54px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--green-pale);
+}
+.hero-sub {
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 600px;
+  line-height: 1.7;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+.pill {
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  background: rgba(255,255,255,0.94);
+  color: var(--purple-deep);
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  transition: transform 0.2s;
+}
+.video-link:hover { transform: translateY(-2px); }
+
+/* ====== NAV ====== */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--purple-deep);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  box-shadow: 0 3px 16px rgba(93,77,138,0.35);
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(241,237,249,0.65);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 13px 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-btn:hover, .nav-btn.active {
+  color: var(--green-pale);
+  border-bottom-color: var(--green);
+}
+
+/* ====== LAYOUT ====== */
+.container { max-width: 920px; margin: 0 auto; padding: 44px 24px; }
+
+/* ====== SECTIONS ====== */
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin-bottom: 6px;
+}
+.section-desc {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 28px;
+}
+
+/* ====== CARDS ====== */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(155,138,196,0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: 0 6px 24px rgba(155,138,196,0.14); transform: translateY(-1px); }
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--purple-deep);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ====== ALERTS ====== */
+.alert {
+  padding: 13px 17px;
+  border-radius: 10px;
+  margin: 13px 0;
+  font-size: 13.5px;
+  display: flex;
+  gap: 10px;
+  line-height: 1.65;
+}
+.alert-purple { background: var(--purple-pale); border-left: 4px solid var(--purple); color: var(--purple-deep); }
+.alert-green { background: var(--green-pale); border-left: 4px solid var(--green-deep); color: var(--green-deep); }
+.alert-red { background: var(--red-pale); border-left: 4px solid var(--red); color: #7a1a10; }
+.alert-amber { background: var(--amber-pale); border-left: 4px solid var(--amber); color: #6e5325; }
+.alert-blue { background: var(--blue-pale); border-left: 4px solid var(--blue); color: #2d4f6e; }
+.alert-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+/* Dokter tekankan marker */
+.dr-note {
+  background: linear-gradient(135deg, #f3eefb, #eef8f1);
+  border: 1.5px solid var(--purple-light);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.dr-note::before {
+  content: '🎤 dr. Erna menekankan: ';
+  font-weight: 700;
+  color: var(--purple-deep);
+}
+
+/* ====== TABLES ====== */
+.table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th {
+  background: var(--purple-deep);
+  color: white;
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+th:first-child { border-radius: 11px 0 0 0; }
+th:last-child { border-radius: 0 11px 0 0; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 13.5px; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #faf8fd; }
+tr:hover td { background: var(--purple-pale); transition: background 0.15s; }
+
+/* ====== GRIDS ====== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media(max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* ====== MINI CARDS ====== */
+.mini-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.mini-card h4 {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  color: var(--purple-deep);
+  margin-bottom: 8px;
+}
+.mini-card p, .mini-card li { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+.mini-card ul { padding-left: 16px; }
+.mini-card li { margin-bottom: 3px; }
+
+/* ====== STYLED LIST ====== */
+.styled-list { list-style: none; padding: 0; }
+.styled-list li {
+  padding: 7px 0 7px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  position: relative;
+  line-height: 1.65;
+}
+.styled-list li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--purple);
+  font-size: 11px;
+  top: 10px;
+}
+.styled-list li:last-child { border-bottom: none; }
+
+/* ====== CLINICAL REASONING ====== */
+.cr-box {
+  background: linear-gradient(135deg, #eaf7f0, #f1edf9);
+  border: 1.5px solid var(--green);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.cr-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 10px;
+}
+.cr-steps { counter-reset: cr; list-style: none; padding: 0; }
+.cr-steps li {
+  counter-increment: cr;
+  padding: 7px 0 7px 34px;
+  position: relative;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(143,201,168,0.3);
+  line-height: 1.65;
+}
+.cr-steps li:last-child { border-bottom: none; }
+.cr-steps li::before {
+  content: counter(cr);
+  position: absolute; left: 0; top: 8px;
+  width: 22px; height: 22px;
+  background: var(--green-deep);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+
+/* ====== SKDI BADGE ====== */
+.skdi { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-left: 6px; vertical-align: middle; }
+.skdi-4a { background: var(--green-pale); color: var(--green-deep); }
+.skdi-3a { background: var(--blue-pale); color: #2d4f6e; }
+.skdi-3b { background: var(--amber-pale); color: #6e5325; }
+.skdi-2 { background: #f0f0f0; color: #555; }
+
+/* ====== HIGHLIGHT ====== */
+.hl-purple { background: var(--purple-pale); color: var(--purple-deep); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-green { background: var(--green-pale); color: var(--green-deep); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-red { background: var(--red-pale); color: var(--red); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-amber { background: var(--amber-pale); color: #6e5325; padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+
+/* ====== COLLAPSIBLE ====== */
+.collapse-btn {
+  background: none; border: none;
+  width: 100%; text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0; font-family: inherit;
+}
+.collapse-btn .chev { transition: transform 0.25s; font-size: 11px; color: var(--text-muted); }
+.collapse-btn.open .chev { transform: rotate(180deg); }
+.collapse-body { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.collapse-body.open { display: block; animation: fadeUp 0.25s ease; }
+
+/* ====== MNEMONIC ====== */
+.mnemonic {
+  background: linear-gradient(135deg, var(--purple-pale), #fff);
+  border: 2px solid var(--purple-light);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.mnemonic-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--purple-deep); margin-bottom: 6px; }
+.mnemonic-text { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text); font-weight: 700; }
+.mnemonic-sub { font-size: 13px; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+
+/* ====== DIVIDER ====== */
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+/* ====== COMPARE ====== */
+.compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.compare-col { border-radius: 12px; padding: 18px; border: 2px solid; }
+.compare-col.left { background: var(--blue-pale); border-color: var(--blue); }
+.compare-col.right { background: var(--green-pale); border-color: var(--green-deep); }
+.compare-col h4 { font-family: 'Lora', serif; font-size: 15px; margin-bottom: 10px; }
+.compare-col.left h4 { color: #2d4f6e; }
+.compare-col.right h4 { color: var(--green-deep); }
+.compare-row { display: flex; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 8px; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row span:first-child { opacity: 0.6; width: 90px; flex-shrink: 0; font-size: 12px; }
+@media(max-width: 600px) { .compare-wrap { grid-template-columns: 1fr; } }
+
+/* ====== SCRIPT BOX ====== */
+.script-box {
+  background: linear-gradient(135deg, #faf8fd, #eef8f1);
+  border: 1.5px solid var(--purple-light);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--purple-deep);
+  position: relative;
+}
+.script-box::before { content: '“'; font-family: 'Playfair Display', serif; font-size: 40px; color: var(--purple-light); position: absolute; top: -6px; left: 12px; opacity: 0.6; }
+.script-box p { margin-left: 18px; }
+
+/* ====== AVOID/DO TABLE ====== */
+.avoid-row td:nth-child(1) { color: var(--red); }
+.avoid-row td:nth-child(2) { color: var(--green-deep); }
+
+/* ====== QUIZ ====== */
+.quiz-q {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.q-num {
+  position: absolute; top: -12px; left: 22px;
+  background: var(--purple-deep); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  padding: 4px 14px; border-radius: 10px;
+}
+.q-vignette {
+  background: var(--purple-pale);
+  border-left: 4px solid var(--purple);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 17px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: var(--purple-deep);
+}
+.q-question { font-weight: 600; font-size: 14px; margin-bottom: 14px; color: var(--text); }
+.q-opts { display: flex; flex-direction: column; gap: 8px; }
+.q-opt {
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 15px;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: all 0.18s;
+  color: var(--text);
+}
+.q-opt:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-pale); }
+.q-opt .ol { font-weight: 700; font-size: 12px; min-width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.q-opt.correct { background: var(--green-pale) !important; border-color: var(--green-deep) !important; color: var(--green-deep); }
+.q-opt.correct .ol { background: var(--green-deep); color: white; }
+.q-opt.wrong { background: var(--red-pale) !important; border-color: var(--red) !important; color: var(--red); }
+.q-opt.wrong .ol { background: var(--red); color: white; }
+.q-opt:disabled { cursor: default; }
+.q-exp {
+  display: none;
+  margin-top: 14px;
+  background: var(--green-pale);
+  border-radius: 10px;
+  padding: 14px 17px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #2a5c3f;
+  border-left: 3px solid var(--green-deep);
+}
+.q-exp.show { display: block; animation: fadeUp 0.3s ease; }
+.quiz-progress { display: flex; gap: 6px; margin-bottom: 26px; flex-wrap: wrap; }
+.pdot { width: 10px; height: 10px; border-radius: 50%; background: rgba(155,138,196,0.18); transition: background 0.3s; }
+.pdot.ok { background: var(--green-deep); }
+.pdot.no { background: var(--red); }
+.score-card {
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple));
+  color: white; border-radius: 20px; padding: 40px;
+  text-align: center; display: none; margin-top: 28px;
+  animation: fadeUp 0.4s ease;
+}
+.score-card.show { display: block; }
+.score-big { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: var(--green-pale); line-height: 1; margin: 10px 0; }
+.score-msg { font-size: 15px; opacity: 0.85; margin-top: 8px; }
+.btn-restart { margin-top: 22px; background: white; color: var(--purple-deep); border: none; border-radius: 30px; padding: 12px 28px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+.btn-restart:hover { transform: translateY(-2px); }
+
+/* ====== RESPONSIVE ====== */
+@media(max-width: 600px) {
+  .hero { padding: 36px 20px 32px; }
+  .container { padding: 28px 16px; }
+  .card { padding: 18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">📚 Blok Traumatologi · UMS · dr. Erna Herawati, Sp.KJ · 11 Juni 2026</div>
+  <h1>Penanganan Efek <em>Psikis Trauma</em><br>— Study Companion</h1>
+  <p class="hero-sub">Disusun dari rekaman kuliah, slide infografis, dan diperkaya konteks SKDI 2012 — fokus pada efek psikis trauma, trauma-informed care, dan Psychological First Aid (PFA).</p>
+  <div class="hero-pills">
+    <span class="pill">🧠 6 Domain Efek Psikis</span>
+    <span class="pill">⚡ Fight-Flight-Freeze-Fawn</span>
+    <span class="pill">📊 Spektrum ASR→ASD→PTSD</span>
+    <span class="pill">🤝 PFA Look-Listen-Link</span>
+    <span class="pill">🧘 Teknik Grounding</span>
+    <span class="pill">🧪 10 Soal Quiz</span>
+  </div>
+  <a class="video-link" href="https://youtu.be/Rqpv8XarO7s?si=3YjKr_ye9973SPMJ" target="_blank">▶️ Tonton rekaman kuliah lengkap di YouTube</a>
+</div>
+
+<!-- NAV -->
+<div class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('konsep')">🧩 Konsep Dasar</button>
+  <button class="nav-btn" onclick="show('efek')">💔 Efek Psikis</button>
+  <button class="nav-btn" onclick="show('stres')">⚡ Respon Stres Akut</button>
+  <button class="nav-btn" onclick="show('spektrum')">📊 Spektrum PTSD</button>
+  <button class="nav-btn" onclick="show('tic')">🛡️ Trauma-Informed Care</button>
+  <button class="nav-btn" onclick="show('pfa')">🤝 PFA</button>
+  <button class="nav-btn" onclick="show('grounding')">🧘 Grounding</button>
+  <button class="nav-btn" onclick="show('komunikasi')">💬 Komunikasi</button>
+  <button class="nav-btn" onclick="show('rujukan')">🚨 Rujukan</button>
+  <button class="nav-btn" onclick="show('kasus')">📝 Diskusi Kasus</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- ======================================= OVERVIEW ======================================= -->
+<div id="sec-overview" class="section active">
+  <h2 class="section-heading">Peta Materi & Tujuan Pembelajaran</h2>
+  <p class="section-desc">Konteks: kalian baru selesai tutorial kasus trauma berat minggu pertama (Alis, hematothorax, ruptur ginjal) — semuanya kondisi mendadak, tidak terduga, dan amat berat. Sore ini kita belajar sisi psikisnya.</p>
+
+  <div class="dr-note">Trauma itu tidak hanya berbekas pada fisik, badannya saja, tapi juga pada aspek emosi, kognitif, perilaku, sosial, dan spiritualnya. Jangan pernah lihat trauma hanya dari sisi fisik!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">🎯</span> 5 Tujuan Pembelajaran</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Setelah kuliah ini, kalian mampu:</div>
+      <ol class="cr-steps">
+        <li>Menjelaskan efek psikis trauma pada aspek emosi, kognitif, perilaku, fisik, sosial, dan spiritual</li>
+        <li>Membedakan respons stres normal, acute stress reaction, acute stress disorder, dan PTSD</li>
+        <li>Menjelaskan prinsip trauma-informed care dan psychological first aid (PFA)</li>
+        <li>Melakukan langkah awal penanganan psikis trauma secara aman</li>
+        <li>Menentukan tanda bahaya dan indikasi rujukan ke psikolog klinis atau psikiater</li>
+      </ol>
+    </div>
+    <div class="alert alert-blue"><span class="alert-icon">🌐</span><div><strong>Definisi WHO:</strong> Psychological First Aid (PFA) adalah bantuan manusiawi, suportif, dan praktis kepada orang yang mengalami peristiwa krisis berat, dengan tetap menghormati martabat, budaya, dan kemampuan individu.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🗺️</span> Grand Story Materi Ini</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Alur Berpikir Sistematis</div>
+      <ol class="cr-steps">
+        <li><strong>Pahami konsep dasar:</strong> apa itu trauma psikis, jenisnya, dan faktor yang memperberat/meringankan</li>
+        <li><strong>Kenali manifestasi:</strong> efek psikis muncul di 6 domain — bukan hanya emosi!</li>
+        <li><strong>Klasifikasikan responnya:</strong> normal? ASR? ASD? atau sudah PTSD? — tentukan dari jangka waktu dan beratnya</li>
+        <li><strong>Terapkan prinsip dasar:</strong> trauma-informed care sebagai payung, PFA sebagai tindakan konkret (Look–Listen–Link)</li>
+        <li><strong>Stabilkan dulu:</strong> grounding bila panik — sebelum komunikasi lebih lanjut</li>
+        <li><strong>Skrining tanda bahaya</strong> → tentukan apakah perlu rujukan segera ke psikolog/psikiater</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📋</span> Catatan Penting dari dr. Erna</div>
+    <div class="grid-2">
+      <div class="alert alert-purple" style="margin:0;"><span class="alert-icon">💡</span><div><strong>Stres itu bukan gangguan jiwa!</strong> Stres = kemampuan menyesuaikan diri terhadap tuntutan keadaan. Setiap orang pasti mengalami stres dalam hidupnya — itu wajar.</div></div>
+      <div class="alert alert-green" style="margin:0;"><span class="alert-icon">💡</span><div><strong>Tidak semua orang yang kena trauma akan mengalami gangguan jiwa.</strong> Respon awal yang aman, empati, dan tidak menghakimi dapat membantu pemulihan.</div></div>
+    </div>
+    <div class="dr-note">Allah benar-benar menguji manusia dengan rasa takut (khauf), rasa lapar, kehilangan harta (amwal), jiwa (anfus), dan buah-buahan. Maka berikan kabar gembira bagi orang yang bersabar — "Alladzina idza ashabathum musibah, qaalu inna lillahi wa inna ilaihi raji'un". Tapi hati-hati: jangan buru-buru menyampaikan ini ke orang yang sedang kena musibah, karena bisa terasa seperti "ngentengke" / meremehkan beratnya yang mereka rasakan. Empati dulu, baru hikmah.</div>
+  </div>
+</div>
+
+<!-- ======================================= KONSEP DASAR ======================================= -->
+<div id="sec-konsep" class="section">
+  <h2 class="section-heading">🧩 Konsep Dasar Trauma Psikis</h2>
+  <p class="section-desc">Definisi, jenis trauma, dan faktor yang memengaruhi berat-ringannya efek trauma pada seseorang.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">📖</span> Definisi</div>
+    <div class="alert alert-purple"><span class="alert-icon">📌</span><div><strong>Trauma psikis</strong> adalah respons emosional dan psikologis terhadap peristiwa yang sangat mengancam, menakutkan, dan melampaui kemampuan koping seseorang.</div></div>
+    <div class="dr-note">Kemampuan koping itu berbeda-beda tiap orang. Ada yang koping-nya tinggi — ditimpa berbagai masalah tetap tegar. Ada yang koping-nya rendah — kena masalah sedikit saja sudah "klepek-klepek", down, tiap hari menangis. Untungnya, kemampuan koping ini bisa dilatih!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🗂️</span> 5 Jenis Trauma</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jenis Trauma</th><th>Contoh</th></tr>
+        <tr><td><strong>Akut</strong></td><td>Kecelakaan, bencana, serangan fisik mendadak</td></tr>
+        <tr><td><strong>Kronis</strong></td><td>Kekerasan berulang, bullying lama, konflik keluarga berkepanjangan</td></tr>
+        <tr><td><strong>Kompleks</strong></td><td>Kekerasan masa kecil, pengabaian berat, eksploitasi</td></tr>
+        <tr><td><strong>Sekunder</strong></td><td>Tenaga kesehatan/relawan yang terus-menerus terpapar cerita traumatik orang lain</td></tr>
+        <tr><td><strong>Kolektif</strong></td><td>Bencana massal, konflik sosial, pandemi</td></tr>
+      </table>
+    </div>
+    <div class="dr-note">Skenario tutorial kalian minggu pertama (kecelakaan mendadak, hematothorax, ruptur ginjal) semuanya termasuk <strong>trauma akut</strong> — kondisinya mendadak dan amat berat.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚖️</span> 7 Faktor yang Memengaruhi Berat-Ringannya Efek Trauma</div>
+    <div class="grid-2">
+      <ul class="styled-list">
+        <li>Usia dan tahap perkembangan</li>
+        <li>Berat dan durasi peristiwa traumatik</li>
+        <li>Kedekatan dengan kejadian</li>
+        <li>Riwayat trauma sebelumnya (akumulasi)</li>
+      </ul>
+      <ul class="styled-list">
+        <li>Dukungan keluarga dan sosial</li>
+        <li>Kondisi kesehatan mental sebelumnya</li>
+        <li>Makna budaya, agama, dan spiritual</li>
+      </ul>
+    </div>
+    <div class="dr-note">Kalau kondisi kesehatan mental sebelumnya sudah bagus, orang lebih mudah survive. Tapi kalau dasarnya sudah gampang cemas, gampang sedih, gampang nangis — waktu dicoba trauma, dia tidak setegar yang kondisi mentalnya kuat.</div>
+  </div>
+</div>
+
+<!-- ======================================= EFEK PSIKIS ======================================= -->
+<div id="sec-efek" class="section">
+  <h2 class="section-heading">💔 Efek Psikis Trauma — 6 Domain</h2>
+  <p class="section-desc">Trauma tidak hanya berbekas pada fisik — manifestasinya menyebar ke seluruh aspek kehidupan seseorang.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">🧠</span> Manifestasi per Domain</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Domain</th><th>Manifestasi</th></tr>
+        <tr><td>❤️ <strong>Emosi</strong></td><td>Takut, sedih, marah, malu, rasa bersalah, hampa <span class="hl-red">(semua emosi negatif)</span></td></tr>
+        <tr><td>🧩 <strong>Kognitif</strong></td><td>Bingung, sulit konsentrasi, pikiran berulang tentang kejadian (intrusi)</td></tr>
+        <tr><td>🚶 <strong>Perilaku</strong></td><td>Menarik diri, mudah tersinggung, menghindari tempat/orang tertentu</td></tr>
+        <tr><td>💓 <strong>Fisik</strong></td><td>Berdebar, sesak, nyeri kepala, gangguan tidur, lelah</td></tr>
+        <tr><td>👥 <strong>Sosial</strong></td><td>Sulit percaya pada orang, konflik relasi, isolasi sosial</td></tr>
+        <tr><td>🕊️ <strong>Spiritual</strong></td><td>Mempertanyakan makna hidup, merasa dihukum, kehilangan harapan</td></tr>
+      </table>
+    </div>
+    <div class="dr-note">Kemampuan kognitif itu mencakup memori, bahasa, orientasi, dan kemampuan berpikir abstrak. Berpikir abstrak = kemampuan memahami bahasa kiasan, bukan secara literal. Contoh: "besar pasak daripada tiang" — bukan diartikan "pasaknya rubuh", tapi maknanya "pengeluaran lebih besar dari pemasukan". Pasien yang menjawab secara literal/konkret menunjukkan adanya gangguan kemampuan berpikir abstrak.</div>
+    <div class="alert alert-amber"><span class="alert-icon">⚠️</span><div><strong>Pesan penting:</strong> Sebagian reaksi awal setelah trauma dapat merupakan respons NORMAL terhadap situasi yang TIDAK normal. Tetapi tetap perlu dipantau bila berat, menetap, atau mengganggu fungsi (gak bisa sekolah, kerja, jualan, mengajar, atau ibadah lagi).</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🔍</span> Bedakan: Empati vs Simpati vs Antipati</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--green-deep);">
+        <h4>✅ Empati</h4>
+        <p>Memposisikan diri dalam posisi pasien, bisa merasakan apa yang dirasakan — tapi <strong>tidak terlarut</strong> dalam perasaan tersebut.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>⚠️ Simpati</h4>
+        <p>Memposisikan diri tapi <strong>terlarut</strong> dalam perasaan pasien — akibatnya penolong jadi tidak bisa menolong karena perasaannya sendiri ikut hanyut.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>❌ Antipati</h4>
+        <p>Tidak peduli sama sekali dengan keadaan pasien. Sikap yang paling tidak terapeutik.</p>
+      </div>
+    </div>
+    <div class="dr-note">Yang dibutuhkan sebagai penolong adalah EMPATI, bukan simpati. Kalau kalian sedih dan dihadapi dengan empati, kalian jadi lebih tenang. Tapi kalau yang menghadapi malah ikut larut (simpati), dia justru tidak bisa menolong.</div>
+  </div>
+</div>
+
+<!-- ======================================= RESPON STRES AKUT ======================================= -->
+<div id="sec-stres" class="section">
+  <h2 class="section-heading">⚡ Respon Stres Akut</h2>
+  <p class="section-desc">Bagaimana tubuh merespons ancaman secara instingtif, dan respon apa saja yang umum muncul segera setelah trauma.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">🛡️</span> 4F: Respons Tubuh terhadap Ancaman</div>
+    <div class="grid-2">
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>🥊 Fight</h4>
+        <p>Melawan stresor — mudah marah, agresif, defensif.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green-deep);">
+        <h4>🏃 Flight</h4>
+        <p>Ingin meninggalkan situasi, menghindar, gelisah.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>🧊 Freeze</h4>
+        <p>Diam, kaku, sulit bicara, pandangan dan omongan tampak "kosong".</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>🙏 Fawn</h4>
+        <p>Terlalu patuh atau menyenangkan orang lain demi merasa aman.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🌊</span> Respon yang Sering Muncul Segera Setelah Trauma</div>
+    <div class="grid-2">
+      <ul class="styled-list">
+        <li>Menangis, gemetar, diam</li>
+        <li>Bingung, marah</li>
+        <li>Mati rasa emosional</li>
+      </ul>
+      <ul class="styled-list">
+        <li>Gangguan tidur, mimpi buruk</li>
+        <li>Takut kejadian terulang</li>
+      </ul>
+    </div>
+    <div class="dr-note">Ini wajar! Kalian pernah jatuh sewaktu kecil, langsung menangis — itu respon stres akut yang normal. Bahkan dari fisiologi tumbuh kembang, bayi yang baru belajar jalan dan jatuh, responnya menangis. Itu manusiawi.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🚩</span> Kapan Dianggap Perlu Perhatian Khusus?</div>
+    <div class="cr-box" style="background:linear-gradient(135deg, #fdf2f0, #f1edf9); border-color: var(--red);">
+      <div class="cr-label" style="color:#7a1a10;">⚠️ Waspadai bila gejala:</div>
+      <ol class="cr-steps">
+        <li><strong>Makin berat</strong> — bukan diam-diam saja, tapi tiap diam dia menangis</li>
+        <li><strong>Berlangsung lama</strong> — tidak sembuh-sembuh, gemetarnya terus-terusan</li>
+        <li><strong>Mengganggu fungsi</strong> — sekolah, kerja, ibadah, relasi, atau perawatan diri terganggu (malas salat, tidak mau mandi/dandan)</li>
+        <li><strong>Disertai risiko bunuh diri, kekerasan, penggunaan zat, atau gejala psikotik</strong></li>
+      </ol>
+    </div>
+    <div class="dr-note">Gejala psikotik utama: <strong>halusinasi</strong> (persepsi tanpa sumbernya — merasa mendengar/melihat sesuatu yang tidak ada) dan <strong>waham/delusi</strong> (keyakinan yang salah tapi diyakini benar, ada di bab isi pikir). Kalau ada gejala psikotik ini — harus diperiksakan lebih lanjut!</div>
+  </div>
+</div>
+
+<!-- ======================================= SPEKTRUM ======================================= -->
+<div id="sec-spektrum" class="section">
+  <h2 class="section-heading">📊 Spektrum Gangguan Pasca Trauma</h2>
+  <p class="section-desc">Dari respons stres normal hingga PTSD dan komorbid — kunci membedakannya adalah jangka waktu dan beratnya gejala.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">⏱️</span> 6 Tahap Spektrum</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kondisi</th><th>Jangka Waktu</th><th>Gambaran Umum</th></tr>
+        <tr><td><strong>Respons stres normal</strong></td><td>Segera–beberapa hari/minggu awal</td><td>Gejala ringan-sedang, biasanya membaik bertahap dengan dukungan dan waktu</td></tr>
+        <tr><td><strong>Acute Stress Reaction</strong></td><td>Menit–jam–hari pertama</td><td>Respons sangat awal setelah kejadian traumatik, spontan, tidak berlanjut</td></tr>
+        <tr><td><strong>Acute Stress Disorder</strong></td><td><span class="hl-amber">3 hari – 1 bulan</span></td><td>Gejala trauma bermakna pada fase awal, menetap (bukan reaction sesaat)</td></tr>
+        <tr><td><strong>PTSD</strong></td><td><span class="hl-red">&gt; 1 bulan</span></td><td>Gejala menetap, mengganggu fungsi, disertai intrusi, penghindaran, perubahan mood/kognisi, dan hiperarousal</td></tr>
+        <tr><td><strong>PTSD delayed expression</strong></td><td>≥ 6 bulan</td><td>Gejala penuh muncul terlambat, meski beberapa gejala ringan sudah ada sebelumnya</td></tr>
+        <tr><td><strong>Komorbid</strong></td><td>Sejak fase awal atau menetap jangka panjang</td><td>Depresi, gangguan cemas, gangguan tidur, penyalahgunaan zat, keluhan somatik</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Bedakan Reaction vs Disorder</div>
+      <div class="mnemonic-text">Reaction = spontan, tidak berlanjut. Disorder = menetap.</div>
+      <div class="mnemonic-sub">ASR cuma beberapa menit sampai hari pertama saja. ASD sudah menetap 3 hari sampai 1 bulan. Disorder artinya gangguan — sudah berlanjut, bukan reaksi sesaat.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🧬</span> 3 Gejala Inti PTSD</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--purple);">
+        <h4>Intrusi</h4>
+        <p>Kejadian yang mengingatkan terus-menerus pada trauma — terngiang-ngiang, mimpi buruk berulang, atau merasa kejadian terulang lagi saat ada trigger.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>Penghindaran</h4>
+        <p>Menghindari tempat, orang, atau situasi yang membangkitkan ingatan pada trauma. Contoh: tidak berani lewat tempat kecelakaan, tidak berani naik motor lagi.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Hiperarousal</h4>
+        <p>Disertai perubahan mood/kognisi dan mudah kaget (hiperarousal). Hidup serasa selalu "waspada".</p>
+      </div>
+    </div>
+    <div class="alert alert-purple"><span class="alert-icon">📌</span><div><strong>Catatan penting NICE:</strong> ASD = 3 hari–1 bulan; PTSD = &gt;1 bulan. NICE menekankan pemantauan aktif pada gejala subthreshold dalam 1 bulan pertama setelah trauma.</div></div>
+  </div>
+</div>
+
+<!-- ======================================= TRAUMA-INFORMED CARE ======================================= -->
+<div id="sec-tic" class="section">
+  <h2 class="section-heading">🛡️ Prinsip Trauma-Informed Care</h2>
+  <p class="section-desc">Pelayanan yang aman, empatik, dan tidak memicu trauma ulang.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">📖</span> Definisi</div>
+    <div class="alert alert-purple"><span class="alert-icon">📌</span><div><strong>Trauma-informed care</strong> berarti pelayanan diberikan dengan asumsi bahwa seseorang mungkin memiliki riwayat trauma, sehingga pendekatan harus menghindari tindakan yang membuat korban merasa terancam kembali.</div></div>
+    <div class="dr-note">Kita menenangkan pasien, tapi bukan dengan penenangan yang semu — kita harus tulus dan genuin.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">6️⃣</span> 6 Prinsip Utama (SAMHSA/CDC)</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--green-deep);">
+        <h4>1. Safety</h4>
+        <p>Membuat pasien merasa aman secara fisik dan emosional — dipindahkan ke ruangan tenang, diajari napas, dsb.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>2. Trustworthiness & Transparency</h4>
+        <p>Menjelaskan proses bantuan secara jujur dan transparan, bukan memancing-mancing dalam keadaan rentan.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue);">
+        <h4>3. Choice</h4>
+        <p>Memberi pilihan, tidak memaksa — kecuali bila pasien membahayakan diri sendiri di luar kesadaran.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--purple);">
+        <h4>4. Collaboration</h4>
+        <p>Melibatkan penyintas dalam pengambilan keputusan terkait penanganannya.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>5. Empowerment</h4>
+        <p>Menguatkan rasa mampu dan kontrol diri pasien — "Insyaallah kita dukung kamu, Allah akan mendorongmu dengan tulus."</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>6. Cultural, Historical & Gender Sensitivity</h4>
+        <p>Memperhatikan budaya, pengalaman, agama, gender, dan konteks sosial pasien.</p>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">🔑</span><div><strong>Pesan kunci:</strong> Hindari tindakan yang menghakimi, memaksa, atau membuat korban merasa terancam kembali.</div></div>
+  </div>
+</div>
+
+<!-- ======================================= PFA ======================================= -->
+<div id="sec-pfa" class="section">
+  <h2 class="section-heading">🤝 Psychological First Aid (PFA)</h2>
+  <p class="section-desc">Tujuan, prinsip utama Look–Listen–Link, dan langkah praktis di lapangan.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">🎯</span> Tujuan PFA</div>
+    <div class="alert alert-purple"><span class="alert-icon">📌</span><div>PFA bertujuan mengurangi distres, membantu fungsi adaptif jangka pendek dan panjang, serta menghubungkan penyintas yang membutuhkan dengan layanan lanjutan.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🔭</span> Prinsip Utama: Look — Listen — Link</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--green-deep);">
+        <h4>👁️ Look</h4>
+        <p>Lihat keamanan, kebutuhan dasar, kondisi fisik, dan ada/tidaknya tanda distres berat.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>👂 Listen</h4>
+        <p>Dengarkan dengan tenang, empatik, tidak memaksa korban bercerita.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--purple);">
+        <h4>🔗 Link</h4>
+        <p>Hubungkan dengan keluarga, layanan kesehatan, perlindungan, bantuan sosial, atau rujukan profesional.</p>
+      </div>
+    </div>
+    <div class="dr-note">Mendengarkan dengan empatik itu artinya: tenang, tidak menyela, dan benar-benar fokus — bukan sambil main HP. Seseorang yang bisa cerita dan merasa didengarkan, itu sudah merupakan <strong>wawancara terapeutik</strong> — sudah membantu proses penyembuhan, walau hanya dengan didengarkan saja!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📝</span> 8 Langkah Praktis PFA</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Urutan di Lapangan</div>
+      <ol class="cr-steps">
+        <li>Pastikan keamanan diri, penyintas, dan lingkungan</li>
+        <li>Perkenalkan diri dan minta izin untuk membantu (jangan merasa terkenal/sok akrab)</li>
+        <li>Bantu kebutuhan dasar: air, tempat aman, obat rutin, kontak keluarga</li>
+        <li>Dengarkan tanpa interogasi — bukan "terus gimana, terus gimana"</li>
+        <li>Validasi emosi: "Reaksi seperti ini bisa muncul setelah kejadian yang sangat berat"</li>
+        <li>Bantu grounding sederhana bila panik</li>
+        <li>Hubungkan dengan dukungan sosial</li>
+        <li>Tentukan apakah perlu rujukan segera</li>
+      </ol>
+    </div>
+    <div class="alert alert-green"><span class="alert-icon">🔑</span><div><strong>Pesan kunci:</strong> Bantu penyintas secara aman, empatik, praktis, dan tanpa memaksa. Penanganan awal trauma BUKAN bertujuan memaksa korban menceritakan ulang kejadian, tetapi membantu korban merasa aman, tenang, didengar, dan terhubung dengan bantuan yang tepat.</div></div>
+  </div>
+</div>
+
+<!-- ======================================= GROUNDING ======================================= -->
+<div id="sec-grounding" class="section">
+  <h2 class="section-heading">🧘 Teknik Grounding pada Korban Panik</h2>
+  <p class="section-desc">Teknik sederhana untuk membantu korban kembali merasa hadir, aman, dan stabil — dilakukan SEBELUM komunikasi/penggalian cerita lebih lanjut.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">❓</span> Apa itu Grounding?</div>
+    <div class="alert alert-purple"><span class="alert-icon">📌</span><div>Grounding adalah teknik sederhana untuk membantu korban yang sedang panik agar kembali merasa "hadir di sini dan saat ini". Saat panik, korban sering merasa takut berlebihan, napas cepat, dada berdebar, pikiran kacau, atau seperti tidak terkendali (mengambang, terlepas dari kenyataan).</div></div>
+    <div class="dr-note">Prinsipnya BUKAN memaksa korban bercerita, melainkan membantu tubuh dan pikiran menjadi lebih stabil dulu — sebelum tindakan selanjutnya.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🎯</span> 5 Tujuan Grounding</div>
+    <div class="grid-3">
+      <div class="mini-card"><h4>1. Menurunkan kepanikan</h4></div>
+      <div class="mini-card"><h4>2. Membantu korban merasa lebih aman</h4></div>
+      <div class="mini-card"><h4>3. Mengembalikan orientasi</h4><p>terhadap tempat, waktu, dan situasi saat ini</p></div>
+      <div class="mini-card"><h4>4. Mengurangi sensasi disosiasi</h4><p>"terlepas dari kenyataan" atau disosiasi ringan</p></div>
+      <div class="mini-card"><h4>5. Membantu mengatur napas dan tubuh</h4><p>sebelum komunikasi lebih lanjut dilakukan</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">5️⃣</span> 5 Cara Melakukan Grounding</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Urutan Teknik</div>
+      <ol class="cr-steps">
+        <li><strong>Suara tenang & instruksi singkat:</strong> "Bapak/Ibu sekarang aman. Saya ada di sini. Kita pelan-pelan dulu, ya." — jangan instruksi panjang berliku.</li>
+        <li><strong>Atur napas:</strong> Tarik napas 4 detik → tahan 2 detik → buang napas 6 detik. Ulangi 3–5 kali.</li>
+        <li><strong>Teknik 5-4-3-2-1:</strong> arahkan fokus ke panca indra dan lingkungan sekitar (5 hal yang dilihat, 4 yang dirasakan, 3 yang didengar, 2 yang dicium, 1 yang dikecap/dirasakan).</li>
+        <li><strong>Orientasi realitas:</strong> "Sekarang Anda berada di tempat yang aman. Hari ini kita fokus pada keselamatan Anda." Sebutkan jam, tanggal, lokasi.</li>
+        <li><strong>Grounding tubuh:</strong> tekan kaki ke lantai, rasakan punggung menyentuh kursi, genggam tangan pelan lalu lepaskan, sentuh benda dan rasakan teksturnya.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">📜</span> Contoh Skrip Singkat untuk Tenaga Kesehatan</div>
+    <div class="script-box">
+      <p>"Saya akan membantu Bapak/Ibu menenangkan tubuh dulu. Tidak perlu cerita sekarang. Coba duduk dengan nyaman. Rasakan kaki menyentuh lantai. Tarik napas pelan... lalu keluarkan perlahan. Sekarang lihat sekitar, sebutkan tiga benda yang terlihat. Bagus. Bapak/Ibu sedang berada di tempat yang aman, dan saya akan menemani."</p>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Pesan penting:</strong> Grounding membantu menstabilkan tubuh dan pikiran terlebih dahulu. Jangan memaksa korban bercerita saat masih panik!</div></div>
+  </div>
+</div>
+
+<!-- ======================================= KOMUNIKASI ======================================= -->
+<div id="sec-komunikasi" class="section">
+  <h2 class="section-heading">💬 Komunikasi: Hindari vs Dianjurkan</h2>
+  <p class="section-desc">Gunakan pendekatan yang empatik, aman, dan tidak menghakimi pada penyintas trauma.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🚫</span> 5 Kalimat yang Harus Dihindari</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>❌ Hindari</th><th>✅ Alternatif Lebih Baik</th><th>Tujuan</th></tr>
+        <tr class="avoid-row"><td>"Jangan dipikirkan."</td><td>"Saya paham ini berat. Kita pelan-pelan dulu, ya."</td><td>Memvalidasi emosi tanpa meremehkan</td></tr>
+        <tr class="avoid-row"><td>"Kamu harus kuat."</td><td>"Tidak apa-apa merasa sedih, takut, atau lelah setelah kejadian seperti ini."</td><td>Mengurangi rasa bersalah</td></tr>
+        <tr class="avoid-row"><td>"Ceritakan semuanya sekarang."</td><td>"Bapak/Ibu boleh bercerita sejauh dirasa nyaman. Tidak perlu dipaksakan."</td><td>Memberi kontrol pada penyintas</td></tr>
+        <tr class="avoid-row"><td>"Pasti semua akan baik-baik saja."</td><td>"Saat ini kita fokus dulu agar Bapak/Ibu merasa lebih aman dan tidak sendirian."</td><td>Tidak memberi janji palsu</td></tr>
+        <tr class="avoid-row"><td>"Kenapa kamu tidak melawan?"</td><td>"Yang terjadi bukan salah Bapak/Ibu. Terima kasih sudah mau menyampaikan ini."</td><td>Menghindari victim blaming</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">💚</span> Kalimat yang Dianjurkan Berdasarkan Situasi</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Situasi</th><th>Kalimat yang Dianjurkan</th></tr>
+        <tr><td>Korban menangis</td><td>"Silakan menangis, tidak apa-apa. Saya akan menemani."</td></tr>
+        <tr><td>Korban diam</td><td>"Tidak perlu menjawab sekarang. Saya tetap di sini bila Bapak/Ibu membutuhkan."</td></tr>
+        <tr><td>Korban panik</td><td>"Mari kita tarik napas perlahan bersama. Lihat sekitar, sekarang Bapak/Ibu berada di tempat yang aman."</td></tr>
+        <tr><td>Korban merasa bersalah</td><td>"Respons setiap orang saat terancam bisa berbeda. Yang penting sekarang adalah keselamatan Bapak/Ibu."</td></tr>
+        <tr><td>Korban takut bercerita</td><td>"Bapak/Ibu berhak memilih apa yang ingin disampaikan dan kapan ingin menyampaikannya."</td></tr>
+        <tr><td>Korban merasa sendiri</td><td>"Apakah ada orang yang Bapak/Ibu percaya dan ingin kami hubungi?"</td></tr>
+        <tr><td>Korban bingung</td><td>"Kita ambil satu langkah kecil dulu. Hal paling penting saat ini adalah memastikan Bapak/Ibu aman."</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 5 Prinsip Utama Komunikasi</div>
+      <div class="mnemonic-text">Jangan memaksa · Jangan menghakimi · Jangan menyalahkan · Jangan memberi janji palsu</div>
+      <div class="mnemonic-sub">Gunakan kata-kata yang memberi rasa aman, pilihan, kendali, dan dukungan kepada penyintas.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= RUJUKAN ======================================= -->
+<div id="sec-rujukan" class="section">
+  <h2 class="section-heading">🚨 Tanda Bahaya & Indikasi Rujukan</h2>
+  <p class="section-desc">Kapan korban trauma perlu dirujuk segera ke psikolog klinis atau psikiater.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🏥</span> 10 Indikasi Rujukan Segera</div>
+    <div class="grid-2">
+      <ul class="styled-list">
+        <li>Ide, rencana, atau percobaan bunuh diri</li>
+        <li>Risiko menyakiti orang lain</li>
+        <li>Psikosis: halusinasi, waham, perilaku sangat kacau</li>
+        <li>Disosiasi berat atau tidak mampu merawat diri</li>
+        <li>Serangan panik berat berulang</li>
+      </ul>
+      <ul class="styled-list">
+        <li>Kekerasan masih berlangsung</li>
+        <li>Kekerasan seksual atau kekerasan pada anak</li>
+        <li>Penyalahgunaan alkohol atau zat</li>
+        <li>Gejala berat yang menetap dan mengganggu fungsi</li>
+        <li>Anak, lansia, ibu hamil, atau penyandang disabilitas tanpa dukungan aman</li>
+      </ul>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">📌</span><div><strong>Catatan penting (NICE):</strong> Menyarankan rencana manajemen risiko dan keselamatan bila asesmen PTSD menemukan risiko bermakna terhadap diri sendiri atau orang lain.</div></div>
+    <div class="alert alert-red"><span class="alert-icon">🔑</span><div><strong>Pesan kunci:</strong> Kenali tanda bahaya sejak dini. Bila ada risiko keselamatan atau gangguan fungsi berat, segera lakukan rujukan profesional.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--purple-pale)">💊</span> Pilihan Tatalaksana Lanjutan</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Intervensi</th><th>Keterangan</th></tr>
+        <tr><td><strong>Active monitoring</strong></td><td>Untuk gejala subthreshold pada fase awal</td></tr>
+        <tr><td><strong>Psychoeducation</strong></td><td>Penjelasan reaksi trauma dan strategi koping</td></tr>
+        <tr><td><strong>Trauma-focused CBT</strong></td><td>Terapi utama pada banyak kasus PTSD — fokus pada cara berpikir (kognisi)</td></tr>
+        <tr><td><strong>EMDR</strong></td><td>Eye Movement Desensitization and Reprocessing — dapat dipertimbangkan/ditawarkan pada kondisi tertentu, terutama PTSD dewasa setelah trauma non-combat</td></tr>
+        <tr><td><strong>Farmakoterapi</strong></td><td>Untuk dewasa dengan PTSD tertentu, depresi, ansietas berat, insomnia, atau komorbid; diberikan oleh dokter/psikiater</td></tr>
+      </table>
+    </div>
+    <div class="dr-note">NICE merekomendasikan trauma-focused CBT untuk dewasa dengan acute stress disorder atau gejala PTSD bermakna dalam bulan pertama setelah trauma, serta untuk PTSD yang muncul lebih dari 1 bulan setelah trauma.</div>
+  </div>
+</div>
+
+<!-- ======================================= KASUS ======================================= -->
+<div id="sec-kasus" class="section">
+  <h2 class="section-heading">📝 Diskusi Kasus</h2>
+  <p class="section-desc">Dua studi kasus dari kuliah dr. Erna untuk melatih analisis trauma psikis dan penanganan awal.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🚗</span> Kasus 1: Korban Kecelakaan Lalu Lintas</div>
+    <div class="q-vignette">Seorang mahasiswa menyaksikan kecelakaan berat. Setelah itu ia sulit tidur, berdebar saat mendengar suara rem, dan menghindari jalan tempat kejadian.</div>
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span style="font-weight:600; color:var(--purple-deep); font-size:13.5px;">Lihat pembahasan diskusi →</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">1. Apa efek psikis yang tampak?</p>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;">Fisik (berdebar, sulit tidur) dan perilaku (menghindari tempat kejadian) — ini adalah gejala intrusi dan penghindaran karena trigger suara rem mengingatkan pada kejadian.</p>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">2. Apakah ini selalu PTSD?</p>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>Tidak.</strong> PTSD disyaratkan trauma yang memang berat dan gejalanya menetap &gt;1 bulan. Di kasus ini mahasiswanya hanya menyaksikan kecelakaan di depannya (bukan korban langsung) — perlu dipantau dulu jangka waktunya sebelum dilabeli PTSD.</p>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">3. Apa langkah PFA yang tepat?</p>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;">Ajak ke tempat aman, bantu atur napas (grounding), dengarkan tanpa memaksa cerita, validasi emosi.</p>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">4. Kapan perlu dirujuk?</p>
+      <p style="font-size:13.5px; color:var(--text-muted);">Kalau gejalanya berlanjut &gt;1 bulan dan mengganggu fungsi (misalnya tidak bisa kuliah/beraktivitas normal).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🎒</span> Kasus 2: Korban Bullying</div>
+    <div class="q-vignette">Seorang siswa mengalami bullying selama 1 tahun. Ia mulai menarik diri, sering sakit perut sebelum sekolah, merasa tidak berharga, dan pernah mengatakan ingin menghilang.</div>
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span style="font-weight:600; color:var(--purple-deep); font-size:13.5px;">Lihat pembahasan diskusi →</span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">1. Apa tanda bahaya pada kasus ini?</p>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;"><strong>"Ingin menghilang"</strong> — ini tanda depresi dan dapat mengarah ke ide bunuh diri. Ini WAJIB diwaspadai dan menjadi indikasi rujukan segera!</p>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">2. Apa pendekatan trauma-informed yang tepat?</p>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;">Beri rasa aman dulu, jangan menghakimi, jangan memaksa cerita detail bullying. Validasi perasaan tidak berharga sebagai respons wajar, bukan kebenaran tentang dirinya.</p>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">3. Siapa saja yang perlu dilibatkan?</p>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:12px;">Keluarga, guru, dan teman dekat yang dipercaya siswa — sebagai bagian dari "Link" pada PFA.</p>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px; color:var(--purple-deep);">4. Bagaimana alur rujukannya?</p>
+      <p style="font-size:13.5px; color:var(--text-muted);">Karena ada tanda bahaya (ide ingin menghilang), kasus ini harus segera dirujuk ke psikolog klinis/psikiater — tidak cukup hanya dipantau aktif saja.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= QUIZ ======================================= -->
+<div id="sec-quiz" class="section">
+  <h2 class="section-heading">🧠 Quiz — Uji Pemahamanmu!</h2>
+  <p class="section-desc">10 soal vignette berbasis materi kuliah dr. Erna + referensi soal traumatologi tahun-tahun sebelumnya. Semangat!</p>
+
+  <div class="quiz-progress" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / KONSEP DASAR</div>
+    <div class="q-vignette">Seorang dokter umum sedang menjelaskan kepada keluarga pasien bahwa stres yang dialami pasien pasca kecelakaan adalah hal yang wajar.</div>
+    <p class="q-question">Definisi stres yang paling tepat menurut konsep yang diajarkan adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Kondisi yang selalu menandakan adanya gangguan jiwa</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Respons emosional negatif yang harus segera diobati dengan obat psikiatri</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">C</span>Kemampuan seseorang untuk menyesuaikan diri terhadap tuntutan keadaan yang ada</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Sinonim dari gangguan kecemasan menyeluruh</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Kondisi yang hanya muncul pada orang dengan gangguan mental sebelumnya</button>
+    </div>
+    <div class="q-exp" id="exp-q1">
+      ✅ <strong>C. Kemampuan seseorang untuk menyesuaikan diri terhadap tuntutan keadaan yang ada</strong><br><br>
+      Stres BUKAN selalu berarti gangguan jiwa (61% orang menganggap stres = harus ke psikiater itu salah). Stres adalah hal yang wajar dan mesti dialami setiap orang dalam hidupnya. Stres adalah kemampuan seseorang menyesuaikan diri terhadap tuntutan keadaan — bisa tinggi (tegar) atau rendah (mudah down), dan kemampuan ini bisa dilatih (koping).
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / JENIS TRAUMA</div>
+    <div class="q-vignette">Seorang relawan bencana yang bertugas mengevakuasi korban gempa selama 3 bulan terus-menerus mendengar cerita-cerita traumatik dari para penyintas. Lama-lama relawan tersebut juga mulai menunjukkan gejala gangguan tidur dan mudah cemas.</div>
+    <p class="q-question">Jenis trauma yang dialami relawan tersebut disebut?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Trauma akut</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">B</span>Trauma kompleks</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">C</span>Trauma sekunder</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>Trauma kolektif</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Trauma kronis</button>
+    </div>
+    <div class="q-exp" id="exp-q2">
+      ✅ <strong>C. Trauma sekunder</strong><br><br>
+      Trauma sekunder terjadi pada tenaga kesehatan atau relawan yang terus-menerus terpapar cerita traumatik orang lain — bukan mengalami kejadian traumatiknya secara langsung. Trauma kolektif berbeda — itu untuk korban langsung dari bencana massal/konflik sosial/pandemi, bukan untuk penolong yang terpapar cerita.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / FIGHT-FLIGHT-FREEZE-FAWN</div>
+    <div class="q-vignette">Seorang wanita korban kekerasan dalam rumah tangga, saat diwawancara dokter, tampak sangat patuh dan berusaha menyenangkan setiap permintaan dokter meski tidak nyaman, seolah takut menyinggung.</div>
+    <p class="q-question">Respons tubuh terhadap ancaman yang ditunjukkan pasien ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Fight</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>Flight</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">C</span>Freeze</button>
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">D</span>Fawn</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">E</span>Flooding</button>
+    </div>
+    <div class="q-exp" id="exp-q3">
+      ✅ <strong>D. Fawn</strong><br><br>
+      Fawn adalah respons di mana seseorang menjadi terlalu patuh atau menyenangkan orang lain demi merasa aman — sering terlihat pada korban kekerasan berulang/KDRT sebagai strategi survival. Berbeda dengan fight (melawan), flight (menghindar), atau freeze (diam kaku).
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / SPEKTRUM PTSD</div>
+    <div class="q-vignette">Seorang laki-laki 30 tahun mengalami gelisah dan sulit tidur sejak seminggu yang lalu, sejak melihat sahabatnya meninggal secara tragis akibat kecelakaan saat arung jeram 10 hari yang lalu. Pasien selalu terbayang kembali kecelakaan tersebut dan merasa berdebar-debar, berkeringat, dan cemas.</div>
+    <p class="q-question">Berdasarkan jangka waktu gejalanya, kondisi pasien ini paling tepat diklasifikasikan sebagai?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Respons stres normal</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Acute stress reaction</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">C</span>Acute stress disorder</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>PTSD</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>PTSD delayed expression</button>
+    </div>
+    <div class="q-exp" id="exp-q4">
+      ✅ <strong>C. Acute stress disorder</strong><br><br>
+      Gejala sudah berlangsung 10 hari (dalam rentang 3 hari–1 bulan) dengan gejala bermakna dan menetap (gelisah, sulit tidur, intrusi/terbayang kembali, berdebar) — ini masuk kategori Acute Stress Disorder, BUKAN PTSD (yang baru ditegakkan bila &gt;1 bulan). Bila gejala menetap melebihi 1 bulan, baru dipertimbangkan PTSD. Catatan: pada bank soal sebelumnya, farmakoterapi jangka panjang untuk kondisi seperti ini adalah antidepresan golongan SSRI.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / PFA</div>
+    <div class="q-vignette">Seorang dokter jaga IGD menghadapi korban kecelakaan yang baru tiba, tampak sangat ketakutan, napas cepat, dan gelisah. Korban belum bisa diwawancara dengan tenang.</div>
+    <p class="q-question">Tindakan PRIORITAS pertama yang sesuai prinsip PFA pada situasi ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>Segera menanyakan detail kronologi kejadian untuk rekam medis</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">B</span>Memberikan psikoedukasi panjang tentang PTSD</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">C</span>Melakukan grounding sederhana untuk menstabilkan kondisi sebelum komunikasi lanjutan</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Langsung merujuk ke psikiater tanpa penanganan awal</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>Meyakinkan pasien bahwa semuanya pasti akan baik-baik saja</button>
+    </div>
+    <div class="q-exp" id="exp-q5">
+      ✅ <strong>C. Melakukan grounding sederhana untuk menstabilkan kondisi sebelum komunikasi lanjutan</strong><br><br>
+      Sesuai prinsip PFA dan grounding: saat korban panik, prioritas adalah menstabilkan tubuh dan pikiran terlebih dahulu (atur napas, teknik 5-4-3-2-1, orientasi realitas) sebelum melakukan wawancara/komunikasi lebih lanjut. Jangan memaksa korban bercerita saat masih panik, dan jangan memberi janji palsu ("pasti baik-baik saja").
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / KOMUNIKASI</div>
+    <div class="q-vignette">Seorang ibu yang anaknya meninggal akibat kecelakaan sepeda 10 hari lalu, menjadi trauma untuk lewat jalan yang sama, datang ke puskesmas dengan keluhan gelisah dan sulit tidur 1 minggu terakhir. Ia berkata kepada dokter, "Saya merasa ini semua salah saya, Dok, andai saya melarang dia bersepeda hari itu."</div>
+    <p class="q-question">Respons komunikasi yang paling sesuai prinsip trauma-informed care adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>"Iya, Bu, seharusnya memang dilarang dari awal."</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">B</span>"Sudahlah Bu, jangan dipikirkan lagi, yang penting sekarang ikhlas."</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">C</span>"Respons setiap orang saat menghadapi kejadian berat bisa berbeda-beda. Yang terjadi bukan salah Ibu."</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>"Ibu harus kuat demi anak-anak Ibu yang lain."</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>"Tenang Bu, pasti nanti semuanya akan baik-baik saja."</button>
+    </div>
+    <div class="q-exp" id="exp-q6">
+      ✅ <strong>C. "Respons setiap orang saat menghadapi kejadian berat bisa berbeda-beda. Yang terjadi bukan salah Ibu."</strong><br><br>
+      Ini memvalidasi emosi tanpa meremehkan dan menghindari victim blaming (rasa bersalah pasien tidak boleh dibenarkan/diperkuat). Opsi A memperkuat rasa bersalah, B = "jangan dipikirkan" (meremehkan), D = "harus kuat" (mengharuskan, menambah beban), E = janji palsu yang tidak boleh diberikan.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / TANDA BAHAYA</div>
+    <div class="q-vignette">Seorang siswa SMP yang mengalami bullying selama 1 tahun mulai menarik diri, sering sakit perut sebelum sekolah, merasa tidak berharga, dan pernah mengatakan "ingin menghilang saja".</div>
+    <p class="q-question">Tanda bahaya pada kasus ini yang mengindikasikan kebutuhan rujukan SEGERA adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>Sakit perut sebelum sekolah</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">B</span>Menarik diri dari pergaulan</button>
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">C</span>Ucapan "ingin menghilang" yang mengindikasikan kemungkinan ide bunuh diri</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>Riwayat bullying yang berlangsung 1 tahun</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Usia siswa yang masih SMP</button>
+    </div>
+    <div class="q-exp" id="exp-q7">
+      ✅ <strong>C. Ucapan "ingin menghilang" yang mengindikasikan kemungkinan ide bunuh diri</strong><br><br>
+      Sakit perut, menarik diri, dan riwayat bullying adalah manifestasi efek psikis trauma kronis yang perlu dipantau, tetapi BELUM tentu indikasi rujukan segera. Ucapan "ingin menghilang" / "ingin hilang dari bumi" adalah tanda bahaya eksplisit yang mengarah ke ide bunuh diri — ini WAJIB segera dirujuk ke psikolog klinis/psikiater sesuai 10 indikasi rujukan segera.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / GEJALA PSIKOTIK</div>
+    <div class="q-vignette">Seorang laki-laki 45 tahun korban kebakaran rumah, dua minggu setelah kejadian, mengaku sering "mendengar suara orang berteriak minta tolong" padahal tidak ada seorang pun di sekitarnya, dan ia sangat yakin rumahnya akan terbakar lagi malam ini meski sudah dijelaskan tidak ada bahaya.</div>
+    <p class="q-question">Kombinasi gejala yang ditunjukkan pasien ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>Intrusi dan penghindaran — gejala PTSD biasa</button>
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">B</span>Halusinasi auditorik dan waham — gejala psikotik yang memerlukan rujukan segera</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">C</span>Disosiasi ringan yang dapat ditangani dengan grounding saja</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>Respons stres normal yang akan membaik dengan sendirinya</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Gejala fawn yang tidak memerlukan tindakan khusus</button>
+    </div>
+    <div class="q-exp" id="exp-q8">
+      ✅ <strong>B. Halusinasi auditorik dan waham — gejala psikotik yang memerlukan rujukan segera</strong><br><br>
+      "Mendengar suara" tanpa sumber = halusinasi auditorik (gangguan persepsi). "Sangat yakin rumahnya akan terbakar lagi" meski sudah dijelaskan tidak ada bahaya = waham/delusi (keyakinan salah yang diyakini benar, gangguan isi pikir). Kombinasi halusinasi + waham adalah dua gejala utama psikotik — ini adalah salah satu dari 10 indikasi rujukan segera ke psikiater.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / TATALAKSANA LANJUTAN</div>
+    <div class="q-vignette">Seorang wanita 28 tahun didiagnosis PTSD 2 bulan setelah mengalami kecelakaan mobil berat. Gejalanya bermakna mengganggu fungsi sehari-hari: tidak bisa mengemudi, mimpi buruk berulang, dan mudah kaget.</div>
+    <p class="q-question">Terapi lini utama yang direkomendasikan NICE untuk kasus PTSD seperti ini adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Hanya farmakoterapi benzodiazepine jangka panjang</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">B</span>Trauma-focused CBT</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">C</span>Hanya psikoedukasi tanpa terapi lanjutan</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">D</span>Observasi pasif tanpa intervensi karena masih dalam fase akut</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Terapi electroconvulsive (ECT) sebagai lini pertama</button>
+    </div>
+    <div class="q-exp" id="exp-q9">
+      ✅ <strong>B. Trauma-focused CBT</strong><br><br>
+      NICE merekomendasikan trauma-focused CBT sebagai terapi utama pada banyak kasus PTSD, termasuk untuk PTSD yang muncul lebih dari 1 bulan setelah trauma. EMDR juga dapat dipertimbangkan terutama untuk PTSD dewasa setelah trauma non-combat. Farmakoterapi diberikan oleh dokter/psikiater untuk kondisi PTSD tertentu dengan komorbid (depresi, ansietas berat, insomnia) — bukan sebagai monoterapi lini pertama berupa benzodiazepine jangka panjang.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / PRINSIP MURTAGH & DOKTER KELUARGA</div>
+    <div class="q-vignette">Seorang dokter umum menangani pasien pasca trauma dengan tetap berpegang pada prinsip kegawatan Murtagh, salah satunya: "berpikir infark miokard pada nyeri dada sampai terbukti lain".</div>
+    <p class="q-question">Prinsip berpikir serupa yang relevan diterapkan pada penanganan psikis trauma berdasarkan materi dr. Erna adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Menganggap semua keluhan psikis pasca trauma sebagai gangguan jiwa berat sampai terbukti lain</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">B</span>Mewaspadai dan mengasesmen tanda bahaya (ide bunuh diri, psikosis, disosiasi berat) pada setiap penyintas trauma sampai terbukti tidak ada</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">C</span>Menganggap semua pasien pasca trauma akan sembuh sendiri tanpa perlu skrining</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">D</span>Langsung memberikan farmakoterapi pada semua penyintas trauma sejak hari pertama</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Mengabaikan gejala ringan karena dianggap pasti respons normal</button>
+    </div>
+    <div class="q-exp" id="exp-q10">
+      ✅ <strong>B. Mewaspadai dan mengasesmen tanda bahaya pada setiap penyintas trauma sampai terbukti tidak ada</strong><br><br>
+      Sama seperti prinsip Murtagh "pikirkan kemungkinan terburuk dulu sampai terbukti lain" untuk kondisi gawat darurat fisik, penanganan psikis trauma juga menerapkan kewaspadaan serupa: meski tidak semua respons trauma adalah gangguan jiwa, SEMUA respons perlu dihargai, dipantau, dan diskrining tanda bahayanya (risiko bunuh diri, kekerasan, psikosis, disosiasi berat) — bukan diasumsikan otomatis "pasti normal" atau otomatis "pasti gangguan berat".
+    </div>
+  </div>
+
+  <!-- Score card -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:36px; margin-bottom:8px;">🎉</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:18px; opacity:0.8; margin-top:4px;">/ 10</div>
+    <p class="score-msg" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+
+</div><!-- /quiz -->
+</div><!-- /container -->
+
+<script>
+// ====== NAV ======
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ====== COLLAPSE ======
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// ====== QUIZ ======
+let answered = {}, score = 0, total = 10;
+
+function initDots() {
+  const p = document.getElementById('quizProg');
+  p.innerHTML = '';
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot';
+    d.id = 'dot' + i;
+    p.appendChild(d);
+  }
+}
+
+function ans(btn, qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const qNum = parseInt(qid.replace('q', ''));
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+  if (correct) {
+    btn.classList.add('correct');
+    score++;
+    document.getElementById('dot' + qNum).classList.add('ok');
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('dot' + qNum).classList.add('no');
+    card.querySelectorAll('.q-opt').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) b.classList.add('correct');
+    });
+  }
+  const exp = document.getElementById('exp-' + qid);
+  if (exp) exp.classList.add('show');
+  if (Object.keys(answered).length === total) setTimeout(showScore, 700);
+}
+
+function showScore() {
+  const sc = document.getElementById('scoreCard');
+  sc.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const msgs = ['Ayo belajar lagi, semangat! 💪', 'Masih perlu review nih! 📖', 'Lumayan! Sedikit lagi! 🌟', 'Bagus banget! Hampir sempurna! 🔥', 'SEMPURNA! Dokter siap! 🎊'];
+  const idx = score <= 3 ? 0 : score <= 5 ? 1 : score <= 7 ? 2 : score <= 9 ? 3 : 4;
+  document.getElementById('scoreMsg').textContent = msgs[idx];
+  sc.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function resetQuiz() {
+  answered = {}; score = 0;
+  document.querySelectorAll('.q-opt').forEach(b => { b.disabled = false; b.classList.remove('correct', 'wrong'); });
+  document.querySelectorAll('.q-exp').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+initDots();
+</script>
+</body>
+</html>
