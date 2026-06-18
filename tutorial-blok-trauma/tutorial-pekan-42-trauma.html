@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trauma Asfiksia — Modul Edukasi Koas Semester 6</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap');
+
+  :root {
+    --navy: #1a2744;
+    --deep-teal: #0d5c6e;
+    --teal: #1a8fa0;
+    --teal-light: #e8f6f8;
+    --amber: #e8a020;
+    --amber-light: #fdf3e0;
+    --crimson: #c0392b;
+    --crimson-light: #fcecea;
+    --green: #1a7a4a;
+    --green-light: #e6f4ec;
+    --purple: #5b3a8c;
+    --purple-light: #f0ebf8;
+    --slate: #4a5568;
+    --light-bg: #f7f9fc;
+    --white: #ffffff;
+    --border: #dde3eb;
+    --text: #1e2a3a;
+    --text-muted: #6b7a94;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light-bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2f5e 40%, var(--deep-teal) 100%);
+    color: #fff;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(26,143,160,0.25) 0%, transparent 60%);
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    color: #a8dde4;
+  }
+  .hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+  .hero h1 span { color: #5dd3e0; }
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin-bottom: 28px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 20px;
+  }
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: rgba(255,255,255,0.6);
+  }
+  .hero-meta-item strong { color: #fff; }
+
+  /* ── TOC ── */
+  .toc-bar {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    position: sticky; top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  .toc-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; overflow-x: auto; gap: 0;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-link {
+    white-space: nowrap;
+    padding: 14px 18px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+  }
+  .toc-link:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* ── LAYOUT ── */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* ── SECTION CARD ── */
+  .section-card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 36px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 22px 28px;
+    background: var(--navy);
+    color: #fff;
+  }
+  .section-num {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.05rem; font-weight: 600;
+    line-height: 1.3;
+  }
+  .section-header h2 small {
+    display: block; font-size: 11px; font-weight: 400;
+    opacity: .6; margin-top: 2px;
+  }
+  .section-body { padding: 28px; }
+
+  /* Color variants for section headers */
+  .sh-teal .section-header { background: var(--deep-teal); }
+  .sh-crimson .section-header { background: var(--crimson); }
+  .sh-amber .section-header { background: #b07a10; }
+  .sh-green .section-header { background: var(--green); }
+  .sh-purple .section-header { background: var(--purple); }
+  .sh-slate .section-header { background: var(--slate); }
+
+  /* ── TYPOGRAPHY INSIDE CARDS ── */
+  .section-body h3 {
+    font-size: 1rem; font-weight: 700;
+    color: var(--navy);
+    margin: 24px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--teal-light);
+  }
+  .section-body h3:first-child { margin-top: 0; }
+  .section-body h4 {
+    font-size: .95rem; font-weight: 600;
+    color: var(--deep-teal);
+    margin: 18px 0 8px;
+  }
+  .section-body p { margin-bottom: 12px; }
+  .section-body ul, .section-body ol {
+    padding-left: 22px; margin-bottom: 14px;
+  }
+  .section-body li { margin-bottom: 6px; }
+  .section-body strong { color: var(--navy); }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 18px 0;
+    display: flex; gap: 12px;
+    font-size: 14px;
+  }
+  .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .callout-content { flex: 1; }
+  .callout-content strong { display: block; margin-bottom: 4px; }
+  .callout.info { background: var(--teal-light); border-left: 4px solid var(--teal); }
+  .callout.info .callout-icon::before { content: "💡"; }
+  .callout.warning { background: var(--amber-light); border-left: 4px solid var(--amber); }
+  .callout.warning .callout-icon::before { content: "⚠️"; }
+  .callout.danger { background: var(--crimson-light); border-left: 4px solid var(--crimson); }
+  .callout.danger .callout-icon::before { content: "🚨"; }
+  .callout.success { background: var(--green-light); border-left: 4px solid var(--green); }
+  .callout.success .callout-icon::before { content: "✅"; }
+  .callout.memory { background: var(--purple-light); border-left: 4px solid var(--purple); }
+  .callout.memory .callout-icon::before { content: "🧠"; }
+  .callout.confusion { background: #fff8e1; border-left: 4px solid #f5a623; }
+  .callout.confusion .callout-icon::before { content: "❓"; }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; border-radius: 8px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead tr { background: var(--navy); color: #fff; }
+  th { padding: 11px 14px; text-align: left; font-weight: 600; font-size: 12.5px; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  tbody tr:hover { background: var(--teal-light); }
+
+  /* ── PATHWAY DIAGRAM ── */
+  .pathway {
+    display: flex; flex-direction: column; gap: 0;
+    margin: 16px 0;
+  }
+  .pathway-step {
+    display: flex; align-items: flex-start; gap: 0;
+  }
+  .pathway-left {
+    display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0;
+  }
+  .pathway-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--teal);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .pathway-dot.red { background: var(--crimson); box-shadow: 0 0 0 2px var(--crimson); }
+  .pathway-dot.amber { background: var(--amber); box-shadow: 0 0 0 2px var(--amber); }
+  .pathway-dot.green { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+  .pathway-line {
+    flex: 1; width: 2px; background: var(--border); min-height: 16px;
+  }
+  .pathway-content {
+    flex: 1; padding: 4px 0 20px 14px;
+  }
+  .pathway-content strong { color: var(--navy); font-size: .9rem; }
+  .pathway-content p { font-size: 13.5px; color: var(--slate); margin-top: 3px; }
+
+  /* ── MNEMONIC BOX ── */
+  .mnemonic {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--deep-teal) 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 20px 0;
+  }
+  .mnemonic h4 { color: #5dd3e0; font-size: .85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+  .mnemonic-grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; }
+  .mnemonic-letter { font-size: 1.5rem; font-weight: 700; color: #5dd3e0; line-height: 1; }
+  .mnemonic-word { display: flex; flex-direction: column; justify-content: center; }
+  .mnemonic-word strong { font-size: .9rem; }
+  .mnemonic-word span { font-size: .8rem; opacity: .7; }
+
+  /* ── ANALOGY BOX ── */
+  .analogy {
+    background: var(--amber-light);
+    border: 1px solid #f0c060;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .analogy-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--amber); font-weight: 700; margin-bottom: 8px;
+  }
+  .analogy p { font-size: 14px; color: #5a3a00; margin: 0; }
+
+  /* ── SUMMARY HERO ── */
+  .summary-hero {
+    background: linear-gradient(135deg, #0d2f5e 0%, var(--deep-teal) 100%);
+    border-radius: 12px;
+    padding: 32px;
+    color: #fff;
+    margin-bottom: 36px;
+  }
+  .summary-hero h2 { font-family: 'Merriweather', serif; font-size: 1.4rem; color: #5dd3e0; margin-bottom: 18px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .summary-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .summary-card .icon { font-size: 1.5rem; margin-bottom: 6px; }
+  .summary-card h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .8px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .summary-card p { font-size: .85rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+
+  /* ── CLINICAL QUICK BOX ── */
+  .quick-box {
+    background: var(--green-light);
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 36px;
+  }
+  .quick-box h3 { color: var(--green); margin-bottom: 12px; border: none; padding: 0; }
+  .quick-box p { font-size: 14px; }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .badge-teal { background: var(--teal-light); color: var(--deep-teal); }
+  .badge-red { background: var(--crimson-light); color: var(--crimson); }
+  .badge-amber { background: var(--amber-light); color: #8a5a00; }
+  .badge-green { background: var(--green-light); color: var(--green); }
+
+  /* ── GRID HELPERS ── */
+  .col2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0; }
+  .col2 > div {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+  .col2 > div h5 { font-size: .8rem; text-transform: uppercase; letter-spacing: .8px; color: var(--text-muted); margin-bottom: 8px; }
+
+  /* responsive */
+  @media (max-width: 680px) {
+    .hero h1 { font-size: 1.8rem; }
+    .content { padding: 24px 18px 60px; }
+    .section-body { padding: 20px 18px; }
+    .col2 { grid-template-columns: 1fr; }
+    .hero { padding: 40px 20px 36px; }
+    .toc-link { padding: 12px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Modul Koas · Semester 6 · Bedah Trauma</div>
+    <h1>Trauma <span>Asfiksia</span><br><em style="font-style:italic;font-size:1.5rem;color:rgba(255,255,255,0.7)">Traumatic Asphyxia</em></h1>
+    <p class="hero-sub">Panduan komprehensif berbasis ATLS, Sabiston, dan guideline internasional untuk mahasiswa kedokteran — dari patofisiologi hingga tatalaksana.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📚 <strong>Referensi:</strong> ATLS 10th Ed, Sabiston, Schwartz's, EAU, Kemenkes RI</div>
+      <div class="hero-meta-item">🎓 <strong>Level:</strong> Koas Semester 6</div>
+      <div class="hero-meta-item">⏱️ <strong>Estimasi baca:</strong> 45–60 menit</div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc-bar" aria-label="Daftar isi">
+  <div class="toc-inner">
+    <a class="toc-link" href="#s1">1 · Definisi</a>
+    <a class="toc-link" href="#s2">2 · Epidemiologi</a>
+    <a class="toc-link" href="#s3">3 · Etiologi</a>
+    <a class="toc-link" href="#s4">4 · Patofisiologi</a>
+    <a class="toc-link" href="#s5">5 · Manifestasi</a>
+    <a class="toc-link" href="#s6">6 · Diagnosis</a>
+    <a class="toc-link" href="#s7">7 · Diagnosis Banding</a>
+    <a class="toc-link" href="#s8">8 · Tatalaksana</a>
+    <a class="toc-link" href="#s9">9 · Prognosis</a>
+    <a class="toc-link" href="#s10">10 · Edukasi Helm</a>
+    <a class="toc-link" href="#s11">11 · Pasca Trauma</a>
+    <a class="toc-link" href="#ringkasan">Ringkasan</a>
+  </div>
+</nav>
+
+<main class="content">
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: DEFINISI -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card" id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>Definisi Trauma Asfiksia <small>Pendekatan ATLS · Terminologi · Konsep Dasar</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>🔤 Dari Mana Kata "Asfiksia" Berasal?</h3>
+    <p><strong>Asfiksia</strong> berasal dari bahasa Yunani: <em>a-</em> (tanpa) + <em>sphyxis</em> (denyut nadi, dari kata sphyzein = berdenyut). Jadi secara harfiah berarti <strong>"tanpa denyut"</strong> — merefleksikan kondisi tanpa aliran darah/oksigen yang cukup.</p>
+    <p>Dalam konteks medis modern, asfiksia berarti <strong>kondisi di mana tubuh kekurangan oksigen (hipoksia) sekaligus mengalami kelebihan CO₂ (hiperkarbia)</strong>, yang dapat menyebabkan gangguan kesadaran hingga kematian.</p>
+
+    <h3>📖 Definisi Trauma Asfiksia</h3>
+    <p><strong>Trauma asfiksia</strong> (<em>traumatic asphyxia</em>, <em>Perthes syndrome</em>) adalah sindrom klinik akibat kompresi tiba-tiba dan masif pada dada dan/atau abdomen yang menyebabkan:</p>
+    <ul>
+      <li>Peningkatan tekanan intrathorakal dan intraabdominal secara mendadak</li>
+      <li>Transmisi retrograde tekanan tinggi ke pembuluh darah vena tanpa katup (vena kava superior, vena jugularis, vena kapiler wajah dan leher)</li>
+      <li>Trias klinis: <strong>sianosis wajah, petekie/perdarahan subkonjungtiva, dan edema kepala-leher</strong></li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Perthes Syndrome</strong>
+        Nama eponym trauma asfiksia adalah <em>Perthes syndrome</em>, diambil dari Georg C. Perthes yang pertama kali mendeskripsikannya secara sistematis tahun 1900. Jangan bingung dengan <em>Legg-Calvé-Perthes disease</em> (avaskuler nekrosis caput femur) yang merupakan eponym berbeda!
+      </div>
+    </div>
+
+    <h3>🏥 Prinsip ATLS dan Konteks Trauma Asfiksia</h3>
+    <p><strong>ATLS (Advanced Trauma Life Support)</strong>, edisi ke-10 (2018), mengajarkan pendekatan trauma secara sistematis dengan filosofi <em>"treat the greatest threat to life first."</em> Trauma asfiksia masuk dalam kerangka:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Primary Survey (ABCDE)</th><th>Relevansi Trauma Asfiksia</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>A — Airway</strong></td><td>Edema laring akibat kompresi vena dapat mengancam patensi jalan napas</td></tr>
+          <tr><td><strong>B — Breathing</strong></td><td>Kompresi thorak → gangguan mekanisme pernapasan, hipoksia</td></tr>
+          <tr><td><strong>C — Circulation</strong></td><td>Venous hypertension → syok obstruktif, gangguan venous return</td></tr>
+          <tr><td><strong>D — Disability</strong></td><td>Hipoksia serebral → penurunan GCS, kejang, koma</td></tr>
+          <tr><td><strong>E — Exposure</strong></td><td>Sianosis dan petekie wajah yang khas terlihat saat inspeksi menyeluruh</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Penting diingat:</strong> Dalam ATLS, trauma asfiksia tidak berdiri sendiri. Ia sering merupakan bagian dari <em>multiple trauma</em>, terutama terjadi bersamaan dengan fraktur iga, kontusio paru, pneumotoraks, dan cedera kepala. Selalu lakukan primary survey lengkap!
+      </div>
+    </div>
+
+    <h3>📌 Versi Sederhana untuk Mahasiswa Baru</h3>
+    <div class="analogy">
+      <div class="analogy-label">🍋 Analogi Realistis</div>
+      <p>Bayangkan kamu <strong>memeras selang air yang masih mengalir</strong>. Tekanan dari titik peras itu tidak ke mana-mana kecuali balik ke ujung lain yang tidak diperas. Itulah yang terjadi pada trauma asfiksia: dada/perut diperas mendadak (saat kecelakaan, tertimpa), tekanan melompat balik ke vena-vena di kepala dan leher karena vena besar (vena kava superior) tidak punya katup — maka kapiler di wajah dan mata pecah → petekie, sianosis, dan bola mata merah darah.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: EPIDEMIOLOGI -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-teal" id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Epidemiologi Trauma Asfiksia <small>Insidens · Demografi · Pola Trauma di Indonesia</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>📊 Data Global</h3>
+    <p>Trauma asfiksia adalah kondisi yang <strong>jarang namun signifikan</strong> secara klinis. Insidens yang dilaporkan bervariasi karena seringkali underdiagnosis:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Parameter</th><th>Data</th><th>Keterangan</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Proporsi dari total trauma thoraks</td><td>~0,5 – 2%</td><td>Langka namun mortalitas tinggi jika berat</td></tr>
+          <tr><td>Jenis kelamin</td><td>Laki-laki &gt;&gt; Perempuan (3:1)</td><td>Terkait aktivitas berisiko tinggi</td></tr>
+          <tr><td>Usia puncak</td><td>20 – 40 tahun</td><td>Usia produktif, sering kecelakaan kerja/lalu lintas</td></tr>
+          <tr><td>Mortalitas keseluruhan</td><td>~7 – 15%</td><td>Lebih tinggi bila ada cedera penyerta berat</td></tr>
+          <tr><td>Mortalitas pada isolated traumatic asphyxia</td><td>&lt; 5%</td><td>Prognosis relatif baik bila ditangani cepat</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🏎️ Mekanisme Penyebab di Dunia</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Mekanisme</th><th>Proporsi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Kecelakaan lalu lintas (KLL)</td><td>~50 – 60%</td></tr>
+          <tr><td>Trauma industri / tertimpa mesin/benda berat</td><td>~20 – 25%</td></tr>
+          <tr><td>Tertimpa tanah longsor / bangunan runtuh</td><td>~10 – 15%</td></tr>
+          <tr><td>Olahraga / kerumunan massa</td><td>~5%</td></tr>
+          <tr><td>Lain-lain (ledakan, dll)</td><td>~5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🇮🇩 Konteks Indonesia</h3>
+    <p>Indonesia memiliki beban KLL yang sangat tinggi. Menurut <strong>Kemenkes RI dan WHO Indonesia Road Safety Report</strong>:</p>
+    <ul>
+      <li>Indonesia termasuk negara dengan angka kematian akibat KLL tertinggi di ASEAN: sekitar <strong>26.000 – 38.000 jiwa per tahun</strong></li>
+      <li>Pengendara motor mendominasi (sekitar 73% korban KLL), yang secara mekanistik rentan terhadap kompresi dada masif terutama pada tabrakan frontal atau tertindih kendaraan</li>
+      <li>Trauma asfiksia pada pekerja konstruksi dan pertambangan juga signifikan namun data spesifik masih terbatas</li>
+      <li>Anak-anak pada kasus <em>crowd crush</em> (tragedi kerumunan) juga rentan karena dinding thoraks lebih elastis sehingga kompresi lebih mudah mentransmisikan tekanan</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Mengapa anak-anak lebih rentan?</strong>
+        Tulang iga anak lebih kartilaginous dan elastis. Ini berarti gaya kompresi tidak diserap oleh fraktur iga, melainkan langsung mentransmisikan tekanan ke dalam rongga thoraks dan ke sistem vena — sehingga trauma asfiksia bisa terjadi tanpa fraktur iga pada anak.
+      </div>
+    </div>
+
+    <h3>Usia dan Jenis Kelamin — Mengapa Demikian?</h3>
+    <p>Dominasi usia muda (20–40 tahun) dan laki-laki mencerminkan pola risiko perilaku: laki-laki lebih banyak melakukan pekerjaan fisik berat, berkendara dengan kecepatan tinggi, dan terlibat kecelakaan industri. Pada usia tua, kondisi komorbid seperti osteoporosis justru membuat fraktur iga lebih mudah terjadi sehingga energi dilepaskan melalui fraktur — paradoksnya ini sedikit "melindungi" dari trauma asfiksia murni.</p>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: ETIOLOGI & FAKTOR RISIKO -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-crimson" id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Etiologi dan Faktor Risiko <small>Mekanisme Cedera · Predisposisi</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>⚡ Mekanisme Dasar</h3>
+    <p>Kunci etiologi trauma asfiksia adalah <strong>kompresi mendadak dan masif pada thoraks atau abdomen</strong>, biasanya pada saat:</p>
+    <ol>
+      <li><strong>Glotis tertutup</strong> (pasien sedang menahan napas, berteriak, atau refleks menutup glotis saat kaget)</li>
+      <li><strong>Diafragma berkontraksi</strong> (fase inspirasi)</li>
+      <li>Tekanan intra-abdominal dan intrathorakal meningkat tiba-tiba</li>
+    </ol>
+    <p>Tanpa katup pada vena kava superior, tekanan tersebut ditransmisikan retrograde ke vena jugularis dan kapiler kepala-leher.</p>
+
+    <h3>📋 Klasifikasi Etiologi</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Kategori</th><th>Mekanisme Spesifik</th><th>Contoh</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Trauma kendaraan bermotor</strong></td>
+            <td>Dada terbentur setir/dashboard, tertimpa bodi kendaraan</td>
+            <td>Kecelakaan sepeda motor, truk</td>
+          </tr>
+          <tr>
+            <td><strong>Trauma industri</strong></td>
+            <td>Tertimpa mesin press, forklift, bahan bangunan</td>
+            <td>Pabrik, konstruksi, pertambangan</td>
+          </tr>
+          <tr>
+            <td><strong>Bencana alam</strong></td>
+            <td>Tertimpa reruntuhan bangunan, tanah longsor</td>
+            <td>Gempa bumi, banjir bandang</td>
+          </tr>
+          <tr>
+            <td><strong>Crowd crush</strong></td>
+            <td>Terjepit massa manusia dalam kerumunan</td>
+            <td>Tragedi stadion, festival, pasar</td>
+          </tr>
+          <tr>
+            <td><strong>Pernapasan buatan tidak tepat</strong></td>
+            <td>Tekanan berlebih pada CPR, ventilasi mekanik</td>
+            <td>Iatrogenik, tersedak hebat</td>
+          </tr>
+          <tr>
+            <td><strong>Olahraga kontak</strong></td>
+            <td>Benturan dada keras</td>
+            <td>Rugby, gulat, martial arts</td>
+          </tr>
+          <tr>
+            <td><strong>Kejang tipe tonik</strong></td>
+            <td>Kontraksi otot dada masif</td>
+            <td>Epilepsi grand mal, tetanus</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔴 Faktor Risiko yang Memperberat</h3>
+
+    <div class="col2">
+      <div>
+        <h5>Faktor Intrinsik</h5>
+        <ul>
+          <li>Usia muda (elastisitas thoraks tinggi)</li>
+          <li>Obesitas (peningkatan tekanan intraabdominal baseline)</li>
+          <li>Kehamilan trimester akhir</li>
+          <li>Asites masif</li>
+          <li>Gangguan koagulasi (perdarahan lebih berat)</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Faktor Ekstrinsik</h5>
+        <ul>
+          <li>Tidak menggunakan helm / sabuk pengaman</li>
+          <li>Bekerja tanpa APD memadai</li>
+          <li>Posisi bekerja di bawah beban berat tanpa penyangga</li>
+          <li>Kecepatan tinggi saat berkendara</li>
+          <li>Lingkungan kerja tanpa standar K3</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout confusion">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Yang Sering Bikin Bingung Mahasiswa #1</strong>
+        Trauma asfiksia BUKAN berarti pasien "dicekik" (strangulasi). Perbedaan mendasar: <br>
+        <strong>Strangulasi</strong> = tekanan eksternal langsung pada leher → obstruksi jalan napas + kompresi vaskuler leher.<br>
+        <strong>Trauma asfiksia</strong> = kompresi dada/perut → tekanan retrograde ke vena kepala-leher. Jalan napas bisa tetap paten, tapi venous return terganggu.
+      </div>
+    </div>
+
+    <h3>🫁 Faktor Anatomi yang Menentukan Keparahan</h3>
+    <p>Keparahan trauma asfiksia bergantung pada tiga variabel mekanik:</p>
+    <ul>
+      <li><strong>Besar gaya kompresi</strong>: semakin besar → semakin masif venous hypertension</li>
+      <li><strong>Durasi kompresi</strong>: kompresi &gt;15 menit umumnya menyebabkan kerusakan neurologis permanen</li>
+      <li><strong>Luas area kompresi</strong>: kompresi seluruh thoraks lebih berbahaya daripada titik fokal</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: PATOFISIOLOGI -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-amber" id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>Patofisiologi dan Patogenesis <small>Mekanisme Cedera · Hipoksia · Venous Hypertension</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>🔬 Anatomi Vaskular yang Menjadi Kunci</h3>
+    <p>Untuk memahami patofisiologi, kamu harus ingat satu fakta anatomi kritis:</p>
+    <div class="callout info">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Vena kava superior (VCS) dan vena brakiosefalika TIDAK memiliki katup.</strong> Ini berbeda dengan vena-vena ekstremitas yang punya banyak katup. Akibatnya, tekanan dari intrathorakal dapat ditransmisikan bebas secara retrograde ke seluruh sistem vena kepala, leher, dan lengan atas.
+      </div>
+    </div>
+
+    <h3>⚙️ Langkah-Langkah Patogenesis</h3>
+    <div class="pathway">
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot"></div><div class="pathway-line"></div></div>
+        <div class="pathway-content"><strong>Kompresi masif thoraks/abdomen</strong><p>Gaya mekanik eksternal (kecelakaan, tertimpa) menekan dinding dada dan isi abdomen secara tiba-tiba. Glotis refleks tertutup → thoraks menjadi ruang tertutup.</p></div>
+      </div>
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot amber"></div><div class="pathway-line"></div></div>
+        <div class="pathway-content"><strong>Peningkatan mendadak tekanan intrathorakal</strong><p>Tekanan dalam rongga dada naik drastis (normal = negatif, menjadi sangat positif). Ruang intrathorakal "diperas" layaknya memeras balon berisi air.</p></div>
+      </div>
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot amber"></div><div class="pathway-line"></div></div>
+        <div class="pathway-content"><strong>Transmisi retrograde tekanan ke VCS dan vena jugularis</strong><p>Karena VCS tidak punya katup, tekanan yang sangat tinggi langsung diteruskan ke vena jugularis → vena ophtalmika → kapiler konjungtiva dan wajah.</p></div>
+      </div>
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot red"></div><div class="pathway-line"></div></div>
+        <div class="pathway-content"><strong>Ruptur kapiler dan venul kepala-leher</strong><p>Kapiler yang normalnya menampung tekanan rendah (&lt;15 mmHg) mendadak terpapar tekanan sangat tinggi → ruptur → petekie, ekimosis, perdarahan subkonjungtiva, edema.</p></div>
+      </div>
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot red"></div><div class="pathway-line"></div></div>
+        <div class="pathway-content"><strong>Gangguan venous return ke jantung kanan</strong><p>Tekanan VCS yang tinggi menghambat darah kembali ke atrium kanan → preload menurun → curah jantung turun → syok obstruktif.</p></div>
+      </div>
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot red"></div><div class="pathway-line"></div></div>
+        <div class="pathway-content"><strong>Hipoksia multipel</strong><p>Kombinasi: gangguan mekanik paru (atelektasis/kontusio) + gangguan sirkulasi → hipoksia jaringan terutama otak dan jantung.</p></div>
+      </div>
+      <div class="pathway-step">
+        <div class="pathway-left"><div class="pathway-dot green"></div><div class="pathway-line" style="background:transparent"></div></div>
+        <div class="pathway-content"><strong>Manifestasi klinis khas</strong><p>Trias: sianosis wajah dan leher, petekie/perdarahan subkonjungtiva, edema kepala-leher — disertai gejala neurologis dan respirasi.</p></div>
+      </div>
+    </div>
+
+    <h3>🫁 Jenis-Jenis Hipoksia pada Trauma Asfiksia</h3>
+    <p>Dalam biokimia dan fisiologi, hipoksia diklasifikasikan berdasarkan mekanismenya. Pada trauma asfiksia, bisa terjadi kombinasi:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Jenis Hipoksia</th><th>Mekanisme</th><th>Relevansi di Trauma Asfiksia</th><th>Contoh Situasi</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hipoksik Hipoksia</strong><br>(Hypoxic/Hypoxemic)</td>
+            <td>PaO₂ arterial rendah; O₂ tidak cukup masuk ke darah</td>
+            <td>Kompresi thoraks → paru tidak mengembang → hipoventilasi, atelektasis, kontusio paru</td>
+            <td>SaO₂ &lt; 90%, PaO₂ &lt; 60 mmHg</td>
+          </tr>
+          <tr>
+            <td><strong>Stagnan/Sirkulatorik Hipoksia</strong></td>
+            <td>Aliran darah ke jaringan terganggu (cardiac output rendah)</td>
+            <td>Venous return terganggu → CO menurun → jaringan tidak mendapat O₂ cukup meski kadar O₂ darah normal</td>
+            <td>Syok kardiogenik/obstruktif</td>
+          </tr>
+          <tr>
+            <td><strong>Histotoksik Hipoksia</strong></td>
+            <td>Sel tidak dapat menggunakan O₂ (gangguan rantai respirasi)</td>
+            <td>Jarang sebagai mekanisme primer; bisa sekunder pada cedera sel otak berat</td>
+            <td>Kerusakan mitokondria, asidosis berat</td>
+          </tr>
+          <tr>
+            <td><strong>Anemik Hipoksia</strong></td>
+            <td>Kapasitas pembawa O₂ darah berkurang (Hb rendah)</td>
+            <td>Terjadi bila ada perdarahan masif penyerta (hemothoraks, ruptur organ)</td>
+            <td>Hb &lt; 7 g/dL</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Hubungan Histologi & Biokimia:</strong> Sel neuron sangat rentan terhadap hipoksia (ATP habis dalam 4–6 menit). Tanpa ATP → pompa Na⁺/K⁺ ATPase gagal → Na⁺ dan air masuk sel → edema seluler → kematian sel. Ini menjelaskan mengapa gejala neurologis (kebingungan, kejang, koma) muncul cepat pada trauma asfiksia berat.
+      </div>
+    </div>
+
+    <h3>🫀 Efek Pada Sistem Kardiovaskular</h3>
+    <p>Tekanan intrathorakal yang sangat tinggi mempengaruhi jantung melalui:</p>
+    <ul>
+      <li><strong>Tamponade fungsional</strong>: kompresi jantung dari luar → diastolik filling terganggu</li>
+      <li><strong>Obstruksi venous return</strong>: darah "terjebak" di vena sentral, tidak bisa masuk atrium kanan → preload kolaps</li>
+      <li><strong>Peningkatan afterload ventrikel kanan</strong>: tekanan arterial paru meningkat akibat kompresi paru langsung</li>
+      <li>Kombinasi ketiganya dapat menyebabkan <strong>syok obstruktif</strong></li>
+    </ul>
+
+    <h3>🧠 Efek Pada Otak (Patogenesis Serebral)</h3>
+    <p>Venous hypertension di kepala mengakibatkan:</p>
+    <ol>
+      <li>Tekanan intrakranial (TIK) meningkat → perfusi serebral (CPP = MAP − TIK) turun</li>
+      <li>Edema serebral (vasogenik + sitotoksik)</li>
+      <li>Perdarahan petekie di substansia alba dan korteks</li>
+      <li>Pada kasus berat: infark serebral luas</li>
+    </ol>
+
+    <div class="analogy">
+      <div class="analogy-label">🍅 Analogi Patofisiologi</div>
+      <p>Bayangkan kepala seperti tomat matang yang terhubung ke selang air bertekanan tinggi (vena tanpa katup). Saat selang dipencet keras dari bawah (kompresi dada), air tekanan tinggi tiba-tiba mengisi tomat → pembuluh-pembuluh kecil di permukaan tomat pecah (petekie, perdarahan konjungtiva), tomat membengkak (edema), dan strukturnya rusak dari dalam (kerusakan neuron).</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: MANIFESTASI KLINIS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-green" id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>Manifestasi Klinis <small>Trias Khas · Korelasi Jenis Asfiksia · Sistemik</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>🎯 Trias Klinis Patognomonik</h3>
+    <p>Trauma asfiksia memiliki trias klinis yang sangat khas dan hampir diagnostik sendiri:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Tanda</th><th>Mekanisme</th><th>Deskripsi Klinis</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Sianosis wajah dan leher</strong></td>
+            <td>Stagnasi darah vena terdeoksigenasi di kapiler wajah akibat venous hypertension retrograde</td>
+            <td>Warna kebiruan/keunguan pada wajah, bibir, dan leher; terlihat seperti "benar-benar biru" hingga ungu kecoklatan — berbeda dengan sianosis sentral biasa</td>
+          </tr>
+          <tr>
+            <td><strong>2. Petekie & ekimosis kepala-leher</strong></td>
+            <td>Ruptur kapiler akibat lonjakan tekanan vena mendadak</td>
+            <td>Bintik merah-ungu kecil (&lt;3 mm) di wajah, kelopak mata, konjungtiva, sklera; bisa membentuk pola "topeng" ≥ batas kompresi</td>
+          </tr>
+          <tr>
+            <td><strong>3. Edema kepala dan leher</strong></td>
+            <td>Peningkatan tekanan hidrostatik kapiler → transudasi cairan ke ruang interstisial</td>
+            <td>Pembengkakan wajah, periorbital, leher; lidah dapat terdorong ke depan (protrusio linguae)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Batas "topeng" yang khas:</strong> Perubahan kulit (sianosis, petekie) khas hanya ada di atas batas kompresi (biasanya setinggi klavikula). Di bawah klavikula, kulit dapat tampak normal atau pucat. Ini karena batas vena kava superior setinggi sendi sternoklavikular.
+      </div>
+    </div>
+
+    <h3>📋 Manifestasi Sistemik Lengkap</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Sistem</th><th>Manifestasi</th><th>Mekanisme</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mata</strong></td>
+            <td>Perdarahan subkonjungtiva bilateral, proptosis, hemoftalmus, gangguan visus</td>
+            <td>Venous hypertension di vena oftalmica; hemoftalmus jika tekanan intravitreal meningkat</td>
+          </tr>
+          <tr>
+            <td><strong>THT</strong></td>
+            <td>Perdarahan telinga (hemotimpanum), epistaksis, perdarahan sublingual</td>
+            <td>Kapiler membran timpani, mukosa nasal, dan sublingual ruptur</td>
+          </tr>
+          <tr>
+            <td><strong>Neurologis</strong></td>
+            <td>Kebingungan, disorientasi, agitasi, GCS menurun, kejang, koma pada kasus berat; afasia sementara, kebutaan kortikal transien</td>
+            <td>Edema serebral, TIK meningkat, perfusi serebral menurun, petekie serebral</td>
+          </tr>
+          <tr>
+            <td><strong>Respirasi</strong></td>
+            <td>Dispnea, takipnea, hipoksia (SaO₂ rendah), krepitasi (bila ada kontusio/fraktur iga)</td>
+            <td>Kompresi mekanik paru, kontusio, hemopneumotoraks penyerta</td>
+          </tr>
+          <tr>
+            <td><strong>Kardiovaskular</strong></td>
+            <td>Hipotensi, takikardi, distensi vena jugularis, suara jantung melemah</td>
+            <td>Syok obstruktif, penurunan CO</td>
+          </tr>
+          <tr>
+            <td><strong>Kulit</strong></td>
+            <td>Pola memar/abrasi sesuai mekanisme trauma (imprint jeruji besi, tali, dll.)</td>
+            <td>Cedera langsung; distribusi ptekie sesuai area tekanan balik vena</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🏷️ Kaitkan dengan Jenis Asfiksia</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Jenis Asfiksia Klinis</th><th>Manifestasi Dominan</th><th>Perbedaan dari Trauma Asfiksia Murni</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Traumatic asphyxia</strong></td>
+            <td>Trias klasik: sianosis-petekie-edema wajah; riwayat kompresi thoraks</td>
+            <td>Rujukan utama bahasan ini</td>
+          </tr>
+          <tr>
+            <td><strong>Strangulasi (manual/ligatur)</strong></td>
+            <td>Petekie di atas ligatur, petechiae petrossal, luka tekan leher, kerusakan kartilago laring</td>
+            <td>Kompresi langsung di leher, tidak ada kompresi thoraks masif</td>
+          </tr>
+          <tr>
+            <td><strong>Gantung diri (hanging)</strong></td>
+            <td>Bekas jeratan di leher, fraktur vertebra servikalis, wajah kongesti di atas jeratan</td>
+            <td>Mekanisme: berat badan menekan pembuluh leher dan menarik tulang leher</td>
+          </tr>
+          <tr>
+            <td><strong>Positional asphyxia</strong></td>
+            <td>Sianosis, takipnea; tanpa tanda kompresi thoraks khas</td>
+            <td>Posisi tubuh menghalangi mekanik pernapasan (tersangkut di celah, kepala ke bawah)</td>
+          </tr>
+          <tr>
+            <td><strong>Chemical asphyxia</strong></td>
+            <td>Tanda toksidrom spesifik sesuai agen; tidak ada tanda kompresi fisik</td>
+            <td>Contoh: CO poisoning (beri warna cherry red), HCN (wajah merah tapi tidak sianotik)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout confusion">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Yang Sering Bikin Bingung Mahasiswa #2</strong>
+        Banyak mahasiswa lupa bahwa pada trauma asfiksia, area di bawah klavikula bisa tampak normal atau bahkan pucat (karena syok). Kesalahan umum: melihat seluruh tubuh sianosis dan menyimpulkan gagal napas berat, padahal pada trauma asfiksia yang terlokalisir, distribusi sianosis sangat khas di kepala-leher saja.
+      </div>
+    </div>
+
+    <h3>🌡️ Derajat Keparahan Klinis</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Derajat</th><th>Tanda Klinis</th><th>Neurologis</th><th>Mortalitas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge badge-green">Ringan</span></td><td>Petekie, ekimosis, edema wajah minimal</td><td>Sadar penuh, orientasi baik</td><td>&lt;2%</td></tr>
+          <tr><td><span class="badge badge-amber">Sedang</span></td><td>Sianosis jelas, edema wajah-leher nyata, hemoptisis</td><td>Disorientasi, kebingungan, GCS 12–14</td><td>2–10%</td></tr>
+          <tr><td><span class="badge badge-red">Berat</span></td><td>Sianosis gelap, proptosis, hemoftalmus, syok</td><td>Penurunan kesadaran, kejang, koma, GCS &lt;12</td><td>&gt;15%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 6: DIAGNOSIS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-purple" id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>Penegakan Diagnosis <small>Anamnesis · Pemeriksaan Fisik · Penunjang</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>📋 Anamnesis (5W + Mekanisme)</h3>
+    <p>Dalam konteks ATLS, anamnesis trauma menggunakan sistem <strong>AMPLE</strong>:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>AMPLE</th><th>Yang Digali</th><th>Relevansi Trauma Asfiksia</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>A</strong>llergies</td><td>Alergi obat</td><td>Penting sebelum terapi</td></tr>
+          <tr><td><strong>M</strong>edications</td><td>Obat rutin (antikoagulan, steroid)</td><td>Pengaruhi luasnya perdarahan</td></tr>
+          <tr><td><strong>P</strong>ast illness</td><td>Komorbid (koagulopati, kardiovaskular)</td><td>Memperberat prognosis</td></tr>
+          <tr><td><strong>L</strong>ast meal</td><td>Waktu makan terakhir</td><td>Risiko aspirasi saat intubasi</td></tr>
+          <tr><td><strong>E</strong>vents/Environment</td><td><strong>Mekanisme trauma!</strong></td><td>Kunci diagnosis: bagaimana kompresi terjadi, berapa lama, posisi saat kejadian</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Pertanyaan Kunci Anamnesis Trauma Asfiksia:</h4>
+    <ul>
+      <li>"Apa yang menimpa/menekan tubuh Anda?"</li>
+      <li>"Berapa lama Anda terjebak/tertekan?"</li>
+      <li>"Apakah sempat sadar atau tidak sadar sama sekali?"</li>
+      <li>"Apakah ada kesulitan bernapas segera setelah kejadian?"</li>
+      <li>"Apakah ada perubahan penglihatan atau pendengaran?"</li>
+      <li>"Apakah Anda sedang menarik napas dalam saat kejadian?" (glotis terbuka → lebih ringan; glotis tertutup → lebih berat)</li>
+    </ul>
+
+    <h3>🩺 Pemeriksaan Fisik — Sistematis ATLS</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Pemeriksaan</th><th>Temuan Khas</th><th>Makna Klinis</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Inspeksi umum</strong></td>
+            <td>Sianosis/ekimosis wajah, leher; batas jelas di klavikula</td>
+            <td>Patognomonik trauma asfiksia</td>
+          </tr>
+          <tr>
+            <td><strong>Mata</strong></td>
+            <td>Perdarahan subkonjungtiva bilateral, proptosis, kemosis</td>
+            <td>Venous hypertension oftalimika</td>
+          </tr>
+          <tr>
+            <td><strong>Leher</strong></td>
+            <td>Distensi vena jugularis, edema, deviasi trakea (bila pneumotoraks)</td>
+            <td>JVD = hambatan venous return</td>
+          </tr>
+          <tr>
+            <td><strong>Thoraks — inspeksi</strong></td>
+            <td>Simetri pengembangan, gerakan paradoksal (flail chest)</td>
+            <td>Flail chest tanda fraktur iga multipel</td>
+          </tr>
+          <tr>
+            <td><strong>Thoraks — palpasi</strong></td>
+            <td>Krepitasi iga, tenderness, emfisema subkutan</td>
+            <td>Fraktur iga, pneumotoraks</td>
+          </tr>
+          <tr>
+            <td><strong>Thoraks — perkusi</strong></td>
+            <td>Hipersonor (pneumo) atau redup (hemo)</td>
+            <td>Cedera paru/pleura penyerta</td>
+          </tr>
+          <tr>
+            <td><strong>Auskultasi paru</strong></td>
+            <td>Suara napas menurun unilateral/bilateral, ronki</td>
+            <td>Atelektasis, kontusio paru, hemo/pneumotoraks</td>
+          </tr>
+          <tr>
+            <td><strong>Kardiovaskular</strong></td>
+            <td>Takikardi, hipotensi, suara jantung melemah</td>
+            <td>Syok obstruktif, tamponade</td>
+          </tr>
+          <tr>
+            <td><strong>Neurologis</strong></td>
+            <td>GCS, pupil (isokoria/anisokor), motorik, refleks</td>
+            <td>Derajat cedera otak hipoksik</td>
+          </tr>
+          <tr>
+            <td><strong>Abdomen</strong></td>
+            <td>Defans muskuler, perkusi redup (hemoperitoneum)</td>
+            <td>Cedera organ intraabdominal penyerta</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔬 Pemeriksaan Penunjang</h3>
+
+    <h4>A. Laboratorium</h4>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Pemeriksaan</th><th>Yang Dicari</th><th>Interpretasi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Analisis Gas Darah (AGD/ABG)</td><td>PaO₂, PaCO₂, pH, HCO₃⁻, BE, SaO₂</td><td>Hipoksemia (PaO₂ &lt;60), hiperkarbia (PaCO₂ &gt;45), asidosis respiratorik</td></tr>
+          <tr><td>Darah lengkap</td><td>Hb, Ht, leukosit, trombosit</td><td>Anemia → perdarahan penyerta; trombositopenia → koagulopati</td></tr>
+          <tr><td>Koagulasi (PT, aPTT, fibrinogen)</td><td>Status koagulasi</td><td>DIC pada kasus berat</td></tr>
+          <tr><td>Laktat serum</td><td>Hipoperfusi jaringan</td><td>Laktat &gt;2 mmol/L = hipoperfusi; &gt;4 = syok berat</td></tr>
+          <tr><td>Troponin I/T</td><td>Kontusio miokard</td><td>Elevasi troponin + EKG abnormal = kontusio jantung</td></tr>
+          <tr><td>Ureum/kreatinin</td><td>Fungsi ginjal</td><td>Penurunan perfusi renal pada syok</td></tr>
+          <tr><td>Urinalisis</td><td>Hematuria</td><td>Trauma urogenital penyerta</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>B. Radiologi</h4>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Modalitas</th><th>Temuan Khas</th><th>Indikasi</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Foto toraks AP</strong><br>(Primary survey)</td>
+            <td>Fraktur iga, widening mediastinum, opasifikasi (hemo/pneumotoraks, kontusio paru), deviasi trakea</td>
+            <td>SEMUA pasien trauma toraks; cepat, tersedia</td>
+          </tr>
+          <tr>
+            <td><strong>CT Scan thoraks</strong><br>(Gold standard)</td>
+            <td>Kontusio paru detail, fraktur iga multipel, hemotoraks kecil, pneumotoraks oksult, cedera pembuluh darah besar</td>
+            <td>Pasien stabil hemodinamik; lebih sensitif dari foto polos</td>
+          </tr>
+          <tr>
+            <td><strong>CT Scan kepala</strong></td>
+            <td>Edema serebral, perdarahan intrakranial, infark</td>
+            <td>Bila ada penurunan kesadaran atau defisit neurologis</td>
+          </tr>
+          <tr>
+            <td><strong>FAST USG</strong><br>(Focused Assessment with Sonography for Trauma)</td>
+            <td>Hemoperitoneum, tamponade (efusi perikard), hemopneumotoraks</td>
+            <td>Di UGD/ruang trauma, cepat, non-invasif, bisa bedside</td>
+          </tr>
+          <tr>
+            <td><strong>Ekokardiografi</strong></td>
+            <td>Kontusio miokard, tamponade, ruptur katup</td>
+            <td>Bila ada kecurigaan cedera jantung (troponin naik, EKG abnormal)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>C. EKG</h4>
+    <p>12 lead EKG untuk mendeteksi: aritmia (kontusio miokard), tanda tamponade (low voltage, electrical alternans), iskemia.</p>
+
+    <div class="callout confusion">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Yang Sering Bikin Bingung Mahasiswa #3</strong>
+        FAST USG bukan pengganti CT scan — ia adalah alat triage cepat. FAST menjawab: "Ada cairan bebas atau tidak?" Tapi FAST tidak bisa melihat detail cedera organ solid, kontusio paru kecil, atau fraktur iga dengan baik. Pada pasien stabil, selalu lanjutkan dengan CT scan!
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 7: DIAGNOSIS BANDING -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-slate" id="s7">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>Diagnosis Banding <small>Sesak Napas Post-Trauma Dada</small></h2>
+  </div>
+  <div class="section-body">
+
+    <p>Pasien datang dengan sesak napas setelah trauma dada — ini bukan hanya trauma asfiksia. Anda WAJIB menyingkirkan diagnosis banding yang mengancam jiwa terlebih dahulu.</p>
+
+    <div class="callout danger">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>6 Pembunuh Tersembunyi di Trauma Dada (ATLS Primary Survey)</strong>
+        Tension pneumothorax · Open pneumothorax · Massive hemothorax · Flail chest · Cardiac tamponade · Airway obstruction — harus diidentifikasi dan ditangani dalam primary survey sebelum lanjut secondary survey.
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Diagnosis Banding</th><th>Persamaan dengan Trauma Asfiksia</th><th>Perbedaan Kunci</th><th>Cara Membedakan</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tension Pneumotoraks</strong></td>
+            <td>Sesak berat, hipotensi, takikardi, distensi JV</td>
+            <td>Tidak ada sianosis/petekie wajah khas; deviasi trakea ke kontralateral; suara napas menghilang unilateral</td>
+            <td>Perkusi hipersonor, deviasi trakea; needle decompression jika klinis mendesak</td>
+          </tr>
+          <tr>
+            <td><strong>Tamponade Jantung</strong></td>
+            <td>Hipotensi, JVD, sesak napas</td>
+            <td>Trias Beck: hipotensi + JVD + suara jantung melemah; tidak ada petekie wajah khas</td>
+            <td>FAST USG: efusi perikard; EKG: low voltage, electrical alternans</td>
+          </tr>
+          <tr>
+            <td><strong>Massive Hemothorax</strong></td>
+            <td>Sesak, hipotensi, syok</td>
+            <td>Perkusi redup; tidak ada sianosis wajah; tanda perdarahan masif (Hb turun)</td>
+            <td>Foto toraks: opasifikasi hemithoraks; FAST: cairan pleura</td>
+          </tr>
+          <tr>
+            <td><strong>Flail Chest + Kontusio Paru</strong></td>
+            <td>Sesak berat, hipoksia, takipnea</td>
+            <td>Gerakan paradoksal dinding dada; tidak ada petekie wajah; nyeri lokal hebat</td>
+            <td>Inspeksi gerak dada; CT thoraks untuk detail</td>
+          </tr>
+          <tr>
+            <td><strong>Kontusio Paru Isolasi</strong></td>
+            <td>Hipoksia, hemoptisis, ronki</td>
+            <td>Tidak ada tanda venous hypertension (petekie, sianosis wajah khas)</td>
+            <td>CT toraks: konsolidasi non-anatomis sesuai area benturan</td>
+          </tr>
+          <tr>
+            <td><strong>ARDS (pasca trauma)</strong></td>
+            <td>Hipoksia berat, sesak, bilateral infiltrat</td>
+            <td>Onset 12–72 jam setelah trauma; bilateral; tidak ada tanda kompresi vena khas</td>
+            <td>Kriteria Berlin: P/F ratio &lt;300, bilateral infiltrat, bukan edema kardiogenik</td>
+          </tr>
+          <tr>
+            <td><strong>Emboli Paru</strong></td>
+            <td>Sesak mendadak, hipoksia, takikardi</td>
+            <td>Biasanya onset beberapa hari-minggu pasca imobilisasi; tidak ada sianosis wajah khas</td>
+            <td>D-dimer, CT angiografi pulmonal (CTPA)</td>
+          </tr>
+          <tr>
+            <td><strong>Cedera Spinal Servikal</strong></td>
+            <td>Bisa menyebabkan gangguan napas</td>
+            <td>Paralisis ekstremitas, hipotensi + bradikardia (syok neurogenik)</td>
+            <td>Imobilisasi leher, CT/MRI cervical</td>
+          </tr>
+          <tr>
+            <td><strong>Asfiksia non-traumatik: Anafilaksis</strong></td>
+            <td>Sesak, sianosis</td>
+            <td>Urtikaria, angioedema, riwayat paparan alergen; tidak ada riwayat trauma thoraks</td>
+            <td>Anamnesis, kadar triptase serum</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>📌 Pendekatan Klinis Cepat</h3>
+    <div class="mnemonic">
+      <h4>Mnemonic: "PATCH-ME" untuk Trauma Dada Akut</h4>
+      <div class="mnemonic-grid">
+        <div class="mnemonic-letter">P</div>
+        <div class="mnemonic-word"><strong>Pneumothorax (tension)</strong><span>Hipersonor, deviasi trakea, JVD</span></div>
+        <div class="mnemonic-letter">A</div>
+        <div class="mnemonic-word"><strong>Airway obstruction</strong><span>Stridor, tidak ada suara napas bilateral</span></div>
+        <div class="mnemonic-letter">T</div>
+        <div class="mnemonic-word"><strong>Tamponade</strong><span>Trias Beck, FAST +</span></div>
+        <div class="mnemonic-letter">C</div>
+        <div class="mnemonic-word"><strong>Contusion (myocardial/pulmonary)</strong><span>Troponin naik, aritmia, infiltrat CT</span></div>
+        <div class="mnemonic-letter">H</div>
+        <div class="mnemonic-word"><strong>Hemothorax massive</strong><span>Redup perkusi, hipotensi, Hb turun</span></div>
+        <div class="mnemonic-letter">M</div>
+        <div class="mnemonic-word"><strong>Musculoskeletal (Flail chest)</strong><span>Gerak paradoksal, fraktur iga multipel</span></div>
+        <div class="mnemonic-letter">E</div>
+        <div class="mnemonic-word"><strong>Embolism/Asphyxia</strong><span>Emboli paru atau trauma asfiksia khas</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 8: TATALAKSANA -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card" id="s8">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>Tatalaksana <small>Non-Medikamentosa · Medikamentosa · Prosedural</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>🚨 Prinsip Utama: Prioritas ATLS</h3>
+    <p>Semua tatalaksana mengikuti urutan <strong>ABCDE primary survey</strong> — masalah lebih urgent ditangani lebih dulu.</p>
+
+    <div class="callout danger">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Jangan lupa:</strong> Trauma asfiksia sering BUKAN kondisi yang berdiri sendiri. Fokus juga pada cedera penyerta (pneumo/hemotoraks, fraktur iga, kontusio paru, cedera kepala) yang mungkin lebih mengancam jiwa secara akut.
+      </div>
+    </div>
+
+    <h3>🩺 A. Tatalaksana Non-Medikamentosa</h3>
+
+    <h4>1. Posisi Pasien</h4>
+    <ul>
+      <li><strong>Posisi semi-duduk 30–45° (head-up)</strong>: membantu venous drainage kepala, mengurangi TIK, memudahkan pernapasan. Ingat: pastikan tidak ada fraktur servikal sebelum mengubah posisi</li>
+      <li>Hindari posisi Trendelenburg (kepala lebih rendah) karena memperparah venous hypertension kepala</li>
+    </ul>
+
+    <h4>2. Airway Management</h4>
+    <ul>
+      <li>Evaluasi patensi jalan napas → chin lift, jaw thrust bila perlu</li>
+      <li>Suction sekret/darah dari mulut/tenggorokan</li>
+      <li>Pemasangan OPA/NPA bila perlu</li>
+      <li><strong>Intubasi endotrakeal</strong> (RSI — Rapid Sequence Intubation) bila: GCS &lt;9, tidak mampu melindungi jalan napas, hipoksia persisten</li>
+      <li><em>Perhatian:</em> edema laring dapat mempersulit intubasi → siapkan surgical airway (krikotiroidotomi)</li>
+    </ul>
+
+    <h4>3. Oksigenasi</h4>
+    <ul>
+      <li><strong>High-flow O₂ via non-rebreather mask</strong>: 10–15 L/menit, target SaO₂ ≥ 95%</li>
+      <li>Bila tidak adekuat → HFNC (High Flow Nasal Cannula) atau NIV (Non-Invasive Ventilation: BiPAP)</li>
+      <li>Bila NIV gagal atau kontraindikasi → intubasi + ventilasi mekanik</li>
+    </ul>
+
+    <h4>4. Ventilasi Mekanik (bila terintubasi)</h4>
+    <ul>
+      <li>Mode: volume-controlled ventilation (VCV) atau pressure-controlled ventilation (PCV)</li>
+      <li>Tidal volume: <strong>6 mL/kg ideal body weight</strong> (lung protective strategy) — mencegah volutrauma</li>
+      <li>PEEP: 5–8 cmH₂O; hati-hati PEEP terlalu tinggi dapat meningkatkan tekanan intrathorakal kembali</li>
+      <li>Target: PaO₂ 60–80 mmHg, pH 7.35–7.45, PaCO₂ 35–45 mmHg</li>
+    </ul>
+
+    <h4>5. Dekompresi Rongga Dada (bila ada pneumo/hemotoraks)</h4>
+    <ul>
+      <li><strong>Tension pneumotoraks</strong>: needle decompression dulu (ICS 2 MCL) → segera WSD (water-seal drainage)</li>
+      <li><strong>Pneumotoraks simple</strong>: WSD ICS 4 atau 5, linea aksilaris anterior</li>
+      <li><strong>Hemotoraks masif</strong> (&gt;1500 mL): WSD + pertimbangkan torakotomi darurat</li>
+    </ul>
+
+    <h4>6. Imobilisasi dan Monitoring</h4>
+    <ul>
+      <li>Imobilisasi servikal (sampai fraktur C-spine disingkirkan)</li>
+      <li>Monitoring kontinu: EKG, pulse oximetry, ETCO₂, tekanan darah, produksi urin (target &gt;0.5 mL/kgBB/jam)</li>
+      <li>Akses vena dua jalur bore besar (14–16 G)</li>
+      <li>Pertimbangkan monitoring invasif: CVC, arterial line, bila hemodinamik tidak stabil</li>
+    </ul>
+
+    <h3>💊 B. Tatalaksana Medikamentosa</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Obat/Intervensi</th><th>Indikasi</th><th>Dosis/Cara</th><th>Tujuan</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Kristaloid (NaCl 0.9% / RL)</strong></td>
+            <td>Hipovolemia, syok</td>
+            <td>Bolus 250–500 mL IV, evaluasi respons</td>
+            <td>Restorasi volume; <em>hindari overload</em> → perparah edema paru/serebral</td>
+          </tr>
+          <tr>
+            <td><strong>Koloid/Produk darah</strong></td>
+            <td>Perdarahan aktif, Hb &lt;7–8 g/dL</td>
+            <td>PRC sesuai kebutuhan; FFP, trombosit bila koagulopati</td>
+            <td>Koreksi anemia dan koagulopati</td>
+          </tr>
+          <tr>
+            <td><strong>Morfin/Fentanil</strong></td>
+            <td>Nyeri thoraks berat</td>
+            <td>Morfin 2–4 mg IV tiap 15 mnt atau fentanil 1 mcg/kgBB IV</td>
+            <td>Analgesia → pasien bisa bernapas lebih baik (nyeri membatasi ekspirasi)</td>
+          </tr>
+          <tr>
+            <td><strong>Mannitol 20%</strong></td>
+            <td>Edema serebral berat, TIK meningkat</td>
+            <td>0.25–1 g/kgBB IV dalam 15–20 menit</td>
+            <td>Agen osmotik → menarik cairan dari otak; hati-hati pada pasien hipotensi</td>
+          </tr>
+          <tr>
+            <td><strong>Dexamethasone</strong></td>
+            <td>Kontroversial; edema serebral vasogenik</td>
+            <td>0.1–0.4 mg/kgBB IV tiap 6 jam</td>
+            <td>Mengurangi permeabilitas kapiler; bukti terbatas untuk trauma</td>
+          </tr>
+          <tr>
+            <td><strong>Vasopressor (Norepinefrin)</strong></td>
+            <td>Syok distributif/obstruktif refrakteri cairan</td>
+            <td>0.01–3 mcg/kgBB/menit titrasi</td>
+            <td>Mempertahankan MAP ≥65 mmHg</td>
+          </tr>
+          <tr>
+            <td><strong>Profilaksis DVT</strong></td>
+            <td>Setelah stabilisasi, imobilisasi lama</td>
+            <td>LMWH (enoxaparin 40 mg SC/hari) setelah hemostasis aman</td>
+            <td>Mencegah trombosis vena dalam dan emboli paru</td>
+          </tr>
+          <tr>
+            <td><strong>Antibiotik profilaksis</strong></td>
+            <td>Bila WSD atau prosedur invasif</td>
+            <td>Cefazolin 1–2 g IV sebelum prosedur</td>
+            <td>Mencegah infeksi nosokomial</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Perhatian Khusus Cairan:</strong> Trauma asfiksia dengan edema serebral dan/atau kontusio paru memerlukan <em>balanced resuscitation</em> — bukan resusitasi agresif. Cairan berlebih memperparah edema paru dan otak. Target MAP 65–85 mmHg; hindari hipertensi sistemik yang memperparah venous hypertension kepala.
+      </div>
+    </div>
+
+    <h3>🏥 C. Kapan Intervensi Bedah?</h3>
+    <ul>
+      <li>Hemotoraks masif (&gt;1500 mL drain awal, atau &gt;200 mL/jam selama &gt;4 jam) → <strong>torakotomi darurat</strong></li>
+      <li>Ruptur aorta atau cedera pembuluh darah besar → <strong>torakotomi/sternotomi emergeni</strong></li>
+      <li>Perdarahan intraabdominal masif (FAST positif + hemodinamik tidak stabil) → <strong>laparotomi darurat</strong></li>
+      <li>Perdarahan intrakranial dengan herniasi → <strong>konsultasi bedah saraf segera</strong></li>
+    </ul>
+
+    <div class="callout success">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Ringkasan Alur Tatalaksana (ABCDE First):</strong>
+        Airway (amankan, oksigenasi) → Breathing (dekompresi bila pneumo/hemo) → Circulation (IV access, resusitasi terukur) → Disability (monitor GCS, TIK) → Exposure (inspeksi total + cegah hipotermia). Paralel dengan ini: analgetik adequat, monitoring, konsultasi spesialis.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 9: PROGNOSIS & KOMPLIKASI -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-crimson" id="s9">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <h2>Prognosis dan Komplikasi <small>Faktor Penentu Luaran · Komplikasi Akut & Jangka Panjang</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>📈 Prognosis Umum</h3>
+    <p>Prognosis trauma asfiksia sangat bervariasi bergantung pada:</p>
+    <ol>
+      <li><strong>Keparahan hipoksia otak</strong> (durasi dan derajat)</li>
+      <li><strong>Ada tidaknya cedera penyerta</strong> (cedera kepala, kontusio paru, ruptur organ)</li>
+      <li><strong>Kecepatan dan ketepatan pertolongan pertama</strong></li>
+      <li><strong>Usia dan komorbiditas pasien</strong></li>
+    </ol>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Kondisi</th><th>Prognosis</th><th>Keterangan</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Isolated traumatic asphyxia (tanpa cedera penyerta berat)</td><td>Baik (mortalitas &lt;5%)</td><td>Kebanyakan gejala membaik dalam 24–72 jam; tanda kulit (petekie) hilang dalam 1–2 minggu</td></tr>
+          <tr><td>Dengan cedera kepala berat</td><td>Sedang–Buruk</td><td>Kerusakan neurologis permanen mungkin terjadi; bergantung Glasgow Outcome Scale</td></tr>
+          <tr><td>Dengan ARDS</td><td>Buruk (mortalitas 30–40%)</td><td>Komplikasi paru yang mengancam jiwa; butuh ventilasi mekanik lama</td></tr>
+          <tr><td>Durasi kompresi &gt;15 menit</td><td>Buruk</td><td>Risiko anoksia serebral permanen sangat tinggi</td></tr>
+          <tr><td>Pada anak (&lt;12 tahun)</td><td>Relatif lebih baik (otak lebih plastis)</td><td>Pemulihan neurologis lebih baik tapi perlu follow-up jangka panjang</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>⚠️ Komplikasi Akut</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Komplikasi</th><th>Mekanisme</th><th>Tanda/Gejala</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ARDS (Acute Respiratory Distress Syndrome)</strong></td>
+            <td>Kontusio paru + respons inflamasi sistemik → kerusakan membran alveolar-kapiler → edema paru non-kardiogenik</td>
+            <td>Hipoksia berat refrakter, bilateral infiltrat, ratio P/F &lt;300; onset 12–72 jam pasca trauma</td>
+          </tr>
+          <tr>
+            <td><strong>Cedera otak hipoksik</strong></td>
+            <td>Hipoksia + tekanan vena serebral tinggi → edema dan infark serebral</td>
+            <td>Koma, defisit neurologis fokal, kejang, status epileptikus</td>
+          </tr>
+          <tr>
+            <td><strong>Syok obstruktif/kardiogenik</strong></td>
+            <td>Venous return terganggu + kontusio miokard → CO sangat rendah</td>
+            <td>Hipotensi, takikardi, oliguria, laktat tinggi</td>
+          </tr>
+          <tr>
+            <td><strong>DIC (Disseminated Intravascular Coagulation)</strong></td>
+            <td>Trauma masif → aktivasi kaskade koagulasi → konsumsi faktor koagulasi dan trombosit</td>
+            <td>Perdarahan multipel, PT/aPTT memanjang, fibrinogen rendah, D-dimer sangat tinggi</td>
+          </tr>
+          <tr>
+            <td><strong>Gagal ginjal akut (AKI)</strong></td>
+            <td>Hipoperfusi renal pada syok + mioglobinuria (bila crush syndrome)</td>
+            <td>Oliguria, kreatinin naik, urin cola-colored (mioglobinuria)</td>
+          </tr>
+          <tr>
+            <td><strong>Pneumonia aspirasi</strong></td>
+            <td>Penurunan kesadaran → aspirasi isi lambung</td>
+            <td>Demam, ronki baru, infiltrat pada foto thoraks</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔭 Komplikasi Jangka Panjang</h3>
+    <ul>
+      <li><strong>Gangguan kognitif persisten</strong>: memori jangka pendek, konsentrasi (akibat cedera otak hipoksik)</li>
+      <li><strong>PTSD (Post-Traumatic Stress Disorder)</strong>: terutama setelah pengalaman trauma psikologis yang berat</li>
+      <li><strong>Fibrosis paru</strong>: sekuele ARDS, menyebabkan restriksi paru permanen</li>
+      <li><strong>Gangguan visus menetap</strong>: bila ada kerusakan retina atau nervus optikus</li>
+      <li><strong>Gangguan pendengaran</strong>: kerusakan struktural membran timpani atau koklea</li>
+      <li><strong>Nyeri kronis dinding dada</strong>: pasca fraktur iga atau torakotomi</li>
+      <li><strong>Kelainan psikiatri lain</strong>: ansietas, depresi</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>Crush Syndrome — Komplikasi Sistemik Spesial:</strong> Bila ada kompresi berkepanjangan dengan keterlibatan otot rangka (misalnya tertimpa reruntuhan bangunan lama), bisa terjadi <em>rhabdomyolysis</em> → mioglobin dilepas → mioglobinuria → AKI akut. Tandanya: urin berwarna merah-coklat (cola-colored) dan CK serum sangat tinggi (&gt;1000 IU/L).
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 10: EDUKASI HELM -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-green" id="s10">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <h2>Edukasi Penggunaan Helm yang Benar <small>Pencegahan Primer · Dasar Biomechanik</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>🪖 Mengapa Helm Relevan untuk Trauma Asfiksia?</h3>
+    <p>Helm <em>per se</em> tidak secara langsung mencegah kompresi thoraks yang menyebabkan trauma asfiksia. Namun helm yang benar sangat relevan karena:</p>
+    <ul>
+      <li>Melindungi kepala dan otak dari cedera langsung → mencegah komplikasi neurologis yang memperberat trauma asfiksia</li>
+      <li>Pada kecelakaan sepeda motor, helm mengurangi risiko benturan kepala ke permukaan keras → death from head injury turun signifikan</li>
+      <li>Helm yang baik juga melindungi leher dan wajah dari trauma langsung</li>
+      <li>Mencegah terpentoknya kepala saat terjatuh, yang bisa menyebabkan posisi kepala jatuh ke belakang → fleksi/ekstensi servikal ekstrem</li>
+    </ul>
+    <p><em>Menurut WHO, helm yang tepat mengurangi risiko kematian akibat KLL sepeda motor hingga 40% dan risiko cedera kepala berat hingga 70%.</em></p>
+
+    <h3>✅ Standar Helm yang Benar (SNI + WHO)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Aspek</th><th>Standar / Kriteria</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sertifikasi</strong></td>
+            <td>Helm harus bersertifikat <strong>SNI (Standar Nasional Indonesia)</strong> — di Indonesia ini wajib. Internasional: ECE 22.06, DOT, SNELL</td>
+          </tr>
+          <tr>
+            <td><strong>Jenis helm</strong></td>
+            <td>Full-face (paling aman) &gt; Open-face (¾) &gt; Half-face. Untuk kecepatan tinggi: wajib full-face</td>
+          </tr>
+          <tr>
+            <td><strong>Ukuran</strong></td>
+            <td>Pas di kepala: tidak goyang, tidak terlalu ketat; ukur lingkar kepala dengan pita, cocokkan dengan tabel ukuran helm</td>
+          </tr>
+          <tr>
+            <td><strong>Cara pemakaian</strong></td>
+            <td>Kencangkan tali chin strap: masukkan 2 jari antara tali dan dagu — tidak boleh kendur, tidak boleh terlalu ketat sampai mencekik</td>
+          </tr>
+          <tr>
+            <td><strong>Posisi</strong></td>
+            <td>Helm harus menutupi seluruh kepala, tidak miring ke belakang (terlalu tinggi di depan)</td>
+          </tr>
+          <tr>
+            <td><strong>Kondisi helm</strong></td>
+            <td>Ganti helm setiap 5 tahun atau segera setelah benturan keras (meski terlihat utuh, lapisan EPS di dalam bisa rusak)</td>
+          </tr>
+          <tr>
+            <td><strong>Visor/pelindung wajah</strong></td>
+            <td>Wajib untuk malam hari dan kecepatan tinggi; mencegah benturan langsung ke wajah dan benda asing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🔧 Komponen Helm dan Fungsi Perlindungannya</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Komponen</th><th>Material</th><th>Fungsi Proteksi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Outer shell (cangkang luar)</td><td>Fiberglass, polycarbonate, atau ABS</td><td>Mendistribusikan gaya benturan ke area lebih luas; mencegah penetrasi benda tajam</td></tr>
+          <tr><td>EPS liner (lapisan dalam)</td><td>Expanded Polystyrene (busa styrofoam keras)</td><td>Menyerap energi benturan (deformasi permanen); komponen terpenting — jangan pakai helm bekas benturan!</td></tr>
+          <tr><td>Comfort liner</td><td>Busa lembut + kain</td><td>Kenyamanan, menyerap keringat; bisa dicuci</td></tr>
+          <tr><td>Retention system (tali)</td><td>Nilon/polyester + klem</td><td>Mempertahankan helm di kepala saat benturan; harus terkunci</td></tr>
+          <tr><td>Visor/shield</td><td>Polycarbonate transparan</td><td>Melindungi wajah dan mata dari angin, serangga, benda asing, benturan langsung</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>📢 Poin Edukasi Kritis untuk Pasien/Masyarakat</h3>
+    <div class="callout success">
+      <div class="callout-icon"></div>
+      <div class="callout-content">
+        <strong>5 Pesan Kunci Edukasi Helm:</strong>
+        <ol style="margin-top:8px">
+          <li>Selalu pakai helm SNI, bukan helm non-standar (helm proyek/batok)</li>
+          <li>Kencangkan tali selalu — helm tanpa tali dikencangkan bisa terlepas saat benturan</li>
+          <li>Satu helm satu kepala — jangan pinjam/pakai bergantian</li>
+          <li>Ganti helm setelah benturan keras, meski terlihat utuh</li>
+          <li>Anak-anak wajib pakai helm sesuai ukuran kepala mereka (jangan pakai helm dewasa)</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3>⚖️ Aspek Hukum di Indonesia</h3>
+    <p>Berdasarkan <strong>UU No. 22 Tahun 2009 tentang Lalu Lintas dan Angkutan Jalan</strong> Pasal 106 ayat 8: <em>"Pengemudi sepeda motor dan penumpangnya wajib mengenakan helm standar nasional Indonesia."</em> Sanksi: denda hingga Rp250.000 atau kurungan 1 bulan.</p>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTION 11: PERAWATAN PASCA TRAUMA -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section-card sh-teal" id="s11">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <h2>Perawatan Pasca Trauma <small>Rehabilitasi · Follow-Up · Aspek Holistik</small></h2>
+  </div>
+  <div class="section-body">
+
+    <h3>🏥 Fase Perawatan Pasca Akut</h3>
+    <p>Setelah stabilisasi hemodinamik dan respirasi, pasien masuk fase pemulihan yang memerlukan pendekatan multidisiplin:</p>
+
+    <h4>A. Monitoring Berkelanjutan (ICU / HCU)</h4>
+    <ul>
+      <li>Monitoring hemodinamik: tekanan darah, laju jantung, MAP</li>
+      <li>Monitoring respirasi: SpO₂, ETCO₂, serial AGD setiap 4–6 jam</li>
+      <li>Balance cairan ketat: input-output tiap jam; hindari overload maupun dehidrasi</li>
+      <li>Monitoring neurologis: GCS tiap shift, pupil, defisit motorik/sensorik baru</li>
+      <li>Serial laboratorium: DL, LFT, ureum/kreatinin, laktat, koagulasi tiap 12–24 jam</li>
+    </ul>
+
+    <h4>B. Manajemen Nyeri (Pain Management)</h4>
+    <p>Nyeri yang tidak terkontrol pada trauma thoraks sangat berbahaya karena:</p>
+    <ul>
+      <li>Pasien tidak mau bernapas dalam → atelektasis → pneumonia</li>
+      <li>Splinting (menahan napas) → penumpukan sekret → infeksi</li>
+    </ul>
+    <p><strong>Pendekatan multimodal analgesia:</strong></p>
+    <ul>
+      <li>Opioid sistemik (morfin, tramadol) ± NSAID (bila tidak ada kontraindikasi)</li>
+      <li>Regional analgesia: <em>thoracic epidural</em> (gold standard untuk nyeri fraktur iga multipel), <em>intercostal nerve block</em>, atau <em>serratus anterior plane block</em></li>
+      <li>Hindari NSAID pada pasien dengan risiko perdarahan gastrointestinal atau gangguan ginjal</li>
+    </ul>
+
+    <h4>C. Fisioterapi Dada (Chest Physiotherapy)</h4>
+    <ul>
+      <li><strong>Tujuan</strong>: mencegah atelektasis, memobilisasi sekret, mempertahankan/meningkatkan kapasitas paru</li>
+      <li>Teknik: <em>deep breathing exercises</em>, <em>incentive spirometry</em>, <em>huffing and coughing</em>, posisi drainase, perkusi dada</li>
+      <li>Dimulai sedini mungkin bila kondisi hemodinamik stabil</li>
+      <li>Incentive spirometry sangat dianjurkan pasca fraktur iga untuk mempertahankan volume paru</li>
+    </ul>
+
+    <h4>D. Mobilisasi Dini</h4>
+    <ul>
+      <li>Imobilisasi berkepanjangan → risiko DVT, emboli paru, pneumonia, atrofi otot</li>
+      <li>Duduk di tepi tempat tidur segera setelah stabil (hari 1–2) → berdiri → berjalan dengan pendampingan fisioterapis</li>
+      <li>Profilaksis DVT: compression stockings, LMWH (bila perdarahan sudah terkontrol)</li>
+    </ul>
+
+    <h4>E. Nutrisi</h4>
+    <ul>
+      <li>Kebutuhan kalori meningkat pada trauma (hipermetabolik state): <strong>25–35 kkal/kgBB/hari</strong></li>
+      <li>Preferensi: nutrisi enteral (via NGT bila perlu) lebih dini — mulai dalam 24–48 jam</li>
+      <li>Nutrisi parenteral total (TPN) hanya bila saluran cerna tidak bisa digunakan</li>
+      <li>Protein adequate: 1.2–2 g/kgBB/hari untuk mendukung penyembuhan jaringan</li>
+    </ul>
+
+    <h4>F. Rehabilitasi Neurologis</h4>
+    <p>Bila ada defisit neurologis pasca trauma asfiksia berat:</p>
+    <ul>
+      <li>Konsultasi neurologi dan rehabilitasi medis</li>
+      <li>Terapi kognitif, terapi wicara (bila afasia), fisioterapi motorik</li>
+      <li>Neuropsikologi untuk mengevaluasi fungsi memori dan eksekutif</li>
+      <li>Evaluasi periodis dengan skala fungsional (GOS — Glasgow Outcome Scale, Barthel Index)</li>
+    </ul>
+
+    <h4>G. Kesehatan Mata Pasca Trauma</h4>
+    <ul>
+      <li>Konsultasi oftalmologi: evaluasi perdarahan subkonjungtiva, kerusakan retina, tekanan intraokular</li>
+      <li>Sebagian besar perdarahan subkonjungtiva akan reabsorpsi sendiri dalam 1–3 minggu</li>
+      <li>Bila ada gangguan visus menetap → OCT (Optical Coherence Tomography), FFA (Fluorescein Fundus Angiography)</li>
+    </ul>
+
+    <h3>📅 Follow-Up Jangka Panjang</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Waktu</th><th>Evaluasi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1–2 minggu</td><td>Cek luka, patensi WSD bila ada, foto thoraks kontrol, fungsi paru awal</td></tr>
+          <tr><td>1 bulan</td><td>Spirometri, evaluasi nyeri, kontrol neurologis, psikiatri bila perlu</td></tr>
+          <tr><td>3 bulan</td><td>CT thoraks (bila ada komplikasi paru), neuropsikologi, kapasitas kerja</td></tr>
+          <tr><td>6 bulan</td><td>Evaluasi return to work, kualitas hidup (SF-36), PTSD screening</td></tr>
+          <tr><td>1 tahun</td><td>Spirometri final, evaluasi komplikasi jangka panjang</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>☪️ Aspek Psikologis dan Spiritual</h3>
+    <p>Sebagai dokter Muslim yang melayani pasien, dimensi psikospiritual adalah bagian integral dari perawatan holistik:</p>
+    <ul>
+      <li>Dukungan emosional dan psikologis kepada pasien dan keluarga sangat penting — trauma besar dapat meninggalkan bekas psikologis mendalam</li>
+      <li>Motivasi pasien bahwa sabar dalam menghadapi musibah adalah keutamaan (Hadits: "Tiada menimpa seorang Muslim suatu kelelahan, penyakit, kekhawatiran... melainkan Allah hapuskan dengan itu kesalahan-kesalahannya" — HR. Bukhari)</li>
+      <li>Libatkan konselor atau ulama rumah sakit bila diperlukan, terutama pada kasus berat dengan prognosis buruk</li>
+      <li>Screening dan manajemen PTSD dengan pendekatan terintegrasi medis-psikologis-spiritual</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- RINGKASAN -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="ringkasan">
+  <div class="summary-hero">
+    <h2>📝 Ringkasan Inti Wajib Diingat — Semester 6</h2>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="icon">🎯</div>
+        <h4>Definisi</h4>
+        <p>Sindrom kompresi masif thoraks/abdomen → peningkatan tekanan intrathorakal → retrograde venous hypertension kepala-leher (karena VCS tanpa katup)</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">👁️</div>
+        <h4>Trias Khas</h4>
+        <p>Sianosis wajah + Petekie/ekimosis kepala-leher + Edema kepala-leher. Batas di klavikula. Tanpa tanda ini → pikirkan diagnosis lain</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">⚡</div>
+        <h4>Mekanisme Kunci</h4>
+        <p>Glotis tertutup + kompresi tiba-tiba → tekanan intrathorakal melonjak → kapiler kepala pecah karena VCS tak berkatup</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">🚨</div>
+        <h4>Tatalaksana Utama</h4>
+        <p>Airway + O₂ high flow → head-up 30–45° → IV access + resusitasi terukur → dekompresi bila pneumo/hemo → analgesia + monitoring</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">🔴</div>
+        <h4>Pembunuh Tersembunyi</h4>
+        <p>Singkirkan dulu: Tension pneumo, tamponade, massive hemo, flail chest sebelum fokus ke trauma asfiksia</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">📊</div>
+        <h4>Prognosis</h4>
+        <p>Isolated → baik (&lt;5% mortalitas). Dengan cedera kepala/ARDS → buruk. Makin lama kompresi, makin buruk luaran neurologi</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERSI SEDERHANA -->
+  <div class="section-card" style="border-left: 4px solid var(--teal);">
+    <div class="section-header" style="background: var(--teal);">
+      <div class="section-num">💡</div>
+      <h2>Versi Sederhana untuk Mahasiswa Baru Klinis</h2>
+    </div>
+    <div class="section-body">
+      <p>Trauma asfiksia = <strong>dada kepencet kuat, kepala jadi merah dan biru</strong>. Kenapa? Karena pembuluh balik dari kepala (vena kava superior) tidak punya katup — jadi waktu dada dipencet, darah tidak bisa balik ke jantung malah balik ke kepala. Kapiler di wajah dan mata pecah → petekie, mata merah, wajah bengkak dan biru. Tapi perhatikan: batasnya hanya di leher ke atas!</p>
+
+      <p>Kamu lihat pasien kecelakaan dengan <strong>wajah sianosis gelap tapi tubuh bawah pucat/normal</strong> → ingat trauma asfiksia! Lalu langsung pikirkan: ada pneumotoraks? Ada tamponade? Stabilkan dulu ABCDE, baru pikirkan detail.</p>
+    </div>
+  </div>
+
+  <!-- ANALOGI REALISTIS -->
+  <div class="analogy">
+    <div class="analogy-label">🎈 Analogi Utama yang Mudah Divisualisasikan</div>
+    <p><strong>Bayangkan balon tipis (kepala) yang terhubung ke selang karet (vena) tanpa katup ke pompa tertutup (thoraks).</strong> Saat pompa tiba-tiba dipencet keras (trauma), tekanan melompat ke balon — balon menggelembung, pembuluh-pembuluh kecil di balon pecah (petekie dan perdarahan subkonjungtiva), balon menjadi biru (sianosis), dan balon membesar (edema wajah). Sementara bagian selang yang lain (tubuh di bawah klavikula) tidak terpengaruh karena pompa yang dipencet ada di tengah.</p>
+  </div>
+
+  <!-- MNEMONIC -->
+  <div class="mnemonic">
+    <h4>🧠 Mnemonic Trauma Asfiksia: "CEPAT SEP"</h4>
+    <div class="mnemonic-grid">
+      <div class="mnemonic-letter">C</div>
+      <div class="mnemonic-word"><strong>Compression masif thoraks</strong><span>Mekanisme penyebab utama</span></div>
+      <div class="mnemonic-letter">E</div>
+      <div class="mnemonic-word"><strong>Elevated tekanan intrathorakal</strong><span>Tekanan di dalam dada melonjak</span></div>
+      <div class="mnemonic-letter">P</div>
+      <div class="mnemonic-word"><strong>Petekie wajah-leher</strong><span>Tanda patognomonik #1</span></div>
+      <div class="mnemonic-letter">A</div>
+      <div class="mnemonic-word"><strong>Asfiksia / hipoksia multipel</strong><span>Hipoksik + stagnan + anemik</span></div>
+      <div class="mnemonic-letter">T</div>
+      <div class="mnemonic-word"><strong>Tanpa katup VCS = retrograde</strong><span>Kunci anatomi yang harus diingat</span></div>
+      <div class="mnemonic-letter">S</div>
+      <div class="mnemonic-word"><strong>Sianosis terbatas kepala-leher</strong><span>Batas di klavikula — khas!</span></div>
+      <div class="mnemonic-letter">E</div>
+      <div class="mnemonic-word"><strong>Edema kepala + exophthalmos</strong><span>Tanda klinis lain</span></div>
+      <div class="mnemonic-letter">P</div>
+      <div class="mnemonic-word"><strong>Prioritas ABCDE (ATLS)</strong><span>Tatalaksana sistematis</span></div>
+    </div>
+  </div>
+
+  <!-- YANG SERING BIKIN BINGUNG -->
+  <div class="section-card" style="border-left: 4px solid var(--amber);">
+    <div class="section-header" style="background: #b07a10;">
+      <div class="section-num">❓</div>
+      <h2>Yang Sering Bikin Bingung Mahasiswa — Dirangkum</h2>
+    </div>
+    <div class="section-body">
+      <div class="callout confusion">
+        <div class="callout-icon"></div>
+        <div class="callout-content">
+          <strong>Bingung #1: Asfiksia = dicekik?</strong> TIDAK. Dicekik = strangulasi (kompresi langsung leher). Trauma asfiksia = kompresi thoraks → venous backflow ke kepala. Mekanismenya beda 180°!
+        </div>
+      </div>
+      <div class="callout confusion">
+        <div class="callout-icon"></div>
+        <div class="callout-content">
+          <strong>Bingung #2: Kenapa hanya kepala-leher yang sianosis?</strong> Karena batas adalah vena kava superior (setinggi sternoklavikular). Di bawah itu, darah kembali ke jantung via VCI (vena kava inferior) yang punya lebih banyak perlindungan dari kompresi. Jadi batas sianosis di klavikula adalah tanda diagnostik penting!
+        </div>
+      </div>
+      <div class="callout confusion">
+        <div class="callout-icon"></div>
+        <div class="callout-content">
+          <strong>Bingung #3: Trauma asfiksia = masalah paru-paru?</strong> Tidak murni. Ini adalah masalah <em>venous hypertension</em> akibat mekanik kompresi thoraks — lebih ke masalah tekanan dan sirkulasi. Masalah paru (hipoksia) adalah konsekuensi, bukan mekanisme primer.
+        </div>
+      </div>
+      <div class="callout confusion">
+        <div class="callout-icon"></div>
+        <div class="callout-content">
+          <strong>Bingung #4: Apakah FAST USG cukup untuk diagnosis?</strong> FAST menjawab "ada cairan bebas atau tidak" — bukan tool diagnosis trauma asfiksia. Trauma asfiksia didiagnosis klinis (trias khas + mekanisme). FAST berguna untuk mencari komplikasi penyerta (hemoperitoneum, tamponade).
+        </div>
+      </div>
+      <div class="callout confusion">
+        <div class="callout-icon"></div>
+        <div class="callout-content">
+          <strong>Bingung #5: Helm melindungi dari trauma asfiksia?</strong> Tidak secara langsung — helm melindungi kepala bukan thoraks. Tapi helm SANGAT penting karena pada kecelakaan motor (penyebab utama), helm mencegah cedera otak berat yang memperberat trauma asfiksia dan meningkatkan mortalitas secara keseluruhan.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARA CEPAT KLINIS -->
+  <div class="quick-box">
+    <h3>🏥 Cara Cepat Memahami Topik Ini dalam Dunia Klinis</h3>
+    <p>Ketika kamu berada di UGD dan datang pasien kecelakaan motor dengan <em>wajah biru-ungu gelap, mata merah seperti berdarah, dan leher bengkak — tapi tubuh di bawah leher tampak normal atau pucat</em>, satu nama langsung melintas: <strong>TRAUMA ASFIKSIA</strong>.</p>
+    <p style="margin-top:10px">Langkah klinismu:</p>
+    <ol style="margin-top:8px; font-size:14px;">
+      <li><strong>Primary survey ABCDE</strong>: amankan airway dulu (edema laring?), beri O₂ tinggi, pasang IV line</li>
+      <li><strong>Head-up 30–45°</strong>: kurangi tekanan vena kepala</li>
+      <li><strong>Singkirkan pembunuh tersembunyi</strong>: tension pneumo, tamponade, massive hemo</li>
+      <li><strong>Foto thoraks + FAST + AGD</strong> segera</li>
+      <li><strong>Monitoring ketat</strong>: GCS, SpO₂, hemodinamik</li>
+      <li><strong>Konsultasi multidisiplin</strong>: bedah thoraks, neurologi, ICU bila perlu</li>
+    </ol>
+    <p style="margin-top:12px; font-size:13.5px; color: var(--green); font-weight:600;">Ingat: pada trauma asfiksia yang terisolasi tanpa cedera berat penyerta, prognosis baik. Yang membunuh adalah cedera penyerta yang tidak terdeteksi dan tidak ditangani tepat waktu. Gunakan prinsip ATLS, jangan terpesona hanya pada penampilan wajah yang dramatis!</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="margin-top:48px; padding: 24px; background: var(--navy); border-radius: 12px; color: rgba(255,255,255,0.6); font-size:12.5px; text-align:center;">
+  <p style="color: rgba(255,255,255,0.8); margin-bottom:8px; font-weight:600;">Referensi Utama Modul Ini</p>
+  <p>ATLS Student Manual, 10th Edition (ACS, 2018) · Sabiston Textbook of Surgery, 20th Ed · Schwartz's Principles of Surgery, 11th Ed · Mattox KL, Moore EE, Feliciano DV: Trauma, 8th Ed · WHO Road Safety Manual · Kemenkes RI: Pedoman Nasional Pelayanan Kedokteran Trauma · EAU Guidelines · IDAI Pedoman Pediatrik</p>
+  <p style="margin-top:8px;">Modul ini dibuat untuk keperluan pendidikan kedokteran. Tidak menggantikan penilaian klinis langsung.</p>
+</div>
+
+</main>
+
+<script>
+  // Smooth scroll for TOC links
+  document.querySelectorAll('.toc-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
