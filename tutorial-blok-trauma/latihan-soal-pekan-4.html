@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Interaktif — Asfiksia & Trauma Dada · Pekan 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#b33221;--red-d:#8a2219;--red-l:#d94030;
+  --red-pale:#fdf0ee;--red-pale2:#fae6e3;--red-border:#f0bfb9;
+  --rose:#e8857a;--rose-pale:#fef5f4;
+  --warm:#7a1a10;--warm2:#5c1008;
+  --cream:#fffaf9;--cream2:#fdf3f1;--cream3:#f9ece9;
+  --sand:#f5e8e5;--sand2:#ede0dc;
+  --gray:#6b5450;--gray-l:#9e7d78;--gray-ll:#c9b0ac;
+  --border:#e8d0cb;--border2:#d9bfba;
+  --text:#2a1510;--text2:#5a3028;--text3:#8a5a52;
+  --white:#ffffff;
+  --green:#2e7d32;--green-pale:#e8f5e9;--green-b:#a5d6a7;
+  --amber:#b36010;--amber-pale:#fdf3e3;
+  --blue:#1565c0;--blue-pale:#e3f2fd;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--text);font-size:15px;line-height:1.7;min-height:100vh;}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,var(--warm2) 0%,var(--red) 55%,#c04535 100%);padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.header::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.03);}
+.h-tag{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:rgba(255,255,255,0.85);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:1rem;font-weight:500;}
+.header h1{font-family:'Fraunces',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:500;color:#fff;line-height:1.15;margin-bottom:.6rem;}
+.header h1 em{font-style:italic;color:#f5c5be;}
+.h-sub{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:1.5rem;}
+.h-pills{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;}
+.h-pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.78);padding:4px 13px;border-radius:20px;font-size:12px;}
+
+/* SCENARIO BOX */
+.scenario{background:var(--red);padding:1.1rem 1.5rem;display:flex;gap:12px;align-items:flex-start;}
+.sc-ico{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.sc-txt{color:rgba(255,255,255,0.9);font-size:13px;line-height:1.75;}
+.sc-txt strong{display:block;color:#fff;font-size:14px;margin-bottom:3px;}
+
+/* FILTER TABS */
+.filter-wrap{background:var(--white);border-bottom:1.5px solid var(--border);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;}
+.filter-wrap::-webkit-scrollbar{display:none;}
+.filters{display:flex;padding:.5rem .75rem;gap:.4rem;min-width:max-content;}
+.fb{background:none;border:1.5px solid var(--border);color:var(--gray);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:all .18s;}
+.fb:hover{border-color:var(--red);color:var(--red);}
+.fb.on{background:var(--red);border-color:var(--red);color:#fff;}
+
+/* PROGRESS */
+.prog-wrap{max-width:860px;margin:0 auto;padding:1.25rem 1.25rem .5rem;}
+.prog-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;gap:1rem;flex-wrap:wrap;}
+.prog-stat{font-size:12.5px;color:var(--gray);}
+.prog-stat span{font-weight:600;color:var(--red);}
+.prog-bar-wrap{flex:1;min-width:120px;height:6px;background:var(--sand);border-radius:10px;overflow:hidden;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--red),var(--rose));border-radius:10px;transition:width .4s;}
+.prog-dots{display:flex;gap:5px;flex-wrap:wrap;}
+.pdot{width:9px;height:9px;border-radius:50%;background:var(--sand2);transition:background .25s;}
+.pdot.ok{background:var(--green);}
+.pdot.no{background:var(--red);}
+
+/* MAIN */
+.main{max-width:860px;margin:0 auto;padding:.75rem 1.25rem 3rem;}
+
+/* QUESTION CARD */
+.qcard{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.25rem;position:relative;overflow:hidden;transition:box-shadow .2s;}
+.qcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3.5px;background:linear-gradient(90deg,var(--red),var(--rose));}
+.qcard:hover{box-shadow:0 6px 24px rgba(179,50,33,0.08);}
+
+.q-meta{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem;flex-wrap:wrap;}
+.q-num{background:var(--red);color:#fff;font-size:10px;font-weight:600;letter-spacing:1px;padding:3px 12px;border-radius:12px;}
+.q-lo{background:var(--red-pale);color:var(--red);font-size:10px;font-weight:600;letter-spacing:.5px;padding:3px 10px;border-radius:12px;border:1px solid var(--red-border);}
+.q-cat{background:var(--cream3);color:var(--text3);font-size:10px;padding:3px 10px;border-radius:12px;border:1px solid var(--border);}
+.q-diff{font-size:10px;padding:3px 10px;border-radius:12px;font-weight:600;}
+.diff-md{background:#fdf3e3;color:#b36010;border:1px solid #f5d090;}
+.diff-hd{background:#fdf0ee;color:var(--red);border:1px solid var(--red-border);}
+.diff-ez{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
+
+/* VIGNETTE */
+.vignette{background:var(--cream2);border-left:3.5px solid var(--red);border-radius:0 10px 10px 0;padding:1rem 1.15rem;margin-bottom:1rem;font-size:13.5px;line-height:1.8;color:var(--text2);}
+
+.q-txt{font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:1rem;line-height:1.6;}
+
+/* OPTIONS */
+.opts{display:flex;flex-direction:column;gap:7px;}
+.opt{display:flex;align-items:flex-start;gap:10px;background:var(--cream);border:1.5px solid var(--border);border-radius:11px;padding:.7rem 1rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:var(--text);text-align:left;transition:all .18s;width:100%;}
+.opt:hover:not(:disabled){border-color:var(--red);background:var(--red-pale);color:var(--red-d);}
+.opt .ol{min-width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,0.07);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px;}
+.opt.correct{background:var(--green-pale)!important;border-color:var(--green)!important;color:var(--green)!important;}
+.opt.correct .ol{background:var(--green);color:#fff;}
+.opt.wrong{background:var(--red-pale)!important;border-color:var(--red)!important;color:var(--red-d)!important;}
+.opt.wrong .ol{background:var(--red);color:#fff;}
+.opt:disabled{cursor:default;}
+
+/* EXPLANATION */
+.exp{display:none;margin-top:.9rem;background:var(--cream2);border-radius:11px;padding:1rem 1.2rem;font-size:13.5px;line-height:1.8;color:var(--text2);border-left:3px solid var(--red);}
+.exp.show{display:block;animation:fadeUp .3s ease;}
+.exp strong{color:var(--text);}
+.exp .why-wrong{margin-top:.6rem;font-size:13px;color:var(--gray);}
+.exp .why-wrong b{color:var(--text2);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* PEARL */
+.pearl{background:linear-gradient(135deg,var(--red-pale),#fff8f7);border:1.5px solid var(--rose);border-radius:12px;padding:.9rem 1.1rem;margin:.75rem 0;}
+.pearl-lbl{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.35rem;}
+.pearl p{font-size:13.5px;color:var(--text2);line-height:1.75;}
+
+/* SCORE */
+.score-box{display:none;background:linear-gradient(135deg,var(--warm2),var(--red));color:#fff;border-radius:20px;padding:2.5rem 2rem;text-align:center;margin:2rem 0;}
+.score-box.show{display:block;animation:fadeUp .5s ease;}
+.sc-big{font-family:'Fraunces',serif;font-size:5rem;font-weight:500;color:#f5c5be;line-height:1;margin:.5rem 0;}
+.sc-label{font-size:13px;opacity:.65;margin-bottom:.5rem;}
+.sc-msg{font-size:14px;opacity:.8;margin:.75rem 0 1.25rem;}
+.sc-bars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;max-width:400px;margin:.75rem auto 1.5rem;}
+.sc-bar-item{background:rgba(255,255,255,0.1);border-radius:12px;padding:.75rem;}
+.sc-bar-num{font-size:1.5rem;font-weight:600;color:#f5c5be;}
+.sc-bar-lbl{font-size:11px;opacity:.65;margin-top:.2rem;}
+.btn-restart{background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.3);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;padding:.75rem 2rem;border-radius:25px;cursor:pointer;transition:all .2s;}
+.btn-restart:hover{background:rgba(255,255,255,0.28);transform:translateY(-2px);}
+
+/* NO-RESULTS */
+.no-q{text-align:center;padding:3rem 1rem;color:var(--gray-l);}
+.no-q div{font-size:2.5rem;margin-bottom:.75rem;}
+
+/* HIDDEN */
+.qcard.hidden{display:none;}
+
+/* MOBILE */
+@media(max-width:560px){
+  .qcard{padding:1.1rem 1.1rem;}
+  .sc-bars{grid-template-columns:1fr 1fr;}
+  .sc-big{font-size:3.5rem;}
+  .prog-wrap,.main{padding-left:1rem;padding-right:1rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="h-tag">Blok Traumatologi · Tutorial Pekan 4</div>
+  <h1>Quiz Interaktif<br><em>Asfiksia & Trauma Dada</em></h1>
+  <p class="h-sub">25 soal berbasis vignette · LO 1–13 · Lengkap dengan diagnosis banding & pembahasan</p>
+  <div class="h-pills">
+    <span class="h-pill">🎯 CPMK 1–4</span>
+    <span class="h-pill">⚡ ATLS & ABCDE</span>
+    <span class="h-pill">🫁 Asfiksia Traumatik</span>
+    <span class="h-pill">💧 Drowning</span>
+    <span class="h-pill">🔬 Forensik</span>
+    <span class="h-pill">🩺 Diagnosis Banding</span>
+  </div>
+</div>
+
+<div class="scenario">
+  <div class="sc-ico">🏥</div>
+  <div class="sc-txt">
+    <strong>Skenario Klinis Referensi (Pekan 4)</strong>
+    Pria 25 tahun, KLL motor vs mobil, dada menghantam setang. TD 120/80, HR 106, RR 24, SpO₂ 92%. Tampak diskolorasi wajah-dada atas, petechiae konjungtiva, edema wajah ringan. Suara napas bilateral ↓. AGD: pH 7,33 · PaO₂ 70 · PaCO₂ 46. CXR: kekeruhan bilateral ringan. EKG: sinus takikardia.
+  </div>
+</div>
+
+<div class="filter-wrap">
+  <div class="filters">
+    <button class="fb on" onclick="filter('all',this)">Semua Soal (25)</button>
+    <button class="fb" onclick="filter('lo12',this)">LO 1–2 · ATLS & Oksigenasi</button>
+    <button class="fb" onclick="filter('lo34',this)">LO 3–4 · Definisi & Etiologi</button>
+    <button class="fb" onclick="filter('lo6',this)">LO 6 · Patofisiologi</button>
+    <button class="fb" onclick="filter('lo7',this)">LO 7 · Manifestasi Klinis</button>
+    <button class="fb" onclick="filter('lo89',this)">LO 8–9 · Diagnosis & DD</button>
+    <button class="fb" onclick="filter('lo10',this)">LO 10 · Tatalaksana</button>
+    <button class="fb" onclick="filter('lo11',this)">LO 11 · Komplikasi & Prognosis</button>
+    <button class="fb" onclick="filter('drowning',this)">💧 Tenggelam (Forensik)</button>
+    <button class="fb" onclick="filter('ddiff',this)">🔍 Diagnosis Banding</button>
+  </div>
+</div>
+
+<div class="prog-wrap">
+  <div class="prog-row">
+    <div class="prog-stat"><span id="ans-count">0</span>/25 dijawab &nbsp;|&nbsp; <span id="correct-count" style="color:var(--green)">0</span> benar &nbsp;|&nbsp; <span id="wrong-count" style="color:var(--red)">0</span> salah</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="prog-bar" style="width:0%"></div></div>
+  </div>
+  <div class="prog-dots" id="pdots"></div>
+</div>
+
+<div class="main" id="qlist">
+
+<!-- ===== Q1 ===== -->
+<div class="qcard" data-cat="lo12" id="qc0">
+  <div class="q-meta">
+    <span class="q-num">Q1</span>
+    <span class="q-lo">LO 1 · ATLS</span>
+    <span class="q-cat">Identifikasi</span>
+    <span class="q-diff diff-ez">Mudah</span>
+  </div>
+  <div class="vignette">Seorang pria 25 tahun dibawa ke IGD setelah KLL motor. Saat tiba ia tampak cemas, bicara dengan kalimat pendek, bernapas cepat. TD 120/80, HR 106, RR 24, SpO₂ 92%.</div>
+  <div class="q-txt">Dalam pendekatan ATLS, komponen PRIMARY SURVEY manakah yang menjadi PRIORITAS UTAMA pada pasien ini?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(0,0,1)"><span class="ol">A</span> Airway — bebas jalan napas</button>
+    <button class="opt" onclick="ans(0,1,1)"><span class="ol">B</span> Breathing — gangguan oksigenasi</button>
+    <button class="opt" onclick="ans(0,2,1)"><span class="ol">C</span> Circulation — resusitasi cairan</button>
+    <button class="opt" onclick="ans(0,3,1)"><span class="ol">D</span> Disability — status neurologis</button>
+    <button class="opt" onclick="ans(0,4,1)"><span class="ol">E</span> Exposure — inspeksi menyeluruh</button>
+  </div>
+  <div class="exp" id="e0"><strong>✅ B — Breathing adalah prioritas utama.</strong><br>Prinsip ATLS: selesaikan ancaman nyawa terbesar lebih dulu. Airway pasien ini masih terbuka (masih bisa bicara, meski kalimat pendek). Masalah utama = gangguan oksigenasi: SpO₂ 92% + RR 24 + bicara kalimat pendek (tanda sesak berat). <br><br>
+  <div class="why-wrong"><b>Kenapa bukan A?</b> Airway terbuka — ia masih berbicara. <b>C?</b> TD normal, belum ada tanda syok. <b>D &amp; E</b> dikerjakan setelah A dan B diamankan. <em>Catatan penting:</em> Dalam praktik, A dan B dinilai hampir bersamaan, tapi bila dipaksa memilih prioritas = B karena itu sumber masalah utama.</div></div>
+</div>
+
+<!-- ===== Q2 ===== -->
+<div class="qcard" data-cat="lo12" id="qc1">
+  <div class="q-meta">
+    <span class="q-num">Q2</span>
+    <span class="q-lo">LO 2 · Oksigenasi</span>
+    <span class="q-cat">Interpretasi</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">AGD pasien menunjukkan pH 7,33 · PaO₂ 70 mmHg · PaCO₂ 46 mmHg · SpO₂ 92%.</div>
+  <div class="q-txt">Interpretasi analisis gas darah di atas yang paling tepat adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(1,0,1)"><span class="ol">A</span> Alkalosis respiratorik dengan hipoksemia ringan</button>
+    <button class="opt" onclick="ans(1,1,1)"><span class="ol">B</span> Asidosis respiratorik dengan hipoksemia sedang</button>
+    <button class="opt" onclick="ans(1,2,1)"><span class="ol">C</span> Asidosis metabolik dengan hiperkapnia berat</button>
+    <button class="opt" onclick="ans(1,3,1)"><span class="ol">D</span> Normal, tidak perlu intervensi segera</button>
+    <button class="opt" onclick="ans(1,4,1)"><span class="ol">E</span> Alkalosis campuran dengan anoksia berat</button>
+  </div>
+  <div class="exp" id="e1"><strong>✅ B — Asidosis respiratorik + hipoksemia sedang.</strong><br>
+  • pH 7,33 → asidosis (normal 7,35–7,45) ✓<br>
+  • PaCO₂ 46 → sedikit di atas 45 → retensi CO₂ → konfirmasi penyebab asidosis = respiratorik ✓<br>
+  • PaO₂ 70 → normal &gt;80 mmHg → hipoksemia sedang ✓<br><br>
+  <div class="why-wrong"><b>Kenapa bukan A?</b> pH 7,33 adalah asidosis, bukan alkalosis. <b>C?</b> Pada asidosis metabolik, HCO₃ yang rendah — bukan CO₂ tinggi — yang menjadi penyebab primer. <b>D?</b> pH 7,33 dan PaO₂ 70 keduanya abnormal, butuh intervensi segera. <b>E?</b> pH 7,33 adalah asidosis, bukan alkalosis.</div></div>
+</div>
+
+<!-- ===== Q3 ===== -->
+<div class="qcard" data-cat="lo34" id="qc2">
+  <div class="q-meta">
+    <span class="q-num">Q3</span>
+    <span class="q-lo">LO 3 · Definisi</span>
+    <span class="q-cat">Konsep</span>
+    <span class="q-diff diff-ez">Mudah</span>
+  </div>
+  <div class="q-txt">Traumatic asphyxia (Perthes' syndrome) secara patofisiologis terjadi karena...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(2,0,2)"><span class="ol">A</span> Obstruksi mekanik jalan napas atas oleh benda asing</button>
+    <button class="opt" onclick="ans(2,1,2)"><span class="ol">B</span> Spasme laring akibat iritasi cairan di orofaring</button>
+    <button class="opt" onclick="ans(2,2,2)"><span class="ol">C</span> Kompresi dada mendadak + Valsalva maneuver → tekanan intrathorakal ↑ → darah terpompa retrograd via SVC ke vena kepala/leher yang tidak berkatup</button>
+    <button class="opt" onclick="ans(2,3,2)"><span class="ol">D</span> Keracunan karbon monoksida yang menghambat transpor oksigen oleh hemoglobin</button>
+    <button class="opt" onclick="ans(2,4,2)"><span class="ol">E</span> Hipovolemia berat akibat perdarahan masif dari pembuluh darah thoraks</button>
+  </div>
+  <div class="exp" id="e2"><strong>✅ C — Mekanisme kompresi + Valsalva + retrograd venous flow.</strong><br>
+  Mekanisme khas: (1) Kompresi dada mendadak → glottis menutup secara refleks (Valsalva) → tekanan intrathorakal melonjak → (2) Darah dari jantung kanan dipaksa balik via SVC → v. jugularis, brachiocephalic → vena kepala/leher yang TIDAK punya katup memadai → (3) Kapiler wajah/konjungtiva terlalu penuh → ruptur → petechiae, edema, sianosis kraniofasial.<br><br>
+  <div class="why-wrong"><b>A &amp; B</b> = mekanisme drowning/choking, bukan traumatic asphyxia. <b>D</b> = mekanisme keracunan CO (histotoksik). <b>E</b> = syok hipovolemik, bukan asfiksia traumatik.</div></div>
+</div>
+
+<!-- ===== Q4 ===== -->
+<div class="qcard" data-cat="lo34" id="qc3">
+  <div class="q-meta">
+    <span class="q-num">Q4</span>
+    <span class="q-lo">LO 3–4 · Klasifikasi</span>
+    <span class="q-cat">Analisis</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="q-txt">Seorang pekerja tambang terjebak di dalam tambang yang mengalami keruntuhan selama 4 jam. Kadar oksigen di dalam tambang sangat rendah karena tertutup debu dan puing. Jenis asfiksia apakah yang paling tepat untuk kasus ini?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(3,0,3)"><span class="ol">A</span> Asfiksia traumatik</button>
+    <button class="opt" onclick="ans(3,1,3)"><span class="ol">B</span> Asfiksia mekanik (strangulasi)</button>
+    <button class="opt" onclick="ans(3,2,3)"><span class="ol">C</span> Asfiksia histotoksik</button>
+    <button class="opt" onclick="ans(3,3,3)"><span class="ol">D</span> Asfiksia atmosferik (sufokasi)</button>
+    <button class="opt" onclick="ans(3,4,3)"><span class="ol">E</span> Asfiksia posisional</button>
+  </div>
+  <div class="exp" id="e3"><strong>✅ D — Asfiksia atmosferik / sufokasi.</strong><br>
+  Sufokasi = penurunan kadar oksigen di atmosfer yang dihirup. Di tambang yang runtuh, debu dan puing menyerap O₂ + space terbatas → O₂ habis dikonsumsi → korban menghirup udara dengan FiO₂ sangat rendah. Berbeda dari traumatik (tidak ada kompresi dada), strangulasi (tidak ada jeratan leher), histotoksik (tidak ada racun sel), atau posisional (bukan soal posisi).<br><br>
+  <div class="why-wrong"><b>A</b> = perlu ada kompresi dada mendadak + Valsalva. <b>B</b> = perlu tekanan fisik pada leher. <b>C</b> = sel tidak bisa menggunakan O₂ (racun sianida/CO). <b>E</b> = posisi tubuh yang menghalangi ekspansi dada.</div></div>
+</div>
+
+<!-- ===== Q5 ===== -->
+<div class="qcard" data-cat="lo6" id="qc4">
+  <div class="q-meta">
+    <span class="q-num">Q5</span>
+    <span class="q-lo">LO 6 · Patofisiologi</span>
+    <span class="q-cat">Analisis</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="q-txt">Mengapa pada asfiksia traumatik, tanda-tanda khas (petechiae, edema, sianosis) hanya ditemukan di ATAS diafragma dan tidak di ekstremitas bawah?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(4,0,4)"><span class="ol">A</span> Karena jantung memompa lebih kuat ke arah atas</button>
+    <button class="opt" onclick="ans(4,1,4)"><span class="ol">B</span> Karena kompresi hanya mengenai dada bagian atas saja</button>
+    <button class="opt" onclick="ans(4,2,4)"><span class="ol">C</span> Karena kulit bagian bawah lebih tebal sehingga petechiae tidak terlihat</button>
+    <button class="opt" onclick="ans(4,3,4)"><span class="ol">D</span> Karena arteri femoral memiliki tekanan lebih tinggi dari tekanan yang dihasilkan kompresi</button>
+    <button class="opt" onclick="ans(4,4,4)"><span class="ol">E</span> Karena vena di bawah diafragma memiliki sistem katup yang mencegah backpressure, dan IVC terkompresi melindungi sirkulasi bawah</span></button>
+  </div>
+  <div class="exp" id="e4"><strong>✅ E — Sistem katup vena + kompresi IVC.</strong><br>
+  Dua mekanisme protektif di bawah diafragma: (1) Vena ekstremitas bawah dan vena di bawah diafragma memiliki katup yang mencegah aliran balik (backpressure tidak bisa menjalar ke bawah), sedangkan SVC, v. jugularis, dan v. kepala/leher tidak punya katup memadai. (2) Peningkatan tekanan abdominal akibat kompresi mengompresi IVC → melindungi sirkulasi bawah dari tekanan retrograd.<br><br>
+  <div class="why-wrong"><b>A, B, C, D</b> semuanya salah secara fisiologis. Kuncinya: katup vena = pelindung bagian bawah, ketiadaan katup di vena kepala/leher = kerentanan bagian atas.</div></div>
+</div>
+
+<!-- ===== Q6 ===== -->
+<div class="qcard" data-cat="lo6" id="qc5">
+  <div class="q-meta">
+    <span class="q-num">Q6</span>
+    <span class="q-lo">LO 6 · Hipoksia</span>
+    <span class="q-cat">Analisis</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="q-txt">Seorang pria ditemukan tidak sadar di garasi yang tertutup, di mana mesin mobilnya menyala selama beberapa jam. PaO₂ = 95 mmHg, saturasi oksimetri pulse oximetry = 98%, namun ia tetap tidak sadar dan bibir tampak cherry-red. Jenis hipoksia apa yang terjadi?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(5,0,5)"><span class="ol">A</span> Hipoksia hipoksik — PaO₂ sangat rendah</button>
+    <button class="opt" onclick="ans(5,1,5)"><span class="ol">B</span> Hipoksia stagnant — aliran darah terhenti</button>
+    <button class="opt" onclick="ans(5,2,5)"><span class="ol">C</span> Hipoksia histotoksik — sel tidak bisa pakai O₂</button>
+    <button class="opt" onclick="ans(5,3,5)"><span class="ol">D</span> Hipoksia anemik — Hb tidak berfungsi karena terikat CO</button>
+    <button class="opt" onclick="ans(5,4,5)"><span class="ol">E</span> Tidak ada hipoksia — PaO₂ dan SpO₂ normal</button>
+  </div>
+  <div class="exp" id="e5"><strong>✅ D — Hipoksia anemik (CO poisoning).</strong><br>
+  Ini jebakan klasik! CO memiliki afinitas terhadap Hb 240x lebih kuat dari O₂ → HbCO terbentuk → Hb tidak bisa membawa O₂. Tetapi: (1) PaO₂ mengukur O₂ terlarut di plasma → tetap normal karena O₂ di udara cukup, (2) Pulse oximetry standar tidak bisa membedakan HbO₂ dan HbCO → membaca 98% padahal sebenarnya HbCO tinggi. Bibir cherry-red = warna khas HbCO. Tatalaksana: O₂ 100% atau HBO.<br><br>
+  <div class="why-wrong"><b>A</b> salah — PaO₂ normal. <b>B</b> salah — aliran darah normal. <b>C</b> partial benar (sel tidak bisa pakai O₂ karena HbCO) tapi klasifikasinya tetap hipoksia anemik (problem di Hb, bukan di enzim sel). <b>E</b> salah — ada hipoksia, hanya tidak terdeteksi SpO₂ biasa.</div></div>
+</div>
+
+<!-- ===== Q7 ===== -->
+<div class="qcard" data-cat="lo7" id="qc6">
+  <div class="q-meta">
+    <span class="q-num">Q7</span>
+    <span class="q-lo">LO 7 · Manifestasi</span>
+    <span class="q-cat">Identifikasi</span>
+    <span class="q-diff diff-ez">Mudah</span>
+  </div>
+  <div class="vignette">Pasien datang setelah tertimpa besi berat di tempat kerja. Tampak: wajah ungu kebiruan, edema wajah-leher, perdarahan subkonjungtiva bilateral, dan petechiae di wajah serta dada atas. Tanda vital: TD 115/75, HR 110, RR 26, SpO₂ 90%.</div>
+  <div class="q-txt">Triad klinis KHAS yang mengarah pada asfiksia traumatik pada pasien ini adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(6,0,6)"><span class="ol">A</span> Hipotensi, JVP meningkat, suara jantung menjauh (Beck's triad)</span></button>
+    <button class="opt" onclick="ans(6,1,6)"><span class="ol">B</span> Hipersonor, trakea deviasi, suara napas menghilang unilateral</button>
+    <button class="opt" onclick="ans(6,2,6)"><span class="ol">C</span> Sianosis kraniofasial, perdarahan subkonjungtiva, petechiae wajah/dada atas</button>
+    <button class="opt" onclick="ans(6,3,6)"><span class="ol">D</span> Demam, batuk produktif, ronki bilateral</button>
+    <button class="opt" onclick="ans(6,4,6)"><span class="ol">E</span> Fraktur multipel iga, gerakan paradoksal dada, hipoksia berat</button>
+  </div>
+  <div class="exp" id="e6"><strong>✅ C — Triad khas asfiksia traumatik.</strong><br>
+  Sianosis kraniofasial + perdarahan subkonjungtiva + petechiae wajah/dada atas = tanda patognomonik traumatic asphyxia (Perthes' syndrome). Ketiganya muncul akibat satu mekanisme yang sama: backpressure venous ke kapiler wajah/konjungtiva.<br><br>
+  <div class="why-wrong"><b>A</b> = Beck's triad → tamponade jantung (bukan asfiksia traumatik). <b>B</b> = tension pneumothorax. <b>D</b> = pneumonia. <b>E</b> = flail chest. Semuanya bisa menjadi diagnosis banding penting dalam trauma dada!</div>
+  <div class="pearl"><div class="pearl-lbl">⭐ Ingat ini!</div><p>Triad asfiksia traumatik: <strong>C-P-E</strong> — Cyanosis kraniofasial, Petechiae, Edema wajah. Ditambah perdarahan subkonjungtiva = temuan tambahan khas.</p></div></div>
+</div>
+
+<!-- ===== Q8 ===== -->
+<div class="qcard" data-cat="lo7" id="qc7">
+  <div class="q-meta">
+    <span class="q-num">Q8</span>
+    <span class="q-lo">LO 7 · Klinis</span>
+    <span class="q-cat">Identifikasi</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">Seorang pria 32 tahun, kecelakaan lift jatuh menimpa tubuhnya. GCS 15. Sesak napas, nyeri punggung, sianosis wajah bilateral, perdarahan subkonjungtiva, petechiae di dada kiri atas dan lengan kiri atas. CT scan: kontusio paru bilateral minimal + pneumothorax minimal + fraktur prosesus transversus L1.</div>
+  <div class="q-txt">Mengapa petechiae dan sianosis pada kasus ini terbatas di wajah, leher, dan ekstremitas ATAS (lengan kiri) — bukan di tubuh bawah?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(7,0,7)"><span class="ol">A</span> Lift hanya mengenai bagian kiri atas tubuh</button>
+    <button class="opt" onclick="ans(7,1,7)"><span class="ol">B</span> Kompresi IVC melindungi sirkulasi bawah; vena superfisial atas (tanpa katup) terdampak backpressure</button>
+    <button class="opt" onclick="ans(7,2,7)"><span class="ol">C</span> Kulit bagian bawah lebih gelap sehingga petechiae tidak tampak</button>
+    <button class="opt" onclick="ans(7,3,7)"><span class="ol">D</span> Gravitasi mendorong darah ke ekstremitas atas saat tertimpa</button>
+    <button class="opt" onclick="ans(7,4,7)"><span class="ol">E</span> Karena fraktur L1 memblok aliran darah ke bawah</button>
+  </div>
+  <div class="exp" id="e7"><strong>✅ B — IVC terkompresi + absennya katup di vena superfisial atas.</strong><br>
+  Mekanisme: kompresi torakoabdominal → tekanan abdominal ↑ → IVC terkompresi → melindungi sirkulasi bawah. Sebaliknya, SVC dan vena jugular/subklavia tidak punya katup yang cukup kuat → backpressure bebas menjalar ke kepala, leher, dan ekstremitas atas. Ini menjelaskan mengapa tanda HANYA di atas diafragma (± ekstremitas atas).<br><br>
+  <div class="why-wrong"><b>A, C, D, E</b> semuanya tidak berdasarkan mekanisme fisiologis yang benar. Ini adalah konsep yang paling sering salah dipahami mahasiswa — harus benar-benar paham bedanya sistem katup vena atas vs bawah.</div></div>
+</div>
+
+<!-- ===== Q9 ===== -->
+<div class="qcard" data-cat="lo89" id="qc8">
+  <div class="q-meta">
+    <span class="q-num">Q9</span>
+    <span class="q-lo">LO 8 · Diagnosis</span>
+    <span class="q-cat">Analisis</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">Pasien skenario (pria 25 tahun): AGD pH 7,33, PaO₂ 70, PaCO₂ 46. CXR: kekeruhan bilateral ringan, tidak ada pneumothorax atau fraktur iga. EKG: sinus takikardia. Terdapat diskolorasi wajah-dada atas + petechiae konjungtiva + edema wajah ringan.</div>
+  <div class="q-txt">Diagnosis kerja yang PALING TEPAT untuk pasien ini adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(8,0,8)"><span class="ol">A</span> Tension pneumothorax</button>
+    <button class="opt" onclick="ans(8,1,8)"><span class="ol">B</span> Tamponade jantung</button>
+    <button class="opt" onclick="ans(8,2,8)"><span class="ol">C</span> Traumatic asphyxia dengan kontusio paru bilateral ringan</button>
+    <button class="opt" onclick="ans(8,3,8)"><span class="ol">D</span> Flail chest dengan ARDS</button>
+    <button class="opt" onclick="ans(8,4,8)"><span class="ol">E</span> Hemothorax masif bilateral</button>
+  </div>
+  <div class="exp" id="e8"><strong>✅ C — Traumatic asphyxia + kontusio paru ringan.</strong><br>
+  Seluruh temuan mengarah ke dua diagnosis bersamaan:<br>
+  • Asfiksia traumatik: petechiae konjungtiva, diskolorasi wajah-dada atas, edema wajah ringan — setelah mekanisme kompresi setang pada dada.<br>
+  • Kontusio paru: kekeruhan bilateral ringan di CXR, SpO₂ 92%, AGD asidosis respiratorik — TANPA pneumothorax atau fraktur iga.<br><br>
+  <div class="why-wrong"><b>A (tension PTX)</b>: pasti ada trakea deviasi, hipersonor, suara napas menghilang unilateral — tidak ada di sini. <b>B (tamponade)</b>: ada Beck's triad (hipotensi, JVP ↑, bunyi jantung menjauh) — tidak ada di sini. <b>D (flail chest)</b>: perlu fraktur &gt;2 segmen iga yang terlihat, gerakan paradoksal — tidak ada. <b>E (hemothorax)</b>: CXR akan opak unilateral dengan peredupan, biasanya disertai syok.</div></div>
+</div>
+
+<!-- ===== Q10 ===== -->
+<div class="qcard" data-cat="ddiff" id="qc9">
+  <div class="q-meta">
+    <span class="q-num">Q10</span>
+    <span class="q-lo">LO 9 · Diagnosis Banding</span>
+    <span class="q-cat">Banding</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="q-txt">Pasien datang dengan perdarahan subkonjungtiva bilateral dan edema periorbital, tetapi TIDAK ada riwayat trauma dada. Manakah diagnosis banding yang HARUS dipertimbangkan dan disingkirkan terlebih dahulu?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(9,0,9)"><span class="ol">A</span> Hemothorax masif</button>
+    <button class="opt" onclick="ans(9,1,9)"><span class="ol">B</span> Superior vena cava (SVC) syndrome dan fraktur basis kranii</button>
+    <button class="opt" onclick="ans(9,2,9)"><span class="ol">C</span> Tamponade jantung</button>
+    <button class="opt" onclick="ans(9,3,9)"><span class="ol">D</span> Tension pneumothorax</button>
+    <button class="opt" onclick="ans(9,4,9)"><span class="ol">E</span> Kontusio miokard</button>
+  </div>
+  <div class="exp" id="e9"><strong>✅ B — SVC syndrome dan fraktur basis kranii.</strong><br>
+  Dua kondisi ini meniru penampilan asfiksia traumatik:<br>
+  • <b>SVC syndrome</b>: obstruksi/kompresi SVC (oleh tumor, trombosis) → darah menumpuk di kepala/leher → edema wajah, distensi vena, sianosis kraniofasial. Bedanya: tidak ada riwayat trauma akut, onset bertahap, ada penyebab yang bisa diidentifikasi (tumor mediastinum, dll).<br>
+  • <b>Fraktur basis kranii</b>: bisa menyebabkan periorbital ecchymosis (raccoon eyes) dan perdarahan subkonjungtiva. Bedanya: ada tanda neurologis, CT skull/brain.<br><br>
+  <div class="why-wrong"><b>A, C, D, E</b> tidak menyebabkan gambaran kraniofasial yang serupa dengan traumatic asphyxia. Ini pearl forensik penting: riwayat trauma yang jelas menyingkirkan SVC syndrome; tidak ada tanda neurologis menyingkirkan fraktur basis kranii.</div></div>
+</div>
+
+<!-- ===== Q11 ===== -->
+<div class="qcard" data-cat="ddiff" id="qc10">
+  <div class="q-meta">
+    <span class="q-num">Q11</span>
+    <span class="q-lo">LO 9 · Diagnosis Banding</span>
+    <span class="q-cat">Banding</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="q-txt">Pasien trauma dada dengan: hipotensi, JVP meningkat, suara jantung menjauh, dan EKG menunjukkan low voltage + electrical alternans. Diagnosis yang paling mungkin adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(10,0,10)"><span class="ol">A</span> Traumatic asphyxia</button>
+    <button class="opt" onclick="ans(10,1,10)"><span class="ol">B</span> Tension pneumothorax</button>
+    <button class="opt" onclick="ans(10,2,10)"><span class="ol">C</span> Tamponade jantung (Beck's triad)</button>
+    <button class="opt" onclick="ans(10,3,10)"><span class="ol">D</span> Flail chest</button>
+    <button class="opt" onclick="ans(10,4,10)"><span class="ol">E</span> Kontusio paru bilateral</button>
+  </div>
+  <div class="exp" id="e10"><strong>✅ C — Tamponade jantung.</strong><br>
+  Beck's triad = hipotensi + JVP ↑ + suara jantung menjauh (muffled). Ditambah: low voltage EKG (cairan mengisolasi sinyal listrik) + electrical alternans (jantung berayun dalam cairan perikardium) = sangat khas tamponade. Tatalaksana segera: perikardiosentesis.<br><br>
+  <div class="why-wrong"><b>A (asfiksia traumatik)</b>: TD biasanya normal, tidak ada JVP ↑ + suara jantung menjauh. <b>B (tension PTX)</b>: ada trakea deviasi + hipersonor + suara napas hilang unilateral — tidak muffled heart sounds dan bukan low voltage EKG. <b>D (flail chest)</b>: ada gerakan paradoksal, tidak ada JVP ↑. <b>E</b>: tidak menyebabkan Beck's triad.</div>
+  <div class="pearl"><div class="pearl-lbl">🎯 Mnemonic Diagnosis Banding Trauma Dada</div><p><strong>HITT-F</strong> — Hemothorax · (Tension) Pneumothorax · Tamponade · Flail chest · (traumatic asphyxia). Semua bisa datang dengan sesak napas setelah trauma dada, tapi tanda-tanda pembedanya spesifik!</p></div></div>
+</div>
+
+<!-- ===== Q12 ===== -->
+<div class="qcard" data-cat="lo10" id="qc11">
+  <div class="q-meta">
+    <span class="q-num">Q12</span>
+    <span class="q-lo">LO 10 · Tatalaksana</span>
+    <span class="q-cat">Manajemen</span>
+    <span class="q-diff diff-ez">Mudah</span>
+  </div>
+  <div class="vignette">Pasien skenario stabil (TD 120/80) setelah oksigen aliran tinggi diberikan. SpO₂ naik ke 95%. Tidak ada indikasi intubasi segera.</div>
+  <div class="q-txt">Posisi kepala tempat tidur yang paling dianjurkan untuk manajemen konservatif pasien traumatic asphyxia adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(11,0,11)"><span class="ol">A</span> Posisi datar 0° untuk memaksimalkan aliran darah serebral</button>
+    <button class="opt" onclick="ans(11,1,11)"><span class="ol">B</span> Posisi Trendelenburg (kepala di bawah) untuk membantu aliran balik vena</button>
+    <button class="opt" onclick="ans(11,2,11)"><span class="ol">C</span> Elevasi kepala tempat tidur 30° untuk menurunkan tekanan intrakranial</button>
+    <button class="opt" onclick="ans(11,3,11)"><span class="ol">D</span> Semi-Fowler 45° untuk memaksimalkan ekspansi paru</button>
+    <button class="opt" onclick="ans(11,4,11)"><span class="ol">E</span> Posisi tidak relevan selama oksigenasi adekuat</button>
+  </div>
+  <div class="exp" id="e11"><strong>✅ C — Elevasi kepala 30°.</strong><br>
+  Head-of-bed elevation 30° adalah standar pada traumatic asphyxia karena: (1) Membantu aliran balik darah dari kongesti venous serebral → menurunkan TIK, (2) Membantu mekanik pernapasan (diafragma turun lebih bebas), (3) Merupakan tindakan sederhana, aman, dan tanpa risiko.<br><br>
+  <div class="why-wrong"><b>A (0°)</b>: tidak membantu kongesti vena serebral. <b>B (Trendelenburg)</b>: KONTRAINDIKASI — justru meningkatkan TIK dan memperburuk kongesti kepala. <b>D (45°)</b>: lebih tinggi dari yang diperlukan; 30° sudah cukup dan lebih aman untuk C-spine. <b>E</b>: posisi sangat relevan pada kasus ini.</div></div>
+</div>
+
+<!-- ===== Q13 ===== -->
+<div class="qcard" data-cat="lo10" id="qc12">
+  <div class="q-meta">
+    <span class="q-num">Q13</span>
+    <span class="q-lo">LO 10 · Tatalaksana</span>
+    <span class="q-cat">Manajemen</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">Perempuan 30 tahun dievakuasi dari sungai setelah perahu karam. Nadi 30x/menit lemah, tidak ada usaha napas.</div>
+  <div class="q-txt">Tindakan yang PALING TEPAT dan segera dilakukan adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(12,0,12)"><span class="ol">A</span> Membawa segera ke fasilitas medis terdekat</button>
+    <button class="opt" onclick="ans(12,1,12)"><span class="ol">B</span> Melakukan resusitasi jantung paru (RJP) segera</button>
+    <button class="opt" onclick="ans(12,2,12)"><span class="ol">C</span> Stimulasi pukulan pada daerah punggung</button>
+    <button class="opt" onclick="ans(12,3,12)"><span class="ol">D</span> Memposisikan tubuh dengan kepala lebih rendah dari dada</button>
+    <button class="opt" onclick="ans(12,4,12)"><span class="ol">E</span> Menyelimuti dengan kain kering</button>
+  </div>
+  <div class="exp" id="e12"><strong>✅ B — RJP segera.</strong><br>
+  Pasien menunjukkan tanda henti jantung (nadi 30x/menit = sangat bradikardi/hampir tidak ada, tidak ada usaha napas). Prioritas absolut = RJP segera di tempat kejadian. Membawa ke RS lebih dulu tanpa RJP = melewatkan golden minute. RJP pada korban tenggelam: 5 rescue breath dulu (karena hipoksia sebagai penyebab utama), kemudian kompresi 30:2.<br><br>
+  <div class="why-wrong"><b>A</b>: menunda RJP = fatal. Korban tenggelam dengan henti napas/jantung harus di-RJP di tempat. <b>C</b>: manuver Heimlich/pukulan punggung hanya untuk choking — tidak untuk drowning. <b>D</b>: posisi Trendelenburg tidak direkomendasikan untuk korban tenggelam (sudah tidak terbukti efektif membuang air). <b>E</b>: selimut untuk hipotermia — penting tapi bukan prioritas utama saat ini.</div></div>
+</div>
+
+<!-- ===== Q14 ===== -->
+<div class="qcard" data-cat="lo11" id="qc13">
+  <div class="q-meta">
+    <span class="q-num">Q14</span>
+    <span class="q-lo">LO 11 · Komplikasi</span>
+    <span class="q-cat">Analisis</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="q-txt">Pasien traumatic asphyxia mengalami rhabdomyolysis setelah crush injury. Komplikasi yang paling ditakutkan dari rhabdomyolysis adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(13,0,13)"><span class="ol">A</span> Emboli paru akibat myoglobin</button>
+    <button class="opt" onclick="ans(13,1,13)"><span class="ol">B</span> Acute Kidney Injury (AKI) akibat nefrotoksisitas mioglobin</button>
+    <button class="opt" onclick="ans(13,2,13)"><span class="ol">C</span> Hiponatremia berat akibat pelepasan natrium dari otot</button>
+    <button class="opt" onclick="ans(13,3,13)"><span class="ol">D</span> Hipoglikemia akibat deplesi glikogen otot</button>
+    <button class="opt" onclick="ans(13,4,13)"><span class="ol">E</span> Anemia aplastik akibat destruksi sumsum tulang</button>
+  </div>
+  <div class="exp" id="e13"><strong>✅ B — AKI akibat mioglobin nefrotoksik.</strong><br>
+  Rhabdomyolysis: lisis sel otot masif → mioglobin masuk sirkulasi → difiltrasi ginjal → mioglobin menyumbat tubulus ginjal + bersifat toksik langsung pada sel tubulus → AKI. Tambahan: hipoperfusi ginjal (syok) memperburuk. Tanda: urin berwarna cola/gelap (mioglobinuria). Pencegahan: hidrasi agresif (crystalloid) untuk mempertahankan UO >200 ml/jam.<br><br>
+  <div class="why-wrong"><b>A</b>: emboli paru dari mioglobin tidak terjadi. <b>C</b>: rhabdo justru menyebabkan hiperKALEMIA (kalium dari otot yang rusak) — aritmia jantung yang berbahaya. <b>D</b>: hipoglikemia bukan mekanisme rhabdo. <b>E</b>: tidak ada hubungan dengan aplasia sumsum tulang.</div></div>
+</div>
+
+<!-- ===== Q15 ===== -->
+<div class="qcard" data-cat="lo11" id="qc14">
+  <div class="q-meta">
+    <span class="q-num">Q15</span>
+    <span class="q-lo">LO 11 · Prognosis</span>
+    <span class="q-cat">Analisis</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="q-txt">Faktor manakah yang paling menentukan prognosis BURUK pada traumatic asphyxia?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(14,0,14)"><span class="ol">A</span> Usia pasien lebih dari 50 tahun</button>
+    <button class="opt" onclick="ans(14,1,14)"><span class="ol">B</span> Derajat keparahan petechiae dan luas sianosis wajah</button>
+    <button class="opt" onclick="ans(14,2,14)"><span class="ol">C</span> Durasi kompresi yang lama dan berat serta keparahan cedera penyerta</button>
+    <button class="opt" onclick="ans(14,3,14)"><span class="ol">D</span> Jenis kelamin laki-laki</button>
+    <button class="opt" onclick="ans(14,4,14)"><span class="ol">E</span> Nilai CK dan LDH awal yang tinggi</button>
+  </div>
+  <div class="exp" id="e14"><strong>✅ C — Durasi kompresi + keparahan cedera penyerta.</strong><br>
+  Dari literatur: "The duration and the amount of pressure affect the outcome after traumatic asphyxia. Significant weight can be tolerated for a short time, whereas a relatively modest weight applied for a longer period may result in death." (Jongewaard et al., via Saudi Surg J 2018). Cedera penyerta (hemothorax masif, tamponade, AKI, cerebral anoxia) adalah penentu mortalitas utama — bukan traumatic asphyxia itu sendiri.<br><br>
+  <div class="why-wrong"><b>A &amp; D</b>: usia dan jenis kelamin memiliki pengaruh minimal terhadap prognosis dibanding mekanisme cedera. <b>B</b>: petechiae adalah tanda klinis, bukan penentu prognosis langsung. <b>E</b>: CK/LDH berguna untuk monitoring rhabdo, tapi bukan prediktor prognosis terkuat.</div></div>
+</div>
+
+<!-- ===== Q16 ===== -->
+<div class="qcard" data-cat="lo11" id="qc15">
+  <div class="q-meta">
+    <span class="q-num">Q16</span>
+    <span class="q-lo">LO 11 · Komplikasi</span>
+    <span class="q-cat">Kasus</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="vignette">Pasien traumatic asphyxia hari ke-2 di ICU: GCS menurun dari 15 → 9. Refleks batang otak mulai melemah. CT brain menunjukkan edema serebral difus dengan small hypodense area. Riwayat: kompresi berlangsung sangat lama sebelum pasien ditemukan.</div>
+  <div class="q-txt">Komplikasi neurologis apa yang paling mungkin terjadi, dan apa implikasinya terhadap prognosis?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(15,0,15)"><span class="ol">A</span> Perdarahan epidural — prognostik baik jika dioperasi segera</button>
+    <button class="opt" onclick="ans(15,1,15)"><span class="ol">B</span> Cerebral anoxia dengan kerusakan neuron irreversibel — prognostik sangat buruk, kemungkinan vegetative state atau brain death</button>
+    <button class="opt" onclick="ans(15,2,15)"><span class="ol">C</span> Migrain post-trauma — reversibel dengan analgesik</button>
+    <button class="opt" onclick="ans(15,3,15)"><span class="ol">D</span> Vasospasme serebral — reversibel dengan nimodipin</button>
+    <button class="opt" onclick="ans(15,4,15)"><span class="ol">E</span> Delirium akibat hipoksemia ringan — reversibel dengan oksigenasi</button>
+  </div>
+  <div class="exp" id="e15"><strong>✅ B — Cerebral anoxia dengan kerusakan irreversibel.</strong><br>
+  Ini menggambarkan kasus fatal dari Saudi Surg J 2018: pasien dengan traumatic asphyxia kompresi lama, GCS selalu 3, brainstem reflexes (termasuk gag reflex) hilang hari ke-4, brain death terdokumentasi hari ke-6, meninggal hari ke-10. Cerebral anoxia prolonged = kerusakan neuron irreversibel → prognosis sangat buruk.<br><br>
+  <div class="why-wrong"><b>A</b>: epidural hematoma membutuhkan mekanisme berbeda (robekan a. meningea media) dan CT biasanya biconvex — tidak sesuai gambar. <b>C, D, E</b>: semuanya kondisi yang terlalu ringan untuk menjelaskan GCS menurun drastis dengan refleks batang otak menghilang.</div></div>
+</div>
+
+<!-- ===== Q17 ===== -->
+<div class="qcard" data-cat="drowning" id="qc16">
+  <div class="q-meta">
+    <span class="q-num">Q17</span>
+    <span class="q-lo">Forensik · Tenggelam</span>
+    <span class="q-cat">Forensik</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">Seorang anak laki-laki 8 tahun ditemukan tidak bernyawa di tepi sungai, 2 hari setelah dilaporkan hilang. Lokasi 3 km dari tempat terakhir ia terlihat.</div>
+  <div class="q-txt">Manakah temuan autopsi yang menunjukkan bahwa anak tersebut meninggal SEBELUM masuk ke dalam air (tidak drowning)?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(16,0,16)"><span class="ol">A</span> Perdarahan telinga tengah</button>
+    <button class="opt" onclick="ans(16,1,16)"><span class="ol">B</span> Luka-luka pada kulit tubuh</button>
+    <button class="opt" onclick="ans(16,2,16)"><span class="ol">C</span> Diatome pada jaringan paru</button>
+    <button class="opt" onclick="ans(16,3,16)"><span class="ol">D</span> Pemeriksaan toksikologi positif</button>
+    <button class="opt" onclick="ans(16,4,16)"><span class="ol">E</span> Partikel lumpur pada saluran napas atas</button>
+  </div>
+  <div class="exp" id="e16"><strong>✅ D — Pemeriksaan toksikologi positif.</strong><br>
+  Toksikologi positif (mis. racun, obat) pada korban yang ditemukan di air menunjukkan bahwa kematian bukan akibat drowning — melainkan zat toksik tersebut. Ini adalah tanda bahwa korban sudah mati sebelum masuk air (post-mortem submersion).<br><br>
+  <div class="why-wrong"><b>A (perdarahan telinga tengah)</b>: ini justru tanda INTRAVITALITAS mati tenggelam — terjadi saat korban masih hidup di air akibat perubahan tekanan. <b>B (luka kulit)</b>: bisa ante-mortem, peri-mortem, atau post-mortem (binatang air, arus sungai) — tidak spesifik. <b>C (diatome di paru)</b>: menunjukkan air terhirup → korban HIDUP saat tenggelam. <b>E (partikel lumpur di sal. napas)</b>: sama seperti C — terhirup aktif = korban hidup.</div>
+  <div class="pearl"><div class="pearl-lbl">💧 7 Tanda Intravitalitas Tenggelam</div><p>1. Cadaveric spasme · 2. Perdarahan liang telinga tengah · 3. Benda air (rumput, lumpur) di sal. pencernaan + pernapasan · 4. Bercak Paltauf di paru · 5. Berat jenis darah jantung kanan ≠ kiri · 6. Diatome di paru/sumsum tulang · 7. Tanda asfiksia (Tardieu spots)</p></div></div>
+</div>
+
+<!-- ===== Q18 ===== -->
+<div class="qcard" data-cat="drowning" id="qc17">
+  <div class="q-meta">
+    <span class="q-num">Q18</span>
+    <span class="q-lo">Forensik · Tenggelam</span>
+    <span class="q-cat">Forensik</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">Seorang wanita 25 tahun ditemukan tidak bernyawa di tepi laut, mengenakan pakaian renang. Tubuh masih dapat dikenali.</div>
+  <div class="q-txt">Temuan mana yang menunjukkan korban meninggal akibat TENGGELAM DI AIR LAUT (bukan air tawar)?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(17,0,17)"><span class="ol">A</span> Paru membesar dan terisi air</button>
+    <button class="opt" onclick="ans(17,1,17)"><span class="ol">B</span> Kadar klorida di jantung kiri lebih tinggi dibanding jantung kanan</button>
+    <button class="opt" onclick="ans(17,2,17)"><span class="ol">C</span> Kadar klorida di jantung kanan lebih rendah dibanding jantung kiri</button>
+    <button class="opt" onclick="ans(17,3,17)"><span class="ol">D</span> Dilusi elektrolit dan hipervolemia</button>
+    <button class="opt" onclick="ans(17,4,17)"><span class="ol">E</span> Diatome jenis air tawar di sumsum tulang</button>
+  </div>
+  <div class="exp" id="e17"><strong>✅ C — Klorida jantung kanan LEBIH RENDAH dari jantung kiri (Gettler chloride test — air laut).</strong><br>
+  Ini adalah Gettler Chloride Test (tes kadar klorida darah jantung):<br>
+  • <b>Air laut</b> (hipertonik → menarik air dari darah): air laut di paru → darah di jantung kanan (yang menerima aliran dari paru) menjadi lebih pekat/lebih tinggi kloridanya? TIDAK! Justru sebaliknya: air laut menarik cairan → darah jantung kanan mengandung kadar klorida lebih tinggi dari jantung kiri. Namun konvensi yang diterima: jantung kanan klorida LEBIH RENDAH = tenggelam di air laut (karena darah sudah diencerkan sebelum memasuki sirkulasi sistemik).
+  <br>Cara mudah: <b>air laut → jantung kanan klorida lebih rendah dari kiri</b>. <b>Air tawar → jantung kanan klorida lebih tinggi dari kiri</b>.<br><br>
+  <div class="why-wrong"><b>A</b>: paru membesar terisi air bisa pada keduanya. <b>D (dilusi + hipervolemia)</b>: ini ciri khas tenggelam di AIR TAWAR (air tawar hipotonmis, masuk ke sirkulasi → hemodilusi + hipervolemia). <b>E</b>: diatome air tawar menunjukkan lingkungan air tawar, bukan air laut.</div></div>
+</div>
+
+<!-- ===== Q19 ===== -->
+<div class="qcard" data-cat="drowning" id="qc18">
+  <div class="q-meta">
+    <span class="q-num">Q19</span>
+    <span class="q-lo">Forensik · Tenggelam</span>
+    <span class="q-cat">Forensik</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="vignette">Seorang gadis 15 tahun ditemukan meninggal di kolam renang rumahnya. Dari investigasi diketahui ia menderita epilepsi sejak kecil yang sering kambuh. Autopsi: tubuh basah semua, goose flesh, bloating, dan TIDAK ditemukan gambaran paru yang terendam air.</div>
+  <div class="q-txt">Apakah penyebab kematian pada kasus ini, dan apa dasar patofisiologinya?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(18,0,18)"><span class="ol">A</span> Wet drowning — aspirasi masif air ke paru</button>
+    <button class="opt" onclick="ans(18,1,18)"><span class="ol">B</span> Morbid drowning — tenggelam diperberat kondisi epilepsi, tanpa aspirasi bermakna</button>
+    <button class="opt" onclick="ans(18,2,18)"><span class="ol">C</span> Dry drowning — spasme laring tanpa aspirasi</button>
+    <button class="opt" onclick="ans(18,3,18)"><span class="ol">D</span> Secondary drowning — komplikasi pernapasan jam-hari setelah initial submersion</button>
+    <button class="opt" onclick="ans(18,4,18)"><span class="ol">E</span> Near drowning — non-fatal, seharusnya selamat</button>
+  </div>
+  <div class="exp" id="e18"><strong>✅ B — Morbid drowning.</strong><br>
+  Morbid drowning: tenggelam akibat kondisi medis yang mendasari (di sini: epilepsi → kejang saat di air → tidak bisa mempertahankan diri). Tidak ada aspirasi bermakna (paru tidak "terendam" khas) karena kematian bisa cepat akibat kejang + reflex cardiac arrest. Adanya goose flesh (cutis anserina) + bloating = tanda kematian di air, bukan di darat.<br><br>
+  <div class="why-wrong"><b>A (wet)</b>: paru akan terisi air di autopsi — tidak ada di sini. <b>C (dry)</b>: spasme laring tanpa aspirasi, paru tidak terisi — mirip temuan ini, tapi dry drowning biasanya tanpa penyakit dasar yang jelas; lebih ke refleks laring murni. <b>D (secondary)</b>: korban sudah meninggal, tidak ada riwayat selamat lalu memburuk. <b>E</b>: near drowning = non-fatal — korban meninggal, jadi bukan near drowning.</div></div>
+</div>
+
+<!-- ===== Q20 ===== -->
+<div class="qcard" data-cat="drowning" id="qc19">
+  <div class="q-meta">
+    <span class="q-num">Q20</span>
+    <span class="q-lo">Forensik · Tenggelam</span>
+    <span class="q-cat">Forensik</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="vignette">Seorang warga menemukan jasad laki-laki di pinggir sungai dalam keadaan baru, dengan tangan tampak menggenggam erat ranting kayu yang sulit dilepaskan.</div>
+  <div class="q-txt">Tanda forensik apakah yang dideskripsikan, dan apa maknanya?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(19,0,19)"><span class="ol">A</span> Cutis anserine — tanda hipotermia ante-mortem</button>
+    <button class="opt" onclick="ans(19,1,19)"><span class="ol">B</span> Paultauf's spots — perdarahan subpleural</button>
+    <button class="opt" onclick="ans(19,2,19)"><span class="ol">C</span> Degloving sign — pengelupasan kulit tangan karena maserasi</button>
+    <button class="opt" onclick="ans(19,3,19)"><span class="ol">D</span> Emphysema aquosum — overdistensi alveolus akibat aspirasi</button>
+    <button class="opt" onclick="ans(19,4,19)"><span class="ol">E</span> Cadaveric spasme — tanda intravitalitas, korban masih hidup saat tenggelam</button>
+  </div>
+  <div class="exp" id="e19"><strong>✅ E — Cadaveric spasme.</strong><br>
+  Cadaveric spasme = kekakuan otot yang terjadi saat atau segera setelah kematian, di mana posisi otot terakhir saat hidup dipertahankan secara permanen dalam kekakuan. Berbeda dari rigor mortis (yang berkembang 2–6 jam post-mortem). Tangan menggenggam ranting = tanda bahwa korban <em>masih hidup</em> saat masuk air dan berusaha menyelamatkan diri — ini adalah tanda intravitalitas yang sangat penting.<br><br>
+  <div class="why-wrong"><b>A (cutis anserine)</b>: bulu kuduk berdiri akibat kontraksi m. arrector pili — bisa terjadi ante atau post-mortem. <b>B (Paultauf spots)</b>: bercak perdarahan subpleural/paru — tanda intravitalitas tapi bukan yang dideskripsikan di sini. <b>C (degloving)</b>: pengelupasan kulit = maserasi setelah perendaman lama. <b>D (emphysema aquosum)</b>: overdistensi alveolus — tanda aspirasi air aktif.</div></div>
+</div>
+
+<!-- ===== Q21 ===== -->
+<div class="qcard" data-cat="drowning" id="qc20">
+  <div class="q-meta">
+    <span class="q-num">Q21</span>
+    <span class="q-lo">Forensik · Tenggelam</span>
+    <span class="q-cat">Forensik</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="q-txt">Washerwoman's skin / washerwoman's fingers pada korban yang ditemukan di air menggambarkan...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(20,0,20)"><span class="ol">A</span> Kulit tangan terkelupas akibat cedera mekanik</button>
+    <button class="opt" onclick="ans(20,1,20)"><span class="ol">B</span> Jari tangan terluka akibat benturan dengan batu di dasar sungai</button>
+    <button class="opt" onclick="ans(20,2,20)"><span class="ol">C</span> Jari tangan kaku akibat cadaveric spasme</button>
+    <button class="opt" onclick="ans(20,3,20)"><span class="ol">D</span> Kulit tangan keriput akibat maserasi — perendaman dalam air</button>
+    <button class="opt" onclick="ans(20,4,20)"><span class="ol">E</span> Kulit tangan pucat akibat vasokonstriksi periferdi air dingin</button>
+  </div>
+  <div class="exp" id="e20"><strong>✅ D — Kulit keriput akibat maserasi.</strong><br>
+  Washerwoman's skin (kulit tukang cuci) = perubahan kulit akibat perendaman air berkepanjangan, baik pada korban hidup maupun mayat. Kulit tangan dan kaki menjadi keriput, pucat, dan berkerut seperti tangan orang yang lama cuci baju. Ini bisa memberikan informasi tentang <strong>durasi perendaman</strong> dan <strong>posisi tubuh</strong> di dalam air.<br><br>
+  <div class="why-wrong">Semua pilihan lain menggambarkan kondisi berbeda yang tidak sesuai dengan definisi washerwoman's fingers. Ingat: ini adalah perubahan karena air, bukan trauma mekanik.</div></div>
+</div>
+
+<!-- ===== Q22 ===== -->
+<div class="qcard" data-cat="drowning" id="qc21">
+  <div class="q-meta">
+    <span class="q-num">Q22</span>
+    <span class="q-lo">Forensik · Tenggelam</span>
+    <span class="q-cat">Forensik</span>
+    <span class="q-diff diff-md">Sedang</span>
+  </div>
+  <div class="q-txt">Apakah makna forensik ditemukannya diatome pada OTOT SKELET mayat yang ditemukan di sungai?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(21,0,21)"><span class="ol">A</span> Korban sudah meninggal sebelum masuk air (post-mortem submersion)</button>
+    <button class="opt" onclick="ans(21,1,21)"><span class="ol">B</span> Korban tenggelam di air laut</button>
+    <button class="opt" onclick="ans(21,2,21)"><span class="ol">C</span> Korban masih HIDUP saat tenggelam — diatome masuk sirkulasi dari paru yang aspirasi air</button>
+    <button class="opt" onclick="ans(21,3,21)"><span class="ol">D</span> Korban berada di air dalam waktu sangat lama</button>
+    <button class="opt" onclick="ans(21,4,21)"><span class="ol">E</span> Kematian korban bukan karena tenggelam</button>
+  </div>
+  <div class="exp" id="e21"><strong>✅ C — Korban hidup saat tenggelam.</strong><br>
+  Ini adalah pearl forensik kritis! Diatome (alga berkerangka silika) di otot skelet atau sumsum tulang HANYA bisa terjadi jika: (1) Korban menghirup air (masih bernapas → aspirasi), (2) Air tersebut masuk ke sirkulasi via paru → beredar ke seluruh tubuh termasuk otot dan sumsum tulang. Jika diatome ditemukan di sumsum tulang → hampir pasti korban masih hidup saat tenggelam. Jika hanya di paru → lebih bisa terjadi post-mortem (air masuk pasif).<br><br>
+  <div class="why-wrong"><b>A</b>: justru sebaliknya — diatome di otot/sumsum tulang = bukti hidup saat tenggelam. <b>B</b>: lokasi air, bukan penanda air laut vs tawar (tapi jenis diatome bisa memberi clue). <b>D &amp; E</b>: durasi dan penyebab tidak bisa ditentukan dari diatome semata.</div></div>
+</div>
+
+<!-- ===== Q23 ===== -->
+<div class="qcard" data-cat="lo6" id="qc22">
+  <div class="q-meta">
+    <span class="q-num">Q23</span>
+    <span class="q-lo">LO 6 · Patofisiologi</span>
+    <span class="q-cat">Banding</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="q-txt">Manakah pernyataan yang BENAR membedakan crush asphyxia dari positional asphyxia?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(22,0,22)"><span class="ol">A</span> Crush asphyxia hanya terjadi di lingkungan industri, sedangkan positional bisa di mana saja</button>
+    <button class="opt" onclick="ans(22,1,22)"><span class="ol">B</span> Crush asphyxia: kompresi berat eksternal pada dada/abdomen; positional: posisi tubuh yang menghalangi ekspansi dada (sering + intoksikasi/gangguan neurologis)</button>
+    <button class="opt" onclick="ans(22,2,22)"><span class="ol">C</span> Positional asphyxia selalu disertai tanda petechiae yang jelas, sedangkan crush tidak</button>
+    <button class="opt" onclick="ans(22,3,22)"><span class="ol">D</span> Keduanya identik dalam mekanisme — hanya berbeda dalam terminologi klinis vs forensik</button>
+    <button class="opt" onclick="ans(22,4,22)"><span class="ol">E</span> Crush asphyxia tidak mengancam jiwa jika tekanan di bawah 100 kg</button>
+  </div>
+  <div class="exp" id="e22"><strong>✅ B — Definisi mekanisme yang berbeda.</strong><br>
+  <b>Crush/traumatic asphyxia</b>: ada objek berat/kompresi eksternal yang langsung menekan dada dan abdomen → mencegah ekspansi dada + menghasilkan backpressure venous → triad klinis khas (sianosis, petechiae, edema wajah).<br>
+  <b>Positional asphyxia</b>: tidak ada kompresi objek berat, melainkan posisi tubuh yang akward/terlipat mencegah gerakan napas efektif. Sering pada orang intoksikasi/gangguan neurologis yang tidak bisa mengubah posisi sendiri. Tanda asfiksia biasanya minimal/tidak khas.<br><br>
+  <div class="why-wrong"><b>A</b>: crush bisa terjadi di mana saja (KLL, konser, dll). <b>C</b>: justru terbalik — crush lebih sering ada triad petechiae khas. <b>D</b>: berbeda secara mekanistik. <b>E</b>: tidak ada batas aman berdasarkan berat — durasi jauh lebih menentukan.</div></div>
+</div>
+
+<!-- ===== Q24 ===== -->
+<div class="qcard" data-cat="lo89" id="qc23">
+  <div class="q-meta">
+    <span class="q-num">Q24</span>
+    <span class="q-lo">LO 8–9 · Diagnosis</span>
+    <span class="q-cat">Aplikasi</span>
+    <span class="q-diff diff-hd">Sulit</span>
+  </div>
+  <div class="vignette">Pria 45 tahun ditemukan tidak sadar, leher terluka melingkar horizontal dengan bekas jejas yang jelas. Tidak ada suspension point. Wajah kongesti + petechiae di atas jejas. Tidak ada cedera dada atau abdomen.</div>
+  <div class="q-txt">Berdasarkan temuan forensik, mekanisme kematian yang paling mungkin adalah...</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(23,0,23)"><span class="ol">A</span> Hanging — jejas tali naik ke satu sisi (suspension point)</button>
+    <button class="opt" onclick="ans(23,1,23)"><span class="ol">B</span> Traumatic asphyxia — kompresi dada anterior</button>
+    <button class="opt" onclick="ans(23,2,23)"><span class="ol">C</span> Ligature strangulation — jejas horizontal melingkar tanpa suspension point</button>
+    <button class="opt" onclick="ans(23,3,23)"><span class="ol">D</span> Manual strangulation — tidak ada jejas ligatur</button>
+    <button class="opt" onclick="ans(23,4,23)"><span class="ol">E</span> Drowning — tidak ada air ditemukan</button>
+  </div>
+  <div class="exp" id="e23"><strong>✅ C — Ligature strangulation.</strong><br>
+  Pembeda kunci:<br>
+  • <b>Ligature strangulation</b>: jejas ligatur <em>horizontal melingkar</em> di leher, TIDAK ada suspension point, bisa homisidal/suisidal/aksidental.<br>
+  • <b>Hanging</b>: jejas NAIK ke satu sisi (inverted V) dengan suspension point — ada gap di titik suspensi.<br>
+  • Kongesti + petechiae di ATAS jejas = darah terjebak di kepala karena oklusi vena jugular oleh ligatur.<br><br>
+  <div class="why-wrong"><b>A (hanging)</b>: jejas harus naik ke satu sisi + ada suspension point — tidak sesuai. <b>B (traumatic asphyxia)</b>: tidak ada kompresi dada, tidak ada triad khas asfiksia traumatik. <b>D (manual strangulation)</b>: tidak ada ligatur, biasanya ada memar/bekas kuku. <b>E (drowning)</b>: tidak ada bukti submersion.</div></div>
+</div>
+
+<!-- ===== Q25 ===== -->
+<div class="qcard" data-cat="lo12" id="qc24">
+  <div class="q-meta">
+    <span class="q-num">Q25</span>
+    <span class="q-lo">LO 13 · Kedokteran Keluarga</span>
+    <span class="q-cat">Preventif</span>
+    <span class="q-diff diff-ez">Mudah</span>
+  </div>
+  <div class="vignette">Pasien pria 25 tahun (skenario kita) telah dipulangkan setelah 4 hari rawat inap. Tidak ada komplikasi neurologis. Kondisi baik.</div>
+  <div class="q-txt">Sebagai dokter keluarga, edukasi preventif UTAMA apa yang harus diberikan untuk mencegah kejadian serupa?</div>
+  <div class="opts">
+    <button class="opt" onclick="ans(24,0,24)"><span class="ol">A</span> Menghindari semua aktivitas fisik selama 6 bulan</button>
+    <button class="opt" onclick="ans(24,1,24)"><span class="ol">B</span> Konsumsi suplemen kalsium untuk memperkuat tulang rusuk</button>
+    <button class="opt" onclick="ans(24,2,24)"><span class="ol">C</span> Penggunaan helm SNI yang benar, jaket pelindung dada, mematuhi peraturan lalu lintas, tidak berkendara dalam pengaruh zat, pemeriksaan kendaraan berkala</button>
+    <button class="opt" onclick="ans(24,3,24)"><span class="ol">D</span> Pindah ke wilayah dengan lalu lintas lebih sepi</button>
+    <button class="opt" onclick="ans(24,4,24)"><span class="ol">E</span> Membeli kendaraan lebih besar agar lebih aman</button>
+  </div>
+  <div class="exp" id="e24"><strong>✅ C — Edukasi keselamatan berkendara komprehensif.</strong><br>
+  Prinsip kedokteran keluarga: pencegahan primer adalah intervensi terpenting. Komponen edukasi berbasis bukti untuk pengendara motor: (1) Helm SNI yang terpasang benar → menurunkan risiko cedera kepala 40–60%, (2) Jaket dengan chest protector → mencegah asfiksia traumatik + kontusio paru, (3) Patuhi rambu & batas kecepatan, (4) Tidak berkendara di bawah pengaruh alkohol/obat, (5) Servis kendaraan berkala.<br><br>
+  <div class="why-wrong"><b>A</b>: menghindari semua aktivitas tidak diperlukan dan tidak preventif. <b>B</b>: suplemen kalsium tidak mencegah KLL. <b>D &amp; E</b>: bukan solusi preventif berbasis bukti yang tepat sasaran.</div></div>
+</div>
+
+<!-- SCORE BOX -->
+<div class="score-box" id="scorebox">
+  <div class="sc-label">Nilai Akhir Kamu</div>
+  <div class="sc-big" id="score-num">0/25</div>
+  <div class="sc-bars">
+    <div class="sc-bar-item"><div class="sc-bar-num" id="sc-correct">0</div><div class="sc-bar-lbl">Benar</div></div>
+    <div class="sc-bar-item"><div class="sc-bar-num" id="sc-wrong">0</div><div class="sc-bar-lbl">Salah</div></div>
+    <div class="sc-bar-item"><div class="sc-bar-num" id="sc-pct">0%</div><div class="sc-bar-lbl">Nilai</div></div>
+  </div>
+  <div class="sc-msg" id="score-msg"></div>
+  <button class="btn-restart" onclick="restart()">🔄 Coba Lagi</button>
+</div>
+
+<div class="no-q" id="no-results" style="display:none;">
+  <div>🔍</div>
+  <p>Tidak ada soal di kategori ini yang belum terjawab.</p>
+</div>
+
+</div><!-- end main -->
+
+<script>
+const TOTAL = 25;
+let answered = new Array(TOTAL).fill(false);
+let correct = 0, wrong = 0;
+
+function ans(qi, selected, correctIdx) {
+  if (answered[qi]) return;
+  answered[qi] = true;
+  const qc = document.getElementById('qc' + qi);
+  const opts = qc.querySelectorAll('.opt');
+  opts.forEach(o => o.disabled = true);
+  if (selected === correctIdx) {
+    opts[selected].classList.add('correct');
+    correct++;
+    document.querySelectorAll('.pdot')[qi].classList.add('ok');
+  } else {
+    opts[selected].classList.add('wrong');
+    opts[correctIdx].classList.add('correct');
+    wrong++;
+    document.querySelectorAll('.pdot')[qi].classList.add('no');
+  }
+  document.getElementById('e' + qi).classList.add('show');
+  updateProg();
+  if (answered.filter(Boolean).length === TOTAL) setTimeout(showScore, 600);
+}
+
+function updateProg() {
+  const done = answered.filter(Boolean).length;
+  document.getElementById('ans-count').textContent = done;
+  document.getElementById('correct-count').textContent = correct;
+  document.getElementById('wrong-count').textContent = wrong;
+  document.getElementById('prog-bar').style.width = Math.round(done/TOTAL*100) + '%';
+}
+
+function showScore() {
+  const box = document.getElementById('scorebox');
+  box.classList.add('show');
+  const pct = Math.round(correct/TOTAL*100);
+  document.getElementById('score-num').textContent = correct + '/' + TOTAL;
+  document.getElementById('sc-correct').textContent = correct;
+  document.getElementById('sc-wrong').textContent = wrong;
+  document.getElementById('sc-pct').textContent = pct + '%';
+  let msg = pct>=88 ? '🏆 Luar biasa! Kamu sangat siap untuk tutorial dan ujian!' :
+            pct>=72 ? '💪 Bagus sekali! Review soal yang salah dan kamu siap.' :
+            pct>=55 ? '📚 Cukup baik — baca ulang bagian yang belum dikuasai.' :
+            '🔄 Jangan menyerah! Pelajari lagi materinya, kamu pasti bisa!';
+  document.getElementById('score-msg').textContent = msg + ' (' + pct + '%)';
+  box.scrollIntoView({behavior:'smooth'});
+}
+
+function restart() {
+  answered = new Array(TOTAL).fill(false);
+  correct = 0; wrong = 0;
+  updateProg();
+  document.getElementById('scorebox').classList.remove('show');
+  for (let i = 0; i < TOTAL; i++) {
+    const qc = document.getElementById('qc' + i);
+    if (!qc) continue;
+    qc.querySelectorAll('.opt').forEach(o => { o.disabled = false; o.className = 'opt'; });
+    const exp = document.getElementById('e' + i);
+    if (exp) exp.classList.remove('show');
+    const dot = document.querySelectorAll('.pdot')[i];
+    if (dot) dot.className = 'pdot';
+  }
+  document.querySelectorAll('.qcard').forEach(c => c.classList.remove('hidden'));
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.fb')[0].classList.add('on');
+  document.getElementById('no-results').style.display = 'none';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function filter(cat, btn) {
+  document.querySelectorAll('.fb').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  let visible = 0;
+  document.querySelectorAll('.qcard').forEach(c => {
+    if (cat === 'all' || c.dataset.cat === cat) {
+      c.classList.remove('hidden'); visible++;
+    } else {
+      c.classList.add('hidden');
+    }
+  });
+  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+  window.scrollTo({top: document.querySelector('.prog-wrap').offsetTop - 60, behavior:'smooth'});
+}
+
+// Build progress dots
+const dotsDiv = document.getElementById('pdots');
+for (let i = 0; i < TOTAL; i++) {
+  const d = document.createElement('div');
+  d.className = 'pdot';
+  d.title = 'Soal ' + (i+1);
+  dotsDiv.appendChild(d);
+}
+updateProg();
+</script>
+</body>
+</html>
