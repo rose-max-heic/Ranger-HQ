@@ -187,6 +187,44 @@
       .search-wrap { padding: 14px 20px; }
       main { padding: 28px 16px 60px; }
     }
+
+  /* ── SECTION DIVIDER ── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 44px 0 40px; /* Jarak atas 44px, bawah 40px */
+}
+
+/* Garis dasar kanan dan kiri */
+.section-divider .div-line {
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+}
+
+/* Garis kiri memudar dari transparan ke berwarna */
+.section-divider .div-line.left {
+  background: linear-gradient(to right, transparent, var(--c-surface));
+}
+
+/* Garis kanan memudar dari berwarna ke transparan */
+.section-divider .div-line.right {
+  background: linear-gradient(to left, transparent, var(--c-surface));
+}
+
+/* Label kapsul di tengah-tengah */
+.section-divider .div-label {
+  background: var(--c-surface);
+  color: var(--c-primary);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 40px;
+  white-space: nowrap; /* Mencegah teks turun ke bawah jika layar sempit */
+}
   </style>
 </head>
 <body>
